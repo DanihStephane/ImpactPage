@@ -17,3 +17,9 @@ button:focus-visible {
 a {
   text-decoration: none;
 }
+
+/* Smooth scrolling and anchor offset for fixed header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
