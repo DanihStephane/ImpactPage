@@ -4430,7 +4430,7 @@ html, body {
   .ebauche .text-wrapper-23 {
     position: absolute;
     width: 611px;
-    top: 120px;
+    top: 55px;
     left: 70px;
     font-family: "Kanit", Helvetica;
     font-weight: 600;
@@ -4864,18 +4864,18 @@ html, body {
     position: absolute;
     width: 306px;
     top: 300px;
-    left: 0px;
+    left: 10px;
     text-align: center;
     z-index: 2;
   }
 
   .ebauche .footer-email {
-    font-family: "Inter-Regular", Helvetica;
     font-weight: 500;
     color: #ffffff;
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-family: "Kanit", Helvetica;
   }
 
   .ebauche .footer-email:hover {
