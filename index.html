@@ -328,6 +328,11 @@
           <div class="frame"><div class="ellipse-3"></div></div>
           <div class="overlap-wrapper">
             <div class="overlap-3">
+              <iframe class="background-video" 
+                      src="https://www.youtube.com/embed/aAvDI1qae-U?autoplay=1&loop=1&mute=1&controls=0&rel=0&showinfo=0&playlist=aAvDI1qae-U"
+                      frameborder="0"
+                      allow="autoplay; encrypted-media">
+              </iframe>
               <div class="rectangle-6"></div>
               <p class="text-wrapper-8">Des soucis ? On a la solution</p>
               <div class="button-planifier-2"><div class="text-wrapper-4">Planifier une consultation</div></div>
@@ -486,11 +491,17 @@
               <div class="text-wrapper-22">LANTORIAN ENGINE</div>
               <p class="text-wrapper-23">Commencez à vous inscrire pour ne rien rater</p>
               <div class="overlap-10">
-                <div class="text-wrapper-24">Saisissez votre email</div>
-                <img class="group-12" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/group-25.png" />
-                <img class="email" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/email.png" />
+              <div class="text-wrapper-24">Saisissez votre email</div>
+              <img class="group-12" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/group-25.png" />
+              <img class="email" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/email.png" />
               </div>
-              <img class="vector-9" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/vector-18.svg" />
+              
+               <!-- Email de contact -->
+               <div class="footer-contact">
+                 <a href="mailto:contact@lantorian.com" class="footer-email">contact@lantorian.com</a>
+               </div>
+               
+               <img class="vector-9" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/vector-18.svg" />
               <div class="group-13">
                 <div class="overlap-group-5">
                   <div class="text-wrapper-25">Consultez nos projets</div>
@@ -525,5 +536,64 @@
         </div>
       </div>
     </div>
+    <script>
+      // Système de traînée de souris avec effet violet
+      document.addEventListener('DOMContentLoaded', function() {
+        const trackMouseContainer = document.querySelector('.track-mouse');
+        let mouseTrails = [];
+        let trailIndex = 0;
+        
+        if (!trackMouseContainer) return;
+        
+        // Fonction pour créer/animer la traînée
+        function updateMouseTrail(e) {
+          const rect = trackMouseContainer.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          // Utiliser les éléments existants mouse-track-X comme traînée
+          const allTrackElements = trackMouseContainer.querySelectorAll('[class*="mouse-track"]');
+          
+          if (allTrackElements.length > 0) {
+            const currentElement = allTrackElements[trailIndex % allTrackElements.length];
+            
+            // Positionner l'élément sur la souris
+            currentElement.style.left = (x - 31) + 'px';
+            currentElement.style.top = (y - 29) + 'px';
+            currentElement.style.opacity = '1';
+            currentElement.style.background = 'linear-gradient(180deg, rgba(138, 43, 226, 0.6) 0%, rgba(75, 0, 130, 0.4) 100%)';
+            currentElement.style.borderColor = '#8a2be2';
+            currentElement.style.transform = 'scale(1.2)';
+            currentElement.style.zIndex = '10';
+            
+            // Effet de fade out après 300ms
+            setTimeout(() => {
+              currentElement.style.opacity = '0.5';
+              currentElement.style.transform = 'scale(0.8)';
+              currentElement.style.background = 'linear-gradient(180deg, rgba(255, 0, 0, 0) 0%, rgba(255, 206, 0, 0) 100%)';
+            }, 300);
+            
+            // Reset complet après 800ms
+            setTimeout(() => {
+              currentElement.style.opacity = '0';
+              currentElement.style.transform = 'scale(1)';
+              currentElement.style.borderColor = '#ffffff';
+            }, 800);
+            
+            trailIndex++;
+          }
+        }
+        
+        // Écouter les mouvements de souris uniquement sur la zone track-mouse
+        trackMouseContainer.addEventListener('mousemove', updateMouseTrail);
+        
+        // Masquer tous les éléments au début
+        const allTrackElements = trackMouseContainer.querySelectorAll('[class*="mouse-track"]');
+        allTrackElements.forEach(element => {
+          element.style.opacity = '0';
+          element.style.transition = 'all 0.3s ease';
+        });
+      });
+    </script>
   </body>
 </html>

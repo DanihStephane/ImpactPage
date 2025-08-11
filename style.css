@@ -72,10 +72,19 @@ html, body {
     height: 59px;
     top: 0;
     left: 0;
-    border: 1px solid;
-    border-color: #d7d7d70d;
+    border: 2px solid #ffffff;
+    border-color: #ffffff;
     filter: blur(65px);
     background: linear-gradient(180deg, rgba(255, 0, 0, 0) 0%, rgba(255, 206, 0, 0) 100%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ebauche .mouse-track:hover {
+    background: linear-gradient(180deg, rgba(138, 43, 226, 0.8) 0%, rgba(75, 0, 130, 0.6) 100%);
+    border-color: #8a2be2;
+    transform: scale(1.1);
+    filter: blur(50px);
   }
   
   .ebauche .rectangle-2 {
@@ -94,20 +103,48 @@ html, body {
     position: absolute;
     width: 63px;
     height: 59px;
-    border: 1px solid;
-    border-color: #d7d7d70d;
+    border: 2px solid #ffffff;
+    border-color: #ffffff;
     filter: blur(65px);
     background: linear-gradient(180deg, rgba(255, 0, 0, 0) 0%, rgba(255, 206, 0, 0) 100%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ebauche .rectangle-wrapper:hover {
+    background: linear-gradient(180deg, rgba(138, 43, 226, 0.8) 0%, rgba(75, 0, 130, 0.6) 100%);
+    border-color: #8a2be2;
+    transform: scale(1.1);
+    filter: blur(50px);
   }
   
+  /* Style global pour tous les éléments de traînée de souris */
+  .ebauche .mouse-track,
+  .ebauche .rectangle-wrapper,
+  .ebauche .div-wrapper,
+  .ebauche [class*="mouse-track-"] {
+    border: 2px solid #ffffff !important;
+    border-color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+  }
+
+  .ebauche .mouse-track:hover,
+  .ebauche .rectangle-wrapper:hover,
+  .ebauche .div-wrapper:hover,
+  .ebauche [class*="mouse-track-"]:hover {
+    background: linear-gradient(180deg, rgba(138, 43, 226, 0.8) 0%, rgba(75, 0, 130, 0.6) 100%) !important;
+    border-color: #8a2be2 !important;
+    transform: scale(1.1) !important;
+    filter: blur(50px) !important;
+  }
+
   .ebauche .div-wrapper {
     top: 118px;
     left: 0;
     position: absolute;
     width: 63px;
     height: 59px;
-    border: 1px solid;
-    border-color: #d7d7d70d;
     filter: blur(65px);
     background: linear-gradient(180deg, rgba(255, 0, 0, 0) 0%, rgba(255, 206, 0, 0) 100%);
   }
@@ -3726,9 +3763,17 @@ html, body {
     width: 100% !important;
     left: 0 !important;
     height: 708px;
-    background-image: url(https://c.animaapp.com/me65jfjdMNJKuJ/img/0-jjuzsfzdnhyz2r-2-1.png);
-    background-size: cover;
-    background-position: 50% 50%;
+    overflow: hidden;
+  }
+
+  .ebauche .overlap-3 .background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    object-fit: cover;
   }
   
   .ebauche .rectangle-6 {
@@ -3738,6 +3783,7 @@ html, body {
     height: 708px;
     top: 0;
     background: linear-gradient(0deg, rgba(9, 8, 11, 0.3) 0%, rgba(24, 23, 48, 0.3) 100%);
+    z-index: 2;
   }
   
   .ebauche .text-wrapper-8 {
@@ -3751,6 +3797,7 @@ html, body {
     font-size: 48px;
     letter-spacing: 0;
     line-height: normal;
+    z-index: 3;
   }
   
   .ebauche .button-planifier-2 {
@@ -3761,6 +3808,7 @@ html, body {
     height: 31px;
     background-color: #fffcfc;
     border-radius: 50px;
+    z-index: 3;
   }
   
   .ebauche .arrow-2 {
@@ -3768,7 +3816,10 @@ html, body {
     width: 15px;
     height: 28px;
     top: 570px;
-    left: 1363px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0px;
+    z-index: 3;
   }
   
   .ebauche .frame-wrapper {
@@ -3812,18 +3863,18 @@ html, body {
   
   .ebauche .component {
     position: absolute;
-    width: 150px;
-    height: 246px;
-    top: 331px;
-    left: 646px;
+    width: 70px;
+    height: 115px;
+    top: 310px;
+    left: 686px;
     background-image: url(https://c.animaapp.com/me65jfjdMNJKuJ/img/vector-6-1.svg);
     background-size: 100% 100%;
   }
   
   .ebauche .group-3 {
     position: absolute;
-    width: 150px;
-    height: 246px;
+    width: 70px;
+    height: 115px;
     top: 0;
     left: 0;
   }
@@ -3840,7 +3891,7 @@ html, body {
   
   .ebauche .button-planifier-3 {
     width: 218px;
-    top: 609px;
+    top: 550px;
     left: 613px;
     position: absolute;
     height: 31px;
@@ -3851,7 +3902,7 @@ html, body {
   .ebauche .text-wrapper-9 {
     position: absolute;
     width: 379px;
-    top: 252px;
+    top: 190px;
     left: 538px;
     font-family: "Kanit", Helvetica;
     font-weight: 600;
@@ -3863,10 +3914,11 @@ html, body {
   
   .ebauche .group-5 {
     position: absolute;
-    width: 16px;
-    height: 10px;
-    top: 674px;
-    left: 721px;
+    width: 12px;
+    height: 8px;
+    top: 675px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .ebauche .rectangle-8 {
@@ -4254,7 +4306,8 @@ html, body {
     left: 50% !important;
     transform: translateX(-50%);
     height: 462px;
-    top: 3477px;
+    top: 3538px;
+    background-color: #000000;
   }
   
   .ebauche .overlap-9 {
@@ -4806,12 +4859,35 @@ html, body {
     transform: translateX(-50%);
   }
 
+  /* === Footer: email contact === */
+  .ebauche .footer-contact {
+    position: absolute;
+    width: 306px;
+    top: 300px;
+    left: 0px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .ebauche .footer-email {
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .ebauche .footer-email:hover {
+    color: #7b2cbf;
+  }
+
   /* === Footer: construction banner === */
   .ebauche .footer-construction {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 20px;
+    bottom: 5px;
     background: linear-gradient(90deg, #ffae00, #ff4d00);
     color: #08070a;
     font-family: "Kanit", Helvetica;
