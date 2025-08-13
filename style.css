@@ -25,6 +25,18 @@ html, body {
     /* Layout overrides: full-page background and centered header */
     min-height: 100vh;
     background: linear-gradient(20deg, rgba(23, 27, 28, 1) 0%, rgba(28, 20, 38, 1) 100%);
+    /* Cacher la scrollbar */
+    overflow-x: hidden;
+  }
+
+  /* Cacher complètement les scrollbars sur tous les navigateurs */
+  .ebauche::-webkit-scrollbar {
+    display: none;
+  }
+  
+  html, body {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
   
   .ebauche .div {
@@ -34,14 +46,13 @@ html, body {
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
-    height: 4000px;
+    height: 3570px; /* Hauteur ajustée au contenu total : 3100px + 470px = 3570px */
   }
   
   .ebauche .overlap {
     position: absolute;
     width: 100%;
     max-width: 1440px;
-    height: 4000px;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -3480,26 +3491,26 @@ html, body {
   
   .ebauche .mask-group {
     position: absolute;
-    width: 688px;
-    height: 461px;
-    top: 40px;
-    left: 0;
+    width: 550px;
+    height: 369px;
+    top: 66px;
+    left: 69px;
   }
   
   .ebauche .img {
-    top: 20px;
+    top: 46px;
     position: absolute;
-    width: 688px;
-    height: 461px;
-    left: 0;
+    width: 550px;
+    height: 369px;
+    left: 69px;
   }
   
   .ebauche .mask-group-2 {
-    top: 0;
+    top: 26px;
     position: absolute;
-    width: 688px;
-    height: 461px;
-    left: 0;
+    width: 550px;
+    height: 369px;
+    left: 69px;
   }
 
   /* Hover smooth separation for hover-card images */
@@ -3511,15 +3522,15 @@ html, body {
   }
 
   .ebauche .hover-card:hover .mask-group {
-    transform: translateY(60px);
+    transform: translateY(170px);
   }
 
   .ebauche .hover-card:hover .img {
-    transform: translateY(30px);
+    transform: translateY(80px);
   }
 
   .ebauche .hover-card:hover .mask-group-2 {
-    transform: translateY(-60px);
+    transform: translateY(-20px);
   }
   
   .ebauche .vector {
@@ -3742,11 +3753,11 @@ html, body {
     position: relative;
     width: 9px;
     height: 9px;
-    top: 6px;
-    left: 6px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
     background-color: #fffcfc;
     border-radius: 4.5px;
-    transform: rotate(180deg);
   }
   
   .ebauche .overlap-wrapper {
@@ -3767,14 +3778,27 @@ html, body {
   }
 
   .ebauche .overlap-3 .background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: calc(100vw * 9/16);
+    min-width: 100%;
+    min-height: 100%;
     z-index: 1;
+    transform: translate(-50%, -50%);
     object-fit: cover;
   }
+  
+  /* Pour les écrans plus larges, s'assurer que la vidéo couvre toute la largeur */
+  @media (max-aspect-ratio: 16/9) {
+    .ebauche .overlap-3 .background-video {
+      width: calc(100% * 16/9);
+      height: 100%;
+    }
+  }
+  
+
   
   .ebauche .rectangle-6 {
     position: absolute;
@@ -3840,6 +3864,7 @@ html, body {
     width: 100% !important;
     left: 0 !important;
     height: 710px;
+    overflow: hidden;
   }
   
   .ebauche .rectangle-7 {
@@ -3859,6 +3884,8 @@ html, body {
     height: 710px;
     top: 0;
     left: 6px;
+    transform: scale(1) scaleY(2);
+    transform-origin: center;
   }
   
   .ebauche .component {
@@ -3873,17 +3900,32 @@ html, body {
   
   .ebauche .group-3 {
     position: absolute;
-    width: 70px;
-    height: 115px;
-    top: 0;
-    left: 0;
+    width: 140px;
+    height: 230px;
+    top: -30px;
+    left: -35px;
+    background-image: url('https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/porteFerme.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  .ebauche .group-3:hover {
+    background-image: url('https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/porteOuvert.png');
+    background-position: left center;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.6), 0 0 120px rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   .ebauche .group-4 {
     position: absolute;
     width: 33px;
     height: 33px;
-    top: 662px;
+    top: 620px;
     left: 712px;
     background-color: #fffcfc;
     border-radius: 16.5px;
@@ -3902,7 +3944,7 @@ html, body {
   .ebauche .text-wrapper-9 {
     position: absolute;
     width: 379px;
-    top: 190px;
+    top: 150px;
     left: 538px;
     font-family: "Kanit", Helvetica;
     font-weight: 600;
@@ -3916,7 +3958,7 @@ html, body {
     position: absolute;
     width: 12px;
     height: 8px;
-    top: 675px;
+    top: 633px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -3961,7 +4003,7 @@ html, body {
     position: absolute;
     width: 100dvw;
     max-width: 1440px;
-    height: 510px;
+    height: 200px; /* Hauteur réduite */
     top: 2737px;
     left: 50%;
     transform: translateX(-50%);
@@ -3976,27 +4018,171 @@ html, body {
   .ebauche .overlap-4 {
     position: relative;
     width: 751px;
-    height: 510px;
+    height: 160px; /* Hauteur réduite pour une seule place */
     left: 380px;
   }
   
   .ebauche .group-6 {
     position: absolute;
-    width: 513px;
+    width: fit-content;
     height: 132px;
-    top: 0;
+    top: 0; /* Tous les groupes à la même position */
     left: 3px;
+  }
+
+  /* Positionner tous les groupes au même endroit */
+  .ebauche .group-7 {
+    position: absolute;
+    width: fit-content;
+    height: 132px;
+    top: 0; /* Même position que group-6 */
+    left: 3px;
+  }
+
+  .ebauche .group-8 {
+    position: absolute;
+    width: fit-content;
+    height: 132px;
+    top: 0; /* Même position que group-6 */
+    left: 3px;
+  }
+
+  .ebauche .group-9 {
+    position: absolute;
+    width: fit-content;
+    height: 132px;
+    top: 0; /* Même position que group-6 */
+    left: 0;
+  }
+
+  /* Styling des numéros d'étapes */
+  .step-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #8a2be2, #4b0082);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 18px;
+    vertical-align: top;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    animation: numberPulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes numberPulse {
+    0% {
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    }
+    100% {
+      box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+    }
+  }
+
+  /* Animations pour les process steps avec défilement de bas vers le haut */
+  .process-step {
+    opacity: 0 !important; /* Forcer l'invisibilité par défaut */
+    transform: translateY(60px); /* Commencer plus bas pour l'effet de défilement */
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    visibility: hidden; /* Ajouter pour éviter l'affichage initial */
+    padding-left: 20px; /* Ajout du padding à gauche */
+    margin-left: 15px; /* Ajout d'une marge à gauche */
+  }
+
+  .process-step.active {
+    opacity: 1 !important;
+    transform: translateY(0); /* Glisser vers la position finale */
+    visibility: visible !important; /* Rendre visible quand actif */
+  }
+
+  .process-step.highlighted {
+    transform: translateY(-8px); /* Légère élévation une fois en place */
+    filter: drop-shadow(0 10px 30px rgba(138, 43, 226, 0.3));
+  }
+
+  /* Effet de glow sur le step actif - s'adapte à la taille du contenu */
+  .process-step.active::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -25px;
+    right: -25px;
+    bottom: -15px;
+    background: linear-gradient(45deg, rgba(138, 43, 226, 0.1), rgba(75, 0, 130, 0.1));
+    border-radius: 20px;
+    z-index: -1;
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+    width: auto;
+    height: auto;
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
+    }
+  }
+
+  /* Animation d'entrée avec décalage */
+  @keyframes slideInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+      filter: blur(5px);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateY(10px) scale(0.98);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  .process-step.entering {
+    animation: slideInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  /* Animation de sortie */
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+      filter: blur(2px);
+    }
+  }
+
+  .process-step.leaving {
+    animation: fadeOut 0.5s ease-in forwards;
   }
   
   .ebauche .overlap-group-3 {
     position: relative;
-    width: 509px;
-    height: 132px;
+    width: fit-content;
+    min-width: 700px;
+    height: 150px;
+    padding: 20px 30px 20px 20px;
+    display: inline-block;
   }
   
   .ebauche .audit-strat-gie {
     position: absolute;
-    width: 509px;
+    width: auto;
+    max-width: 800px;
     top: 0;
     left: 0;
     font-family: "Kanit", Helvetica;
@@ -4005,12 +4191,16 @@ html, body {
     font-size: 64px;
     letter-spacing: 0;
     line-height: normal;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
   }
   
   .ebauche .text-wrapper-12 {
     position: absolute;
-    width: 509px;
-    top: 84px;
+    width: auto;
+    max-width: 900px;
+    top: 90px;
     left: 0;
     font-family: "Kanit", Helvetica;
     font-weight: 600;
@@ -4018,25 +4208,25 @@ html, body {
     font-size: 15px;
     letter-spacing: 0;
     line-height: normal;
+    white-space: nowrap;
+    padding-right: 20px;
   }
   
-  .ebauche .group-7 {
-    position: absolute;
-    width: 629px;
-    height: 132px;
-    top: 126px;
-    left: 3px;
-  }
+  /* .ebauche .group-7 supprimé - redéfini plus haut avec nouvelle position */
   
   .ebauche .overlap-5 {
     position: relative;
-    width: 625px;
-    height: 132px;
+    width: fit-content;
+    min-width: 750px;
+    height: 150px;
+    padding: 20px 30px 20px 20px;
+    display: inline-block;
   }
   
   .ebauche .design-conception {
     position: absolute;
-    width: 625px;
+    width: auto;
+    max-width: 800px;
     top: 0;
     left: 0;
     font-family: "Kanit", Helvetica;
@@ -4045,25 +4235,26 @@ html, body {
     font-size: 64px;
     letter-spacing: 0;
     line-height: normal;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
   }
   
-  .ebauche .group-8 {
-    position: absolute;
-    width: 748px;
-    height: 132px;
-    top: 252px;
-    left: 3px;
-  }
+  /* .ebauche .group-8 supprimé - redéfini plus haut avec nouvelle position */
   
   .ebauche .overlap-6 {
     position: relative;
-    width: 744px;
-    height: 132px;
+    width: fit-content;
+    min-width: 850px;
+    height: 150px;
+    padding: 20px 30px 20px 20px;
+    display: inline-block;
   }
   
   .ebauche .text-wrapper-13 {
     position: absolute;
-    width: 744px;
+    width: auto;
+    max-width: 900px;
     top: 0;
     left: 0;
     font-family: "Kanit", Helvetica;
@@ -4072,25 +4263,26 @@ html, body {
     font-size: 64px;
     letter-spacing: 0;
     line-height: normal;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
   }
   
-  .ebauche .group-9 {
-    position: absolute;
-    width: 565px;
-    height: 132px;
-    top: 378px;
-    left: 0;
-  }
+  /* .ebauche .group-9 supprimé - redéfini plus haut avec nouvelle position */
   
   .ebauche .overlap-7 {
     position: relative;
-    width: 561px;
-    height: 132px;
+    width: fit-content;
+    min-width: 650px;
+    height: 150px;
+    padding: 20px 30px 20px 20px;
+    display: inline-block;
   }
   
   .ebauche .lancement-suivi {
     position: absolute;
-    width: 561px;
+    width: auto;
+    max-width: 800px;
     top: 0;
     left: 0;
     font-family: "Kanit", Helvetica;
@@ -4099,6 +4291,9 @@ html, body {
     font-size: 64px;
     letter-spacing: 0;
     line-height: normal;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
   }
   
   .ebauche .arrow-3 {
@@ -4292,7 +4487,7 @@ html, body {
   
   .ebauche .button-planifier-4 {
     width: 218px;
-    top: 3377px;
+    top: 3000px; /* Rapproché du frame-2 (qui se termine vers 2937px) */
     left: 87px;
     position: absolute;
     height: 31px;
@@ -4305,8 +4500,8 @@ html, body {
     width: 100dvw !important;
     left: 50% !important;
     transform: translateX(-50%);
-    height: 462px;
-    top: 3538px;
+    height: 470px; /* Hauteur augmentée pour couvrir jusqu'en bas */
+    top: 3100px; /* Rapproché du button-planifier-4 */
     background-color: #000000;
   }
   
@@ -4314,16 +4509,40 @@ html, body {
     position: relative;
     width: 100% !important;
     left: 0 !important;
-    height: 462px;
+    height: 470px; /* Hauteur augmentée pour correspondre au parent */
     background-color: #000000;
   }
   
   .ebauche .group-11 {
     position: absolute;
-    width: 151px;
+    width: 400px;
     height: 200px;
     top: 80px;
-    left: 950px;
+    left: 700px;
+  }
+
+  .ebauche .header-logo-container {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .ebauche .header-lantorian-logo {
+    width: 55px;
+    height: 55px;
+    filter: brightness(0) invert(1);
+  }
+
+  .ebauche .header-lantorian-text {
+    font-family: "Kanit", Helvetica;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
   }
   
   .ebauche .text-wrapper-17 {
@@ -4414,11 +4633,26 @@ html, body {
     line-height: normal;
   }
   
-  .ebauche .text-wrapper-22 {
+  .ebauche .lantorian-title-container {
     position: absolute;
-    width: 272px;
     top: 375px;
     left: 584px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ebauche .lantorian-logo {
+    width: 55px;
+    height: 55px;
+    filter: brightness(0) invert(1);
+  }
+
+  .ebauche .text-wrapper-22 {
+    position: relative;
+    width: 272px;
+    top: 0;
+    left: 0;
     font-family: "Kanit", Helvetica;
     font-weight: 800;
     color: #ffffff;
@@ -4605,8 +4839,24 @@ html, body {
     transform: translateX(-50%);
   }
   
-  .ebauche .text-wrapper-28 {
+  .ebauche .footer-lantorian-container {
     position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .ebauche .footer-lantorian-logo {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: left;
+  }
+
+  .ebauche .text-wrapper-28 {
+    position: relative;
     width: 272px;
     top: 0;
     left: 0;
@@ -4887,7 +5137,7 @@ html, body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 5px;
+    bottom: 5px; /* Collé au bas du footer */
     background: linear-gradient(90deg, #ffae00, #ff4d00);
     color: #08070a;
     font-family: "Kanit", Helvetica;
