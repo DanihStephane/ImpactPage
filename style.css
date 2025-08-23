@@ -3767,6 +3767,9 @@ html, body {
     transform: translateX(-50%);
     height: 708px;
     top: 1408px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .ebauche .overlap-3 {

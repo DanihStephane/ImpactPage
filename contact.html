@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <style> 
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Kanit:300,800,500,600");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+.contact {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.contact .div {
+  background-color: #ffffff;
+  width: 100%;
+  position: relative;
+}
+
+.contact .overlap {
+  position: relative;
+  width: 100%;
+}
+
+.contact .group {
+  width: 100%;
+  background-color: #000000;
+  position: relative;
+}
+
+.contact .overlap-group {
+  width: 100%;
+  height: 462px;
+  background-color: #000000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.contact .group-content {
+  width: 1440px;
+  max-width: 100%;
+  position: relative;
+  height: 462px;
+}
+
+.contact .group-2 {
+  position: absolute;
+  width: 151px;
+  height: 200px;
+  top: 80px;
+  left: 950px;
+}
+
+.contact .text-wrapper {
+  color: #ffffff;
+  position: absolute;
+  width: 94px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-2 {
+  top: 29px;
+  left: 0;
+  color: #ffffff;
+  position: absolute;
+  width: 84px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-3 {
+  position: absolute;
+  width: 141px;
+  top: 58px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-4 {
+  position: absolute;
+  width: 131px;
+  top: 87px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-5 {
+  width: 71px;
+  top: 116px;
+  left: 0;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .button-planifier {
+  position: absolute;
+  width: 126px;
+  height: 31px;
+  top: 169px;
+  left: 0;
+  background-color: #fffcfc;
+  border-radius: 50px;
+}
+
+.contact .planifier-une {
+  position: absolute;
+  top: 2px;
+  left: 32px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #08070a;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-6 {
+  width: 272px;
+  top: 375px;
+  left: 584px;
+  font-weight: 800;
+  font-size: 28px;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .p {
+  position: absolute;
+  width: 611px;
+  top: 55px;
+  left: 70px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .overlap-2 {
+  position: absolute;
+  width: 306px;
+  height: 45px;
+  top: 236px;
+  left: 70px;
+  background-color: #262626;
+  border-radius: 4px;
+}
+
+.contact .text-wrapper-7 {
+  position: absolute;
+  width: 146px;
+  top: 10px;
+  left: 45px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff99;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .img {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  top: 12px;
+  left: 270px;
+}
+
+.contact .frame {
+  position: absolute;
+  width: 20px;
+  height: 26px;
+  top: 9px;
+  left: 15px;
+  background-image: url(https://c.animaapp.com/meo11kog3EWQ62/img/email.png);
+  background-size: 100% 100%;
+}
+
+.contact .frame-2 {
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  top: 119px;
+  left: 1169px;
+}
+
+.contact .overlap-group-wrapper {
+  position: absolute;
+  width: 168px;
+  height: 24px;
+  top: 68px;
+  left: 1170px;
+}
+
+.contact .overlap-group-2 {
+  position: relative;
+  width: 167px;
+  height: 24px;
+}
+
+.contact .text-wrapper-8 {
+  position: absolute;
+  width: 155px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.contact .arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 6px;
+  left: 154px;
+}
+
+.contact .overlap-wrapper {
+  position: absolute;
+  width: 110px;
+  height: 24px;
+  top: 114px;
+  left: 1188px;
+}
+
+.contact .overlap-3 {
+  position: relative;
+  width: 106px;
+  height: 24px;
+}
+
+.contact .text-wrapper-9 {
+  width: 68px;
+  top: 0;
+  left: 38px;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-10 {
+  position: absolute;
+  width: 39px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .privacy-policy-terms {
+  position: absolute;
+  width: 236px;
+  top: 156px;
+  left: 1170px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .span {
+  text-decoration: underline;
+}
+
+.contact .frame-3 {
+  position: absolute;
+  width: 269px;
+  height: 37px;
+  top: 328px;
+  left: 581px;
+}
+
+.contact .group-3 {
+  width: 100%;
+  background: linear-gradient(
+    20deg,
+    rgba(23, 27, 28, 1) 0%,
+    rgba(28, 20, 38, 1) 100%
+  );
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.contact .group-3-content {
+  width: 1440px;
+  max-width: 100%;
+  height: 708px;
+  position: relative;
+}
+
+.contact .group-4 {
+  position: absolute;
+  width: 555px;
+  height: 174px;
+  top: 96px;
+  left: 107px;
+}
+
+.contact .group-5 {
+  position: absolute;
+  width: 208px;
+  height: 59px;
+  top: 115px;
+  left: 5px;
+}
+
+.contact .overlap-group-3 {
+  position: absolute;
+  width: 551px;
+  height: 110px;
+  top: 0;
+  left: 0;
+}
+
+.contact .text-wrapper-11 {
+  position: absolute;
+  width: 551px;
+  top: 17px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 68px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-12 {
+  width: 103px;
+  top: 0;
+  left: 2px;
+  font-weight: 600;
+  font-size: 25px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .group-6 {
+  position: absolute;
+  width: 542px;
+  height: 572px;
+  top: 83px;
+  left: 840px;
+}
+
+.contact .overlap-4 {
+  position: absolute;
+  width: 530px;
+  height: 542px;
+  top: 30px;
+  left: 0;
+  background-color: #fff9f9;
+  border-radius: 15px;
+  box-shadow: 0px 0px 76px -4px #fffcfc99;
+}
+
+.contact .overlap-5 {
+  position: absolute;
+  width: 472px;
+  height: 42px;
+  top: 143px;
+  left: 29px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.contact .div-wrapper {
+  position: absolute;
+  width: 130px;
+  height: 29px;
+  top: 7px;
+  left: 11px;
+}
+
+.contact .overlap-6 {
+  position: relative;
+  width: 128px;
+  height: 29px;
+  background-color: #171b1c;
+  border-radius: 5px;
+}
+
+.contact .text-wrapper-13 {
+  position: absolute;
+  width: 77px;
+  top: 3px;
+  left: 17px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .basil-cross-outline {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 3px;
+  left: 95px;
+}
+
+.contact .group-7 {
+  position: absolute;
+  width: 113px;
+  height: 29px;
+  top: 7px;
+  left: 150px;
+}
+
+.contact .overlap-7 {
+  position: relative;
+  width: 111px;
+  height: 29px;
+  background-color: #171b1c;
+  border-radius: 5px;
+}
+
+.contact .text-wrapper-14 {
+  position: absolute;
+  width: 64px;
+  top: 3px;
+  left: 17px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .basil-cross-outline-2 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 3px;
+  left: 81px;
+}
+
+.contact .vector {
+  position: absolute;
+  width: 3px;
+  height: 28px;
+  top: 7px;
+  left: 416px;
+}
+
+.contact .frame-4 {
+  position: absolute;
+  width: 22px;
+  height: 14px;
+  top: 15px;
+  left: 435px;
+}
+
+.contact .text-wrapper-15 {
+  position: absolute;
+  width: 47px;
+  top: 19px;
+  left: 33px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .group-8 {
+  position: absolute;
+  width: 215px;
+  height: 42px;
+  top: 51px;
+  left: 29px;
+}
+
+.contact .overlap-group-4 {
+  position: relative;
+  width: 213px;
+  height: 42px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.contact .text-wrapper-16 {
+  width: 102px;
+  position: absolute;
+  top: 11px;
+  left: 14px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .group-9 {
+  position: absolute;
+  width: 232px;
+  height: 42px;
+  top: 51px;
+  left: 265px;
+}
+
+.contact .overlap-8 {
+  position: relative;
+  width: 230px;
+  height: 42px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.contact .text-wrapper-17 {
+  width: 121px;
+  position: absolute;
+  top: 11px;
+  left: 14px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .group-10 {
+  position: absolute;
+  width: 474px;
+  height: 42px;
+  top: 226px;
+  left: 29px;
+}
+
+.contact .overlap-9 {
+  position: relative;
+  width: 472px;
+  height: 42px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.contact .text-wrapper-18 {
+  position: absolute;
+  width: 121px;
+  top: 12px;
+  left: 14px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-19 {
+  position: absolute;
+  width: 77px;
+  top: 107px;
+  left: 33px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-20 {
+  position: absolute;
+  width: 57px;
+  top: 196px;
+  left: 33px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-21 {
+  position: absolute;
+  width: 217px;
+  top: 286px;
+  left: 33px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-22 {
+  position: absolute;
+  width: 77px;
+  top: 19px;
+  left: 266px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .group-11 {
+  position: absolute;
+  width: 474px;
+  height: 137px;
+  top: 320px;
+  left: 30px;
+}
+
+.contact .overlap-10 {
+  position: relative;
+  width: 472px;
+  height: 137px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.contact .text-wrapper-23 {
+  position: absolute;
+  width: 125px;
+  top: 17px;
+  left: 13px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .rectangle {
+  position: absolute;
+  width: 8px;
+  height: 30px;
+  top: 7px;
+  left: 456px;
+  background-color: #171b1c;
+  border-radius: 50px;
+}
+
+.contact .planifier-une-wrapper {
+  position: absolute;
+  width: 218px;
+  height: 31px;
+  top: 473px;
+  left: 30px;
+  background-color: #09080b;
+  border-radius: 50px;
+}
+
+.contact .planifier-une-2 {
+  position: absolute;
+  top: 2px;
+  left: 38px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #fffcfc;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-24 {
+  position: absolute;
+  width: 314px;
+  top: 0;
+  left: 214px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #fffcfc;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .group-12 {
+  position: absolute;
+  width: 526px;
+  height: 163px;
+  top: 342px;
+  left: 116px;
+}
+
+.contact .group-13 {
+  position: absolute;
+  width: 526px;
+  height: 38px;
+  top: 60px;
+  left: 2px;
+}
+
+.contact .vector-2 {
+  position: absolute;
+  width: 524px;
+  height: 1px;
+  top: 38px;
+  left: 0;
+  object-fit: cover;
+}
+
+.contact .text-wrapper-25 {
+  position: absolute;
+  width: 130px;
+  top: 6px;
+  left: 42px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.contact .img-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  left: 0;
+}
+
+.contact .group-14 {
+  position: absolute;
+  width: 526px;
+  height: 35px;
+  top: 0;
+  left: 2px;
+}
+
+.contact .vector-3 {
+  position: absolute;
+  width: 524px;
+  height: 1px;
+  top: 34px;
+  left: 0;
+  object-fit: cover;
+}
+
+.contact .text-wrapper-26 {
+  position: absolute;
+  width: 160px;
+  top: 3px;
+  left: 42px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.contact .group-15 {
+  position: absolute;
+  width: 527px;
+  height: 40px;
+  top: 123px;
+  left: 0;
+}
+
+.contact .vector-4 {
+  position: absolute;
+  width: 524px;
+  height: 1px;
+  top: 40px;
+  left: 2px;
+  object-fit: cover;
+}
+
+.contact .text-wrapper-27 {
+  position: absolute;
+  width: 237px;
+  top: 8px;
+  left: 47px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.contact .bxs-calendar {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 0;
+}
+
+.contact .group-16 {
+  position: fixed;
+  width: 100%;
+  height: 48px;
+  top: 20px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.contact .nav-content {
+  width: 1313px;
+  max-width: calc(100% - 138px);
+  position: relative;
+}
+
+.contact .text-wrapper-28 {
+  position: absolute;
+  width: 272px;
+  top: 4px;
+  left: 70px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .overlap-11 {
+  position: absolute;
+  width: 165px;
+  height: 24px;
+  top: 10px;
+  left: 628px;
+}
+
+.contact .text-wrapper-29 {
+  color: #aaaaaa;
+  text-align: center;
+  position: absolute;
+  width: 94px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-30 {
+  top: 0;
+  left: 81px;
+  color: #aaaaaa;
+  text-align: center;
+  position: absolute;
+  width: 84px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-31 {
+  position: absolute;
+  width: 141px;
+  top: 10px;
+  left: 797px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #aaaaaa;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-32 {
+  position: absolute;
+  width: 131px;
+  top: 10px;
+  left: 942px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #aaaaaa;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .text-wrapper-33 {
+  width: 71px;
+  top: 10px;
+  left: 1078px;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.contact .button-planifier-2 {
+  position: absolute;
+  width: 126px;
+  height: 31px;
+  top: 8px;
+  left: 1175px;
+  background-color: #fffcfc;
+  border-radius: 50px;
+}
+
+@media (max-width: 1440px) {
+  .contact .nav-content,
+  .contact .group-content,
+  .contact .group-3-content {
+    padding: 0 20px;
+  }
+}
+.footer-lantorian-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .footer-lantorian-logo {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: left;
+  }
+
+    </style>
+  </head>
+  <body>
+    <div class="contact">
+      <div class="div">
+        <div class="overlap">
+          <div class="group-3">
+            <div class="group-3-content">
+              <div class="group-4">
+                <img class="group-5" src="https://c.animaapp.com/meo11kog3EWQ62/img/group-120.png" />
+                <div class="overlap-group-3">
+                  <div class="text-wrapper-11">Entrer en contact</div>
+                  <div class="text-wrapper-12">Contact</div>
+                </div>
+              </div>
+              <div class="group-6">
+                <div class="overlap-4">
+                  <div class="overlap-5">
+                    <div class="div-wrapper">
+                      <div class="overlap-6">
+                        <div class="text-wrapper-13">Site vitrine</div>
+                        <img
+                          class="basil-cross-outline"
+                          src="https://c.animaapp.com/meo11kog3EWQ62/img/basil-cross-outline.svg"
+                        />
+                      </div>
+                    </div>
+                    <div class="group-7">
+                      <div class="overlap-7">
+                        <div class="text-wrapper-14">Refonte</div>
+                        <img
+                          class="basil-cross-outline-2"
+                          src="https://c.animaapp.com/meo11kog3EWQ62/img/basil-cross-outline.svg"
+                        />
+                      </div>
+                    </div>
+                    <img class="vector" src="https://c.animaapp.com/meo11kog3EWQ62/img/vector-12.svg" />
+                    <img class="frame-4" src="https://c.animaapp.com/meo11kog3EWQ62/img/frame-91.svg" />
+                  </div>
+                  <div class="text-wrapper-15">Nom*</div>
+                  <div class="group-8">
+                    <div class="overlap-group-4"><div class="text-wrapper-16">Saissir votre nom</div></div>
+                  </div>
+                  <div class="group-9">
+                    <div class="overlap-8"><div class="text-wrapper-17">Saissir votre prénom</div></div>
+                  </div>
+                  <div class="group-10">
+                    <div class="overlap-9"><div class="text-wrapper-18">exemple@gmail.com</div></div>
+                  </div>
+                  <div class="text-wrapper-19">Service*</div>
+                  <div class="text-wrapper-20">Email*</div>
+                  <div class="text-wrapper-21">Description de votre projet*</div>
+                  <div class="text-wrapper-22">Prénom*</div>
+                  <div class="group-11">
+                    <div class="overlap-10">
+                      <div class="text-wrapper-23">Détaillez votre projet</div>
+                      <div class="rectangle"></div>
+                    </div>
+                  </div>
+                  <div class="planifier-une-wrapper"><div class="planifier-une-2">Envoyer le message</div></div>
+                </div>
+                <p class="text-wrapper-24">Les champs marqués d'un (*) sont obligatoires.</p>
+              </div>
+              <div class="group-12">
+                <div class="group-13">
+                  <img class="vector-2" src="https://c.animaapp.com/meo11kog3EWQ62/img/vector-15.svg" />
+                  <p class="text-wrapper-25">+ 261 34 12 345 67</p>
+                  <img class="img-2" src="https://c.animaapp.com/meo11kog3EWQ62/img/ic-baseline-whatsapp.svg" />
+                </div>
+                <div class="group-14">
+                  <img class="vector-3" src="https://c.animaapp.com/meo11kog3EWQ62/img/vector-15.svg" />
+                  <div class="text-wrapper-26">lantorian@gmail.com</div>
+                  <img class="img-2" src="https://c.animaapp.com/meo11kog3EWQ62/img/material-symbols-mail-outline.svg" />
+                </div>
+                <div class="group-15">
+                  <img class="vector-4" src="https://c.animaapp.com/meo11kog3EWQ62/img/vector-15.svg" />
+                  <div class="text-wrapper-27">https://calendly.com/lantorian</div>
+                  <img class="bxs-calendar" src="https://c.animaapp.com/meo11kog3EWQ62/img/bxs-calendar.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group">
+            <div class="overlap-group">
+              <div class="group-content">
+                <div class="group-2">
+                  <a href="index.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper">Accueil</div></a>
+                  <a href="aboutus.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-2">À Propos</div></a>
+                  <a href="solution.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-3">Solutions / Services</div></a>
+                  <a href="realisation.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-4">Nos réalisations</div></a>
+                  <a href="contact.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-5">Contact</div></a>
+                  <div class="button-planifier"><div class="planifier-une">Réserver</div></div>
+                </div>
+                <div class="text-wrapper-6">LANTORIAN ENGINE</div>
+                <p class="p">Commencez à vous inscrire pour ne rien rater</p>
+                <div class="overlap-2">
+                  <div class="text-wrapper-7">Saisissez votre email</div>
+                  <img class="img" src="https://c.animaapp.com/meo11kog3EWQ62/img/group-25.png" />
+                  <div class="frame"></div>
+                </div>
+                <img class="frame-2" src="https://c.animaapp.com/meo11kog3EWQ62/img/frame-97.svg" />
+                <div class="overlap-group-wrapper">
+                  <div class="overlap-group-2">
+                    <div class="text-wrapper-8">Consultez nos projets</div>
+                    <img class="arrow" src="https://c.animaapp.com/meo11kog3EWQ62/img/arrow-3.svg" />
+                  </div>
+                </div>
+                <div class="overlap-wrapper">
+                  <div class="overlap-3">
+                    <div class="text-wrapper-9">Lantorian</div>
+                    <div class="text-wrapper-10">2025</div>
+                  </div>
+                </div>
+                <p class="privacy-policy-terms"><span class="span">Privacy policy•Terms &amp; conditions</span></p>
+                <img class="frame-3" src="https://c.animaapp.com/meo11kog3EWQ62/img/frame-96.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="group-16">
+          <div class="nav-content">
+            <div class="footer-lantorian-container">
+            <a href="index.html" style="color:inherit;text-decoration:none;" aria-label="Accueil">
+              <img class="footer-lantorian-logo" src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/logo-noir.svg" alt="Lantorian Logo" />
+            </a>
+            <div class="text-wrapper-28">LANTORIAN ENGINE</div>
+          </div>
+            <div class="overlap-11">
+              <a href="index.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-29">Accueil</div></a>
+              <a href="aboutus.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-30">À Propos</div></a>
+            </div>
+            <a href="solution.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-31">Solutions / Services</div></a>
+            <a href="realisation.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-32">Nos réalisations</div></a>
+            <a href="contact.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-33">Contact</div></a>
+            <div class="button-planifier-2"><div class="planifier-une">Réserver</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
