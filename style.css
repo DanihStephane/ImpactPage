@@ -3893,8 +3893,8 @@ html, body {
   
   .ebauche .component {
     position: absolute;
-    width: 70px;
-    height: 115px;
+    /*width: 70px;*/
+    /*height: 115px;*/
     top: 310px;
     left: 686px;
     background-image: url(https://c.animaapp.com/me65jfjdMNJKuJ/img/vector-6-1.svg);
@@ -3971,7 +3971,7 @@ html, body {
     width: 100dvw !important;
     left: 50% !important;
     transform: translateX(-50%);
-    height: 1013px;
+    height: 1600px;
     top: 2108px;
     background-color: #171b1c;
   }
@@ -3989,28 +3989,125 @@ html, body {
     line-height: normal;
   }
   
-  .ebauche .text-wrapper-11 {
+  .ebauche .comment-ca-marche-container {
     position: absolute;
-    width: 543px;
+    width: 100%;
+    max-width: 1440px;
     top: 2620px;
+    left: 0;
+    right: 0;
+  }
+
+  .ebauche .comment-ca-marche-img {
+    position: absolute;
     left: 84px;
+  }
+
+  .ebauche .comment-ca-marche-text {
+    position: absolute;
+    right: 84px;
     font-family: "Kanit", Helvetica;
     font-weight: 600;
     color: #ffffff;
-    font-size: 48px;
+    font-size: 36px;
     letter-spacing: 0;
     line-height: normal;
   }
   
   .ebauche .frame-2 {
     position: absolute;
-    width: 100dvw;
-    max-width: 1440px;
-    height: 200px; /* Hauteur réduite */
+    width: 100%;
+    max-width: 1200px;
     top: 2737px;
     left: 50%;
     transform: translateX(-50%);
     overflow: visible;
+  }
+
+  .ebauche .process-steps-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .ebauche .process-step-item {
+    position: relative;
+    padding: 20px 50px 20px 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0 -100vw;
+    padding-left: calc(100vw + 50px);
+    padding-right: calc(100vw + 50px);
+  }
+
+  .ebauche .process-step-item:hover {
+    background-color: #ffffff;
+  }
+
+  .ebauche .process-step-item:hover .step-title {
+    color: #000000;
+  }
+
+  .ebauche .process-step-item:hover .step-description {
+    color: #000000;
+  }
+
+  .ebauche .process-step-item:hover .step-icon {
+    content: url('https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/fleche-noire.png');
+  }
+
+  .ebauche .step-icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 1900px;
+    bottom: 43px;
+  }
+
+  .ebauche .step-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .ebauche .step-title {
+    font-family: "Kanit", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 60px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    margin-left: -40px;
+  }
+
+  .ebauche .step-description {
+    font-family: "Kanit", Helvetica;
+    font-weight: 300;
+    color: #171b1c;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 1.4;
+    margin-right: -200px;
+    text-align: left;
+    max-width: 800px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: visible;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+
+  .ebauche .step-number {
+    color: #8a2be2;
+    margin-right: 15px;
   }
   
   .ebauche .frame-2::-webkit-scrollbar {
@@ -4490,8 +4587,8 @@ html, body {
   
   .ebauche .button-planifier-4 {
     width: 218px;
-    top: 3000px; /* Rapproché du frame-2 (qui se termine vers 2937px) */
-    left: 87px;
+    top: 3420px; /* Rapproché du frame-2 (qui se termine vers 2937px) */
+    left: 70px;
     position: absolute;
     height: 31px;
     background-color: #fffcfc;
@@ -4504,7 +4601,7 @@ html, body {
     left: 50% !important;
     transform: translateX(-50%);
     height: 470px; /* Hauteur augmentée pour couvrir jusqu'en bas */
-    top: 3100px; /* Rapproché du button-planifier-4 */
+    top: 3500px; /* Rapproché du button-planifier-4 */
     background-color: #000000;
   }
   
@@ -4521,7 +4618,7 @@ html, body {
     width: 400px;
     height: 200px;
     top: 80px;
-    left: 700px;
+    left: 1000px;
   }
 
   .ebauche .header-logo-container {

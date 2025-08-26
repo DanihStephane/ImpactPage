@@ -357,46 +357,54 @@
           </div>
           <div class="rectangle-8"></div>
           <div class="text-wrapper-10">Finis les applications</div>
-          <div class="text-wrapper-11">Comment ça marche ?</div>
+          <div class="comment-ca-marche-container">
+            <img class="comment-ca-marche-img" src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/Group120.png" />
+            <div class="comment-ca-marche-text">Comment ça marche ?</div>
+          </div>
           <div class="frame-2">
-            <div class="overlap-4">
-              <div class="group-6 process-step" data-step="0">
-                <div class="overlap-group-3">
-                  <div class="audit-strat-gie"><span class="step-number">01</span>Audit &amp; Stratégie</div>
-                  <p class="text-wrapper-12">
-                    Nous analysons votre site actuel et définissons ensemble les émotions et les objectifs à atteindre.
+            <div class="process-steps-vertical">
+              <div class="process-step-item">
+                <img class="step-icon" src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/flechehautdroite.png" />
+                <div class="step-content">
+                  <div class="step-title">Audit &amp; Stratégie</div>
+                  <p class="step-description">
+                    Nous analysons votre site actuel et définissons ensemble<br>
+                    les émotions et les objectifs à atteindre.
                   </p>
                 </div>
               </div>
-              <div class="group-7 process-step" data-step="1">
-                <div class="overlap-5">
-                  <div class="design-conception"><span class="step-number">02</span>Design &amp; Conception</div>
-                  <p class="text-wrapper-12">
-                    Nous créons une maquette interactive qui intègre déjà les futures animations et l&#39;expérience
-                    utilisateur.
+              <div class="process-step-item">
+                <img class="step-icon" src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/flechehautdroite.png" />
+                <div class="step-content">
+                  <div class="step-title">Design &amp; Conception</div>
+                  <p class="step-description">
+                    Nous créons une maquette interactive qui intègre déjà<br>
+                    les futures animations et l'expérience utilisateur.
                   </p>
                 </div>
               </div>
-              <div class="group-8 process-step" data-step="2">
-                <div class="overlap-6">
-                  <div class="text-wrapper-13"><span class="step-number">03</span>Développement Moderne</div>
-                  <p class="text-wrapper-12">
-                    Nous codons votre nouveau site avec des techno modernes de pointe pour une propreté et une
-                    performance maximales.
+              <div class="process-step-item">
+                <img class="step-icon" src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/flechehautdroite.png" />
+                <div class="step-content">
+                  <div class="step-title">Développement Moderne</div>
+                  <p class="step-description">
+                    Nous codons votre nouveau site avec des techno modernes<br>
+                    de pointe pour une propreté et une performance maximales.
                   </p>
                 </div>
               </div>
-              <div class="group-9 process-step" data-step="3">
-                <div class="overlap-7">
-                  <div class="lancement-suivi"><span class="step-number">04</span>Lancement &amp; Suivi</div>
-                  <p class="text-wrapper-12">
-                    Nous déployons le site sans interruption de service et nous vous formons pour la suite.
+              <div class="process-step-item">
+                <img class="step-icon" src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/flechehautdroite.png" />
+                <div class="step-content">
+                  <div class="step-title">Lancement &amp; Suivi</div>
+                  <p class="step-description">
+                    Nous déployons le site sans interruption de service<br>
+                    et nous vous formons pour la suite.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <img class="arrow-3" src="https://c.animaapp.com/me65jfjdMNJKuJ/img/arrow-2.svg" />
           <div class="c">
             <div class="overlap-8">
               <div class="back">
@@ -603,106 +611,6 @@
           element.style.transition = 'all 0.3s ease';
         });
 
-        // Animation moderne des process steps
-        const processSteps = document.querySelectorAll('.process-step');
-        let currentStep = 0;
-        let isAnimating = false;
-        let animationStarted = false;
-
-        // Initialisation : masquer tous les steps dès le début avec position de départ
-        processSteps.forEach(step => {
-          step.style.opacity = '0';
-          step.style.visibility = 'hidden';
-          step.style.transform = 'translateY(60px)'; // Position de départ pour l'effet de glissement
-          step.classList.remove('active', 'highlighted', 'entering', 'leaving');
-        });
-
-        function showStep(stepIndex, isFirstTime = false) {
-          if (isAnimating && !isFirstTime) return;
-          isAnimating = true;
-
-          // Masquer tous les steps avec animation de sortie douce
-          processSteps.forEach((step, index) => {
-            step.classList.remove('active', 'highlighted', 'entering');
-            
-            if (index !== stepIndex) {
-              // Animation de sortie douce vers le bas
-              step.style.transform = 'translateY(40px)';
-              step.style.opacity = '0';
-              step.style.visibility = 'hidden';
-              
-              if (!isFirstTime) {
-                step.classList.add('leaving');
-              }
-            }
-          });
-
-          // Afficher le nouveau step avec animation de montée douce
-          setTimeout(() => {
-            processSteps.forEach(step => {
-              step.classList.remove('leaving');
-            });
-
-            const currentStepElement = processSteps[stepIndex];
-            if (currentStepElement) {
-              // Commencer depuis le bas
-              currentStepElement.style.transform = 'translateY(60px)';
-              currentStepElement.style.opacity = '0';
-              currentStepElement.style.visibility = 'visible';
-              currentStepElement.classList.add('entering', 'active');
-              
-              // Animation smooth vers le haut avec un délai pour permettre la transition
-              requestAnimationFrame(() => {
-                currentStepElement.style.transform = 'translateY(0)';
-                currentStepElement.style.opacity = '1';
-              });
-              
-              // Ajouter l'effet highlighted après l'entrée pour finaliser l'animation
-              setTimeout(() => {
-                if (currentStepElement.classList.contains('active')) {
-                  currentStepElement.classList.add('highlighted');
-                  currentStepElement.style.transform = 'translateY(-8px)'; // Légère élévation finale
-                }
-                isAnimating = false;
-              }, 800); // Délai augmenté pour une transition plus douce
-            } else {
-              isAnimating = false;
-            }
-          }, isFirstTime ? 100 : 400); // Délai légèrement augmenté pour plus de fluidité
-        }
-
-        function nextStep() {
-          currentStep = (currentStep + 1) % processSteps.length;
-          showStep(currentStep);
-        }
-
-        function startProcessAnimation() {
-          if (processSteps.length === 0 || animationStarted) return;
-          animationStarted = true;
-          
-          // Initialiser avec le premier step (sans délai pour la première fois)
-          showStep(0, true);
-          
-          // Démarrer le cycle automatique toutes les 3 secondes
-          setInterval(nextStep, 3000);
-        }
-
-        // Observer pour démarrer l'animation quand la section devient visible
-        const frame2 = document.querySelector('.frame-2');
-        if (frame2) {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                startProcessAnimation();
-                observer.unobserve(entry.target); // Une seule fois
-              }
-            });
-          }, {
-            threshold: 0.3 // Démarrer quand 30% de la section est visible
-          });
-
-          observer.observe(frame2);
-        }
       });
     </script>
   </body>
