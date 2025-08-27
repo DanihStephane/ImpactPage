@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Rediriger les URLs avec .html vers sans .html
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1? [R=301,L]
+
+# Réécrire les URLs sans .html vers les fichiers .html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.html [L]
+
+# Optionnel: Rediriger index.html vers la racine
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^ /? [R=301,L]
