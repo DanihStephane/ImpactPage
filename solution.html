@@ -272,9 +272,9 @@
       position: absolute;
       width: 264px;
       height: 27px;
-      top: 201px;
+      top: 193px;
       left: 50%;
-      transform: translateX(-50%) translateX(342px);
+      transform: translateX(-50%) translateX(365px);
     }
 
     .frame .design-sur-mesure-et-wrapper {
@@ -468,162 +468,26 @@
       transform: translateX(-50%);
     }
 
-    .frame .group-wrapper {
-      position: absolute;
-      width: 1101px;
-      height: 169px;
-      top: 0;
-      left: 13px;
-    }
-
-    .frame .group-9 {
-      position: relative;
-      width: 1105px;
-      height: 169px;
-    }
-
-    .frame .text-wrapper-9 {
-      position: absolute;
-      width: 707px;
-      top: 98px;
-      left: 2px;
-      font-family: "Kanit", Helvetica;
-      font-weight: 600;
-      color: #ffffff;
-      font-size: 15px;
-      letter-spacing: 0;
-      line-height: normal;
-    }
-
-    .frame .text-wrapper-10 {
-      position: absolute;
-      width: 730px;
-      top: 0;
-      left: 0;
-      font-family: "Kanit", Helvetica;
-      font-weight: 600;
-      color: #ffffff;
-      font-size: 58px;
-      letter-spacing: 0;
-      line-height: normal;
-    }
-
-    .frame .group-10 {
-      position: absolute;
-      width: 66px;
-      height: 41px;
-      top: 31px;
-      left: 1035px;
-    }
-
-    .frame .vector {
-      position: absolute;
-      width: 1088px;
-      height: 1px;
-      top: 168px;
-      left: 2px;
-      object-fit: cover;
-    }
-
-    .frame .group-11 {
-      position: absolute;
-      width: 1107px;
-      height: 92px;
-      top: 182px;
-      left: 8px;
-    }
-
-    .frame .text-wrapper-11 {
-      position: absolute;
-      width: 657px;
-      top: 0;
-      left: 0;
-      font-family: "Kanit", Helvetica;
-      font-weight: 600;
-      color: #ffffff;
-      font-size: 58px;
-      letter-spacing: 0;
-      line-height: normal;
-    }
-
-    .frame .group-12 {
-      position: absolute;
-      width: 66px;
-      height: 41px;
-      top: 36px;
-      left: 1039px;
-    }
-
-    .frame .vector-2 {
-      position: absolute;
-      width: 1088px;
-      height: 1px;
-      top: 92px;
-      left: 7px;
-      object-fit: cover;
-    }
-
-    .frame .group-13 {
-      position: absolute;
-      width: 1115px;
-      height: 79px;
-      top: 309px;
-      left: 0;
-    }
-
+    /* Accordion header elements styling */
+    .frame .text-wrapper-10,
+    .frame .text-wrapper-11,
     .frame .text-wrapper-12 {
-      position: absolute;
-      width: 952px;
-      top: 0;
-      left: 0;
       font-family: "Kanit", Helvetica;
       font-weight: 600;
       color: #ffffff;
-      font-size: 58px;
+      font-size: 32px;
       letter-spacing: 0;
       line-height: normal;
+      flex: 1;
     }
 
-    .frame .group-14 {
-      position: absolute;
-      width: 66px;
-      height: 41px;
-      top: 23px;
-      left: 1047px;
-    }
-
-    .frame .vector-3 {
-      position: absolute;
-      width: 1088px;
-      height: 1px;
-      top: 78px;
-      left: 15px;
-      object-fit: cover;
-    }
-
-    .frame .group-15 {
-      position: absolute;
-      width: 1115px;
-      height: 84px;
-      top: 423px;
-      left: 0;
-    }
-
-    .frame .group-16 {
-      position: absolute;
-      width: 66px;
-      height: 41px;
-      top: 28px;
-      left: 1047px;
-    }
-
+    .frame .vector,
+    .frame .vector-2,
+    .frame .vector-3,
     .frame .vector-4 {
-      position: absolute;
-      width: 1088px;
-      height: 1px;
-      top: 84px;
-      left: 15px;
-      object-fit: cover;
+      width: 66px;
+      height: 41px;
+      margin-left: 15px;
     }
 
     .frame .button-planifier-2 {
@@ -1678,6 +1542,89 @@
       letter-spacing: 0;
       line-height: normal;
     }
+
+    /* Accordion Styles */
+    .frame .accordion-item {
+      position: relative;
+      width: 100%;
+      margin-bottom: 0;
+      border-bottom: 1px solid #ffffff33;
+    }
+
+    .frame .accordion-header {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 20px;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .frame .accordion-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      right: -100vw;
+      bottom: 0;
+      background: transparent;
+      transition: background-color 0.3s ease;
+      z-index: -1;
+    }
+
+    .frame .accordion-header:hover::before {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .frame .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: #171b1c;
+    }
+
+    .frame .accordion-content.active {
+      max-height: 150px;
+    }
+
+    .frame .accordion-content .text-wrapper-9 {
+      position: relative;
+      width: auto;
+      top: auto;
+      left: auto;
+      padding: 20px;
+      margin: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .frame .accordion-arrow {
+      transition: transform 0.3s ease;
+      transform: rotate(180deg); /* Position fermée par défaut */
+    }
+
+    .frame .accordion-header.active .accordion-arrow {
+      transform: rotate(0deg); /* Position ouverte - flèche vers le haut */
+    }
+
+    .frame .group-8 {
+      position: absolute;
+      width: 1114px;
+      height: auto;
+      min-height: 507px;
+      top: 926px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #171b1c;
+      border-radius: 10px;
+      overflow: visible;
+    }
   </style>
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -1736,32 +1683,54 @@
             </div>
           </div>
           <div class="group-8">
-            <div class="group-wrapper">
-              <div class="group-9">
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="text-wrapper-10">Refonte et modernisation</div>
+                <img class="vector accordion-arrow" src="https://c.animaapp.com/mecvpo67TAht24/img/group-40.png" />
+              </div>
+              <div class="accordion-content">
                 <p class="text-wrapper-9">
                   Nous transférons votre site WordPress vers une stack moderne en suivant des étapes clés, de
                   l'exportation des contenus à l'optimisation finale, pour garantir performance, sécurité et
                   évolutivité.
                 </p>
-                <div class="text-wrapper-10">Refonte et modernisation</div>
-                <img class="group-10" src="https://c.animaapp.com/mecvpo67TAht24/img/group-16.png" />
-                <img class="vector" src="https://c.animaapp.com/mecvpo67TAht24/img/vector-8.svg" />
               </div>
             </div>
-            <div class="group-11">
-              <div class="text-wrapper-11">Performance et rapidité</div>
-              <img class="group-12" src="https://c.animaapp.com/mecvpo67TAht24/img/group-40.png" />
-              <img class="vector-2" src="https://c.animaapp.com/mecvpo67TAht24/img/vector-8.svg" />
+
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="text-wrapper-11">Performance et rapidité</div>
+                <img class="vector-2 accordion-arrow" src="https://c.animaapp.com/mecvpo67TAht24/img/group-40.png" />
+              </div>
+              <div class="accordion-content">
+                <p class="text-wrapper-9">
+                  Optimisation complète de la vitesse de chargement, amélioration des Core Web Vitals, mise en cache avancée et optimisation des images pour une expérience utilisateur exceptionnelle et un meilleur référencement.
+                </p>
+              </div>
             </div>
-            <div class="group-13">
-              <div class="text-wrapper-12">Design sur-mesure et &#34;émotionnel&#34;</div>
-              <img class="group-14" src="https://c.animaapp.com/mecvpo67TAht24/img/group-41.png" />
-              <img class="vector-3" src="https://c.animaapp.com/mecvpo67TAht24/img/vector-8.svg" />
+
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="text-wrapper-12">Design sur-mesure et &#34;émotionnel&#34;</div>
+                <img class="vector-3 accordion-arrow" src="https://c.animaapp.com/mecvpo67TAht24/img/group-40.png" />
+              </div>
+              <div class="accordion-content">
+                <p class="text-wrapper-9">
+                  Création d'interfaces uniques qui racontent votre histoire avec des animations fluides, micro-interactions et éléments visuels captivants pour créer une connexion émotionnelle avec vos visiteurs.
+                </p>
+              </div>
             </div>
-            <div class="group-15">
-              <div class="text-wrapper-12">Sécurité et maintenance simplifiée</div>
-              <img class="group-16" src="https://c.animaapp.com/mecvpo67TAht24/img/group-43.png" />
-              <img class="vector-4" src="https://c.animaapp.com/mecvpo67TAht24/img/vector-8.svg" />
+
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="text-wrapper-12">Sécurité et maintenance simplifiée</div>
+                <img class="vector-4 accordion-arrow" src="https://c.animaapp.com/mecvpo67TAht24/img/group-40.png" />
+              </div>
+              <div class="accordion-content">
+                <p class="text-wrapper-9">
+                  Architecture sécurisée avec protection contre les attaques, sauvegardes automatiques, monitoring continu et maintenance préventive pour garantir la stabilité et la sécurité de votre site.
+                </p>
+              </div>
             </div>
           </div>
           <a href="reservation.html" style="text-decoration:none;"><div class="button-planifier-2"><div class="text-wrapper-2">Planifier une consultation</div></div></a>
@@ -1787,7 +1756,7 @@
           <a href="reservation.html" style="text-decoration:none;"><div class="button-planifier-3"><div class="text-wrapper-2">Planifier une consultation</div></div></a>
           <div class="group-20">
             <div class="overlap-5">
-              <div class="text-wrapper-17">Venez voir nos réalisations</div>
+              <a href="realisation.html" style="color:inherit;text-decoration:none;"><div class="text-wrapper-17">Venez voir nos réalisations</div></a>
               <img class="group-21" src="https://c.animaapp.com/mecvpo67TAht24/img/group-47.png" />
             </div>
           </div>
@@ -1916,6 +1885,43 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+
+      // Close all accordion items first
+      const allContents = document.querySelectorAll('.accordion-content');
+      const allHeaders = document.querySelectorAll('.accordion-header');
+
+      allContents.forEach(item => {
+        item.classList.remove('active');
+      });
+      allHeaders.forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // If this item wasn't active, open it
+      if (!isActive) {
+        content.classList.add('active');
+        header.classList.add('active');
+      }
+    }
+
+    // Open first accordion by default when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait a bit for styles to load
+      setTimeout(() => {
+        const firstHeader = document.querySelector('.accordion-header');
+        if (firstHeader) {
+          const firstContent = firstHeader.nextElementSibling;
+          firstContent.classList.add('active');
+          firstHeader.classList.add('active');
+        }
+      }, 100);
+    });
+  </script>
 </body>
 </html>
 

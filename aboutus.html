@@ -417,7 +417,7 @@
         position: absolute;
         width: 567px;
         top: 98px;
-        left: 82px;
+        left: 70px;
         font-family: "Kanit", Helvetica;
         font-weight: 400;
         color: #0f0f0f;
@@ -770,6 +770,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
       }
 
       .about-us .group-wrapper-content {
@@ -791,6 +792,211 @@
         height: 517px;
         top: 290px;
         left: 0;
+        background-image: url('https://c.animaapp.com/mej28vheoYXHwd/img/group-61.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Overlay caché par défaut, visible au survol */
+      .about-us .modern-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 3;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      /* Affichage au survol de la section */
+      .about-us .group-13:hover .modern-overlay {
+        opacity: 1;
+      }
+
+      .about-us .reveal-strip {
+        display: none; /* Complètement désactivé */
+      }
+
+      .about-us .reveal-strip:nth-child(1) { height: 10%; top: 0%; }
+      .about-us .reveal-strip:nth-child(2) { height: 10%; top: 10%; }
+      .about-us .reveal-strip:nth-child(3) { height: 10%; top: 20%; }
+      .about-us .reveal-strip:nth-child(4) { height: 10%; top: 30%; }
+      .about-us .reveal-strip:nth-child(5) { height: 10%; top: 40%; }
+      .about-us .reveal-strip:nth-child(6) { height: 10%; top: 50%; }
+      .about-us .reveal-strip:nth-child(7) { height: 10%; top: 60%; }
+      .about-us .reveal-strip:nth-child(8) { height: 10%; top: 70%; }
+      .about-us .reveal-strip:nth-child(9) { height: 10%; top: 80%; }
+      .about-us .reveal-strip:nth-child(10) { height: 10%; top: 90%; }
+
+      /* Animation moderne - État activé */
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(1) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.1s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(2) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.2s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(3) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.3s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(4) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.4s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(5) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.5s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(6) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.6s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(7) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.7s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(8) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.8s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(9) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.9s;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(10) {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 1s;
+      }
+
+      /* Pas d'animation, style simple */
+
+      /* Animation de sortie des strips */
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(1) {
+        animation: slideOutRight 0.8s ease-in 2s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(2) {
+        animation: slideOutRight 0.8s ease-in 2.1s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(3) {
+        animation: slideOutRight 0.8s ease-in 2.2s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(4) {
+        animation: slideOutRight 0.8s ease-in 2.3s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(5) {
+        animation: slideOutRight 0.8s ease-in 2.4s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(6) {
+        animation: slideOutRight 0.8s ease-in 2.5s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(7) {
+        animation: slideOutRight 0.8s ease-in 2.6s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(8) {
+        animation: slideOutRight 0.8s ease-in 2.7s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(9) {
+        animation: slideOutRight 0.8s ease-in 2.8s forwards;
+      }
+      .about-us .group-wrapper.animate .reveal-strip:nth-child(10) {
+        animation: slideOutRight 0.8s ease-in 2.9s forwards;
+      }
+
+      @keyframes slideOutRight {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
+
+      .about-us .content-overlay {
+        position: relative;
+        z-index: 4;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        padding: 40px 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        transition: all 0.4s ease 0.1s;
+      }
+
+      /* Animation du contenu au survol */
+      .about-us .group-13:hover .content-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Style simple et lisible du titre */
+      .about-us .content-overlay .text-wrapper-14 {
+        margin-bottom: 30px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        font-size: 48px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        color: #ffffff;
+        font-weight: 600;
+        text-align: center;
+        font-family: "Kanit", Helvetica;
+      }
+
+      /* Bouton avec style cohérent du site */
+      .about-us .content-overlay .button-planifier-3 {
+        width: 218px;
+        height: 31px;
+        position: relative;
+        background-color: #fffcfc;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .about-us .content-overlay .button-planifier-3:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+
+      .about-us .content-overlay .button-planifier-3 .text-wrapper-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Kanit", Helvetica;
+        font-weight: 500;
+        color: #08070a;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: 1;
+        white-space: nowrap;
+        width: auto;
       }
 
       .about-us .group-14 {
@@ -802,10 +1008,9 @@
       }
 
       .about-us .text-wrapper-14 {
-        position: absolute;
-        width: 688px;
-        top: 0;
-        left: 0;
+        position: relative;
+        width: auto;
+        max-width: 690px;
         font-family: "Kanit", Helvetica;
         font-weight: 600;
         color: #ffffff;
@@ -813,16 +1018,24 @@
         text-align: center;
         letter-spacing: 0;
         line-height: normal;
+        margin-bottom: 30px;
       }
 
       .about-us .button-planifier-3 {
         width: 218px;
-        top: 193px;
-        left: 233px;
-        position: absolute;
         height: 31px;
+        position: relative;
         background-color: #fffcfc;
         border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .about-us .button-planifier-3:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       }
 
       .about-us .overlap-wrapper {
@@ -1369,8 +1582,8 @@
         position: absolute;
         width: 306px;
         top: 300px;
-        left: 10px;
-        text-align: center;
+        left: 65px;
+        text-align: left;
         z-index: 2;
       }
 
@@ -1497,7 +1710,7 @@
         position: absolute;
         width: 386px;
         top: 133px;
-        left: 18px;
+        left: 24px;
         font-family: "Kanit", Helvetica;
         font-weight: 400;
         color: #171b1c;
@@ -2495,16 +2708,30 @@
         <section class="group-wrapper">
           <div class="group-wrapper-content">
             <div class="group-12">
-              <img
-                class="group-13"
-                src="https://c.animaapp.com/mej28vheoYXHwd/img/group-61.png"
-                alt="Image d'équipe travaillant sur un projet"
-              />
-              <div class="group-14">
-                <h2 class="text-wrapper-14">Commencer dès maintenant vos projets avec Lantorian</h2>
-                <a href="reservation.html" style="text-decoration:none;"><button class="button-planifier-3" type="button" aria-label="Planifier une consultation">
-                  <span class="text-wrapper-2">Planifier une consultation</span></a>
-                </button>
+              <div class="group-13">
+                <!-- Animation moderne avec révélation -->
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+                <div class="reveal-strip"></div>
+
+                <!-- Overlay moderne avec contenu stylisé -->
+                <div class="modern-overlay">
+                  <div class="content-overlay">
+                    <h2 class="text-wrapper-14" data-text="Commencez dès maintenant vos projets avec Lantorian">Commencez dès maintenant vos projets avec Lantorian</h2>
+                    <a href="reservation.html" style="text-decoration:none;">
+                      <button class="button-planifier-3" type="button" aria-label="Planifier une consultation">
+                        <span class="text-wrapper-2">Planifier une consultation</span>
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -2831,5 +3058,50 @@
         </div>
       </div>
     </main>
+
+    <script>
+      // Vérification simple et affichage forcé
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, checking elements...');
+
+        const shutterSection = document.querySelector('.group-wrapper');
+        const overlay = document.querySelector('.modern-overlay');
+        const content = document.querySelector('.content-overlay');
+        const title = document.querySelector('.text-wrapper-14');
+        const button = document.querySelector('.button-planifier-3');
+
+        console.log('Elements found:', {
+          section: !!shutterSection,
+          overlay: !!overlay,
+          content: !!content,
+          title: !!title,
+          button: !!button
+        });
+
+        // Vérification que les éléments sont bien cachés par défaut
+        if (overlay) {
+          console.log('✅ Overlay found - hidden by default');
+        }
+
+        if (content) {
+          console.log('✅ Content found - hidden by default');
+        }
+
+        if (title) {
+          console.log('✅ Title found');
+        }
+
+        if (button) {
+          console.log('✅ Button found');
+        }
+
+        // Test après 1 seconde
+        setTimeout(() => {
+          console.log('🔍 Final check...');
+          console.log('Overlay styles:', overlay ? window.getComputedStyle(overlay) : 'not found');
+          console.log('Content styles:', content ? window.getComputedStyle(content) : 'not found');
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
