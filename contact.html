@@ -878,6 +878,9 @@ a {
   display: flex;
   justify-content: center;
   z-index: 1000;
+  background: rgba(23, 27, 28, 0.1);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
 }
 
 .contact .nav-content {
@@ -1009,6 +1012,29 @@ a {
     align-items: left;
   }
 
+  /* === Footer: email contact === */
+  .contact .footer-contact {
+    position: absolute;
+    width: 306px;
+    top: 295px;
+    left: 70px;
+    text-align: left;
+    z-index: 2;
+  }
+
+  .contact .footer-email {
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: "Kanit", Helvetica;
+  }
+
+  .contact .footer-email:hover {
+    color: #7b2cbf;
+  }
+
     </style>
     <link rel="icon" type="image/png" href="favicon.png">
   </head>
@@ -1109,6 +1135,9 @@ a {
                   <div class="text-wrapper-7">Saisissez votre email</div>
                   <img class="img" src="https://c.animaapp.com/meo11kog3EWQ62/img/group-25.png" />
                   <div class="frame"></div>
+                </div>
+                <div class="footer-contact">
+                  <a href="mailto:contact@lantorian.com" class="footer-email">contact@lantorian.com</a>
                 </div>
                 <img class="frame-2" src="https://c.animaapp.com/meo11kog3EWQ62/img/frame-97.svg" />
                 <div class="overlap-group-wrapper">

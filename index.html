@@ -4765,12 +4765,18 @@
       }
 
       .ebauche .header-logo-container {
-        position: absolute;
-        top: -60px;
-        left: 0;
+        position: fixed;
+        top: 20px;
+        left: 50px;
         display: flex;
         align-items: center;
         gap: 15px;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
       }
 
       .ebauche .header-lantorian-logo {
