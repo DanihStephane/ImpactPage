@@ -4034,6 +4034,362 @@
         transform-origin: center;
       }
 
+      /* Hover Effects for Group-2 Elements */
+      .mobile-home .group-2 .overlap-group,
+      .mobile-home .group-2 .overlap-group-2,
+      .mobile-home .group-2 .overlap-5,
+      .mobile-home .group-2 .overlap-7 {
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        cursor: pointer;
+      }
+
+      .mobile-home .group-2 .overlap-group img,
+      .mobile-home .group-2 .overlap-group-2 img,
+      .mobile-home .group-2 .overlap-5 img,
+      .mobile-home .group-2 .overlap-7 img {
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Text transitions for smooth color change */
+      .mobile-home .group-2 .overlap-group .p,
+      .mobile-home .group-2 .overlap-group-2 .text-wrapper-6,
+      .mobile-home .group-2 .overlap-5 .text-wrapper-8,
+      .mobile-home .group-2 .overlap-7 .text-wrapper-10 {
+        transition: color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), font-weight 0.3s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* First element: "Celles qui ralentissent votre site WordPress" */
+      .mobile-home .group-2 .overlap-group {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mobile-home .group-2 .overlap-group::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .mobile-home .group-2 .overlap-group:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .mobile-home .group-2 .overlap-group:hover::before {
+        left: 0;
+      }
+
+      .mobile-home .group-2 .overlap-group:hover .p {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .mobile-home .group-2 .overlap-group:hover .img {
+        content: url('assets/images/violet/lapin.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Second element: "Qui font fuir vos visiteurs sans interaction" */
+      .mobile-home .group-2 .overlap-group-2 {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mobile-home .group-2 .overlap-group-2::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .mobile-home .group-2 .overlap-group-2:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .mobile-home .group-2 .overlap-group-2:hover::before {
+        left: 0;
+      }
+
+      .mobile-home .group-2 .overlap-group-2:hover .text-wrapper-6 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .mobile-home .group-2 .overlap-group-2:hover .group-4 {
+        content: url('assets/images/violet/visiteur.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Third element: "Qui transforment chaque mise à jour de sécurité en stress permanent" */
+      .mobile-home .group-2 .overlap-5 {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mobile-home .group-2 .overlap-5::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .mobile-home .group-2 .overlap-5:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .mobile-home .group-2 .overlap-5:hover::before {
+        left: 0;
+      }
+
+      .mobile-home .group-2 .overlap-5:hover .text-wrapper-8 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .mobile-home .group-2 .overlap-5:hover .group-6 {
+        content: url('assets/images/violet/lock.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Fourth element: "Qui affichent un design vieilli ne reflétant plus votre marque" */
+      .mobile-home .group-2 .overlap-7 {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mobile-home .group-2 .overlap-7::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .mobile-home .group-2 .overlap-7:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .mobile-home .group-2 .overlap-7:hover::before {
+        left: 0;
+      }
+
+      .mobile-home .group-2 .overlap-7:hover .text-wrapper-10 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .mobile-home .group-2 .overlap-7:hover .group-8 {
+        content: url('assets/images/violet/mesure.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Desktop Version Hover Effects */
+      .ebauche .c,
+      .ebauche .c-2,
+      .ebauche .c-3,
+      .ebauche .c-4 {
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        cursor: pointer;
+      }
+
+      .ebauche .c .front img,
+      .ebauche .c-2 .front img,
+      .ebauche .c-3 .front img,
+      .ebauche .c-4 .front img {
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Desktop text transitions for smooth color change */
+      .ebauche .c .front .text-wrapper-15,
+      .ebauche .c-2 .front .text-wrapper-16,
+      .ebauche .c-3 .front .text-wrapper-16,
+      .ebauche .c-4 .front .text-wrapper-15 {
+        transition: color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), font-weight 0.3s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* First desktop element: "Celles qui ralentissent votre site WordPress" */
+      .ebauche .c .front {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ebauche .c .front::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .ebauche .c:hover .front {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .ebauche .c:hover .front::before {
+        left: 0;
+      }
+
+      .ebauche .c:hover .front .text-wrapper-15 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .ebauche .c:hover .front .vector-4 {
+        content: url('assets/images/violet/lapin.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Second desktop element: "Qui font fuir vos visiteurs sans interaction" */
+      .ebauche .c-2 .front {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ebauche .c-2 .front::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .ebauche .c-2:hover .front {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .ebauche .c-2:hover .front::before {
+        left: 0;
+      }
+
+      .ebauche .c-2:hover .front .text-wrapper-16 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .ebauche .c-2:hover .front .vector-5 {
+        content: url('assets/images/violet/visiteur.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Third desktop element: "Qui affichent un design vieilli ne reflétant plus votre marque" */
+      .ebauche .c-3 .front {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ebauche .c-3 .front::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .ebauche .c-3:hover .front {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .ebauche .c-3:hover .front::before {
+        left: 0;
+      }
+
+      .ebauche .c-3:hover .front .text-wrapper-16 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .ebauche .c-3:hover .front .vector-6 {
+        content: url('assets/images/violet/mesure.svg');
+        transform: rotateY(180deg);
+      }
+
+      /* Fourth desktop element: "Qui transforment chaque mise à jour de sécurité en stress permanent" */
+      .ebauche .c-4 .front {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ebauche .c-4 .front::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -100%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        border-radius: 15px;
+        transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+
+      .ebauche .c-4:hover .front {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .ebauche .c-4:hover .front::before {
+        left: 0;
+      }
+
+      .ebauche .c-4:hover .front .text-wrapper-15 {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .ebauche .c-4:hover .front .vector-7 {
+        content: url('assets/images/violet/lock.svg');
+        transform: rotateY(180deg);
+      }
+
       .ebauche .component {
         position: absolute;
         /*width: 70px;*/
