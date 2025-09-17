@@ -1,2083 +1,2083 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css?family=Kanit:500,400,600,italic");
-* {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-html,
-body {
-  margin: 0px;
-  height: 100%;
-}
-/* a blue color as a generic focus style */
-button:focus-visible {
-  outline: 2px solid #4a90e2 !important;
-  outline: -webkit-focus-ring-color auto 5px !important;
-}
-a {
-  text-decoration: none;
-}
-.mobile-a-propos {
-  background-color: #ffffff;
-  display: grid;
-  justify-items: center;
-  align-items: start;
-  width: 100vw;
-}
-
-.mobile-a-propos .div {
-  background-color: #ffffff;
-  overflow: hidden;
-  width: 375px;
-  height: 5439px;
-  position: relative;
-}
-
-.mobile-a-propos .overlap {
-  position: absolute;
-  width: 396px;
-  height: 4072px;
-  top: 0;
-  left: -5px;
-}
-
-.mobile-a-propos .rectangle {
-  position: absolute;
-  width: 375px;
-  height: 736px;
-  top: 0;
-  left: 5px;
-  background: linear-gradient(
-    20deg,
-    rgba(23, 27, 28, 1) 0%,
-    rgba(28, 20, 38, 1) 100%
-  );
-}
-
-.mobile-a-propos .rectangle-2 {
-  position: absolute;
-  width: 375px;
-  height: 3346px;
-  top: 726px;
-  left: 5px;
-  background-color: #171b1c;
-}
-
-.mobile-a-propos .group {
-  position: absolute;
-  width: 337px;
-  height: 444px;
-  top: 146px;
-  left: 35px;
-}
-
-.mobile-a-propos .frame {
-  display: flex;
-  width: 221px;
-  height: 49px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 13px;
-  position: absolute;
-  top: 395px;
-  left: 47px;
-  background-color: #ffffff;
-  border-radius: 50px;
-  backdrop-filter: blur(3.5px) brightness(100%);
-  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
-}
-
-.mobile-a-propos .text-wrapper {
-  position: relative;
-  width: fit-content;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .p {
-  position: absolute;
-  width: 333px;
-  top: 152px;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 22px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-2 {
-  position: absolute;
-  width: 162px;
-  height: 70px;
-  top: 0;
-  left: 74px;
-}
-
-.mobile-a-propos .component {
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 71px;
-  height: 70px;
-}
-
-.mobile-a-propos .group-3 {
-  position: relative;
-  height: 70px;
-}
-
-.mobile-a-propos .rectangle-3 {
-  width: 36px;
-  height: 35px;
-  left: 36px;
-  background-color: #fffcfc;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
-}
-
-.mobile-a-propos .rectangle-4 {
-  width: 36px;
-  height: 35px;
-  left: 0;
-  background-color: #fffcfc;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
-}
-
-.mobile-a-propos .rectangle-5 {
-  position: absolute;
-  width: 36px;
-  height: 35px;
-  top: 35px;
-  left: 0;
-  background-color: #fffcfc;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .rectangle-6 {
-  position: absolute;
-  width: 36px;
-  height: 35px;
-  top: 35px;
-  left: 36px;
-  background-color: #fffcfc;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .vector {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: 0;
-  left: 92px;
-}
-
-.mobile-a-propos .text-wrapper-2 {
-  position: absolute;
-  width: 254px;
-  top: 353px;
-  left: 31px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 15px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .img {
-  position: absolute;
-  width: 374px;
-  height: 270px;
-  top: 631px;
-  left: 5px;
-  object-fit: cover;
-}
-
-.mobile-a-propos .group-4 {
-  position: absolute;
-  width: 366px;
-  height: 283px;
-  top: 938px;
-  left: 25px;
-}
-
-.mobile-a-propos .group-5 {
-  position: absolute;
-  width: 364px;
-  height: 28px;
-  top: 0;
-  left: 0;
-}
-
-.mobile-a-propos .group-6 {
-  position: absolute;
-  width: 23px;
-  height: 22px;
-  top: 6px;
-  left: 0;
-}
-
-.mobile-a-propos .overlap-group {
-  position: absolute;
-  width: 12px;
-  height: 22px;
-  top: 0;
-  left: 0;
-}
-
-.mobile-a-propos .rectangle-7 {
-  width: 12px;
-  height: 11px;
-  left: 0;
-  background-color: #ffffff;
-  border-radius: 0px 0px 50px 0px;
-  position: absolute;
-  top: 0;
-}
-
-.mobile-a-propos .rectangle-8 {
-  position: absolute;
-  width: 11px;
-  height: 12px;
-  top: 11px;
-  left: 0;
-  background-color: #ffffff;
-  border-radius: 0px 0px 50px 0px;
-  transform: rotate(-90deg);
-}
-
-.mobile-a-propos .rectangle-9 {
-  width: 12px;
-  height: 11px;
-  left: 12px;
-  background-color: #ffffff;
-  border-radius: 0px 0px 50px 0px;
-  transform: rotate(180deg);
-  position: absolute;
-  top: 0;
-}
-
-.mobile-a-propos .rectangle-10 {
-  position: absolute;
-  width: 12px;
-  height: 11px;
-  top: 11px;
-  left: 12px;
-  background-color: #ffffff;
-  border-radius: 0px 0px 50px 0px;
-  transform: rotate(180deg);
-}
-
-.mobile-a-propos .notre-histoire-notre {
-  position: absolute;
-  width: 330px;
-  top: 0;
-  left: 32px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 22px;
-  letter-spacing: -0.22px;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-3 {
-  position: absolute;
-  width: 335px;
-  top: 51px;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-4 {
-  position: absolute;
-  width: 330px;
-  top: 167px;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .overlap-wrapper {
-  position: absolute;
-  width: 379px;
-  height: 425px;
-  top: 1276px;
-  left: 5px;
-}
-
-.mobile-a-propos .overlap-2 {
-  position: relative;
-  width: 375px;
-  height: 425px;
-  background-color: #ffffff;
-}
-
-.mobile-a-propos .group-7 {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 12px;
-  left: 177px;
-}
-
-.mobile-a-propos .rectangle-11 {
-  width: 11px;
-  height: 11px;
-  left: 11px;
-  background-color: #0f0f0f;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
-}
-
-.mobile-a-propos .rectangle-12 {
-  width: 11px;
-  height: 11px;
-  left: 0;
-  background-color: #0f0f0f;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
-}
-
-.mobile-a-propos .rectangle-13 {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  top: 11px;
-  left: 0;
-  background-color: #0f0f0f;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .rectangle-14 {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  top: 11px;
-  left: 11px;
-  background-color: #0f0f0f;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .group-8 {
-  position: absolute;
-  width: 296px;
-  height: 33px;
-  top: 54px;
-  left: 54px;
-}
-
-.mobile-a-propos .overlap-group-wrapper {
-  position: absolute;
-  width: 70px;
-  height: 33px;
-  top: 0;
-  left: 0;
-}
-
-.mobile-a-propos .overlap-group-2 {
-  position: relative;
-  width: 68px;
-  height: 33px;
-}
-
-.mobile-a-propos .rectangle-15 {
-  position: absolute;
-  width: 68px;
-  height: 31px;
-  top: 2px;
-  left: 0;
-  background-color: #ffffff;
-  border-radius: 50px;
-  border: 2px solid;
-  border-color: #171b1c;
-}
-
-.mobile-a-propos .text-wrapper-5 {
-  position: absolute;
-  width: 38px;
-  top: 0;
-  left: 14px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #0f0f0f;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .div-wrapper {
-  position: absolute;
-  width: 116px;
-  height: 33px;
-  top: 0;
-  left: 80px;
-}
-
-.mobile-a-propos .overlap-3 {
-  position: relative;
-  width: 114px;
-  height: 33px;
-}
-
-.mobile-a-propos .rectangle-16 {
-  position: absolute;
-  width: 114px;
-  height: 31px;
-  top: 2px;
-  left: 0;
-  background-color: #ffffff;
-  border-radius: 50px;
-  border: 2px solid;
-  border-color: #171b1c;
-}
-
-.mobile-a-propos .text-wrapper-6 {
-  position: absolute;
-  width: 93px;
-  top: 0;
-  left: 14px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #0f0f0f;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-9 {
-  position: absolute;
-  width: 92px;
-  height: 33px;
-  top: 0;
-  left: 206px;
-}
-
-.mobile-a-propos .overlap-4 {
-  position: relative;
-  width: 90px;
-  height: 33px;
-}
-
-.mobile-a-propos .rectangle-17 {
-  position: absolute;
-  width: 90px;
-  height: 31px;
-  top: 2px;
-  left: 0;
-  background-color: #ffffff;
-  border-radius: 50px;
-  border: 2px solid;
-  border-color: #171b1c;
-}
-
-.mobile-a-propos .text-wrapper-7 {
-  position: absolute;
-  width: 64px;
-  top: 0;
-  left: 16px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #0f0f0f;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .nous-accompagnons {
-  position: absolute;
-  width: 343px;
-  top: 104px;
-  left: 16px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .span {
-  font-weight: 500;
-}
-
-.mobile-a-propos .text-wrapper-8 {
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  letter-spacing: 0;
-}
-
-.mobile-a-propos .text-wrapper-9 {
-  position: absolute;
-  width: 342px;
-  top: 277px;
-  left: 16px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 500;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-2 {
-  display: flex;
-  width: 221px;
-  height: 49px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 13px;
-  position: absolute;
-  top: 350px;
-  left: 77px;
-  background-color: #09080b;
-  border-radius: 50px;
-  backdrop-filter: blur(3.5px) brightness(100%);
-  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
-}
-
-.mobile-a-propos .text-wrapper-10 {
-  color: #fffcfc;
-  position: relative;
-  width: fit-content;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-wrapper {
-  position: absolute;
-  width: 374px;
-  height: 342px;
-  top: 1910px;
-  left: 5px;
-  overflow: hidden;
-  overflow-x: scroll;
-}
-
-.mobile-a-propos .group-wrapper::-webkit-scrollbar {
-  width: 0;
-  display: none;
-}
-
-.mobile-a-propos .group-10 {
-  position: relative;
-  width: 2417px;
-  height: 342px;
-  left: 20px;
-}
-
-.mobile-a-propos .frame-3 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 0;
-  left: 0;
-}
-
-.mobile-a-propos .group-11 {
-  width: 339px;
-  height: 339px;
-}
-
-.mobile-a-propos .overlap-group-3 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-231.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .chef-de-projet {
-  position: absolute;
-  width: 161px;
-  top: 136px;
-  left: 92px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-11 {
-  position: absolute;
-  width: 291px;
-  top: 203px;
-  left: 21px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #171b1c;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .component-2 {
-  top: 31px;
-  left: 93px;
-  position: absolute;
-  width: 71px;
-  height: 70px;
-}
-
-.mobile-a-propos .rectangle-18 {
-  position: absolute;
-  width: 36px;
-  height: 35px;
-  top: 0;
-  left: 36px;
-  background-color: #171b1c;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .rectangle-19 {
-  position: absolute;
-  width: 36px;
-  height: 35px;
-  top: 0;
-  left: 0;
-  background-color: #171b1c;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .rectangle-20 {
-  position: absolute;
-  width: 36px;
-  height: 35px;
-  top: 35px;
-  left: 0;
-  background-color: #171b1c;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .rectangle-21 {
-  position: absolute;
-  width: 36px;
-  height: 35px;
-  top: 35px;
-  left: 36px;
-  background-color: #171b1c;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .vector-2 {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: 31px;
-  left: 182px;
-}
-
-.mobile-a-propos .frame-4 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 0;
-  left: 1041px;
-}
-
-.mobile-a-propos .overlap-group-4 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-234.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .text-wrapper-12 {
-  left: 81px;
-  position: absolute;
-  width: 161px;
-  top: 136px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-13 {
-  position: absolute;
-  width: 291px;
-  top: 203px;
-  left: 9px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #171b1c;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-5 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 1px;
-  left: 1388px;
-}
-
-.mobile-a-propos .overlap-group-5 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-235.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .text-wrapper-14 {
-  left: 93px;
-  position: absolute;
-  width: 161px;
-  top: 136px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-6 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 2px;
-  left: 1735px;
-}
-
-.mobile-a-propos .overlap-group-6 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-236.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .text-wrapper-15 {
-  position: absolute;
-  width: 216px;
-  top: 136px;
-  left: 72px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-7 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 3px;
-  left: 2082px;
-}
-
-.mobile-a-propos .overlap-group-7 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-237.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .frame-8 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 0;
-  left: 347px;
-}
-
-.mobile-a-propos .overlap-group-8 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-232.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .text-wrapper-16 {
-  position: absolute;
-  width: 125px;
-  top: 136px;
-  left: 121px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-9 {
-  position: absolute;
-  width: 335px;
-  height: 339px;
-  top: 0;
-  left: 694px;
-}
-
-.mobile-a-propos .overlap-group-9 {
-  position: relative;
-  width: 335px;
-  height: 339px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-233.svg);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .graphiste {
-  position: absolute;
-  width: 185px;
-  top: 136px;
-  left: 93px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .rectangle-22 {
-  position: absolute;
-  width: 337px;
-  height: 42px;
-  top: 1738px;
-  left: 25px;
-  background-color: #171b1c;
-  border-radius: 50px;
-  border: 2px solid;
-  border-color: #fffcfc;
-}
-
-.mobile-a-propos .group-12 {
-  position: absolute;
-  width: 343px;
-  height: 152px;
-  top: 1741px;
-  left: 21px;
-}
-
-.mobile-a-propos .text-wrapper-17 {
-  position: absolute;
-  width: 339px;
-  top: 68px;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-18 {
-  position: absolute;
-  width: 320px;
-  top: 0;
-  left: 13px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 22px;
-  letter-spacing: -0.66px;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-13 {
-  position: absolute;
-  width: 377px;
-  height: 597px;
-  top: 2307px;
-  left: 5px;
-}
-
-.mobile-a-propos .overlap-5 {
-  position: relative;
-  width: 375px;
-  height: 597px;
-  background-color: #ffffff;
-}
-
-.mobile-a-propos .avec-lantorian {
-  position: absolute;
-  width: 335px;
-  top: 112px;
-  left: 20px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-14 {
-  position: absolute;
-  width: 262px;
-  height: 25px;
-  top: 272px;
-  left: 57px;
-}
-
-.mobile-a-propos .group-15 {
-  position: absolute;
-  width: 335px;
-  height: 221px;
-  top: 342px;
-  left: 20px;
-}
-
-.mobile-a-propos .concr-tement-qu-est {
-  position: absolute;
-  width: 314px;
-  top: 0;
-  left: 19px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 12px;
-}
-
-.mobile-a-propos .text-wrapper-19 {
-  font-weight: 600;
-  line-height: 15px;
-}
-
-.mobile-a-propos .text-wrapper-20 {
-  line-height: 15px;
-}
-
-.mobile-a-propos .vector-3 {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  top: 31px;
-  left: 0;
-}
-
-.mobile-a-propos .vector-4 {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  top: 76px;
-  left: 0;
-}
-
-.mobile-a-propos .vector-5 {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  top: 121px;
-  left: 0;
-}
-
-.mobile-a-propos .vector-6 {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  top: 166px;
-  left: 1px;
-}
-
-.mobile-a-propos .group-16 {
-  position: absolute;
-  width: 345px;
-  height: 33px;
-  top: 53px;
-  left: 20px;
-}
-
-.mobile-a-propos .vector-7 {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 5px;
-  left: 19px;
-}
-
-.mobile-a-propos .text-wrapper-21 {
-  position: absolute;
-  width: 17px;
-  top: 0;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #0f0f0f;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-22 {
-  position: absolute;
-  width: 296px;
-  top: 0;
-  left: 45px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #0f0f0f;
-  font-size: 22px;
-  letter-spacing: -0.66px;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-17 {
-  position: absolute;
-  width: 396px;
-  height: 1077px;
-  top: 2959px;
-  left: 0;
-}
-
-.mobile-a-propos .group-18 {
-  position: absolute;
-  width: 384px;
-  height: 72px;
-  top: 0;
-  left: 0;
-}
-
-.mobile-a-propos .text-wrapper-23 {
-  position: absolute;
-  width: 382px;
-  top: 0;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 22px;
-  text-align: center;
-  letter-spacing: -0.66px;
-  line-height: normal;
-}
-
-.mobile-a-propos .overlap-6 {
-  position: absolute;
-  width: 324px;
-  height: 1005px;
-  top: 72px;
-  left: 29px;
-  background-color: #ffffff;
-  border-radius: 15px;
-}
-
-.mobile-a-propos .group-19 {
-  position: absolute;
-  width: 73px;
-  height: 73px;
-  top: 10px;
-  left: 129px;
-}
-
-.mobile-a-propos .group-20 {
-  position: absolute;
-  width: 73px;
-  height: 73px;
-  top: 909px;
-  left: 129px;
-}
-
-.mobile-a-propos .claire-dupuis-g {
-  position: absolute;
-  width: 288px;
-  top: 219px;
-  left: 19px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-24 {
-  font-weight: 300;
-}
-
-.mobile-a-propos .vector-8 {
-  position: absolute;
-  width: 290px;
-  height: 2px;
-  top: 300px;
-  left: 17px;
-}
-
-.mobile-a-propos .vector-9 {
-  position: absolute;
-  width: 290px;
-  height: 2px;
-  top: 533px;
-  left: 17px;
-}
-
-.mobile-a-propos .text-wrapper-25 {
-  position: absolute;
-  width: 297px;
-  top: 93px;
-  left: 17px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  font-style: italic;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .julien-morel {
-  position: absolute;
-  width: 265px;
-  top: 457px;
-  left: 32px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-26 {
-  position: absolute;
-  width: 312px;
-  top: 331px;
-  left: 7px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  font-style: italic;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .a-cha-benali {
-  position: absolute;
-  width: 226px;
-  top: 690px;
-  left: 49px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-27 {
-  position: absolute;
-  width: 286px;
-  top: 564px;
-  left: 21px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  font-style: italic;
-  color: #0f0f0f;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-21 {
-  position: absolute;
-  width: 76px;
-  height: 22px;
-  top: 870px;
-  left: 128px;
-}
-
-.mobile-a-propos .text-wrapper-28 {
-  position: absolute;
-  width: 228px;
-  top: 812px;
-  left: 44px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #0f0f0f;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-  text-decoration: underline;
-}
-
-.mobile-a-propos .group-22 {
-  position: absolute;
-  width: 87px;
-  height: 31px;
-  top: 776px;
-  left: 124px;
-}
-
-.mobile-a-propos .group-23 {
-  position: absolute;
-  width: 381px;
-  height: 589px;
-  top: 4850px;
-  left: 0;
-}
-
-.mobile-a-propos .overlap-7 {
-  position: relative;
-  width: 375px;
-  height: 589px;
-  background-color: #000000;
-}
-
-.mobile-a-propos .frame-10 {
-  display: flex;
-  width: 132px;
-  height: 49px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 13px;
-  position: absolute;
-  top: 430px;
-  left: 126px;
-  background-color: #ffffff;
-  border-radius: 50px;
-  backdrop-filter: blur(3.5px) brightness(100%);
-  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
-}
-
-.mobile-a-propos .text-wrapper-29 {
-  position: absolute;
-  width: 295px;
-  top: 19px;
-  left: 40px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 34px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .overlap-8 {
-  position: absolute;
-  width: 336px;
-  height: 45px;
-  top: 195px;
-  left: 20px;
-  background-color: #262626;
-  border-radius: 2px;
-}
-
-.mobile-a-propos .text-wrapper-30 {
-  position: absolute;
-  width: 146px;
-  top: 12px;
-  left: 54px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff99;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .group-24 {
-  position: absolute;
-  width: 21px;
-  height: 21px;
-  top: 12px;
-  left: 299px;
-}
-
-.mobile-a-propos .frame-11 {
-  position: absolute;
-  width: 20px;
-  height: 26px;
-  top: 9px;
-  left: 19px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/email.png);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .group-25 {
-  position: absolute;
-  width: 168px;
-  height: 24px;
-  top: 302px;
-  left: 109px;
-}
-
-.mobile-a-propos .overlap-group-10 {
-  position: relative;
-  width: 167px;
-  height: 24px;
-}
-
-.mobile-a-propos .text-wrapper-31 {
-  position: absolute;
-  width: 155px;
-  top: 0;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-  text-decoration: underline;
-}
-
-.mobile-a-propos .arrow {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  top: 6px;
-  left: 154px;
-}
-
-.mobile-a-propos .group-26 {
-  position: absolute;
-  width: 125px;
-  height: 24px;
-  top: 346px;
-  left: 124px;
-}
-
-.mobile-a-propos .frame-12 {
-  position: absolute;
-  width: 13px;
-  height: 12px;
-  top: 5px;
-  left: 0;
-}
-
-.mobile-a-propos .group-27 {
-  position: absolute;
-  width: 110px;
-  height: 24px;
-  top: 0;
-  left: 19px;
-}
-
-.mobile-a-propos .overlap-group-11 {
-  position: relative;
-  width: 106px;
-  height: 24px;
-}
-
-.mobile-a-propos .text-wrapper-32 {
-  position: absolute;
-  width: 68px;
-  top: 0;
-  left: 38px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-33 {
-  position: absolute;
-  width: 39px;
-  top: 0;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .privacy-policy-terms {
-  position: absolute;
-  width: 236px;
-  top: 388px;
-  left: 79px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .text-wrapper-34 {
-  text-decoration: underline;
-}
-
-.mobile-a-propos .group-28 {
-  position: absolute;
-  width: 360px;
-  height: 702px;
-  top: 4103px;
-  left: 7px;
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/group-326.png);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .overlap-9 {
-  height: 702px;
-  background-color: #1b142680;
-}
-
-.mobile-a-propos .group-29 {
-  position: relative;
-  width: 317px;
-  height: 149px;
-  top: 330px;
-  left: 25px;
-}
-
-.mobile-a-propos .text-wrapper-35 {
-  position: absolute;
-  width: 315px;
-  top: 0;
-  left: 0;
-  font-family: "Kanit", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 22px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-13 {
-  display: flex;
-  width: 221px;
-  height: 49px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 13px;
-  position: absolute;
-  top: 100px;
-  left: 36px;
-  background-color: #ffffff;
-  border-radius: 50px;
-  backdrop-filter: blur(3.5px) brightness(100%);
-  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
-}
-
-.mobile-a-propos .group-30 {
-  position: fixed;
-  width: 384px;
-  height: 105px;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.mobile-a-propos .overlap-10 {
-  position: relative;
-  height: 105px;
-}
-
-.mobile-a-propos .group-31 {
-  position: absolute;
-  width: 375px;
-  height: 105px;
-  top: 0;
-  left: 0;
-  backdrop-filter: blur(5px) brightness(100%);
-  -webkit-backdrop-filter: blur(5px) brightness(100%);
-  background: linear-gradient(
-    20deg,
-    rgba(23, 27, 28, 0.3) 0%,
-    rgba(28, 20, 38, 0.3) 100%
-  );
-}
-
-.mobile-a-propos .frame-14 {
-  position: absolute;
-  width: 384px;
-  height: 38px;
-  top: 26px;
-  left: 0;
-  overflow: hidden;
-  overflow-x: scroll;
-}
-
-.mobile-a-propos .frame-14::-webkit-scrollbar {
-  width: 0;
-  display: none;
-}
-
-.mobile-a-propos .frame-15 {
-  display: inline-flex;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 7px;
-  position: absolute;
-  top: 0;
-  left: -66px;
-  background-color: #ffffff;
-  border-radius: 50px;
-  border: 1px solid;
-}
-
-.mobile-a-propos .text-wrapper-36 {
-  position: relative;
-  width: fit-content;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #171b1c;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-16 {
-  display: inline-flex;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 7px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #000000;
-  border-radius: 50px;
-  border: 1px solid;
-  border-color: #fffcfc;
-}
-
-.mobile-a-propos .text-wrapper-37 {
-  position: relative;
-  width: fit-content;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #fffcfc;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-17 {
-  display: inline-flex;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 7px;
-  position: absolute;
-  top: 0;
-  left: 75px;
-  background-color: #ffffff;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .text-wrapper-38 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1.00px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #171b1c;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.mobile-a-propos .frame-18 {
-  display: inline-flex;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 7px;
-  position: absolute;
-  top: 0;
-  left: 208px;
-  background-color: #ffffff;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .frame-19 {
-  display: inline-flex;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 7px;
-  position: absolute;
-  top: 0;
-  left: 320px;
-  background-color: #ffffff;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .frame-wrapper {
-  position: fixed;
-  width: 375px;
-  height: 64px;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/group-234.png);
-  background-size: 100% 100%;
-}
-
-.mobile-a-propos .frame-20 {
-  display: flex;
-  width: 83px;
-  height: 32px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 4px 13px;
-  position: relative;
-  top: 18px;
-  left: 270px;
-  background-color: #ffffff;
-  border-radius: 50px;
-}
-
-.mobile-a-propos .text-wrapper-39 {
-  position: relative;
-  width: fit-content;
-  margin-left: -0.50px;
-  margin-right: -0.50px;
-  font-family: "Kanit", Helvetica;
-  font-weight: 400;
-  color: #171b1c;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-</style>
-  </head>
-  <body>
-    <div class="mobile-a-propos">
-      <div class="div">
-        <div class="overlap">
-          <div class="rectangle"></div>
-          <div class="rectangle-2"></div>
-          <div class="group">
-            <div class="frame"><div class="text-wrapper">Plannifier une consultation</div></div>
-            <p class="p">
-              Lantorian Engine transforme les sites vieillissants en expériences web modernes, rapides et engageantes.
-            </p>
-            <div class="group-2">
-              <div class="component">
-                <div class="group-3">
-                  <div class="rectangle-3"></div>
-                  <div class="rectangle-4"></div>
-                  <div class="rectangle-5"></div>
-                  <div class="rectangle-6"></div>
-                </div>
-              </div>
-              <img class="vector" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+    @import url("https://fonts.googleapis.com/css?family=Kanit:500,400,600,italic");
+    * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      margin: 0px;
+      height: 100%;
+    }
+    /* a blue color as a generic focus style */
+    button:focus-visible {
+      outline: 2px solid #4a90e2 !important;
+      outline: -webkit-focus-ring-color auto 5px !important;
+    }
+    a {
+      text-decoration: none;
+    }
+    .mobile-a-propos {
+      background-color: #ffffff;
+      display: grid;
+      justify-items: center;
+      align-items: start;
+      width: 100vw;
+    }
+
+    .mobile-a-propos .div {
+      background-color: #ffffff;
+      overflow: hidden;
+      width: 375px;
+      height: 5439px;
+      position: relative;
+    }
+
+    .mobile-a-propos .overlap {
+      position: absolute;
+      width: 396px;
+      height: 4072px;
+      top: 0;
+      left: -5px;
+    }
+
+    .mobile-a-propos .rectangle {
+      position: absolute;
+      width: 375px;
+      height: 736px;
+      top: 0;
+      left: 5px;
+      background: linear-gradient(
+              20deg,
+              rgba(23, 27, 28, 1) 0%,
+              rgba(28, 20, 38, 1) 100%
+      );
+    }
+
+    .mobile-a-propos .rectangle-2 {
+      position: absolute;
+      width: 375px;
+      height: 3346px;
+      top: 726px;
+      left: 5px;
+      background-color: #171b1c;
+    }
+
+    .mobile-a-propos .group {
+      position: absolute;
+      width: 337px;
+      height: 444px;
+      top: 146px;
+      left: 35px;
+    }
+
+    .mobile-a-propos .frame {
+      display: flex;
+      width: 221px;
+      height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 13px;
+      position: absolute;
+      top: 395px;
+      left: 47px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      backdrop-filter: blur(3.5px) brightness(100%);
+      -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+    }
+
+    .mobile-a-propos .text-wrapper {
+      position: relative;
+      width: fit-content;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .p {
+      position: absolute;
+      width: 333px;
+      top: 152px;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 22px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-2 {
+      position: absolute;
+      width: 162px;
+      height: 70px;
+      top: 0;
+      left: 74px;
+    }
+
+    .mobile-a-propos .component {
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 71px;
+      height: 70px;
+    }
+
+    .mobile-a-propos .group-3 {
+      position: relative;
+      height: 70px;
+    }
+
+    .mobile-a-propos .rectangle-3 {
+      width: 36px;
+      height: 35px;
+      left: 36px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      position: absolute;
+      top: 0;
+    }
+
+    .mobile-a-propos .rectangle-4 {
+      width: 36px;
+      height: 35px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+      position: absolute;
+      top: 0;
+    }
+
+    .mobile-a-propos .rectangle-5 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 35px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .rectangle-6 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 35px;
+      left: 36px;
+      background-color: #ffffff;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .vector {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      top: 0;
+      left: 92px;
+    }
+
+    .mobile-a-propos .text-wrapper-2 {
+      position: absolute;
+      width: 254px;
+      top: 353px;
+      left: 31px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 15px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .img {
+      position: absolute;
+      width: 374px;
+      height: 270px;
+      top: 631px;
+      left: 5px;
+      object-fit: cover;
+    }
+
+    .mobile-a-propos .group-4 {
+      position: absolute;
+      width: 366px;
+      height: 283px;
+      top: 938px;
+      left: 25px;
+    }
+
+    .mobile-a-propos .group-5 {
+      position: absolute;
+      width: 364px;
+      height: 28px;
+      top: 0;
+      left: 0;
+    }
+
+    .mobile-a-propos .group-6 {
+      position: absolute;
+      width: 23px;
+      height: 22px;
+      top: 6px;
+      left: 0;
+    }
+
+    .mobile-a-propos .overlap-group {
+      position: absolute;
+      width: 12px;
+      height: 22px;
+      top: 0;
+      left: 0;
+    }
+
+    .mobile-a-propos .rectangle-7 {
+      width: 12px;
+      height: 11px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 0px 0px 50px 0px;
+      position: absolute;
+      top: 0;
+    }
+
+    .mobile-a-propos .rectangle-8 {
+      position: absolute;
+      width: 11px;
+      height: 12px;
+      top: 11px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 0px 0px 50px 0px;
+      transform: rotate(-90deg);
+    }
+
+    .mobile-a-propos .rectangle-9 {
+      width: 12px;
+      height: 11px;
+      left: 12px;
+      background-color: #ffffff;
+      border-radius: 0px 0px 50px 0px;
+      transform: rotate(180deg);
+      position: absolute;
+      top: 0;
+    }
+
+    .mobile-a-propos .rectangle-10 {
+      position: absolute;
+      width: 12px;
+      height: 11px;
+      top: 11px;
+      left: 12px;
+      background-color: #ffffff;
+      border-radius: 0px 0px 50px 0px;
+      transform: rotate(180deg);
+    }
+
+    .mobile-a-propos .notre-histoire-notre {
+      position: absolute;
+      width: 330px;
+      top: 0;
+      left: 32px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -0.22px;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-3 {
+      position: absolute;
+      width: 335px;
+      top: 51px;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-4 {
+      position: absolute;
+      width: 330px;
+      top: 167px;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .overlap-wrapper {
+      position: absolute;
+      width: 379px;
+      height: 425px;
+      top: 1276px;
+      left: 5px;
+    }
+
+    .mobile-a-propos .overlap-2 {
+      position: relative;
+      width: 375px;
+      height: 425px;
+      background-color: #ffffff;
+    }
+
+    .mobile-a-propos .group-7 {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      top: 12px;
+      left: 177px;
+    }
+
+    .mobile-a-propos .rectangle-11 {
+      width: 11px;
+      height: 11px;
+      left: 11px;
+      background-color: #0f0f0f;
+      border-radius: 50px;
+      position: absolute;
+      top: 0;
+    }
+
+    .mobile-a-propos .rectangle-12 {
+      width: 11px;
+      height: 11px;
+      left: 0;
+      background-color: #0f0f0f;
+      border-radius: 50px;
+      position: absolute;
+      top: 0;
+    }
+
+    .mobile-a-propos .rectangle-13 {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      top: 11px;
+      left: 0;
+      background-color: #0f0f0f;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .rectangle-14 {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      top: 11px;
+      left: 11px;
+      background-color: #0f0f0f;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .group-8 {
+      position: absolute;
+      width: 296px;
+      height: 33px;
+      top: 54px;
+      left: 54px;
+    }
+
+    .mobile-a-propos .overlap-group-wrapper {
+      position: absolute;
+      width: 70px;
+      height: 33px;
+      top: 0;
+      left: 0;
+    }
+
+    .mobile-a-propos .overlap-group-2 {
+      position: relative;
+      width: 68px;
+      height: 33px;
+    }
+
+    .mobile-a-propos .rectangle-15 {
+      position: absolute;
+      width: 68px;
+      height: 31px;
+      top: 2px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+      border: 2px solid;
+      border-color: #171b1c;
+    }
+
+    .mobile-a-propos .text-wrapper-5 {
+      position: absolute;
+      width: 38px;
+      top: 0;
+      left: 14px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #0f0f0f;
+      font-size: 22px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .div-wrapper {
+      position: absolute;
+      width: 116px;
+      height: 33px;
+      top: 0;
+      left: 80px;
+    }
+
+    .mobile-a-propos .overlap-3 {
+      position: relative;
+      width: 114px;
+      height: 33px;
+    }
+
+    .mobile-a-propos .rectangle-16 {
+      position: absolute;
+      width: 114px;
+      height: 31px;
+      top: 2px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+      border: 2px solid;
+      border-color: #171b1c;
+    }
+
+    .mobile-a-propos .text-wrapper-6 {
+      position: absolute;
+      width: 93px;
+      top: 0;
+      left: 14px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #0f0f0f;
+      font-size: 22px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-9 {
+      position: absolute;
+      width: 92px;
+      height: 33px;
+      top: 0;
+      left: 206px;
+    }
+
+    .mobile-a-propos .overlap-4 {
+      position: relative;
+      width: 90px;
+      height: 33px;
+    }
+
+    .mobile-a-propos .rectangle-17 {
+      position: absolute;
+      width: 90px;
+      height: 31px;
+      top: 2px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+      border: 2px solid;
+      border-color: #171b1c;
+    }
+
+    .mobile-a-propos .text-wrapper-7 {
+      position: absolute;
+      width: 64px;
+      top: 0;
+      left: 16px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #0f0f0f;
+      font-size: 22px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .nous-accompagnons {
+      position: absolute;
+      width: 343px;
+      top: 104px;
+      left: 16px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .span {
+      font-weight: 500;
+    }
+
+    .mobile-a-propos .text-wrapper-8 {
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .mobile-a-propos .text-wrapper-9 {
+      position: absolute;
+      width: 342px;
+      top: 277px;
+      left: 16px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 500;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-2 {
+      display: flex;
+      width: 221px;
+      height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 13px;
+      position: absolute;
+      top: 350px;
+      left: 77px;
+      background-color: #09080b;
+      border-radius: 50px;
+      backdrop-filter: blur(3.5px) brightness(100%);
+      -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+    }
+
+    .mobile-a-propos .text-wrapper-10 {
+      color: #fffcfc;
+      position: relative;
+      width: fit-content;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-wrapper {
+      position: absolute;
+      width: 374px;
+      height: 342px;
+      top: 1910px;
+      left: 5px;
+      overflow: hidden;
+      overflow-x: scroll;
+    }
+
+    .mobile-a-propos .group-wrapper::-webkit-scrollbar {
+      width: 0;
+      display: none;
+    }
+
+    .mobile-a-propos .group-10 {
+      position: relative;
+      width: 2417px;
+      height: 342px;
+      left: 20px;
+    }
+
+    .mobile-a-propos .frame-3 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 0;
+      left: 0;
+    }
+
+    .mobile-a-propos .group-11 {
+      width: 339px;
+      height: 339px;
+    }
+
+    .mobile-a-propos .overlap-group-3 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-231.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .chef-de-projet {
+      position: absolute;
+      width: 161px;
+      top: 136px;
+      left: 92px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-11 {
+      position: absolute;
+      width: 291px;
+      top: 203px;
+      left: 21px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #171b1c;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .component-2 {
+      top: 31px;
+      left: 93px;
+      position: absolute;
+      width: 71px;
+      height: 70px;
+    }
+
+    .mobile-a-propos .rectangle-18 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 0;
+      left: 36px;
+      background-color: #171b1c;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .rectangle-19 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 0;
+      left: 0;
+      background-color: #171b1c;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .rectangle-20 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 35px;
+      left: 0;
+      background-color: #171b1c;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .rectangle-21 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 35px;
+      left: 36px;
+      background-color: #171b1c;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .vector-2 {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      top: 31px;
+      left: 182px;
+    }
+
+    .mobile-a-propos .frame-4 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 0;
+      left: 1041px;
+    }
+
+    .mobile-a-propos .overlap-group-4 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-234.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .text-wrapper-12 {
+      left: 81px;
+      position: absolute;
+      width: 161px;
+      top: 136px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-13 {
+      position: absolute;
+      width: 291px;
+      top: 203px;
+      left: 9px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #171b1c;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-5 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 1px;
+      left: 1388px;
+    }
+
+    .mobile-a-propos .overlap-group-5 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-235.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .text-wrapper-14 {
+      left: 93px;
+      position: absolute;
+      width: 161px;
+      top: 136px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-6 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 2px;
+      left: 1735px;
+    }
+
+    .mobile-a-propos .overlap-group-6 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-236.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .text-wrapper-15 {
+      position: absolute;
+      width: 216px;
+      top: 136px;
+      left: 72px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-7 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 3px;
+      left: 2082px;
+    }
+
+    .mobile-a-propos .overlap-group-7 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-237.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .frame-8 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 0;
+      left: 347px;
+    }
+
+    .mobile-a-propos .overlap-group-8 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-232.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .text-wrapper-16 {
+      position: absolute;
+      width: 125px;
+      top: 136px;
+      left: 121px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-9 {
+      position: absolute;
+      width: 335px;
+      height: 339px;
+      top: 0;
+      left: 694px;
+    }
+
+    .mobile-a-propos .overlap-group-9 {
+      position: relative;
+      width: 335px;
+      height: 339px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/rectangle-233.svg);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .graphiste {
+      position: absolute;
+      width: 185px;
+      top: 136px;
+      left: 93px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .rectangle-22 {
+      position: absolute;
+      width: 337px;
+      height: 42px;
+      top: 1738px;
+      left: 25px;
+      background-color: #171b1c;
+      border-radius: 50px;
+      border: 2px solid;
+      border-color: #fffcfc;
+    }
+
+    .mobile-a-propos .group-12 {
+      position: absolute;
+      width: 343px;
+      height: 152px;
+      top: 1741px;
+      left: 21px;
+    }
+
+    .mobile-a-propos .text-wrapper-17 {
+      position: absolute;
+      width: 339px;
+      top: 68px;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-18 {
+      position: absolute;
+      width: 320px;
+      top: 0;
+      left: 13px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -0.66px;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-13 {
+      position: absolute;
+      width: 377px;
+      height: 597px;
+      top: 2307px;
+      left: 5px;
+    }
+
+    .mobile-a-propos .overlap-5 {
+      position: relative;
+      width: 375px;
+      height: 597px;
+      background-color: #ffffff;
+    }
+
+    .mobile-a-propos .avec-lantorian {
+      position: absolute;
+      width: 335px;
+      top: 112px;
+      left: 20px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-14 {
+      position: absolute;
+      width: 262px;
+      height: 25px;
+      top: 272px;
+      left: 57px;
+    }
+
+    .mobile-a-propos .group-15 {
+      position: absolute;
+      width: 335px;
+      height: 221px;
+      top: 342px;
+      left: 20px;
+    }
+
+    .mobile-a-propos .concr-tement-qu-est {
+      position: absolute;
+      width: 314px;
+      top: 0;
+      left: 19px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: 12px;
+    }
+
+    .mobile-a-propos .text-wrapper-19 {
+      font-weight: 600;
+      line-height: 15px;
+    }
+
+    .mobile-a-propos .text-wrapper-20 {
+      line-height: 15px;
+    }
+
+    .mobile-a-propos .vector-3 {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 31px;
+      left: 0;
+    }
+
+    .mobile-a-propos .vector-4 {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 76px;
+      left: 0;
+    }
+
+    .mobile-a-propos .vector-5 {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 121px;
+      left: 0;
+    }
+
+    .mobile-a-propos .vector-6 {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 166px;
+      left: 1px;
+    }
+
+    .mobile-a-propos .group-16 {
+      position: absolute;
+      width: 345px;
+      height: 33px;
+      top: 53px;
+      left: 20px;
+    }
+
+    .mobile-a-propos .vector-7 {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      top: 5px;
+      left: 19px;
+    }
+
+    .mobile-a-propos .text-wrapper-21 {
+      position: absolute;
+      width: 17px;
+      top: 0;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #0f0f0f;
+      font-size: 22px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-22 {
+      position: absolute;
+      width: 296px;
+      top: 0;
+      left: 45px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #0f0f0f;
+      font-size: 22px;
+      letter-spacing: -0.66px;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-17 {
+      position: absolute;
+      width: 396px;
+      height: 1077px;
+      top: 2959px;
+      left: 0;
+    }
+
+    .mobile-a-propos .group-18 {
+      position: absolute;
+      width: 384px;
+      height: 72px;
+      top: 0;
+      left: 0;
+    }
+
+    .mobile-a-propos .text-wrapper-23 {
+      position: absolute;
+      width: 382px;
+      top: 0;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 22px;
+      text-align: center;
+      letter-spacing: -0.66px;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .overlap-6 {
+      position: absolute;
+      width: 324px;
+      height: 1005px;
+      top: 72px;
+      left: 29px;
+      background-color: #ffffff;
+      border-radius: 15px;
+    }
+
+    .mobile-a-propos .group-19 {
+      position: absolute;
+      width: 73px;
+      height: 73px;
+      top: 10px;
+      left: 129px;
+    }
+
+    .mobile-a-propos .group-20 {
+      position: absolute;
+      width: 73px;
+      height: 73px;
+      top: 909px;
+      left: 129px;
+    }
+
+    .mobile-a-propos .claire-dupuis-g {
+      position: absolute;
+      width: 288px;
+      top: 219px;
+      left: 19px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-24 {
+      font-weight: 300;
+    }
+
+    .mobile-a-propos .vector-8 {
+      position: absolute;
+      width: 290px;
+      height: 2px;
+      top: 300px;
+      left: 17px;
+    }
+
+    .mobile-a-propos .vector-9 {
+      position: absolute;
+      width: 290px;
+      height: 2px;
+      top: 533px;
+      left: 17px;
+    }
+
+    .mobile-a-propos .text-wrapper-25 {
+      position: absolute;
+      width: 297px;
+      top: 93px;
+      left: 17px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      font-style: italic;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .julien-morel {
+      position: absolute;
+      width: 265px;
+      top: 457px;
+      left: 32px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-26 {
+      position: absolute;
+      width: 312px;
+      top: 331px;
+      left: 7px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      font-style: italic;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .a-cha-benali {
+      position: absolute;
+      width: 226px;
+      top: 690px;
+      left: 49px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-27 {
+      position: absolute;
+      width: 286px;
+      top: 564px;
+      left: 21px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      font-style: italic;
+      color: #0f0f0f;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-21 {
+      position: absolute;
+      width: 76px;
+      height: 22px;
+      top: 870px;
+      left: 128px;
+    }
+
+    .mobile-a-propos .text-wrapper-28 {
+      position: absolute;
+      width: 228px;
+      top: 812px;
+      left: 44px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #0f0f0f;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+      text-decoration: underline;
+    }
+
+    .mobile-a-propos .group-22 {
+      position: absolute;
+      width: 87px;
+      height: 31px;
+      top: 776px;
+      left: 124px;
+    }
+
+    .mobile-a-propos .group-23 {
+      position: absolute;
+      width: 381px;
+      height: 589px;
+      top: 4850px;
+      left: 0;
+    }
+
+    .mobile-a-propos .overlap-7 {
+      position: relative;
+      width: 375px;
+      height: 589px;
+      background-color: #000000;
+    }
+
+    .mobile-a-propos .frame-10 {
+      display: flex;
+      width: 132px;
+      height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 13px;
+      position: absolute;
+      top: 430px;
+      left: 126px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      backdrop-filter: blur(3.5px) brightness(100%);
+      -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+    }
+
+    .mobile-a-propos .text-wrapper-29 {
+      position: absolute;
+      width: 295px;
+      top: 19px;
+      left: 40px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 34px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .overlap-8 {
+      position: absolute;
+      width: 336px;
+      height: 45px;
+      top: 195px;
+      left: 20px;
+      background-color: #262626;
+      border-radius: 2px;
+    }
+
+    .mobile-a-propos .text-wrapper-30 {
+      position: absolute;
+      width: 146px;
+      top: 12px;
+      left: 54px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff99;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .group-24 {
+      position: absolute;
+      width: 21px;
+      height: 21px;
+      top: 12px;
+      left: 299px;
+    }
+
+    .mobile-a-propos .frame-11 {
+      position: absolute;
+      width: 20px;
+      height: 26px;
+      top: 9px;
+      left: 19px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/email.png);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .group-25 {
+      position: absolute;
+      width: 168px;
+      height: 24px;
+      top: 302px;
+      left: 109px;
+    }
+
+    .mobile-a-propos .overlap-group-10 {
+      position: relative;
+      width: 167px;
+      height: 24px;
+    }
+
+    .mobile-a-propos .text-wrapper-31 {
+      position: absolute;
+      width: 155px;
+      top: 0;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+      text-decoration: underline;
+    }
+
+    .mobile-a-propos .arrow {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: 6px;
+      left: 154px;
+    }
+
+    .mobile-a-propos .group-26 {
+      position: absolute;
+      width: 125px;
+      height: 24px;
+      top: 346px;
+      left: 124px;
+    }
+
+    .mobile-a-propos .frame-12 {
+      position: absolute;
+      width: 13px;
+      height: 12px;
+      top: 5px;
+      left: 0;
+    }
+
+    .mobile-a-propos .group-27 {
+      position: absolute;
+      width: 110px;
+      height: 24px;
+      top: 0;
+      left: 19px;
+    }
+
+    .mobile-a-propos .overlap-group-11 {
+      position: relative;
+      width: 106px;
+      height: 24px;
+    }
+
+    .mobile-a-propos .text-wrapper-32 {
+      position: absolute;
+      width: 68px;
+      top: 0;
+      left: 38px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-33 {
+      position: absolute;
+      width: 39px;
+      top: 0;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .privacy-policy-terms {
+      position: absolute;
+      width: 236px;
+      top: 388px;
+      left: 79px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .text-wrapper-34 {
+      text-decoration: underline;
+    }
+
+    .mobile-a-propos .group-28 {
+      position: absolute;
+      width: 360px;
+      height: 702px;
+      top: 4103px;
+      left: 7px;
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/group-326.png);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .overlap-9 {
+      height: 702px;
+      background-color: #1b142680;
+    }
+
+    .mobile-a-propos .group-29 {
+      position: relative;
+      width: 317px;
+      height: 149px;
+      top: 330px;
+      left: 25px;
+    }
+
+    .mobile-a-propos .text-wrapper-35 {
+      position: absolute;
+      width: 315px;
+      top: 0;
+      left: 0;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 22px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-13 {
+      display: flex;
+      width: 221px;
+      height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 13px;
+      position: absolute;
+      top: 100px;
+      left: 36px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      backdrop-filter: blur(3.5px) brightness(100%);
+      -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+    }
+
+    .mobile-a-propos .group-30 {
+      position: fixed;
+      width: 384px;
+      height: 105px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mobile-a-propos .overlap-10 {
+      position: relative;
+      height: 105px;
+    }
+
+    .mobile-a-propos .group-31 {
+      position: absolute;
+      width: 375px;
+      height: 105px;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(5px) brightness(100%);
+      -webkit-backdrop-filter: blur(5px) brightness(100%);
+      background: linear-gradient(
+              20deg,
+              rgba(23, 27, 28, 0.3) 0%,
+              rgba(28, 20, 38, 0.3) 100%
+      );
+    }
+
+    .mobile-a-propos .frame-14 {
+      position: absolute;
+      width: 384px;
+      height: 38px;
+      top: 26px;
+      left: 0;
+      overflow: hidden;
+      overflow-x: scroll;
+    }
+
+    .mobile-a-propos .frame-14::-webkit-scrollbar {
+      width: 0;
+      display: none;
+    }
+
+    .mobile-a-propos .frame-15 {
+      display: inline-flex;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 7px;
+      position: absolute;
+      top: 0;
+      left: -66px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      border: 1px solid;
+    }
+
+    .mobile-a-propos .text-wrapper-36 {
+      position: relative;
+      width: fit-content;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #171b1c;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-16 {
+      display: inline-flex;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 7px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #000000;
+      border-radius: 50px;
+      border: 1px solid;
+      border-color: #fffcfc;
+    }
+
+    .mobile-a-propos .text-wrapper-37 {
+      position: relative;
+      width: fit-content;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #fffcfc;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-17 {
+      display: inline-flex;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 7px;
+      position: absolute;
+      top: 0;
+      left: 75px;
+      background-color: #ffffff;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .text-wrapper-38 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1.00px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #171b1c;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .mobile-a-propos .frame-18 {
+      display: inline-flex;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 7px;
+      position: absolute;
+      top: 0;
+      left: 208px;
+      background-color: #ffffff;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .frame-19 {
+      display: inline-flex;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 7px;
+      position: absolute;
+      top: 0;
+      left: 320px;
+      background-color: #ffffff;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .frame-wrapper {
+      position: fixed;
+      width: 375px;
+      height: 64px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/group-234.png);
+      background-size: 100% 100%;
+    }
+
+    .mobile-a-propos .frame-20 {
+      display: flex;
+      width: 83px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 13px;
+      position: relative;
+      top: 18px;
+      left: 270px;
+      background-color: #ffffff;
+      border-radius: 50px;
+    }
+
+    .mobile-a-propos .text-wrapper-39 {
+      position: relative;
+      width: fit-content;
+      margin-left: -0.50px;
+      margin-right: -0.50px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 400;
+      color: #171b1c;
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+
+  </style></head>
+<body>
+<div class="mobile-a-propos">
+  <div class="div">
+    <div class="overlap">
+      <div class="rectangle"></div>
+      <div class="rectangle-2"></div>
+      <div class="group">
+        <div class="frame"><div class="text-wrapper">Plannifier une consultation</div></div>
+        <p class="p">
+          Lantorian Engine transforme les sites vieillissants en expériences web modernes, rapides et engageantes.
+        </p>
+        <div class="group-2">
+          <div class="component">
+            <div class="group-3">
+              <div class="rectangle-3"></div>
+              <div class="rectangle-4"></div>
+              <div class="rectangle-5"></div>
+              <div class="rectangle-6"></div>
             </div>
-            <p class="text-wrapper-2">Prêt à donner une âme à votre site ?</p>
           </div>
-          <img class="img" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/cd18745459d082095fa6923c257bbc9c-2.png" />
-          <div class="group-4">
-            <div class="group-5">
-              <div class="group-6">
-                <div class="overlap-group">
-                  <div class="rectangle-7"></div>
-                  <div class="rectangle-8"></div>
-                </div>
-                <div class="rectangle-9"></div>
-                <div class="rectangle-10"></div>
-              </div>
-              <p class="notre-histoire-notre">Notre Histoire &amp; Notre Concept</p>
+          <img class="vector" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+        </div>
+        <p class="text-wrapper-2">Prêt à donner une âme à votre site ?</p>
+      </div>
+      <img class="img" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/cd18745459d082095fa6923c257bbc9c-2.png" />
+      <div class="group-4">
+        <div class="group-5">
+          <div class="group-6">
+            <div class="overlap-group">
+              <div class="rectangle-7"></div>
+              <div class="rectangle-8"></div>
             </div>
-            <p class="text-wrapper-3">
-              Né d’une idée simple mais puissante, Lantorian est né pour dépasser les limites des sites traditionnels.
-              Nous avons voulu allier la rigueur technique à l’émotion visuelle. De là est né Lantorian Engine : une
-              approche unique qui transforme un site vieillissant en une expérience moderne, rapide et engageante.
-            </p>
-            <p class="text-wrapper-4">
-              Chez Lantorian, nous croyons que la technologie doit être à la fois performante et humaine. Nos valeurs
-              guident chacun de nos projets : la performance pour assurer vitesse et sécurité, l’émotion pour créer un
-              lien avec vos visiteurs, l’innovation pour rester toujours en avance, et la proximité pour accompagner nos
-              clients à chaque étape.
-            </p>
+            <div class="rectangle-9"></div>
+            <div class="rectangle-10"></div>
           </div>
-          <div class="overlap-wrapper">
-            <div class="overlap-2">
-              <div class="group-7">
-                <div class="rectangle-11"></div>
-                <div class="rectangle-12"></div>
-                <div class="rectangle-13"></div>
-                <div class="rectangle-14"></div>
+          <p class="notre-histoire-notre">Notre Histoire &amp; Notre Concept</p>
+        </div>
+        <p class="text-wrapper-3">
+          Né d’une idée simple mais puissante, Lantorian est né pour dépasser les limites des sites traditionnels.
+          Nous avons voulu allier la rigueur technique à l’émotion visuelle. De là est né Lantorian Engine : une
+          approche unique qui transforme un site vieillissant en une expérience moderne, rapide et engageante.
+        </p>
+        <p class="text-wrapper-4">
+          Chez Lantorian, nous croyons que la technologie doit être à la fois performante et humaine. Nos valeurs
+          guident chacun de nos projets : la performance pour assurer vitesse et sécurité, l’émotion pour créer un
+          lien avec vos visiteurs, l’innovation pour rester toujours en avance, et la proximité pour accompagner nos
+          clients à chaque étape.
+        </p>
+      </div>
+      <div class="overlap-wrapper">
+        <div class="overlap-2">
+          <div class="group-7">
+            <div class="rectangle-11"></div>
+            <div class="rectangle-12"></div>
+            <div class="rectangle-13"></div>
+            <div class="rectangle-14"></div>
+          </div>
+          <div class="group-8">
+            <div class="overlap-group-wrapper">
+              <div class="overlap-group-2">
+                <div class="rectangle-15"></div>
+                <div class="text-wrapper-5">QUI</div>
               </div>
-              <div class="group-8">
-                <div class="overlap-group-wrapper">
-                  <div class="overlap-group-2">
-                    <div class="rectangle-15"></div>
-                    <div class="text-wrapper-5">QUI</div>
-                  </div>
-                </div>
-                <div class="div-wrapper">
-                  <div class="overlap-3">
-                    <div class="rectangle-16"></div>
-                    <div class="text-wrapper-6">SOMMES</div>
-                  </div>
-                </div>
-                <div class="group-9">
-                  <div class="overlap-4">
-                    <div class="rectangle-17"></div>
-                    <div class="text-wrapper-7">NOUS</div>
-                  </div>
-                </div>
+            </div>
+            <div class="div-wrapper">
+              <div class="overlap-3">
+                <div class="rectangle-16"></div>
+                <div class="text-wrapper-6">SOMMES</div>
               </div>
-              <p class="nous-accompagnons">
+            </div>
+            <div class="group-9">
+              <div class="overlap-4">
+                <div class="rectangle-17"></div>
+                <div class="text-wrapper-7">NOUS</div>
+              </div>
+            </div>
+          </div>
+          <p class="nous-accompagnons">
                 <span class="span"
-                  >Nous accompagnons les PME, artisans, associations ou créateurs qui veulent un site web vivant,</span
+                >Nous accompagnons les PME, artisans, associations ou créateurs qui veulent un site web vivant,</span
                 >
-                <span class="text-wrapper-8">
+            <span class="text-wrapper-8">
                   qui reflète leur énergie et attire leurs clients. Contrairement aux sites classiques ou générés
                   automatiquement, Lantorian Engine apporte rapidité, fluidité, sécurité et une dimension émotionnelle
                   unique. Résultat : une plateforme plus performante, plus engageante, et qui génère de vrais
                   résultats.</span
-                >
-              </p>
-              <p class="text-wrapper-9">
-                Prêt à donner une âme à votre site web ? Découvrez comment Lantorian Engine peut transformer votre
-                présence en ligne
-              </p>
-              <div class="frame-2"><div class="text-wrapper-10">Plannifier une consultation</div></div>
-            </div>
-          </div>
-          <div class="group-wrapper">
-            <div class="group-10">
-              <div class="frame-3">
-                <div class="group-11">
-                  <div class="overlap-group-3">
-                    <p class="chef-de-projet">Chef de Projet Digital</p>
-                    <p class="text-wrapper-11">
-                      Nous vous accompagnons dès le départ pour définir vos besoins, clarifier vos objectifs et
-                      coordonner toutes les étapes de votre projet.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+            >
+          </p>
+          <p class="text-wrapper-9">
+            Prêt à donner une âme à votre site web ? Découvrez comment Lantorian Engine peut transformer votre
+            présence en ligne
+          </p>
+          <div class="frame-2"><div class="text-wrapper-10">Plannifier une consultation</div></div>
+        </div>
+      </div>
+      <div class="group-wrapper">
+        <div class="group-10">
+          <div class="frame-3">
+            <div class="group-11">
+              <div class="overlap-group-3">
+                <p class="chef-de-projet">Chef de Projet Digital</p>
+                <p class="text-wrapper-11">
+                  Nous vous accompagnons dès le départ pour définir vos besoins, clarifier vos objectifs et
+                  coordonner toutes les étapes de votre projet.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
                   </div>
                 </div>
-              </div>
-              <div class="frame-4">
-                <div class="group-11">
-                  <div class="overlap-group-4">
-                    <div class="text-wrapper-12">Développeur Frontend</div>
-                    <p class="text-wrapper-13">
-                      Nous transformons votre design en une interface fluide, interactive et moderne, offrant à vos
-                      visiteurs une navigation agréable.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                  </div>
-                </div>
-              </div>
-              <div class="frame-5">
-                <div class="group-11">
-                  <div class="overlap-group-5">
-                    <div class="text-wrapper-14">Développeur Backend</div>
-                    <p class="text-wrapper-11">
-                      Nous bâtissons pour vous une architecture solide, sécurisée et évolutive, qui soutient toutes les
-                      fonctionnalités de votre site.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                  </div>
-                </div>
-              </div>
-              <div class="frame-6">
-                <div class="group-11">
-                  <div class="overlap-group-6">
-                    <div class="text-wrapper-15">Spécialiste SEO &amp; Performance</div>
-                    <p class="text-wrapper-11">
-                      Nous optimisons la vitesse de votre site et son référencement, pour que vos clients vous trouvent
-                      plus facilement sur Google.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                  </div>
-                </div>
-              </div>
-              <div class="frame-7">
-                <div class="group-11">
-                  <div class="overlap-group-7">
-                    <div class="text-wrapper-15">Expert Sécurité &amp; Maintenance</div>
-                    <p class="text-wrapper-11">
-                      Nous protégeons votre site contre les menaces et simplifions sa maintenance, afin que vous restiez
-                      concentré sur votre activité.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                  </div>
-                </div>
-              </div>
-              <div class="frame-8">
-                <div class="group-11">
-                  <div class="overlap-group-8">
-                    <div class="text-wrapper-16">UI/UX Designer</div>
-                    <p class="text-wrapper-11">
-                      Nous concevons pour vous une expérience intuitive et émotionnelle, qui capte l’attention de vos
-                      visiteurs et les guide naturellement.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                  </div>
-                </div>
-              </div>
-              <div class="frame-9">
-                <div class="group-11">
-                  <div class="overlap-group-9">
-                    <div class="graphiste">Graphiste &amp; Webdesigner</div>
-                    <p class="text-wrapper-11">
-                      Nous créons une identité visuelle unique et élégante, afin que votre site reflète parfaitement
-                      l’image de votre marque.
-                    </p>
-                    <div class="component-2">
-                      <div class="group-3">
-                        <div class="rectangle-18"></div>
-                        <div class="rectangle-19"></div>
-                        <div class="rectangle-20"></div>
-                        <div class="rectangle-21"></div>
-                      </div>
-                    </div>
-                    <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                  </div>
-                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
               </div>
             </div>
           </div>
-          <div class="rectangle-22"></div>
-          <div class="group-12">
-            <p class="text-wrapper-17">
-              Les compétences de notre équipe allient expertise technique, créativité et émotion pour donner une
-              véritable âme à vos idées et les transformer en un site moderne, performant et engageant, de la stratégie
-              à la maintenance.
-            </p>
-            <p class="text-wrapper-18">Les compétences de notre équipe</p>
+          <div class="frame-4">
+            <div class="group-11">
+              <div class="overlap-group-4">
+                <div class="text-wrapper-12">Développeur Frontend</div>
+                <p class="text-wrapper-13">
+                  Nous transformons votre design en une interface fluide, interactive et moderne, offrant à vos
+                  visiteurs une navigation agréable.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
+                  </div>
+                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+              </div>
+            </div>
           </div>
-          <div class="group-13">
-            <div class="overlap-5">
-              <p class="avec-lantorian">
-                Avec Lantorian Engine, votre site n’est plus simplement une vitrine en ligne : il devient une expérience
-                fluide, rapide et engageante.<br />
-                Contrairement aux sites WordPress classiques ou aux solutions générées par des IA, nous allions
-                performance technique et design émotionnel pour offrir une vraie valeur ajoutée à vos visiteurs.
-              </p>
-              <img class="group-14" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-322.png" />
-              <div class="group-15">
-                <p class="concr-tement-qu-est">
-                  <span class="text-wrapper-19">Concrètement, qu’est-ce qui change ?<br /><br /></span>
-                  <span class="text-wrapper-20"
-                    >Vitesse : un chargement quasi instantané qui améliore votre référencement et retient vos
+          <div class="frame-5">
+            <div class="group-11">
+              <div class="overlap-group-5">
+                <div class="text-wrapper-14">Développeur Backend</div>
+                <p class="text-wrapper-11">
+                  Nous bâtissons pour vous une architecture solide, sécurisée et évolutive, qui soutient toutes les
+                  fonctionnalités de votre site.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
+                  </div>
+                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="frame-6">
+            <div class="group-11">
+              <div class="overlap-group-6">
+                <div class="text-wrapper-15">Spécialiste SEO &amp; Performance</div>
+                <p class="text-wrapper-11">
+                  Nous optimisons la vitesse de votre site et son référencement, pour que vos clients vous trouvent
+                  plus facilement sur Google.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
+                  </div>
+                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="frame-7">
+            <div class="group-11">
+              <div class="overlap-group-7">
+                <div class="text-wrapper-15">Expert Sécurité &amp; Maintenance</div>
+                <p class="text-wrapper-11">
+                  Nous protégeons votre site contre les menaces et simplifions sa maintenance, afin que vous restiez
+                  concentré sur votre activité.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
+                  </div>
+                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="frame-8">
+            <div class="group-11">
+              <div class="overlap-group-8">
+                <div class="text-wrapper-16">UI/UX Designer</div>
+                <p class="text-wrapper-11">
+                  Nous concevons pour vous une expérience intuitive et émotionnelle, qui capte l’attention de vos
+                  visiteurs et les guide naturellement.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
+                  </div>
+                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="frame-9">
+            <div class="group-11">
+              <div class="overlap-group-9">
+                <div class="graphiste">Graphiste &amp; Webdesigner</div>
+                <p class="text-wrapper-11">
+                  Nous créons une identité visuelle unique et élégante, afin que votre site reflète parfaitement
+                  l’image de votre marque.
+                </p>
+                <div class="component-2">
+                  <div class="group-3">
+                    <div class="rectangle-18"></div>
+                    <div class="rectangle-19"></div>
+                    <div class="rectangle-20"></div>
+                    <div class="rectangle-21"></div>
+                  </div>
+                </div>
+                <img class="vector-2" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rectangle-22"></div>
+      <div class="group-12">
+        <p class="text-wrapper-17">
+          Les compétences de notre équipe allient expertise technique, créativité et émotion pour donner une
+          véritable âme à vos idées et les transformer en un site moderne, performant et engageant, de la stratégie
+          à la maintenance.
+        </p>
+        <p class="text-wrapper-18">Les compétences de notre équipe</p>
+      </div>
+      <div class="group-13">
+        <div class="overlap-5">
+          <p class="avec-lantorian">
+            Avec Lantorian Engine, votre site n’est plus simplement une vitrine en ligne : il devient une expérience
+            fluide, rapide et engageante.<br />
+            Contrairement aux sites WordPress classiques ou aux solutions générées par des IA, nous allions
+            performance technique et design émotionnel pour offrir une vraie valeur ajoutée à vos visiteurs.
+          </p>
+          <img class="group-14" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-322.png" />
+          <div class="group-15">
+            <p class="concr-tement-qu-est">
+              <span class="text-wrapper-19">Concrètement, qu’est-ce qui change ?<br /><br /></span>
+              <span class="text-wrapper-20"
+              >Vitesse : un chargement quasi instantané qui améliore votre référencement et retient vos
                     visiteurs.<br /><br />Sécurité : une architecture moderne, robuste et protégée contre les menaces
                     actuelles.<br /><br />Personnalisation : un design unique qui raconte votre histoire et capte
                     l’attention.<br /><br />Expérience utilisateur : des interactions fluides et engageantes qui
                     transforment vos visiteurs en clients fidèles.</span
-                  >
-                </p>
-                <img class="vector-3" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                <img class="vector-4" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                <img class="vector-5" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                <img class="vector-6" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-              </div>
-              <div class="group-16">
-                <img class="vector-7" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
-                <div class="text-wrapper-21">P</div>
-                <div class="text-wrapper-22">URQUOI CHOISIR LANTORIAN ?</div>
-              </div>
-            </div>
-          </div>
-          <div class="group-17">
-            <div class="group-18"><p class="text-wrapper-23">Ce que les clients pensent de nous</p></div>
-            <div class="overlap-6">
-              <img class="group-19" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-320.png" />
-              <img class="group-20" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-323.png" />
-              <p class="claire-dupuis-g">
-                <span class="span">Claire Dupuis - </span>
-                <span class="text-wrapper-24">Gérante chez Maison Florale (boutique artisanale)</span>
-              </p>
-              <img class="vector-8" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector-21.svg" />
-              <img class="vector-9" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector-21.svg" />
-              <p class="text-wrapper-25">
-                Avant Lantorian, mon site WordPress mettait plusieurs secondes à charger et mes clientes abandonnaient
-                souvent leur panier. Depuis la refonte avec Lantorian Engine, mon site est rapide, fluide et bien plus
-                esthétique. J’ai doublé mes ventes en ligne en trois mois.
-              </p>
-              <p class="julien-morel">
-                <span class="span">Julien Morel - </span>
-                <span class="text-wrapper-24">Responsable Communication chez Association Sportive Lyonnaise</span>
-              </p>
-              <p class="text-wrapper-26">
-                Nous avions un site dépassé qui ne reflétait plus l’énergie de notre association. Lantorian a su
-                transformer notre présence en ligne en une expérience moderne et engageante. Nos adhérents trouvent les
-                informations plus facilement et nous recevons trois fois plus d’inscriptions
-              </p>
-              <p class="a-cha-benali">
-                <span class="span">Aïcha Benali - </span>
-                <span class="text-wrapper-24">Fondatrice chez Studio Créatif Abaka</span>
-              </p>
-              <p class="text-wrapper-27">
-                En tant que créatrice, j’avais besoin d’un site qui raconte une histoire et capte l’émotion. Lantorian a
-                parfaitement su allier design et performance technique. Mes clients passent plus de temps sur le site et
-                je reçois des retours très positifs.
-              </p>
-              <img class="group-21" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-324.png" />
-              <p class="text-wrapper-28">En savoir plus sur les avis de nos clients</p>
-              <img class="group-22" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-325.png" />
-            </div>
-          </div>
-        </div>
-        <div class="group-23">
-          <div class="overlap-7">
-            <div class="frame-10"><div class="text-wrapper">Réserver</div></div>
-            <p class="text-wrapper-29">Commencez à vous inscrire pour ne rien rater</p>
-            <div class="overlap-8">
-              <div class="text-wrapper-30">Saisissez votre email</div>
-              <img class="group-24" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-25.png" />
-              <div class="frame-11"></div>
-            </div>
-            <div class="group-25">
-              <div class="overlap-group-10">
-                <div class="text-wrapper-31">Consultez nos projets</div>
-                <img class="arrow" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/arrow-3.svg" />
-              </div>
-            </div>
-            <div class="group-26">
-              <img class="frame-12" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/frame-100.svg" />
-              <div class="group-27">
-                <div class="overlap-group-11">
-                  <div class="text-wrapper-32">Lantorian</div>
-                  <div class="text-wrapper-33">2025</div>
-                </div>
-              </div>
-            </div>
-            <p class="privacy-policy-terms">
-              <span class="text-wrapper-34">Privacy policy•Terms &amp; conditions</span>
+              >
             </p>
+            <img class="vector-3" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+            <img class="vector-4" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+            <img class="vector-5" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+            <img class="vector-6" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+          </div>
+          <div class="group-16">
+            <img class="vector-7" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+            <div class="text-wrapper-21">P</div>
+            <div class="text-wrapper-22">URQUOI CHOISIR LANTORIAN ?</div>
           </div>
         </div>
-        <div class="group-28">
-          <div class="overlap-9">
-            <div class="group-29">
-              <p class="text-wrapper-35">Commencer dès maintenant vos projets avec Lantorian</p>
-              <div class="frame-13"><div class="text-wrapper">Plannifier une consultation</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="group-30">
-          <div class="overlap-10">
-            <div class="group-31"></div>
-            <div class="frame-14">
-              <div class="frame-15"><div class="text-wrapper-36">Accueil</div></div>
-              <div class="frame-16"><div class="text-wrapper-37">À Propos</div></div>
-              <div class="frame-17"><div class="text-wrapper-38">Solutions / Services</div></div>
-              <div class="frame-18"><div class="text-wrapper-38">Nos réalisations</div></div>
-              <div class="frame-19"><div class="text-wrapper-38">Contact</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="frame-wrapper">
-          <div class="frame-20"><div class="text-wrapper-39">Réserver</div></div>
+      </div>
+      <div class="group-17">
+        <div class="group-18"><p class="text-wrapper-23">Ce que les clients pensent de nous</p></div>
+        <div class="overlap-6">
+          <img class="group-19" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-320.png" />
+          <img class="group-20" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-323.png" />
+          <p class="claire-dupuis-g">
+            <span class="span">Claire Dupuis - </span>
+            <span class="text-wrapper-24">Gérante chez Maison Florale (boutique artisanale)</span>
+          </p>
+          <img class="vector-8" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector-21.svg" />
+          <img class="vector-9" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector-21.svg" />
+          <p class="text-wrapper-25">
+            Avant Lantorian, mon site WordPress mettait plusieurs secondes à charger et mes clientes abandonnaient
+            souvent leur panier. Depuis la refonte avec Lantorian Engine, mon site est rapide, fluide et bien plus
+            esthétique. J’ai doublé mes ventes en ligne en trois mois.
+          </p>
+          <p class="julien-morel">
+            <span class="span">Julien Morel - </span>
+            <span class="text-wrapper-24">Responsable Communication chez Association Sportive Lyonnaise</span>
+          </p>
+          <p class="text-wrapper-26">
+            Nous avions un site dépassé qui ne reflétait plus l’énergie de notre association. Lantorian a su
+            transformer notre présence en ligne en une expérience moderne et engageante. Nos adhérents trouvent les
+            informations plus facilement et nous recevons trois fois plus d’inscriptions
+          </p>
+          <p class="a-cha-benali">
+            <span class="span">Aïcha Benali - </span>
+            <span class="text-wrapper-24">Fondatrice chez Studio Créatif Abaka</span>
+          </p>
+          <p class="text-wrapper-27">
+            En tant que créatrice, j’avais besoin d’un site qui raconte une histoire et capte l’émotion. Lantorian a
+            parfaitement su allier design et performance technique. Mes clients passent plus de temps sur le site et
+            je reçois des retours très positifs.
+          </p>
+          <img class="group-21" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-324.png" />
+          <p class="text-wrapper-28">En savoir plus sur les avis de nos clients</p>
+          <img class="group-22" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-325.png" />
         </div>
       </div>
     </div>
-  </body>
+    <div class="group-23">
+      <div class="overlap-7">
+        <div class="frame-10"><div class="text-wrapper">Réserver</div></div>
+        <p class="text-wrapper-29">Commencez à vous inscrire pour ne rien rater</p>
+        <div class="overlap-8">
+          <div class="text-wrapper-30">Saisissez votre email</div>
+          <img class="group-24" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/group-25.png" />
+          <div class="frame-11"></div>
+        </div>
+        <div class="group-25">
+          <div class="overlap-group-10">
+            <div class="text-wrapper-31">Consultez nos projets</div>
+            <img class="arrow" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/arrow-3.svg" />
+          </div>
+        </div>
+        <div class="group-26">
+          <img class="frame-12" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/frame-100.svg" />
+          <div class="group-27">
+            <div class="overlap-group-11">
+              <div class="text-wrapper-32">Lantorian</div>
+              <div class="text-wrapper-33">2025</div>
+            </div>
+          </div>
+        </div>
+        <p class="privacy-policy-terms">
+          <span class="text-wrapper-34">Privacy policy•Terms &amp; conditions</span>
+        </p>
+      </div>
+    </div>
+    <div class="group-28">
+      <div class="overlap-9">
+        <div class="group-29">
+          <p class="text-wrapper-35">Commencer dès maintenant vos projets avec Lantorian</p>
+          <div class="frame-13"><div class="text-wrapper">Plannifier une consultation</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="group-30">
+      <div class="overlap-10">
+        <div class="group-31"></div>
+        <div class="frame-14">
+          <div class="frame-15"><div class="text-wrapper-36">Accueil</div></div>
+          <div class="frame-16"><div class="text-wrapper-37">À Propos</div></div>
+          <div class="frame-17"><div class="text-wrapper-38">Solutions / Services</div></div>
+          <div class="frame-18"><div class="text-wrapper-38">Nos réalisations</div></div>
+          <div class="frame-19"><div class="text-wrapper-38">Contact</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="frame-wrapper">
+      <div class="frame-20"><div class="text-wrapper-39">Réserver</div></div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

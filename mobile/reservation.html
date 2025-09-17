@@ -1,0 +1,3094 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+        @import url("https://fonts.googleapis.com/css?family=Kanit:300,500,400,600|Inter:400");
+        * {
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            margin: 0px;
+            height: 100%;
+            background-color: #f0f0f0;
+        }
+        /* a blue color as a generic focus style */
+        button:focus-visible {
+            outline: 2px solid #4a90e2 !important;
+            outline: -webkit-focus-ring-color auto 5px !important;
+        }
+        a {
+            text-decoration: none;
+        }
+        .mobile-reservation {
+            background-color: #ffffff;
+            overflow: hidden;
+            width: 375px;
+            min-height: 5583px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .mobile-reservation .rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 375px;
+            height: 736px;
+            background: linear-gradient(
+                    20deg,
+                    rgba(23, 27, 28, 1) 0%,
+                    rgba(28, 20, 38, 1) 100%
+            );
+        }
+
+        .mobile-reservation .group {
+            position: absolute;
+            top: 84px;
+            left: 32px;
+            width: 206px;
+            height: 32px;
+        }
+
+        .mobile-reservation .text-wrapper {
+            position: absolute;
+            top: 7px;
+            left: calc(50.00% - 74px);
+            width: 175px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffff;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .mdi-cross-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+        }
+
+        .mobile-reservation .div {
+            position: absolute;
+            top: 726px;
+            left: 0;
+            width: 375px;
+            height: 4268px;
+            background-color: #171b1c;
+        }
+
+        .mobile-reservation .group-2 {
+            position: absolute;
+            top: 4994px;
+            left: 0;
+            width: 381px;
+            height: 589px;
+        }
+
+        .mobile-reservation .rectangle-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 375px;
+            height: 589px;
+            background-color: #000000;
+        }
+
+        .mobile-reservation .frame {
+            display: flex;
+            width: 132px;
+            height: 49px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 13px;
+            position: absolute;
+            top: 430px;
+            left: 126px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            backdrop-filter: blur(3.5px) brightness(100%);
+            -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+        }
+
+        .mobile-reservation .text-wrapper-2 {
+            position: relative;
+            width: fit-content;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .p {
+            position: absolute;
+            top: 19px;
+            left: calc(50.00% - 150px);
+            width: 295px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 34px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-3 {
+            position: absolute;
+            top: 195px;
+            left: 20px;
+            width: 336px;
+            height: 45px;
+            background-color: #262626;
+            border-radius: 2px;
+        }
+
+        .mobile-reservation .text-wrapper-3 {
+            position: absolute;
+            top: 207px;
+            left: calc(50.00% - 116px);
+            width: 146px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff99;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .img {
+            position: absolute;
+            top: 207px;
+            left: 319px;
+            width: 21px;
+            height: 21px;
+        }
+
+        .mobile-reservation .frame-2 {
+            position: absolute;
+            top: 204px;
+            left: 39px;
+            width: 20px;
+            height: 26px;
+            background-image: url(https://c.animaapp.com/mfohunmySSzS7x/img/email.png);
+            background-size: 100% 100%;
+        }
+
+        .mobile-reservation .group-3 {
+            position: absolute;
+            top: 302px;
+            left: 109px;
+            width: 168px;
+            height: 24px;
+        }
+
+        .mobile-reservation .text-wrapper-4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 155px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+            text-decoration: underline;
+        }
+
+        .mobile-reservation .arrow {
+            position: absolute;
+            top: 6px;
+            left: 154px;
+            width: 12px;
+            height: 12px;
+        }
+
+        .mobile-reservation .group-4 {
+            position: absolute;
+            top: 346px;
+            left: 124px;
+            width: 125px;
+            height: 24px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .mobile-reservation .frame-3 {
+            margin-top: 5px;
+            width: 13px;
+            height: 12px;
+        }
+
+        .mobile-reservation .group-5 {
+            width: 110px;
+            height: 24px;
+            position: relative;
+        }
+
+        .mobile-reservation .text-wrapper-5 {
+            position: absolute;
+            top: 0;
+            left: 38px;
+            width: 68px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-6 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 39px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .privacy-policy-terms {
+            position: absolute;
+            top: 388px;
+            left: 79px;
+            width: 236px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .span {
+            text-decoration: underline;
+        }
+
+        .mobile-reservation .group-6 {
+            position: absolute;
+            top: 173px;
+            left: 20px;
+            width: 339px;
+            height: 290px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-reservation .text-wrapper-7 {
+            margin-left: 10px;
+            height: 27px;
+            width: 251px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-8 {
+            margin-left: -4px;
+            height: 170px;
+            width: 335px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 38px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-7 {
+            margin-left: -3px;
+            height: 73px;
+            width: 172px;
+            margin-top: 20px;
+            display: flex;
+            gap: 31px;
+        }
+
+        .mobile-reservation .component {
+            width: 71px;
+            display: flex;
+        }
+
+        .mobile-reservation .group-8 {
+            width: 71px;
+            height: 70px;
+            position: relative;
+        }
+
+        .mobile-reservation .rectangle-4 {
+            position: absolute;
+            top: 1px;
+            left: 36px;
+            width: 36px;
+            height: 35px;
+            background-color: #fffcfc;
+            border-radius: 50px;
+        }
+
+        .mobile-reservation .rectangle-5 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 35px;
+            background-color: #fffcfc;
+            border-radius: 50px;
+        }
+
+        .mobile-reservation .rectangle-6 {
+            position: absolute;
+            top: 35px;
+            left: 1px;
+            width: 36px;
+            height: 35px;
+            background-color: #fffcfc;
+            border-radius: 50px;
+        }
+
+        .mobile-reservation .rectangle-7 {
+            position: absolute;
+            top: 35px;
+            left: 36px;
+            width: 36px;
+            height: 35px;
+            background-color: #fffcfc;
+            border-radius: 50px;
+        }
+
+        .mobile-reservation .vector {
+            margin-top: 3px;
+            width: 70px;
+            height: 70px;
+        }
+
+        .mobile-reservation .group-9 {
+            position: absolute;
+            top: 572px;
+            left: -14px;
+            width: 403px;
+            height: 4161px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-reservation .group-10 {
+            margin-left: 79px;
+            width: 230px;
+            height: 89px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-reservation .text-wrapper-9 {
+            margin-left: 10px;
+            height: 36px;
+            width: 196px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-10 {
+            margin-left: -4px;
+            height: 53px;
+            width: 226px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffffe6;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-11 {
+            margin-left: 36px;
+            width: 346px;
+            height: 395px;
+            position: relative;
+            margin-top: 76px;
+        }
+
+        .mobile-reservation .rectangle-8 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 332px;
+            height: 395px;
+            background-color: #fff9f9;
+            border-radius: 5px;
+            box-shadow: 0px 0px 76px -4px #fffcfc99;
+        }
+
+        .mobile-reservation .text-wrapper-11 {
+            position: absolute;
+            top: 21px;
+            left: calc(50.00% - 149px);
+            width: 194px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #171b1c;
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-12 {
+            position: absolute;
+            top: 127px;
+            left: 22px;
+            width: 26px;
+            height: 29px;
+        }
+
+        .mobile-reservation .group-13 {
+            position: absolute;
+            top: 175px;
+            left: 22px;
+            width: 26px;
+            height: 29px;
+        }
+
+        .mobile-reservation .rectangle-9 {
+            position: absolute;
+            top: 5px;
+            left: 3px;
+            width: 23px;
+            height: 23px;
+            background-color: #171b1c;
+            border-radius: 2px;
+        }
+
+        .mobile-reservation .rectangle-10 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 23px;
+            height: 23px;
+            background-color: #d9d9d9;
+            border-radius: 2px;
+            border: 1px solid;
+            border-color: #171b1c;
+        }
+
+        .mobile-reservation .group-14 {
+            position: absolute;
+            top: 233px;
+            left: 24px;
+            width: 26px;
+            height: 29px;
+        }
+
+        .mobile-reservation .group-15 {
+            position: absolute;
+            top: 79px;
+            left: 22px;
+            width: 26px;
+            height: 29px;
+        }
+
+        .mobile-reservation .audit-gratuit-min {
+            position: absolute;
+            top: 79px;
+            left: calc(50.00% - 108px);
+            width: 153px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-12 {
+            position: absolute;
+            top: 233px;
+            left: calc(50.00% - 106px);
+            width: 80px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-16 {
+            position: absolute;
+            top: 281px;
+            left: 24px;
+            width: 26px;
+            height: 29px;
+        }
+
+        .mobile-reservation .text-wrapper-13 {
+            position: absolute;
+            top: 281px;
+            left: calc(50.00% - 106px);
+            width: 169px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-17 {
+            position: absolute;
+            top: 330px;
+            left: 24px;
+            width: 26px;
+            height: 29px;
+        }
+
+        .mobile-reservation .text-wrapper-14 {
+            position: absolute;
+            top: 330px;
+            left: calc(50.00% - 106px);
+            width: 60px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-15 {
+            position: absolute;
+            top: 129px;
+            left: calc(50.00% - 108px);
+            width: 153px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-16 {
+            position: absolute;
+            top: 179px;
+            left: calc(50.00% - 108px);
+            width: 153px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-18 {
+            margin-left: 95px;
+            width: 214px;
+            height: 89.33px;
+            margin-top: 106.2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10.9px;
+        }
+
+        .mobile-reservation .text-wrapper-17 {
+            margin-left: 4.2px;
+            height: 25.28px;
+            width: 200.23px;
+            margin-top: 0.2px;
+            transform: rotate(-0.09deg);
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-18 {
+            margin-left: -4px;
+            height: 53px;
+            width: 210px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffffe6;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-19 {
+            margin-left: 36px;
+            width: 344px;
+            height: 848px;
+            position: relative;
+            margin-top: 77.5px;
+        }
+
+        .mobile-reservation .rectangle-11 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 332px;
+            height: 848px;
+            background-color: #fff9f9;
+            border-radius: 5px;
+            box-shadow: 0px 0px 76px -4px #fffcfc99;
+        }
+
+        .mobile-reservation .rectangle-12 {
+            position: absolute;
+            top: 613px;
+            left: 16px;
+            width: 301px;
+            height: 189px;
+            background-color: #fff9f9;
+            border-radius: 10px;
+            border: 1px solid;
+            border-color: #171b1c;
+        }
+
+        .mobile-reservation .heure-disponible {
+            position: absolute;
+            top: 624px;
+            left: calc(50.00% - 124px);
+            width: 211px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: transparent;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-19 {
+            font-weight: 300;
+            color: #171b1c;
+        }
+
+        .mobile-reservation .text-wrapper-20 {
+            font-weight: 500;
+            color: #8a38f5;
+        }
+
+        .mobile-reservation .group-20 {
+            position: absolute;
+            top: 670px;
+            left: 48px;
+            width: 191px;
+            height: 29px;
+        }
+
+        .mobile-reservation .rectangle-13 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 189px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .frame-4 {
+            position: absolute;
+            top: 10px;
+            left: 152px;
+            width: 16px;
+            height: 10px;
+        }
+
+        .mobile-reservation .text-wrapper-21 {
+            position: absolute;
+            top: 5px;
+            left: calc(50.00% - 78px);
+            width: 56px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-21 {
+            position: absolute;
+            top: 728px;
+            left: 48px;
+            width: 132px;
+            height: 43px;
+        }
+
+        .mobile-reservation .votre-heure-maurice {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 66px);
+            width: 128px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: transparent;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-22 {
+            position: absolute;
+            top: 22px;
+            left: calc(50.00% - 66px);
+            width: 56px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #8a38f5;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-23 {
+            position: absolute;
+            top: 418px;
+            left: calc(50.00% + 19px);
+            width: 131px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-24 {
+            position: absolute;
+            top: 422px;
+            left: calc(50.00% - 14px);
+            width: 24px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-25 {
+            position: absolute;
+            top: 420px;
+            left: calc(50.00% - 156px);
+            width: 138px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .les-dates-en-rouge {
+            position: absolute;
+            top: 16px;
+            left: calc(50.00% - 148px);
+            width: 291px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: transparent;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-26 {
+            color: #171b1c;
+        }
+
+        .mobile-reservation .text-wrapper-27 {
+            color: #ff0000;
+        }
+
+        .mobile-reservation .rectangle-14 {
+            position: absolute;
+            top: 48px;
+            left: 10px;
+            width: 313px;
+            height: 347px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            border: 1px solid;
+            border-color: #2e2e2e;
+        }
+
+        .mobile-reservation .month-august {
+            display: flex;
+            flex-direction: column;
+            width: 274px;
+            height: 274px;
+            align-items: center;
+            position: absolute;
+            top: 81px;
+            left: 30px;
+        }
+
+        .mobile-reservation .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0px 0px 4px;
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+            background-color: transparent;
+        }
+
+        .mobile-reservation .atoms-mouth {
+            display: inline-flex;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 8px;
+            position: relative;
+            flex: 0 0 auto;
+            background-color: #000000;
+            border-radius: 4px;
+        }
+
+        .mobile-reservation .text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        .mobile-reservation .grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            flex: 1;
+            align-self: stretch;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .mobile-reservation .line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+            overflow: hidden;
+        }
+
+        .mobile-reservation .div-wrapper {
+            display: flex;
+            width: 24px;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .mobile-reservation .text-2 {
+            color: #b3b3b3;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        .mobile-reservation .text-3 {
+            color: #16a0f9;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        .mobile-reservation .atoms-week-namber {
+            display: flex;
+            width: 24px;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #333333;
+            border-radius: 4px;
+        }
+
+        .mobile-reservation .text-4 {
+            color: #606060;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        .mobile-reservation .atoms-dey-number {
+            display: flex;
+            width: 24px;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #8a38f5;
+            border-radius: 4px;
+        }
+
+        .mobile-reservation .atoms-dey-number-2 {
+            display: flex;
+            width: 24px;
+            height: 24px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #ff0000;
+            border-radius: 4px;
+        }
+
+        .mobile-reservation .text-5 {
+            color: #1170af;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        .mobile-reservation .group-22 {
+            position: absolute;
+            top: 81px;
+            left: 32px;
+            width: 275px;
+            height: 24px;
+        }
+
+        .mobile-reservation .ellipse-wrapper {
+            position: absolute;
+            top: 476px;
+            left: 13px;
+            width: 53px;
+            height: 25px;
+            display: flex;
+            background-color: #8a38f5;
+            border-radius: 50px;
+        }
+
+        .mobile-reservation .ellipse {
+            margin-top: 2px;
+            width: 21px;
+            height: 21px;
+            margin-left: 29px;
+            background-color: #fffcfc;
+            border-radius: 10.5px;
+            box-shadow: -3px 0px 4px #00000059;
+        }
+
+        .mobile-reservation .group-23 {
+            position: absolute;
+            top: 474px;
+            left: 191px;
+            width: 133px;
+            height: 29px;
+        }
+
+        .mobile-reservation .rectangle-15 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 131px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .frame-5 {
+            position: absolute;
+            top: 10px;
+            left: 103px;
+            width: 16px;
+            height: 10px;
+        }
+
+        .mobile-reservation .text-wrapper-28 {
+            position: absolute;
+            top: 5px;
+            left: calc(50.00% - 46px);
+            width: 56px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-29 {
+            position: absolute;
+            top: 552px;
+            left: calc(50.00% - 124px);
+            width: 183px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .frame-6 {
+            position: absolute;
+            top: 553px;
+            left: 18px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-reservation .group-24 {
+            margin-left: 60px;
+            width: 300px;
+            height: 89px;
+            margin-top: 106px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-reservation .text-wrapper-30 {
+            margin-left: -17px;
+            height: 36px;
+            width: 261px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-31 {
+            margin-left: -4px;
+            height: 53px;
+            width: 296px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffffe6;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-25 {
+            margin-left: 36px;
+            width: 352px;
+            height: 1306px;
+            position: relative;
+            margin-top: 77px;
+        }
+
+        .mobile-reservation .rectangle-16 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 332px;
+            height: 1306px;
+            background-color: #fff9f9;
+            border-radius: 5px;
+            box-shadow: 0px 0px 76px -4px #fffcfc99;
+        }
+
+        .mobile-reservation .text-wrapper-32 {
+            position: absolute;
+            top: 783px;
+            left: calc(50.00% - 132px);
+            width: 253px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-26 {
+            position: absolute;
+            top: 825px;
+            left: 26px;
+            width: 282px;
+            height: 61px;
+        }
+
+        .mobile-reservation .text-wrapper-33 {
+            position: absolute;
+            top: 37px;
+            left: calc(50.00% - 9px);
+            width: 20px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-27 {
+            position: absolute;
+            top: 0;
+            left: 150px;
+            width: 134px;
+            height: 61px;
+        }
+
+        .mobile-reservation .text-wrapper-34 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 67px);
+            width: 127px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-17 {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            width: 130px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .frame-7 {
+            position: absolute;
+            top: 38px;
+            left: 7px;
+            width: 14px;
+            height: 15px;
+        }
+
+        .mobile-reservation .text-wrapper-35 {
+            position: absolute;
+            top: 37px;
+            left: calc(50.00% - 34px);
+            width: 63px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-28 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 151px;
+            height: 61px;
+        }
+
+        .mobile-reservation .text-wrapper-36 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 76px);
+            width: 147px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-37 {
+            position: absolute;
+            top: 37px;
+            left: calc(50.00% - 42px);
+            width: 63px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-29 {
+            position: absolute;
+            top: 680px;
+            left: 23px;
+            width: 281px;
+            height: 59px;
+        }
+
+        .mobile-reservation .text-wrapper-38 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 140px);
+            width: 191px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-18 {
+            position: absolute;
+            top: 30px;
+            left: 3px;
+            width: 272px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .frame-8 {
+            position: absolute;
+            top: 42px;
+            left: 220px;
+            width: 8px;
+            height: 5px;
+        }
+
+        .mobile-reservation .vector-2 {
+            position: absolute;
+            top: 38px;
+            left: 160px;
+            width: 1px;
+            height: 14px;
+        }
+
+        .mobile-reservation .text-wrapper-39 {
+            position: absolute;
+            top: 33px;
+            left: calc(50.00% + 40px);
+            width: 31px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-40 {
+            position: absolute;
+            top: 33px;
+            left: calc(50.00% - 128px);
+            width: 14px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-30 {
+            position: absolute;
+            top: 37px;
+            left: 146px;
+            width: 8px;
+            height: 15px;
+        }
+
+        .mobile-reservation .group-31 {
+            position: absolute;
+            top: 598px;
+            left: 23px;
+            width: 281px;
+            height: 59px;
+        }
+
+        .mobile-reservation .rectangle-19 {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 277px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-41 {
+            position: absolute;
+            top: 35px;
+            left: calc(50.00% - 126px);
+            width: 170px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-42 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 140px);
+            width: 233px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .vector-3 {
+            position: absolute;
+            top: 567px;
+            left: 23px;
+            width: 286px;
+            height: 1px;
+            object-fit: cover;
+        }
+
+        .mobile-reservation .vector-4 {
+            position: absolute;
+            top: 772px;
+            left: 29px;
+            width: 280px;
+            height: 2px;
+            object-fit: cover;
+        }
+
+        .mobile-reservation .group-32 {
+            position: absolute;
+            top: 389px;
+            left: 23px;
+            width: 285px;
+            height: 129px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-reservation .text-wrapper-43 {
+            margin-left: 1px;
+            height: 21px;
+            width: 218px;
+            align-self: center;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-wrapper {
+            width: 281px;
+            height: 29px;
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            background-color: #fff9f9;
+            border-radius: 3px;
+            border: 1px solid;
+            border-color: #171b1c;
+        }
+
+        .mobile-reservation .group-33 {
+            margin-top: 4px;
+            width: 79.37px;
+            height: 21px;
+            margin-left: 2.7px;
+            position: relative;
+        }
+
+        .mobile-reservation .frame-9 {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: 15px;
+            height: 16px;
+        }
+
+        .mobile-reservation .text-wrapper-44 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 13px);
+            width: 51px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-45 {
+            margin-left: 10px;
+            height: 21px;
+            width: 29px;
+            align-self: center;
+            margin-top: 2px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-34 {
+            width: 281px;
+            height: 29px;
+            margin-top: 9px;
+            display: flex;
+            justify-content: center;
+            background-color: #fff9f9;
+            border-radius: 3px;
+            border: 1px solid;
+            border-color: #171b1c;
+        }
+
+        .mobile-reservation .group-35 {
+            margin-top: 4px;
+            width: 79.59px;
+            height: 21px;
+            margin-left: 6.6px;
+            position: relative;
+        }
+
+        .mobile-reservation .frame-10 {
+            position: absolute;
+            top: 1px;
+            left: 0;
+            width: 15px;
+            height: 18px;
+        }
+
+        .mobile-reservation .text-wrapper-46 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 9px);
+            width: 47px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-20 {
+            position: absolute;
+            top: 334px;
+            left: 20px;
+            width: 284px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-47 {
+            position: absolute;
+            top: 304px;
+            left: calc(50.00% - 156px);
+            width: 164px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-48 {
+            position: absolute;
+            top: 337px;
+            left: calc(50.00% - 149px);
+            width: 36px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-36 {
+            position: absolute;
+            top: 337px;
+            left: 230px;
+            width: 62px;
+            height: 21px;
+        }
+
+        .mobile-reservation .frame-11 {
+            position: absolute;
+            top: 9px;
+            left: 52px;
+            width: 8px;
+            height: 5px;
+        }
+
+        .mobile-reservation .vector-5 {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 1px;
+            height: 14px;
+        }
+
+        .mobile-reservation .text-wrapper-49 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 24px);
+            width: 24px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .maurice {
+            position: absolute;
+            top: 6px;
+            left: 32px;
+            width: 11px;
+            height: 11px;
+            object-fit: cover;
+        }
+
+        .mobile-reservation .rectangle-21 {
+            position: absolute;
+            top: 252px;
+            left: 24px;
+            width: 280px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-50 {
+            position: absolute;
+            top: 257px;
+            left: calc(50.00% - 143px);
+            width: 164px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .email-exemple-gmail {
+            position: absolute;
+            top: 222px;
+            left: calc(50.00% - 152px);
+            width: 202px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: transparent;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-22 {
+            position: absolute;
+            top: 170px;
+            left: 23px;
+            width: 281px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-51 {
+            top: 175px;
+            width: 116px;
+            position: absolute;
+            left: calc(50.00% - 136px);
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .pr-nom {
+            position: absolute;
+            top: 140px;
+            left: calc(50.00% - 153px);
+            width: 71px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: transparent;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-23 {
+            position: absolute;
+            top: 91px;
+            left: 23px;
+            width: 281px;
+            height: 29px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-52 {
+            top: 96px;
+            width: 93px;
+            position: absolute;
+            left: calc(50.00% - 136px);
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .nom {
+            position: absolute;
+            top: 61px;
+            left: calc(50.00% - 153px);
+            width: 60px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: transparent;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .les-champs-en-indiqu {
+            position: absolute;
+            top: 20px;
+            left: calc(50.00% - 153px);
+            width: 291px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: transparent;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-37 {
+            position: absolute;
+            top: 909px;
+            left: 27px;
+            width: 285px;
+            height: 72px;
+        }
+
+        .mobile-reservation .text-wrapper-53 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 142px);
+            width: 204px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .rectangle-24 {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 279px;
+            height: 42px;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .rectangle-25 {
+            position: absolute;
+            top: 37px;
+            left: 11px;
+            width: 93px;
+            height: 29px;
+            background-color: #171b1c;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-54 {
+            position: absolute;
+            top: 42px;
+            left: calc(50.00% - 124px);
+            width: 62px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .basil-cross-outline {
+            position: absolute;
+            top: 39px;
+            left: 75px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-reservation .rectangle-26 {
+            position: absolute;
+            top: 37px;
+            left: 111px;
+            width: 76px;
+            height: 29px;
+            background-color: #171b1c;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-55 {
+            position: absolute;
+            top: 41px;
+            left: calc(50.00% - 26px);
+            width: 48px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .basil-cross-outline-2 {
+            position: absolute;
+            top: 39px;
+            left: 159px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-reservation .vector-6 {
+            position: absolute;
+            top: 37px;
+            left: 238px;
+            width: 3px;
+            height: 28px;
+        }
+
+        .mobile-reservation .frame-12 {
+            position: absolute;
+            top: 47px;
+            left: 254px;
+            width: 16px;
+            height: 10px;
+        }
+
+        .mobile-reservation .group-38 {
+            position: absolute;
+            top: 1004px;
+            left: 28px;
+            width: 281px;
+            height: 63px;
+        }
+
+        .mobile-reservation .rectangle-27 {
+            width: 230px;
+            height: 29px;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-56 {
+            position: absolute;
+            top: 35px;
+            left: calc(50.00% - 126px);
+            width: 49px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-57 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 140px);
+            width: 125px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-39 {
+            position: absolute;
+            top: 21px;
+            left: 244px;
+            width: 35px;
+            height: 42px;
+        }
+
+        .mobile-reservation .ellipse-2 {
+            position: absolute;
+            top: 9px;
+            left: 0;
+            width: 33px;
+            height: 33px;
+            background-color: #d9d9d9;
+            border-radius: 16.5px;
+        }
+
+        .mobile-reservation .text-wrapper-58 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 8px);
+            width: 12px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #171b1c;
+            font-size: 30px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-40 {
+            position: absolute;
+            top: 1090px;
+            left: 28px;
+            width: 282px;
+            height: 174px;
+        }
+
+        .mobile-reservation .rectangle-28 {
+            width: 278px;
+            height: 144px;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            background-color: #edebeb;
+            border-radius: 3px;
+        }
+
+        .mobile-reservation .text-wrapper-59 {
+            position: absolute;
+            top: 45px;
+            left: calc(50.00% - 132px);
+            width: 200px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c80;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .objectif-du-projet {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 141px);
+            width: 134px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: transparent;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-41 {
+            width: 407px;
+            height: 89px;
+            margin-top: 77px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-reservation .text-wrapper-60 {
+            margin-left: -4px;
+            height: 36px;
+            width: 403px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-61 {
+            margin-left: 12px;
+            height: 53px;
+            width: 303px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffffe6;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-42 {
+            margin-left: 36px;
+            width: 334px;
+            height: 406px;
+            position: relative;
+            margin-top: 16px;
+        }
+
+        .mobile-reservation .rectangle-29 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 332px;
+            height: 406px;
+            background-color: #fff9f9;
+            border-radius: 5px;
+            box-shadow: 0px 0px 76px -4px #fffcfc99;
+        }
+
+        .mobile-reservation .group-43 {
+            position: absolute;
+            top: 293px;
+            left: 13px;
+            width: 301px;
+            height: 95px;
+        }
+
+        .mobile-reservation .text-wrapper-62 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 150px);
+            width: 158px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-44 {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            width: 130px;
+            height: 30px;
+        }
+
+        .mobile-reservation .group-45 {
+            position: absolute;
+            top: 0;
+            left: 51px;
+            width: 79px;
+            height: 30px;
+        }
+
+        .mobile-reservation .rectangle-30 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 77px;
+            height: 23px;
+            background-color: #dadada;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-63 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 18px);
+            width: 37px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-64 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 65px);
+            width: 48px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-46 {
+            position: absolute;
+            top: 32px;
+            left: 163px;
+            width: 138px;
+            height: 30px;
+        }
+
+        .mobile-reservation .group-47 {
+            position: absolute;
+            top: 0;
+            left: 73px;
+            width: 65px;
+            height: 30px;
+        }
+
+        .mobile-reservation .rectangle-31 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 63px;
+            height: 23px;
+            background-color: #dadada;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-65 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 16px);
+            width: 37px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-66 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 69px);
+            width: 71px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-48 {
+            position: absolute;
+            top: 64px;
+            left: 0;
+            width: 201px;
+            height: 31px;
+        }
+
+        .mobile-reservation .group-49 {
+            position: absolute;
+            top: 0;
+            left: 51px;
+            width: 150px;
+            height: 30px;
+        }
+
+        .mobile-reservation .rectangle-32 {
+            position: absolute;
+            top: 1px;
+            left: 0;
+            width: 148px;
+            height: 23px;
+            background-color: #dadada;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-67 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 58px);
+            width: 127px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-68 {
+            position: absolute;
+            top: 1px;
+            left: calc(50.00% - 100px);
+            width: 71px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-69 {
+            position: absolute;
+            top: 17px;
+            left: calc(50.00% - 125px);
+            width: 254px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #171b1c;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-50 {
+            position: absolute;
+            top: 114px;
+            left: 8px;
+            width: 323px;
+            height: 54px;
+        }
+
+        .mobile-reservation .text-wrapper-70 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 162px);
+            width: 158px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-51 {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            width: 154px;
+            height: 22px;
+        }
+
+        .mobile-reservation .rectangle-33 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 152px;
+            height: 22px;
+            background-color: #dadada;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-71 {
+            position: absolute;
+            top: 2px;
+            left: calc(50.00% - 74px);
+            width: 114px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-52 {
+            position: absolute;
+            top: 32px;
+            left: 172px;
+            width: 151px;
+            height: 22px;
+        }
+
+        .mobile-reservation .rectangle-34 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 149px;
+            height: 22px;
+            background-color: #dadada;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-72 {
+            position: absolute;
+            top: 2px;
+            left: calc(50.00% - 72px);
+            width: 118px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-53 {
+            position: absolute;
+            top: 183px;
+            left: 11px;
+            width: 218px;
+            height: 95px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .mobile-reservation .text-wrapper-73 {
+            margin-left: -60px;
+            height: 30px;
+            align-self: center;
+            width: 158px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-54 {
+            margin-left: 2px;
+            width: 161px;
+            height: 30px;
+            position: relative;
+        }
+
+        .mobile-reservation .group-55 {
+            position: absolute;
+            top: 0;
+            left: 51px;
+            width: 110px;
+            height: 30px;
+        }
+
+        .mobile-reservation .rectangle-35 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 108px;
+            height: 23px;
+            background-color: #dadada;
+            border-radius: 5px;
+        }
+
+        .mobile-reservation .text-wrapper-74 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 34px);
+            width: 75px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-75 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 80px);
+            width: 48px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-56 {
+            margin-left: 2px;
+            width: 216px;
+            height: 31px;
+            position: relative;
+        }
+
+        .mobile-reservation .group-57 {
+            position: absolute;
+            top: 1px;
+            left: 106px;
+            width: 110px;
+            height: 30px;
+        }
+
+        .mobile-reservation .text-wrapper-76 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 108px);
+            width: 104px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-58 {
+            margin-left: 34px;
+            width: 338px;
+            height: 262px;
+            position: relative;
+            margin-top: 52px;
+        }
+
+        .mobile-reservation .frame-13 {
+            display: flex;
+            width: 221px;
+            height: 49px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 13px;
+            position: absolute;
+            top: 213px;
+            left: calc(50.00% - 112px);
+            background-color: #ffffff;
+            border-radius: 50px;
+            backdrop-filter: blur(3.5px) brightness(100%);
+            -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+        }
+
+        .mobile-reservation .text-wrapper-77 {
+            position: relative;
+            width: fit-content;
+            font-family: "Kanit", Helvetica;
+            font-weight: 500;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-78 {
+            position: absolute;
+            top: 0;
+            left: calc(50.00% - 169px);
+            width: 334px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 600;
+            color: #ffffffe6;
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .text-wrapper-79 {
+            position: absolute;
+            top: 133px;
+            left: calc(50.00% - 118px);
+            width: 252px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 300;
+            color: #ffffffe6;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .group-59 {
+            position: absolute;
+            top: 133px;
+            left: 2px;
+            width: 23px;
+            height: 23px;
+        }
+
+        .mobile-reservation .group-60 {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 384px;
+            height: 105px;
+        }
+
+        .mobile-reservation .group-61 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 375px;
+            height: 105px;
+            backdrop-filter: blur(5px) brightness(100%);
+            -webkit-backdrop-filter: blur(5px) brightness(100%);
+            background: linear-gradient(
+                    20deg,
+                    rgba(23, 27, 28, 0.3) 0%,
+                    rgba(28, 20, 38, 0.3) 100%
+            );
+        }
+
+        .mobile-reservation .frame-14 {
+            position: absolute;
+            top: 26px;
+            left: 0;
+            width: 384px;
+            height: 38px;
+            display: flex;
+            gap: 12px;
+            overflow: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+
+        .mobile-reservation .frame-14::-webkit-scrollbar {
+            width: 0;
+            display: none;
+        }
+
+        .mobile-reservation .frame-15 {
+            display: inline-flex;
+            width: 54px;
+            height: 28px;
+            position: relative;
+            margin-left: -66px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 7px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            border: 1px solid;
+            flex-shrink: 0;
+        }
+
+        .mobile-reservation .text-wrapper-80 {
+            position: relative;
+            width: fit-content;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .frame-16 {
+            display: inline-flex;
+            width: 63px;
+            height: 28px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 7px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            border: 1px solid;
+            border-color: #fffcfc;
+            flex-shrink: 0;
+        }
+
+        .mobile-reservation .frame-17 {
+            display: inline-flex;
+            width: 121px;
+            height: 28px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 7px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            flex-shrink: 0;
+        }
+
+        .mobile-reservation .text-wrapper-81 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1.00px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .frame-18 {
+            display: inline-flex;
+            width: 100px;
+            height: 28px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 7px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            border: 1px solid;
+            border-color: #fffcfc;
+            flex-shrink: 0;
+        }
+
+        .mobile-reservation .text-wrapper-82 {
+            position: relative;
+            width: fit-content;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #000000;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .frame-19 {
+            display: inline-flex;
+            width: 56px;
+            height: 28px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 7px;
+            background-color: #000000;
+            border-radius: 50px;
+            border: 1px solid;
+            border-color: #fffcfc;
+            flex-shrink: 0;
+        }
+
+        .mobile-reservation .text-wrapper-83 {
+            position: relative;
+            width: fit-content;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .mobile-reservation .frame-wrapper {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 375px;
+            height: 64px;
+            display: flex;
+            background-image: url(https://c.animaapp.com/mfohunmySSzS7x/img/group-234.png);
+            background-size: 100% 100%;
+        }
+
+        .mobile-reservation .frame-20 {
+            display: flex;
+            margin-top: 18px;
+            width: 83px;
+            height: 32px;
+            margin-left: 270px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 4px 13px;
+            background-color: #ffffff;
+            border-radius: 50px;
+        }
+
+        .mobile-reservation .text-wrapper-84 {
+            position: relative;
+            width: fit-content;
+            margin-left: -0.50px;
+            margin-right: -0.50px;
+            font-family: "Kanit", Helvetica;
+            font-weight: 400;
+            color: #171b1c;
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+    </style>
+</head>
+<body>
+<div class="mobile-reservation">
+    <div class="rectangle"></div>
+    <div class="group">
+        <p class="text-wrapper">Revenir à la page précédente</p>
+        <img class="mdi-cross-circle" src="https://c.animaapp.com/mfohunmySSzS7x/img/mdi-cross-circle.svg" />
+    </div>
+    <div class="div"></div>
+    <div class="group-2">
+        <div class="rectangle-2"></div>
+        <div class="frame"><div class="text-wrapper-2">Réserver</div></div>
+        <p class="p">Commencez à vous inscrire pour ne rien rater</p>
+        <div class="rectangle-3"></div>
+        <div class="text-wrapper-3">Saisissez votre email</div>
+        <img class="img" src="https://c.animaapp.com/mfohunmySSzS7x/img/group-25.png" />
+        <div class="frame-2"></div>
+        <div class="group-3">
+            <div class="text-wrapper-4">Consultez nos projets</div>
+            <img class="arrow" src="https://c.animaapp.com/mfohunmySSzS7x/img/arrow-3.svg" />
+        </div>
+        <div class="group-4">
+            <img class="frame-3" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-100.svg" />
+            <div class="group-5">
+                <div class="text-wrapper-5">Lantorian</div>
+                <div class="text-wrapper-6">2025</div>
+            </div>
+        </div>
+        <p class="privacy-policy-terms"><span class="span">Privacy policy•Terms &amp; conditions</span></p>
+    </div>
+    <div class="group-6">
+        <p class="text-wrapper-7">Votre réservation, simple et rapide</p>
+        <p class="text-wrapper-8">En quelques minutes, c’est réservé</p>
+        <div class="group-7">
+            <div class="component">
+                <div class="group-8">
+                    <div class="rectangle-4"></div>
+                    <div class="rectangle-5"></div>
+                    <div class="rectangle-6"></div>
+                    <div class="rectangle-7"></div>
+                </div>
+            </div>
+            <img class="vector" src="https://c.animaapp.com/mfohunmySSzS7x/img/vector.svg" />
+        </div>
+    </div>
+    <div class="group-9">
+        <div class="group-10">
+            <p class="text-wrapper-9">Choisir le service - étape 1</p>
+            <p class="text-wrapper-10">
+                Sélectionnez le type de service qui correspond à vos besoins , afin que nous préparions au mieux votre
+                rendez-vous
+            </p>
+        </div>
+        <div class="group-11">
+            <div class="rectangle-8"></div>
+            <div class="text-wrapper-11">Service souhaité</div>
+            <img class="group-12" src="https://c.animaapp.com/mfohunmySSzS7x/img/group-192.png" />
+            <div class="group-13">
+                <div class="rectangle-9"></div>
+                <div class="rectangle-10"></div>
+            </div>
+            <div class="group-14">
+                <div class="rectangle-9"></div>
+                <div class="rectangle-10"></div>
+            </div>
+            <img class="group-15" src="https://c.animaapp.com/mfohunmySSzS7x/img/group-194.png" />
+            <div class="audit-gratuit-min">Audit gratuit&nbsp;&nbsp;(15 min)</div>
+            <div class="text-wrapper-12">Atelier UX</div>
+            <div class="group-16">
+                <div class="rectangle-9"></div>
+                <div class="rectangle-10"></div>
+            </div>
+            <div class="text-wrapper-13">Conseil stratégique (1h)</div>
+            <div class="group-17">
+                <div class="rectangle-9"></div>
+                <div class="rectangle-10"></div>
+            </div>
+            <div class="text-wrapper-14">Autre</div>
+            <div class="text-wrapper-15">Consultation (30 min)</div>
+            <p class="text-wrapper-16">Accompagnement complet / Devis projet</p>
+        </div>
+        <div class="group-18">
+            <p class="text-wrapper-17">Choisir le créneau - étape 2</p>
+            <p class="text-wrapper-18">
+                Sélectionnez la date et l’heure qui vous conviennent le mieux pour votre rendez-vous
+            </p>
+        </div>
+        <div class="group-19">
+            <div class="rectangle-11"></div>
+            <div class="rectangle-12"></div>
+            <p class="heure-disponible">
+                <span class="text-wrapper-19">Heure disponible pour un rendez-vous pour </span>
+                <span class="text-wrapper-20">26/08/25</span>
+                <span class="text-wrapper-19"></span>
+            </p>
+            <div class="group-20">
+                <div class="rectangle-13"></div>
+                <img class="frame-4" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-91.svg" />
+                <div class="text-wrapper-21">10 : 00 AM</div>
+            </div>
+            <div class="group-21">
+                <p class="votre-heure-maurice">
+                    <span class="text-wrapper-19">Votre heure à </span> <span class="text-wrapper-20">Maurice</span>
+                </p>
+                <div class="text-wrapper-22">11 : 00 AM</div>
+            </div>
+            <p class="text-wrapper-23">définir en sélectionnant votre pays</p>
+            <div class="text-wrapper-24">ou</div>
+            <p class="text-wrapper-25">Détection automatique du fuseau horaire</p>
+            <p class="les-dates-en-rouge">
+                <span class="text-wrapper-26">Les dates en </span>
+                <span class="text-wrapper-27">rouge</span>
+                <span class="text-wrapper-26"> ne sont pas disponibles</span>
+            </p>
+            <div class="rectangle-14"></div>
+            <div class="month-august">
+                <header class="header">
+                    <div class="atoms-mouth"><div class="text">August</div></div>
+                </header>
+                <div class="grid">
+                    <div class="line">
+                        <div class="div-wrapper"><div class="text">08</div></div>
+                        <div class="div-wrapper"><div class="text-2">Mo</div></div>
+                        <div class="div-wrapper"><div class="text-2">Tu</div></div>
+                        <div class="div-wrapper"><div class="text-2">We</div></div>
+                        <div class="div-wrapper"><div class="text-2">Th</div></div>
+                        <div class="div-wrapper"><div class="text-2">Fr</div></div>
+                        <div class="div-wrapper"><div class="text-3">Sa</div></div>
+                        <div class="div-wrapper"><div class="text-3">Su</div></div>
+                    </div>
+                    <div class="line">
+                        <div class="atoms-week-namber"><div class="text-2">31</div></div>
+                        <div class="div-wrapper"><div class="text-4">28</div></div>
+                        <div class="div-wrapper"><div class="text-4">29</div></div>
+                        <div class="div-wrapper"><div class="text-4">30</div></div>
+                        <div class="div-wrapper"><div class="text-4">31</div></div>
+                        <div class="div-wrapper"><div class="text-2">1</div></div>
+                        <div class="div-wrapper"><div class="text-3">2</div></div>
+                        <div class="div-wrapper"><div class="text-3">3</div></div>
+                    </div>
+                    <div class="line">
+                        <div class="atoms-week-namber"><div class="text-2">32</div></div>
+                        <div class="div-wrapper"><div class="text-2">4</div></div>
+                        <div class="div-wrapper"><div class="text-2">5</div></div>
+                        <div class="div-wrapper"><div class="text-2">6</div></div>
+                        <div class="div-wrapper"><div class="text-2">7</div></div>
+                        <div class="div-wrapper"><div class="text-2">8</div></div>
+                        <div class="div-wrapper"><div class="text-3">9</div></div>
+                        <div class="div-wrapper"><div class="text-3">10</div></div>
+                    </div>
+                    <div class="line">
+                        <div class="atoms-week-namber"><div class="text-2">33</div></div>
+                        <div class="div-wrapper"><div class="text-2">11</div></div>
+                        <div class="div-wrapper"><div class="text-2">12</div></div>
+                        <div class="div-wrapper"><div class="text-2">13</div></div>
+                        <div class="div-wrapper"><div class="text-2">14</div></div>
+                        <div class="div-wrapper"><div class="text-2">15</div></div>
+                        <div class="div-wrapper"><div class="text-3">16</div></div>
+                        <div class="div-wrapper"><div class="text-3">17</div></div>
+                    </div>
+                    <div class="line">
+                        <div class="atoms-week-namber"><div class="text-2">34</div></div>
+                        <div class="div-wrapper"><div class="text-2">18</div></div>
+                        <div class="div-wrapper"><div class="text-2">19</div></div>
+                        <div class="div-wrapper"><div class="text-2">20</div></div>
+                        <div class="div-wrapper"><div class="text-2">21</div></div>
+                        <div class="div-wrapper"><div class="text-2">22</div></div>
+                        <div class="div-wrapper"><div class="text-3">23</div></div>
+                        <div class="div-wrapper"><div class="text-3">24</div></div>
+                    </div>
+                    <div class="line">
+                        <div class="atoms-week-namber"><div class="text">35</div></div>
+                        <div class="div-wrapper"><div class="text-2">25</div></div>
+                        <div class="atoms-dey-number"><div class="text">26</div></div>
+                        <div class="div-wrapper"><div class="text-2">27</div></div>
+                        <div class="atoms-dey-number-2"><div class="text">28</div></div>
+                        <div class="atoms-dey-number-2"><div class="text">29</div></div>
+                        <div class="div-wrapper"><div class="text-3">30</div></div>
+                        <div class="div-wrapper"><div class="text-3">31</div></div>
+                    </div>
+                    <div class="line">
+                        <div class="atoms-week-namber"><div class="text-2">36</div></div>
+                        <div class="div-wrapper"><div class="text-4">1</div></div>
+                        <div class="div-wrapper"><div class="text-4">2</div></div>
+                        <div class="div-wrapper"><div class="text-4">3</div></div>
+                        <div class="div-wrapper"><div class="text-4">4</div></div>
+                        <div class="div-wrapper"><div class="text-4">5</div></div>
+                        <div class="div-wrapper"><div class="text-5">6</div></div>
+                        <div class="div-wrapper"><div class="text-5">7</div></div>
+                    </div>
+                </div>
+            </div>
+            <img class="group-22" src="https://c.animaapp.com/mfohunmySSzS7x/img/group-368.png" />
+            <div class="ellipse-wrapper"><div class="ellipse"></div></div>
+            <div class="group-23">
+                <div class="rectangle-15"></div>
+                <img class="frame-5" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-91.svg" />
+                <div class="text-wrapper-28">Maurice</div>
+            </div>
+            <p class="text-wrapper-29">L’heure sera automatiquement adaptée à votre fuseau horaire</p>
+            <img class="frame-6" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-156.svg" />
+        </div>
+        <div class="group-24">
+            <p class="text-wrapper-30">Remplir vos informations - étape 3</p>
+            <p class="text-wrapper-31">
+                Indiquez vos coordonnées et quelques détails afin que nous préparions au mieux votre réservation
+            </p>
+        </div>
+        <div class="group-25">
+            <div class="rectangle-16"></div>
+            <p class="text-wrapper-32">Délai souhaité pour la durée le projet</p>
+            <div class="group-26">
+                <div class="text-wrapper-33">Au</div>
+                <div class="group-27">
+                    <div class="text-wrapper-34">Date fin du projet</div>
+                    <div class="rectangle-17"></div>
+                    <img class="frame-7" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-152.svg" />
+                    <div class="text-wrapper-35">YY/MM/DD</div>
+                </div>
+                <div class="group-28">
+                    <div class="text-wrapper-36">Date début du projet</div>
+                    <div class="rectangle-17"></div>
+                    <img class="frame-7" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-152.svg" />
+                    <div class="text-wrapper-37">YY/MM/DD</div>
+                </div>
+            </div>
+            <div class="group-29">
+                <p class="text-wrapper-38">Votre budget pour le projet</p>
+                <div class="rectangle-18"></div>
+                <img class="frame-8" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-155.svg" />
+                <img class="vector-2" src="https://c.animaapp.com/mfohunmySSzS7x/img/vector-18.svg" />
+                <div class="text-wrapper-39">EUR</div>
+                <div class="text-wrapper-40">0</div>
+                <img class="group-30" src="https://c.animaapp.com/mfohunmySSzS7x/img/group-381.png" />
+            </div>
+            <div class="group-31">
+                <div class="rectangle-19"></div>
+                <p class="text-wrapper-41">Saisir le nom de votre société</p>
+                <p class="text-wrapper-42">Nom de l’entreprise / organisation</p>
+            </div>
+            <img class="vector-3" src="https://c.animaapp.com/mfohunmySSzS7x/img/vector-16.svg" />
+            <img class="vector-4" src="https://c.animaapp.com/mfohunmySSzS7x/img/vector-17-1.svg" />
+            <div class="group-32">
+                <div class="text-wrapper-43">Remplir automatiquement avec</div>
+                <div class="group-wrapper">
+                    <div class="group-33">
+                        <img class="frame-9" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-154.svg" />
+                        <div class="text-wrapper-44">Google</div>
+                    </div>
+                </div>
+                <div class="text-wrapper-45">Ou</div>
+                <div class="group-34">
+                    <div class="group-35">
+                        <img class="frame-10" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-153.svg" />
+                        <div class="text-wrapper-46">Apple</div>
+                    </div>
+                </div>
+            </div>
+            <div class="rectangle-20"></div>
+            <div class="text-wrapper-47">Téléphone / WhatsApp</div>
+            <div class="text-wrapper-48">+230</div>
+            <div class="group-36">
+                <img class="frame-11" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-155.svg" />
+                <img class="vector-5" src="https://c.animaapp.com/mfohunmySSzS7x/img/vector-18.svg" />
+                <div class="text-wrapper-49">MU</div>
+                <img class="maurice" src="https://c.animaapp.com/mfohunmySSzS7x/img/icons8-maurice-circulaire-96-1.png" />
+            </div>
+            <div class="rectangle-21"></div>
+            <div class="text-wrapper-50">obligatoire, pour confirmation</div>
+            <p class="email-exemple-gmail">
+                <span class="text-wrapper-26">Email </span>
+                <span class="text-wrapper-27">* </span>
+                <span class="text-wrapper-26">(exemple@gmail.com)</span>
+            </p>
+            <div class="rectangle-22"></div>
+            <div class="text-wrapper-51">Saisir votre prénom</div>
+            <p class="pr-nom"><span class="text-wrapper-26">Prénom </span> <span class="text-wrapper-27">*</span></p>
+            <div class="rectangle-23"></div>
+            <div class="text-wrapper-52">Saisir votre nom</div>
+            <p class="nom"><span class="text-wrapper-26">Nom </span> <span class="text-wrapper-27">*</span></p>
+            <p class="les-champs-en-indiqu">
+                <span class="text-wrapper-26">Les champs en indiqués </span>
+                <span class="text-wrapper-27">* </span>
+                <span class="text-wrapper-26">sont obligatoires</span>
+            </p>
+            <div class="group-37">
+                <p class="text-wrapper-53">Choisir le type de votre projet</p>
+                <div class="rectangle-24"></div>
+                <div class="rectangle-25"></div>
+                <div class="text-wrapper-54">Site vitrine</div>
+                <img class="basil-cross-outline" src="https://c.animaapp.com/mfohunmySSzS7x/img/basil-cross-outline.svg" />
+                <div class="rectangle-26"></div>
+                <div class="text-wrapper-55">Refonte</div>
+                <img
+                        class="basil-cross-outline-2"
+                        src="https://c.animaapp.com/mfohunmySSzS7x/img/basil-cross-outline.svg"
+                />
+                <img class="vector-6" src="https://c.animaapp.com/mfohunmySSzS7x/img/vector-20.svg" />
+                <img class="frame-12" src="https://c.animaapp.com/mfohunmySSzS7x/img/frame-91.svg" />
+            </div>
+            <div class="group-38">
+                <div class="rectangle-27"></div>
+                <div class="text-wrapper-56">https://</div>
+                <div class="text-wrapper-57">URL de votre site</div>
+                <div class="group-39">
+                    <div class="ellipse-2"></div>
+                    <div class="text-wrapper-58">+</div>
+                </div>
+            </div>
+            <div class="group-40">
+                <div class="rectangle-28"></div>
+                <p class="text-wrapper-59">Décrire tous vos idées les plus détaillés possibles</p>
+                <p class="objectif-du-projet">
+                    <span class="text-wrapper-26">Objectif du projet </span> <span class="text-wrapper-27">*</span>
+                </p>
+            </div>
+        </div>
+        <div class="group-41">
+            <p class="text-wrapper-60">Confirmer la réservation - étape 4</p>
+            <p class="text-wrapper-61">
+                Vérifiez vos choix, validez votre réservation et recevez instantanément votre confirmation
+            </p>
+        </div>
+        <div class="group-42">
+            <div class="rectangle-29"></div>
+            <div class="group-43">
+                <div class="text-wrapper-62">Vos informations</div>
+                <div class="group-44">
+                    <div class="group-45">
+                        <div class="rectangle-30"></div>
+                        <div class="text-wrapper-63">John</div>
+                    </div>
+                    <div class="text-wrapper-64">Nom :</div>
+                </div>
+                <div class="group-46">
+                    <div class="group-47">
+                        <div class="rectangle-31"></div>
+                        <div class="text-wrapper-65">Doe</div>
+                    </div>
+                    <div class="text-wrapper-66">Prénom :</div>
+                </div>
+                <div class="group-48">
+                    <div class="group-49">
+                        <div class="rectangle-32"></div>
+                        <div class="text-wrapper-67">john@gmail.com</div>
+                    </div>
+                    <div class="text-wrapper-68">Mail :</div>
+                </div>
+            </div>
+            <div class="text-wrapper-69">Récapitulatif de votre rendez-vous</div>
+            <div class="group-50">
+                <div class="text-wrapper-70">Choix de votre service</div>
+                <div class="group-51">
+                    <div class="rectangle-33"></div>
+                    <div class="text-wrapper-71">Audit gratuit (15 min)</div>
+                </div>
+                <div class="group-52">
+                    <div class="rectangle-34"></div>
+                    <div class="text-wrapper-72">Consultation (30 min)</div>
+                </div>
+            </div>
+            <div class="group-53">
+                <div class="text-wrapper-73">Choix de votre créneau</div>
+                <div class="group-54">
+                    <div class="group-55">
+                        <div class="rectangle-35"></div>
+                        <div class="text-wrapper-74">26/08/25</div>
+                    </div>
+                    <div class="text-wrapper-75">Date :</div>
+                </div>
+                <div class="group-56">
+                    <div class="group-57">
+                        <div class="rectangle-35"></div>
+                        <div class="text-wrapper-74">11 : 00 AM</div>
+                    </div>
+                    <div class="text-wrapper-76">Heure Maurice :</div>
+                </div>
+            </div>
+        </div>
+        <div class="group-58">
+            <div class="frame-13"><div class="text-wrapper-77">Confirmer ma réservation</div></div>
+            <p class="text-wrapper-78">Vous recevrez la confirmation de votre rendez-vous par email</p>
+            <p class="text-wrapper-79">J’accepte les conditions et la politique de confidentialité</p>
+            <img class="group-59" src="https://c.animaapp.com/mfohunmySSzS7x/img/group-412.png" />
+        </div>
+    </div>
+    <div class="group-60">
+        <div class="group-61"></div>
+        <div class="frame-14">
+            <div class="frame-15"><div class="text-wrapper-80">Accueil</div></div>
+            <div class="frame-16"><div class="text-wrapper-80">À Propos</div></div>
+            <div class="frame-17"><div class="text-wrapper-81">Solutions / Services</div></div>
+            <div class="frame-18"><div class="text-wrapper-82">Nos réalisations</div></div>
+            <div class="frame-19"><div class="text-wrapper-83">Contact</div></div>
+        </div>
+    </div>
+    <div class="frame-wrapper">
+        <div class="frame-20"><div class="text-wrapper-84">Réserver</div></div>
+    </div>
+</div>
+</body>
+</html>

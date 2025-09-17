@@ -1123,6 +1123,21 @@
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
+<script>
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    function detectMobile() {
+        return window.innerWidth <= 768 || screen.width <= 768;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if ((isMobileDevice() || detectMobile()) && !window.location.pathname.includes('/mobile/')) {
+            window.location.href = 'mobile/reservation.html';
+        }
+    });
+</script>
 <div class="container">
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" id="menuToggle">

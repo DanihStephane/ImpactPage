@@ -830,6 +830,21 @@
     <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
+<script>
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    function detectMobile() {
+        return window.innerWidth <= 768 || screen.width <= 768;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if ((isMobileDevice() || detectMobile()) && !window.location.pathname.includes('/mobile/')) {
+            window.location.href = 'mobile/details.html';
+        }
+    });
+</script>
     <div class="p">
       <div class="div">
         <div class="group">
