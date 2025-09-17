@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Kanit:300,500,400,600");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+.mobile-contact {
+  background-color: #ffffff;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  width: 100vw;
+}
+
+.mobile-contact .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 375px;
+  height: 1622px;
+  position: relative;
+}
+
+.mobile-contact .overlap {
+  position: absolute;
+  width: 381px;
+  height: 1622px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-contact .rectangle {
+  position: absolute;
+  width: 375px;
+  height: 736px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    20deg,
+    rgba(23, 27, 28, 1) 0%,
+    rgba(28, 20, 38, 1) 100%
+  );
+}
+
+.mobile-contact .group {
+  position: absolute;
+  width: 286px;
+  height: 32px;
+  top: 220px;
+  left: 36px;
+}
+
+.mobile-contact .text-wrapper {
+  position: absolute;
+  width: 237px;
+  top: 8px;
+  left: 47px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.mobile-contact .bxs-calendar {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-contact .rectangle-2 {
+  position: absolute;
+  width: 375px;
+  height: 326px;
+  top: 726px;
+  left: 0;
+  background-color: #171b1c;
+}
+
+.mobile-contact .overlap-wrapper {
+  position: absolute;
+  width: 381px;
+  height: 589px;
+  top: 1033px;
+  left: 0;
+}
+
+.mobile-contact .overlap-group {
+  position: relative;
+  width: 375px;
+  height: 589px;
+  background-color: #000000;
+}
+
+.mobile-contact .frame {
+  display: flex;
+  width: 132px;
+  height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 13px;
+  position: absolute;
+  top: 430px;
+  left: 126px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  backdrop-filter: blur(3.5px) brightness(100%);
+  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+}
+
+.mobile-contact .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .p {
+  position: absolute;
+  width: 295px;
+  top: 19px;
+  left: 40px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 34px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .overlap-2 {
+  position: absolute;
+  width: 336px;
+  height: 45px;
+  top: 195px;
+  left: 20px;
+  background-color: #262626;
+  border-radius: 2px;
+}
+
+.mobile-contact .text-wrapper-3 {
+  position: absolute;
+  width: 146px;
+  top: 12px;
+  left: 54px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff99;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .img {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  top: 12px;
+  left: 299px;
+}
+
+.mobile-contact .frame-2 {
+  position: absolute;
+  width: 20px;
+  height: 26px;
+  top: 9px;
+  left: 19px;
+  background-image: url(https://c.animaapp.com/mfn4y3yj1YLfyh/img/email.png);
+  background-size: 100% 100%;
+}
+
+.mobile-contact .overlap-group-wrapper {
+  position: absolute;
+  width: 168px;
+  height: 24px;
+  top: 302px;
+  left: 109px;
+}
+
+.mobile-contact .overlap-group-2 {
+  position: relative;
+  width: 167px;
+  height: 24px;
+}
+
+.mobile-contact .text-wrapper-4 {
+  position: absolute;
+  width: 155px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.mobile-contact .arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 6px;
+  left: 154px;
+}
+
+.mobile-contact .group-2 {
+  position: absolute;
+  width: 125px;
+  height: 24px;
+  top: 346px;
+  left: 124px;
+}
+
+.mobile-contact .frame-3 {
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  top: 5px;
+  left: 0;
+}
+
+.mobile-contact .div-wrapper {
+  position: absolute;
+  width: 110px;
+  height: 24px;
+  top: 0;
+  left: 19px;
+}
+
+.mobile-contact .overlap-group-3 {
+  position: relative;
+  width: 106px;
+  height: 24px;
+}
+
+.mobile-contact .text-wrapper-5 {
+  position: absolute;
+  width: 68px;
+  top: 0;
+  left: 38px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .text-wrapper-6 {
+  position: absolute;
+  width: 39px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .privacy-policy-terms {
+  position: absolute;
+  width: 236px;
+  top: 388px;
+  left: 79px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .span {
+  text-decoration: underline;
+}
+
+.mobile-contact .group-3 {
+  position: absolute;
+  width: 331px;
+  height: 108px;
+  top: 88px;
+  left: 36px;
+}
+
+.mobile-contact .overlap-3 {
+  position: absolute;
+  width: 327px;
+  height: 50px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-contact .text-wrapper-7 {
+  position: absolute;
+  width: 327px;
+  top: 17px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 38px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.mobile-contact .text-wrapper-8 {
+  position: absolute;
+  width: 63px;
+  top: 0;
+  left: 123px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .group-4 {
+  position: absolute;
+  width: 78px;
+  height: 22px;
+  top: 86px;
+  left: 116px;
+}
+
+.mobile-contact .group-5 {
+  position: absolute;
+  width: 332px;
+  height: 692px;
+  top: 312px;
+  left: 23px;
+}
+
+.mobile-contact .overlap-4 {
+  position: relative;
+  width: 330px;
+  height: 692px;
+  background-color: #fff9f9;
+  border-radius: 15px;
+  box-shadow: 0px 0px 76px -4px #fffcfc99;
+}
+
+.mobile-contact .group-6 {
+  position: absolute;
+  width: 295px;
+  height: 74px;
+  top: 28px;
+  left: 20px;
+}
+
+.mobile-contact .text-wrapper-9 {
+  position: absolute;
+  width: 47px;
+  top: 0;
+  left: 4px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .group-7 {
+  position: absolute;
+  width: 295px;
+  height: 42px;
+  top: 32px;
+  left: 0;
+}
+
+.mobile-contact .overlap-group-4 {
+  position: relative;
+  width: 293px;
+  height: 42px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.mobile-contact .text-wrapper-10 {
+  width: 140px;
+  left: 19px;
+  position: absolute;
+  top: 11px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .group-8 {
+  position: absolute;
+  width: 296px;
+  height: 74px;
+  top: 126px;
+  left: 19px;
+}
+
+.mobile-contact .group-9 {
+  position: absolute;
+  width: 296px;
+  height: 42px;
+  top: 32px;
+  left: 0;
+}
+
+.mobile-contact .overlap-group-5 {
+  position: relative;
+  width: 294px;
+  height: 42px;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.mobile-contact .text-wrapper-11 {
+  width: 155px;
+  left: 18px;
+  position: absolute;
+  top: 11px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .text-wrapper-12 {
+  position: absolute;
+  width: 77px;
+  top: 0;
+  left: 1px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .group-10 {
+  position: absolute;
+  width: 293px;
+  height: 42px;
+  top: 262px;
+  left: 20px;
+}
+
+.mobile-contact .group-11 {
+  position: absolute;
+  width: 295px;
+  height: 72px;
+  top: 329px;
+  left: 20px;
+}
+
+.mobile-contact .group-12 {
+  position: absolute;
+  width: 295px;
+  height: 42px;
+  top: 30px;
+  left: 0;
+}
+
+.mobile-contact .text-wrapper-13 {
+  position: absolute;
+  width: 121px;
+  top: 12px;
+  left: 14px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .text-wrapper-14 {
+  position: absolute;
+  width: 57px;
+  top: 0;
+  left: 4px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .group-13 {
+  position: absolute;
+  width: 301px;
+  height: 171px;
+  top: 425px;
+  left: 16px;
+}
+
+.mobile-contact .text-wrapper-15 {
+  position: absolute;
+  width: 217px;
+  top: 0;
+  left: 3px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .overlap-5 {
+  position: absolute;
+  width: 297px;
+  height: 137px;
+  top: 34px;
+  left: 0;
+  background-color: #edebeb;
+  border-radius: 10px;
+}
+
+.mobile-contact .text-wrapper-16 {
+  position: absolute;
+  width: 125px;
+  top: 17px;
+  left: 13px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #171b1cb2;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .rectangle-3 {
+  position: absolute;
+  width: 8px;
+  height: 30px;
+  top: 7px;
+  left: 256px;
+  background-color: #171b1c;
+  border-radius: 50px;
+}
+
+.mobile-contact .frame-4 {
+  display: flex;
+  width: 181px;
+  height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 13px;
+  position: absolute;
+  top: 630px;
+  left: 75px;
+  background-color: #09080b;
+  border-radius: 50px;
+  backdrop-filter: blur(3.5px) brightness(100%);
+  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+}
+
+.mobile-contact .text-wrapper-17 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #fffcfc;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .text-wrapper-18 {
+  position: absolute;
+  width: 77px;
+  top: 230px;
+  left: 24px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #171b1c;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .group-14 {
+  position: fixed;
+  width: 384px;
+  height: 105px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mobile-contact .overlap-6 {
+  position: relative;
+  height: 105px;
+}
+
+.mobile-contact .group-15 {
+  position: absolute;
+  width: 375px;
+  height: 105px;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px) brightness(100%);
+  -webkit-backdrop-filter: blur(5px) brightness(100%);
+  background: linear-gradient(
+    20deg,
+    rgba(23, 27, 28, 0.3) 0%,
+    rgba(28, 20, 38, 0.3) 100%
+  );
+}
+
+.mobile-contact .frame-5 {
+  position: absolute;
+  width: 384px;
+  height: 38px;
+  top: 26px;
+  left: 0;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.mobile-contact .frame-5::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.mobile-contact .frame-6 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: -66px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 1px solid;
+}
+
+.mobile-contact .text-wrapper-19 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .frame-7 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 1px solid;
+  border-color: #fffcfc;
+}
+
+.mobile-contact .frame-8 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 75px;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.mobile-contact .text-wrapper-20 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .frame-9 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 208px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 1px solid;
+  border-color: #fffcfc;
+}
+
+.mobile-contact .text-wrapper-21 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .frame-10 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 320px;
+  background-color: #000000;
+  border-radius: 50px;
+  border: 1px solid;
+  border-color: #fffcfc;
+}
+
+.mobile-contact .text-wrapper-22 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-contact .frame-wrapper {
+  position: fixed;
+  width: 375px;
+  height: 64px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(https://c.animaapp.com/mfn4y3yj1YLfyh/img/group-234.png);
+  background-size: 100% 100%;
+}
+
+.mobile-contact .frame-11 {
+  display: flex;
+  width: 83px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 13px;
+  position: relative;
+  top: 18px;
+  left: 270px;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.mobile-contact .text-wrapper-23 {
+  position: relative;
+  width: fit-content;
+  margin-left: -0.50px;
+  margin-right: -0.50px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="mobile-contact">
+      <div class="div">
+        <div class="overlap">
+          <div class="rectangle"></div>
+          <div class="group">
+            <a href="https://calendly.com/lantorian" target="_blank" rel="noopener noreferrer"
+              ><div class="text-wrapper">https://calendly.com/lantorian</div></a
+            >
+            <img class="bxs-calendar" src="https://c.animaapp.com/mfn4y3yj1YLfyh/img/bxs-calendar.svg" />
+          </div>
+          <div class="rectangle-2"></div>
+          <div class="overlap-wrapper">
+            <div class="overlap-group">
+              <div class="frame"><div class="text-wrapper-2">Réserver</div></div>
+              <p class="p">Commencez à vous inscrire pour ne rien rater</p>
+              <div class="overlap-2">
+                <div class="text-wrapper-3">Saisissez votre email</div>
+                <img class="img" src="https://c.animaapp.com/mfn4y3yj1YLfyh/img/group-25.png" />
+                <div class="frame-2"></div>
+              </div>
+              <div class="overlap-group-wrapper">
+                <div class="overlap-group-2">
+                  <div class="text-wrapper-4">Consultez nos projets</div>
+                  <img class="arrow" src="https://c.animaapp.com/mfn4y3yj1YLfyh/img/arrow-3.svg" />
+                </div>
+              </div>
+              <div class="group-2">
+                <img class="frame-3" src="https://c.animaapp.com/mfn4y3yj1YLfyh/img/frame-100.svg" />
+                <div class="div-wrapper">
+                  <div class="overlap-group-3">
+                    <div class="text-wrapper-5">Lantorian</div>
+                    <div class="text-wrapper-6">2025</div>
+                  </div>
+                </div>
+              </div>
+              <p class="privacy-policy-terms"><span class="span">Privacy policy•Terms &amp; conditions</span></p>
+            </div>
+          </div>
+          <div class="group-3">
+            <div class="overlap-3">
+              <div class="text-wrapper-7">Entrer en contact</div>
+              <div class="text-wrapper-8">Contact</div>
+            </div>
+            <img class="group-4" src="https://c.animaapp.com/mfn4y3yj1YLfyh/img/group-175.png" />
+          </div>
+          <div class="group-5">
+            <div class="overlap-4">
+              <div class="group-6">
+                <div class="text-wrapper-9">Nom*</div>
+                <div class="group-7">
+                  <div class="overlap-group-4"><div class="text-wrapper-10">Saissir votre nom</div></div>
+                </div>
+              </div>
+              <div class="group-8">
+                <div class="group-9">
+                  <div class="overlap-group-5"><div class="text-wrapper-11">Saissir votre prénom</div></div>
+                </div>
+                <div class="text-wrapper-12">Prénom*</div>
+              </div>
+              <img class="group-10" src="https://c.animaapp.com/mfn4y3yj1YLfyh/img/group-364.png" />
+              <div class="group-11">
+                <div class="group-12">
+                  <div class="overlap-group-4"><div class="text-wrapper-13">exemple@gmail.com</div></div>
+                </div>
+                <div class="text-wrapper-14">Email*</div>
+              </div>
+              <div class="group-13">
+                <div class="text-wrapper-15">Description de votre projet*</div>
+                <div class="overlap-5">
+                  <div class="text-wrapper-16">Détaillez votre projet</div>
+                  <div class="rectangle-3"></div>
+                </div>
+              </div>
+              <div class="frame-4"><div class="text-wrapper-17">Envoyer le message</div></div>
+              <div class="text-wrapper-18">Service*</div>
+            </div>
+          </div>
+        </div>
+        <div class="group-14">
+          <div class="overlap-6">
+            <div class="group-15"></div>
+            <div class="frame-5">
+              <div class="frame-6"><div class="text-wrapper-19">Accueil</div></div>
+              <div class="frame-7"><div class="text-wrapper-19">À Propos</div></div>
+              <div class="frame-8"><div class="text-wrapper-20">Solutions / Services</div></div>
+              <div class="frame-9"><div class="text-wrapper-21">Nos réalisations</div></div>
+              <div class="frame-10"><div class="text-wrapper-22">Contact</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrapper">
+          <div class="frame-11"><div class="text-wrapper-23">Réserver</div></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

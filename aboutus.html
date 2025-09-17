@@ -2561,6 +2561,25 @@
       }
     </style>
     <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+      // Script de redirection mobile
+      function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+      }
+
+      function detectMobile() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+      }
+
+      // Redirection vers la version mobile
+      if (isMobileDevice() || detectMobile()) {
+        // Vérifier qu'on n'est pas déjà sur la version mobile
+        if (!window.location.pathname.includes('/mobile/')) {
+          window.location.href = 'mobile/aboutus.html';
+        }
+      }
+    </script>
   </head>
   <body>
     <main class="about-us">

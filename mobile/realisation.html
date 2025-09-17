@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Kanit:300,500,400,600");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+.mobile-realisations {
+  background-color: #ffffff;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  width: 100vw;
+}
+
+.mobile-realisations .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 375px;
+  height: 3340px;
+  position: relative;
+}
+
+.mobile-realisations .overlap {
+  position: absolute;
+  width: 375px;
+  height: 2751px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-realisations .rectangle {
+  height: 736px;
+  top: 0;
+  background: linear-gradient(
+    20deg,
+    rgba(23, 27, 28, 1) 0%,
+    rgba(28, 20, 38, 1) 100%
+  );
+  position: absolute;
+  width: 375px;
+  left: 0;
+}
+
+.mobile-realisations .rectangle-2 {
+  height: 2025px;
+  top: 726px;
+  background-color: #171b1c;
+  position: absolute;
+  width: 375px;
+  left: 0;
+}
+
+.mobile-realisations .group {
+  position: absolute;
+  width: 344px;
+  height: 2016px;
+  top: 680px;
+  left: 20px;
+}
+
+.mobile-realisations .group-2 {
+  position: absolute;
+  width: 344px;
+  height: 356px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-realisations .group-3 {
+  position: absolute;
+  width: 350px;
+  height: 63px;
+  top: 293px;
+  left: 0;
+}
+
+.mobile-realisations .overlap-group {
+  position: absolute;
+  width: 154px;
+  height: 59px;
+  top: 4px;
+  left: 0;
+}
+
+.mobile-realisations .text-wrapper {
+  position: absolute;
+  width: 116px;
+  top: 0;
+  left: 1px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .h-tel-restauration {
+  position: absolute;
+  width: 154px;
+  top: 28px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffffb2;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-2 {
+  position: absolute;
+  width: 34px;
+  top: 35px;
+  left: 310px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .solar-menu-dots-bold {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: 319px;
+}
+
+.mobile-realisations .mask-group {
+  top: -9175px;
+  left: -1692px;
+  background-size: 100% 100%;
+  position: absolute;
+  width: 335px;
+  height: 282px;
+}
+
+.mobile-realisations .element {
+  position: absolute;
+  width: 335px;
+  height: 282px;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.mobile-realisations .group-4 {
+  position: absolute;
+  width: 344px;
+  height: 356px;
+  top: 415px;
+  left: 0;
+}
+
+.mobile-realisations .group-5 {
+  position: absolute;
+  width: 350px;
+  height: 59px;
+  top: 297px;
+  left: 0;
+}
+
+.mobile-realisations .overlap-group-2 {
+  position: absolute;
+  width: 102px;
+  height: 59px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-realisations .text-wrapper-3 {
+  position: absolute;
+  width: 101px;
+  top: 0;
+  left: 1px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-4 {
+  position: absolute;
+  width: 66px;
+  top: 28px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffffb2;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-5 {
+  width: 34px;
+  top: 31px;
+  left: 310px;
+  font-weight: 300;
+  font-size: 12px;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .img {
+  position: absolute;
+  width: 335px;
+  height: 282px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-realisations .group-6 {
+  position: absolute;
+  width: 344px;
+  height: 356px;
+  top: 830px;
+  left: 0;
+}
+
+.mobile-realisations .overlap-group-3 {
+  position: absolute;
+  width: 102px;
+  height: 59px;
+  top: 4px;
+  left: 0;
+}
+
+.mobile-realisations .text-wrapper-6 {
+  position: absolute;
+  width: 87px;
+  top: 28px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffffb2;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .mask-group-2 {
+  top: 0;
+  left: 1px;
+  position: absolute;
+  width: 335px;
+  height: 282px;
+}
+
+.mobile-realisations .group-7 {
+  position: absolute;
+  width: 344px;
+  height: 356px;
+  top: 1245px;
+  left: 0;
+}
+
+.mobile-realisations .overlap-group-4 {
+  position: absolute;
+  width: 198px;
+  height: 59px;
+  top: 4px;
+  left: 0;
+}
+
+.mobile-realisations .num-rique {
+  position: absolute;
+  width: 198px;
+  top: 28px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffffb2;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .group-8 {
+  position: absolute;
+  width: 344px;
+  height: 356px;
+  top: 1660px;
+  left: 0;
+}
+
+.mobile-realisations .text-wrapper-7 {
+  position: absolute;
+  width: 102px;
+  top: 28px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffffb2;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .group-9 {
+  position: absolute;
+  width: 331px;
+  height: 382px;
+  top: 220px;
+  left: 31px;
+}
+
+.mobile-realisations .group-10 {
+  position: absolute;
+  width: 78px;
+  height: 22px;
+  top: 0;
+  left: 120px;
+}
+
+.mobile-realisations .overlap-2 {
+  position: absolute;
+  width: 327px;
+  height: 193px;
+  top: 46px;
+  left: 0;
+}
+
+.mobile-realisations .p {
+  position: absolute;
+  width: 327px;
+  top: 49px;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 38px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-8 {
+  position: absolute;
+  width: 281px;
+  top: 0;
+  left: 22px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .overlap-group-wrapper {
+  position: absolute;
+  width: 123px;
+  height: 123px;
+  top: 259px;
+  left: 96px;
+}
+
+.mobile-realisations .overlap-group-5 {
+  position: relative;
+  height: 123px;
+}
+
+.mobile-realisations .performance-motion {
+  position: absolute;
+  width: 111px;
+  height: 111px;
+  top: 5px;
+  left: 6px;
+}
+
+.mobile-realisations .performance-motion-2 {
+  position: absolute;
+  width: 107px;
+  height: 103px;
+  top: 3px;
+  left: 3px;
+}
+
+.mobile-realisations .group-11 {
+  position: absolute;
+  width: 123px;
+  height: 123px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-realisations .group-12 {
+  position: absolute;
+  width: 130px;
+  height: 98px;
+  top: 1314px;
+  left: 233px;
+}
+
+.mobile-realisations .solar-menu-dots-bold-2 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 74px;
+  left: 106px;
+}
+
+.mobile-realisations .div-wrapper {
+  position: absolute;
+  width: 127px;
+  height: 67px;
+  top: 0;
+  left: 0;
+}
+
+.mobile-realisations .overlap-group-6 {
+  position: relative;
+  width: 123px;
+  height: 67px;
+  background-color: #fffcfc;
+  border-radius: 6px;
+  box-shadow: 1px 7px 6px -3px #ffffff47;
+}
+
+.mobile-realisations .iconamoon-send {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 3px;
+  left: 5px;
+}
+
+.mobile-realisations .icon-park-earth {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 37px;
+  left: 7px;
+}
+
+.mobile-realisations .text-wrapper-9 {
+  position: absolute;
+  width: 78px;
+  top: 9px;
+  left: 36px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-10 {
+  position: absolute;
+  width: 78px;
+  top: 40px;
+  left: 36px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .overlap-wrapper {
+  position: absolute;
+  width: 381px;
+  height: 589px;
+  top: 2751px;
+  left: 0;
+}
+
+.mobile-realisations .overlap-3 {
+  position: relative;
+  width: 375px;
+  height: 589px;
+  background-color: #000000;
+}
+
+.mobile-realisations .frame {
+  display: flex;
+  width: 132px;
+  height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 13px;
+  position: absolute;
+  top: 430px;
+  left: 126px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  backdrop-filter: blur(3.5px) brightness(100%);
+  -webkit-backdrop-filter: blur(3.5px) brightness(100%);
+}
+
+.mobile-realisations .text-wrapper-11 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-12 {
+  position: absolute;
+  width: 295px;
+  top: 19px;
+  left: 40px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 34px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .overlap-4 {
+  position: absolute;
+  width: 336px;
+  height: 45px;
+  top: 195px;
+  left: 20px;
+  background-color: #262626;
+  border-radius: 2px;
+}
+
+.mobile-realisations .text-wrapper-13 {
+  position: absolute;
+  width: 146px;
+  top: 12px;
+  left: 54px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 600;
+  color: #ffffff99;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .group-13 {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  top: 12px;
+  left: 299px;
+}
+
+.mobile-realisations .frame-2 {
+  position: absolute;
+  width: 20px;
+  height: 26px;
+  top: 9px;
+  left: 19px;
+  background-image: url(https://c.animaapp.com/mfn4mbtyaZidPM/img/email.png);
+  background-size: 100% 100%;
+}
+
+.mobile-realisations .group-14 {
+  position: absolute;
+  width: 168px;
+  height: 24px;
+  top: 302px;
+  left: 109px;
+}
+
+.mobile-realisations .overlap-group-7 {
+  position: relative;
+  width: 167px;
+  height: 24px;
+}
+
+.mobile-realisations .text-wrapper-14 {
+  position: absolute;
+  width: 155px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.mobile-realisations .arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 6px;
+  left: 154px;
+}
+
+.mobile-realisations .group-15 {
+  position: absolute;
+  width: 125px;
+  height: 24px;
+  top: 346px;
+  left: 124px;
+}
+
+.mobile-realisations .frame-3 {
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  top: 5px;
+  left: 0;
+}
+
+.mobile-realisations .group-16 {
+  position: absolute;
+  width: 110px;
+  height: 24px;
+  top: 0;
+  left: 19px;
+}
+
+.mobile-realisations .overlap-group-8 {
+  position: relative;
+  width: 106px;
+  height: 24px;
+}
+
+.mobile-realisations .text-wrapper-15 {
+  position: absolute;
+  width: 68px;
+  top: 0;
+  left: 38px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-16 {
+  width: 39px;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  font-family: "Kanit", Helvetica;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .privacy-policy-terms {
+  position: absolute;
+  width: 236px;
+  top: 388px;
+  left: 79px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .span {
+  text-decoration: underline;
+}
+
+.mobile-realisations .group-17 {
+  position: fixed;
+  width: 384px;
+  height: 105px;
+  top: 631px;
+  left: 0;
+}
+
+.mobile-realisations .overlap-5 {
+  position: relative;
+  height: 105px;
+}
+
+.mobile-realisations .group-18 {
+  position: absolute;
+  width: 375px;
+  height: 105px;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px) brightness(100%);
+  -webkit-backdrop-filter: blur(5px) brightness(100%);
+  background: linear-gradient(
+    20deg,
+    rgba(23, 27, 28, 0.3) 0%,
+    rgba(28, 20, 38, 0.3) 100%
+  );
+}
+
+.mobile-realisations .frame-4 {
+  position: absolute;
+  width: 384px;
+  height: 38px;
+  top: 26px;
+  left: 0;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.mobile-realisations .frame-4::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.mobile-realisations .frame-5 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: -66px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 1px solid;
+}
+
+.mobile-realisations .text-wrapper-17 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .frame-6 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 1px solid;
+  border-color: #fffcfc;
+}
+
+.mobile-realisations .frame-7 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 75px;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.mobile-realisations .text-wrapper-18 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .frame-8 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 208px;
+  background-color: #000000;
+  border-radius: 50px;
+  border: 1px solid;
+  border-color: #fffcfc;
+}
+
+.mobile-realisations .text-wrapper-19 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  margin-left: -1.00px;
+  -webkit-text-stroke: 1px #000000;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #fffcfc;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .frame-9 {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 320px;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.mobile-realisations .serach-filter-bar {
+  position: fixed;
+  width: 375px;
+  height: 127px;
+  top: 52px;
+  left: 0;
+  backdrop-filter: blur(5px) brightness(100%);
+  -webkit-backdrop-filter: blur(5px) brightness(100%);
+  background: linear-gradient(
+    20deg,
+    rgba(23, 27, 28, 0.3) 0%,
+    rgba(28, 20, 38, 0.3) 100%
+  );
+}
+
+.mobile-realisations .group-19 {
+  position: absolute;
+  width: 335px;
+  height: 34px;
+  top: 31px;
+  left: 20px;
+}
+
+.mobile-realisations .overlap-group-9 {
+  position: relative;
+  width: 333px;
+  height: 34px;
+  background-color: #515151;
+  border-radius: 50px 50px 50px 54px;
+}
+
+.mobile-realisations .frame-10 {
+  display: flex;
+  width: 78px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 2px 6px;
+  position: absolute;
+  top: 5px;
+  left: 243px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+
+.mobile-realisations .text-wrapper-20 {
+  position: relative;
+  width: fit-content;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .text-wrapper-21 {
+  position: absolute;
+  width: 154px;
+  top: 8px;
+  left: 45px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #fffcfc99;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .material-symbols {
+  position: absolute;
+  width: 23px;
+  height: 24px;
+  top: 6px;
+  left: 9px;
+}
+
+.mobile-realisations .group-wrapper {
+  position: absolute;
+  width: 158px;
+  height: 25px;
+  top: 89px;
+  left: 20px;
+  background-color: #515151;
+}
+
+.mobile-realisations .group-20 {
+  position: relative;
+  width: 138px;
+  height: 18px;
+  top: 3px;
+  left: 8px;
+}
+
+.mobile-realisations .text-wrapper-22 {
+  position: absolute;
+  width: 116px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .frame-11 {
+  position: absolute;
+  width: 11px;
+  height: 7px;
+  top: 6px;
+  left: 125px;
+}
+
+.mobile-realisations .group-21 {
+  position: absolute;
+  width: 158px;
+  height: 25px;
+  top: 89px;
+  left: 198px;
+  background-color: #515151;
+}
+
+.mobile-realisations .text-wrapper-23 {
+  position: absolute;
+  width: 77px;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.mobile-realisations .frame-wrapper {
+  position: fixed;
+  width: 375px;
+  height: 64px;
+  top: 0;
+  left: 0;
+  background-image: url(https://c.animaapp.com/mfn4mbtyaZidPM/img/group-234.png);
+  background-size: 100% 100%;
+}
+
+.mobile-realisations .frame-12 {
+  display: flex;
+  width: 83px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 13px;
+  position: relative;
+  top: 18px;
+  left: 270px;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.mobile-realisations .text-wrapper-24 {
+  position: relative;
+  width: fit-content;
+  margin-left: -0.50px;
+  margin-right: -0.50px;
+  font-family: "Kanit", Helvetica;
+  font-weight: 400;
+  color: #171b1c;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="mobile-realisations">
+      <div class="div">
+        <div class="overlap">
+          <div class="rectangle"></div>
+          <div class="rectangle-2"></div>
+          <div class="group">
+            <div class="group-2">
+              <div class="group-3">
+                <div class="overlap-group">
+                  <div class="text-wrapper">Luxurus</div>
+                  <div class="h-tel-restauration">Hôtel &amp; Restauration</div>
+                </div>
+                <div class="text-wrapper-2">2025</div>
+                <img
+                  class="solar-menu-dots-bold"
+                  src="https://c.animaapp.com/mfn4mbtyaZidPM/img/solar-menu-dots-bold.svg"
+                />
+              </div>
+              <div class="mask-group">
+                <img
+                  class="element"
+                  src="https://c.animaapp.com/mfn4mbtyaZidPM/img/2c135a5d864c98f6302f3511f9169c46.png"
+                />
+              </div>
+            </div>
+            <div class="group-4">
+              <div class="group-5">
+                <div class="overlap-group-2">
+                  <div class="text-wrapper-3">F7 Creativity</div>
+                  <div class="text-wrapper-4">Refonte</div>
+                </div>
+                <div class="text-wrapper-5">2025</div>
+              </div>
+              <img class="img" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/mask-group.png" />
+            </div>
+            <div class="group-6">
+              <div class="group-3">
+                <div class="overlap-group-3">
+                  <div class="text-wrapper-3">Retina</div>
+                  <div class="text-wrapper-6">Site vitrine</div>
+                </div>
+                <div class="text-wrapper-2">2025</div>
+                <img
+                  class="solar-menu-dots-bold"
+                  src="https://c.animaapp.com/mfn4mbtyaZidPM/img/solar-menu-dots-bold.svg"
+                />
+              </div>
+              <img class="mask-group-2" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/mask-group-1.png" />
+            </div>
+            <div class="group-7">
+              <div class="group-3">
+                <div class="overlap-group-4">
+                  <div class="text-wrapper-3">Crypto</div>
+                  <div class="num-rique">Numérique &amp; Technologie</div>
+                </div>
+                <div class="text-wrapper-2">2025</div>
+                <img
+                  class="solar-menu-dots-bold"
+                  src="https://c.animaapp.com/mfn4mbtyaZidPM/img/solar-menu-dots-bold.svg"
+                />
+              </div>
+              <img class="mask-group-2" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/mask-group-2.png" />
+            </div>
+            <div class="group-8">
+              <div class="group-3">
+                <div class="overlap-group-3">
+                  <div class="text-wrapper-3">TWO-R</div>
+                  <div class="text-wrapper-7">E-commerce</div>
+                </div>
+                <div class="text-wrapper-2">2025</div>
+                <img
+                  class="solar-menu-dots-bold"
+                  src="https://c.animaapp.com/mfn4mbtyaZidPM/img/solar-menu-dots-bold.svg"
+                />
+              </div>
+              <img class="img" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/mask-group-3.png" />
+            </div>
+          </div>
+          <div class="group-9">
+            <img class="group-10" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/group-135.png" />
+            <div class="overlap-2">
+              <p class="p">Nous sommes une agence complète</p>
+              <p class="text-wrapper-8">
+                Nos réalisations témoignent de notre expertise et transforment des sites classiques en expériences
+                digitales modernes et engageantes.
+              </p>
+            </div>
+            <div class="overlap-group-wrapper">
+              <div class="overlap-group-5">
+                <div class="performance-motion">
+                  <img
+                    class="performance-motion-2"
+                    src="https://c.animaapp.com/mfn4mbtyaZidPM/img/performance---motion--innovation--confiance-.svg"
+                  />
+                </div>
+                <img class="group-11" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/group-121.png" />
+              </div>
+            </div>
+          </div>
+          <div class="group-12">
+            <img
+              class="solar-menu-dots-bold-2"
+              src="https://c.animaapp.com/mfn4mbtyaZidPM/img/solar-menu-dots-bold.svg"
+            />
+            <div class="div-wrapper">
+              <div class="overlap-group-6">
+                <img class="iconamoon-send" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/iconamoon-send.svg" />
+                <img class="icon-park-earth" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/icon-park-earth.svg" />
+                <div class="text-wrapper-9">Partager le lien</div>
+                <div class="text-wrapper-10">Accéder au site</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overlap-wrapper">
+          <div class="overlap-3">
+            <div class="frame"><div class="text-wrapper-11">Réserver</div></div>
+            <p class="text-wrapper-12">Commencez à vous inscrire pour ne rien rater</p>
+            <div class="overlap-4">
+              <div class="text-wrapper-13">Saisissez votre email</div>
+              <img class="group-13" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/group-25.png" />
+              <div class="frame-2"></div>
+            </div>
+            <div class="group-14">
+              <div class="overlap-group-7">
+                <div class="text-wrapper-14">Consultez nos projets</div>
+                <img class="arrow" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/arrow-3.svg" />
+              </div>
+            </div>
+            <div class="group-15">
+              <img class="frame-3" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/frame-100.svg" />
+              <div class="group-16">
+                <div class="overlap-group-8">
+                  <div class="text-wrapper-15">Lantorian</div>
+                  <div class="text-wrapper-16">2025</div>
+                </div>
+              </div>
+            </div>
+            <p class="privacy-policy-terms"><span class="span">Privacy policy•Terms &amp; conditions</span></p>
+          </div>
+        </div>
+        <div class="group-17">
+          <div class="overlap-5">
+            <div class="group-18"></div>
+            <div class="frame-4">
+              <div class="frame-5"><div class="text-wrapper-17">Accueil</div></div>
+              <div class="frame-6"><div class="text-wrapper-17">À Propos</div></div>
+              <div class="frame-7"><div class="text-wrapper-18">Solutions / Services</div></div>
+              <div class="frame-8"><div class="text-wrapper-19">Nos réalisations</div></div>
+              <div class="frame-9"><div class="text-wrapper-18">Contact</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="serach-filter-bar">
+          <div class="group-19">
+            <div class="overlap-group-9">
+              <div class="frame-10"><div class="text-wrapper-20">Rechercher</div></div>
+              <div class="text-wrapper-21">Rechercher sur nos projets...</div>
+              <img
+                class="material-symbols"
+                src="https://c.animaapp.com/mfn4mbtyaZidPM/img/material-symbols-search.svg"
+              />
+            </div>
+          </div>
+          <div class="group-wrapper">
+            <div class="group-20">
+              <div class="text-wrapper-22">Toutes les catégories</div>
+              <img class="frame-11" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/frame-92.svg" />
+            </div>
+          </div>
+          <div class="group-21">
+            <div class="group-20">
+              <div class="text-wrapper-23">Année 2025</div>
+              <img class="frame-11" src="https://c.animaapp.com/mfn4mbtyaZidPM/img/frame-92.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrapper">
+          <div class="frame-12"><div class="text-wrapper-24">Réserver</div></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
