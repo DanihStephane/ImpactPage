@@ -650,7 +650,7 @@ a {
 
 .mobile-contact .frame-5 {
   position: absolute;
-  width: 384px;
+  width: 500px;
   height: 38px;
   top: 26px;
   left: 0;
@@ -663,6 +663,21 @@ a {
   display: none;
 }
 
+.mobile-contact .frame-home {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 7px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: 1px solid;
+}
+
 .mobile-contact .frame-6 {
   display: inline-flex;
   height: 28px;
@@ -672,7 +687,7 @@ a {
   padding: 4px 7px;
   position: absolute;
   top: 0;
-  left: -66px;
+  left: 75px;
   background-color: #ffffff;
   border-radius: 50px;
   border: 1px solid;
@@ -698,7 +713,7 @@ a {
   padding: 4px 7px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 140px;
   background-color: #ffffff;
   border-radius: 50px;
   border: 1px solid;
@@ -714,7 +729,7 @@ a {
   padding: 4px 7px;
   position: absolute;
   top: 0;
-  left: 75px;
+  left: 205px;
   background-color: #ffffff;
   border-radius: 50px;
 }
@@ -740,7 +755,7 @@ a {
   padding: 4px 7px;
   position: absolute;
   top: 0;
-  left: 208px;
+  left: 340px;
   background-color: #ffffff;
   border-radius: 50px;
   border: 1px solid;
@@ -767,7 +782,7 @@ a {
   padding: 4px 7px;
   position: absolute;
   top: 0;
-  left: 320px;
+  left: 450px;
   background-color: #000000;
   border-radius: 50px;
   border: 1px solid;
@@ -909,7 +924,7 @@ a {
           <div class="overlap-6">
             <div class="group-15"></div>
             <div class="frame-5">
-              <div class="frame-6"><div class="text-wrapper-19">Accueil</div></div>
+              <div class="frame-home"><div class="text-wrapper-19">Accueil</div></div>
               <div class="frame-7"><div class="text-wrapper-19">À Propos</div></div>
               <div class="frame-8"><div class="text-wrapper-20">Solutions / Services</div></div>
               <div class="frame-9"><div class="text-wrapper-21">Nos réalisations</div></div>
@@ -923,4 +938,79 @@ a {
       </div>
     </div>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Bouton accueil spécial
+      const homeButton = document.querySelector('.frame-home');
+      if (homeButton) {
+        homeButton.addEventListener('click', function() {
+          window.location.href = '../index.html';
+        });
+      }
+
+      // Navigation du menu principal
+      const navItems = document.querySelectorAll('.frame-7, .frame-8, .frame-9, .frame-10');
+      navItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+          switch(index) {
+            case 0: // À Propos
+              window.location.href = 'aboutus.html';
+              break;
+            case 1: // Solutions / Services
+              window.location.href = 'solution.html';
+              break;
+            case 2: // Nos réalisations
+              window.location.href = 'realisation.html';
+              break;
+            case 3: // Contact
+              window.location.href = 'contact.html';
+              break;
+          }
+        });
+      });
+
+      // Boutons de réservation
+      const reservationButtons = document.querySelectorAll('.frame, .frame-4, .frame-11');
+      reservationButtons.forEach(button => {
+        const buttonText = button.textContent.toLowerCase();
+        if (buttonText.includes('réserver')) {
+          button.addEventListener('click', function() {
+            window.location.href = 'reservation.html';
+          });
+        }
+      });
+
+      // Navigation "Consultez nos projets"
+      const projectLinks = document.querySelectorAll('.overlap-group-2');
+      projectLinks.forEach(link => {
+        const linkText = link.textContent.toLowerCase();
+        if (linkText.includes('consultez nos projets')) {
+          link.addEventListener('click', function() {
+            window.location.href = 'realisation.html';
+          });
+        }
+      });
+
+      // Gestion du formulaire de contact
+      const contactForm = document.querySelector('.group-5');
+      const submitButton = document.querySelector('.frame-4');
+
+      if (submitButton) {
+        submitButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Ici vous pouvez ajouter la logique de soumission du formulaire
+          alert('Message envoyé avec succès !');
+        });
+      }
+
+      // Lien vers Calendly
+      const calendlyLink = document.querySelector('.group a[href*="calendly"]');
+      if (calendlyLink) {
+        calendlyLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.open('https://calendly.com/lantorian', '_blank');
+        });
+      }
+    });
+  </script>
 </html>

@@ -7850,8 +7850,118 @@
       </div>
     </div>
     <script>
-      // Système de traînée de souris avec effet violet
+      // Détection responsive et redirection mobile
       document.addEventListener('DOMContentLoaded', function() {
+        // Fonction pour détecter si on est sur mobile
+        function isMobile() {
+          return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Log pour debug
+        console.log('Mobile détecté:', isMobile());
+        console.log('Largeur écran:', window.innerWidth);
+
+        // Si on est sur mobile, intercepter TOUS les clics sur les liens de navigation
+        if (isMobile()) {
+
+          // Intercepter tous les liens vers les pages desktop
+          document.addEventListener('click', function(e) {
+            const target = e.target.closest('a');
+            if (target) {
+              const href = target.getAttribute('href');
+              console.log('Clic détecté sur lien:', href);
+
+              // Rediriger selon le lien
+              if (href === 'aboutus.html') {
+                e.preventDefault();
+                console.log('Redirection vers mobile/aboutus.html');
+                window.location.href = 'mobile/aboutus.html';
+                return;
+              }
+              if (href === 'solution.html') {
+                e.preventDefault();
+                console.log('Redirection vers mobile/solution.html');
+                window.location.href = 'mobile/solution.html';
+                return;
+              }
+              if (href === 'realisation.html') {
+                e.preventDefault();
+                console.log('Redirection vers mobile/realisation.html');
+                window.location.href = 'mobile/realisation.html';
+                return;
+              }
+              if (href === 'contact.html') {
+                e.preventDefault();
+                console.log('Redirection vers mobile/contact.html');
+                window.location.href = 'mobile/contact.html';
+                return;
+              }
+              if (href === 'reservation.html') {
+                e.preventDefault();
+                console.log('Redirection vers mobile/reservation.html');
+                window.location.href = 'mobile/reservation.html';
+                return;
+              }
+            }
+
+            // Gestion des éléments de navigation sans lien (par classe CSS)
+            const clickedElement = e.target;
+
+            // Vérifier si on clique sur un texte de navigation
+            if (clickedElement.textContent) {
+              const text = clickedElement.textContent.trim();
+              console.log('Clic sur élément:', text);
+
+              if (text === 'À Propos') {
+                e.preventDefault();
+                console.log('Redirection À Propos vers mobile');
+                window.location.href = 'mobile/aboutus.html';
+                return;
+              }
+              if (text === 'Solutions / Services') {
+                e.preventDefault();
+                console.log('Redirection Solutions vers mobile');
+                window.location.href = 'mobile/solution.html';
+                return;
+              }
+              if (text === 'Nos réalisations') {
+                e.preventDefault();
+                console.log('Redirection Réalisations vers mobile');
+                window.location.href = 'mobile/realisation.html';
+                return;
+              }
+              if (text === 'Contact') {
+                e.preventDefault();
+                console.log('Redirection Contact vers mobile');
+                window.location.href = 'mobile/contact.html';
+                return;
+              }
+              if (text === 'Réserver' || text === 'Planifier une consultation') {
+                e.preventDefault();
+                console.log('Redirection Réservation vers mobile');
+                window.location.href = 'mobile/reservation.html';
+                return;
+              }
+            }
+
+            // Gestion spéciale pour les boutons de planification
+            if (clickedElement.closest('.button-planifier') ||
+                clickedElement.closest('.button-planifier-2') ||
+                clickedElement.closest('.button-planifier-3') ||
+                clickedElement.closest('.button-planifier-4') ||
+                clickedElement.closest('.button-planifier-5') ||
+                clickedElement.closest('.planifier-une-wrapper')) {
+              e.preventDefault();
+              console.log('Redirection bouton planifier vers mobile');
+              window.location.href = 'mobile/reservation.html';
+              return;
+            }
+          });
+        }
+
+      // Système de traînée de souris avec effet violet
+      // (gardé seulement pour desktop)
+      if (!isMobile()) {
         const trackMouseContainer = document.querySelector('.track-mouse');
         let mouseTrails = [];
         let trailIndex = 0;
@@ -7906,9 +8016,10 @@
           element.style.opacity = '0';
           element.style.transition = 'all 0.3s ease';
         });
+        } // Fin de la condition !isMobile()
 
-      });
-    
+        }); // Fin de DOMContentLoaded
+
       // Mobile: Allow natural scroll behavior (no JavaScript needed)
     </script>
   </body>

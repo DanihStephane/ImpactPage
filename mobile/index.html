@@ -1181,4 +1181,53 @@ a {
       </div>
     </div>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navigation du menu principal
+      const navItems = document.querySelectorAll('.frame-11, .frame-12, .frame-13, .frame-14, .frame-15');
+      navItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+          switch(index) {
+            case 0: // Accueil
+              window.location.href = '../index.html';
+              break;
+            case 1: // À Propos
+              window.location.href = 'aboutus.html';
+              break;
+            case 2: // Solutions / Services
+              window.location.href = 'solution.html';
+              break;
+            case 3: // Nos réalisations
+              window.location.href = 'realisation.html';
+              break;
+            case 4: // Contact
+              window.location.href = 'contact.html';
+              break;
+          }
+        });
+      });
+
+      // Boutons de réservation et planification
+      const reservationButtons = document.querySelectorAll('.frame, .frame-6, .frame-16');
+      reservationButtons.forEach(button => {
+        const buttonText = button.textContent.toLowerCase();
+        if (buttonText.includes('plannifier') || buttonText.includes('réserver')) {
+          button.addEventListener('click', function() {
+            window.location.href = 'reservation.html';
+          });
+        }
+      });
+
+      // Navigation "Consultez nos projets"
+      const projectLinks = document.querySelectorAll('.overlap-group-wrapper');
+      projectLinks.forEach(link => {
+        const linkText = link.textContent.toLowerCase();
+        if (linkText.includes('consultez nos projets')) {
+          link.addEventListener('click', function() {
+            window.location.href = 'realisation.html';
+          });
+        }
+      });
+    });
+  </script>
 </html>

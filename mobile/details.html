@@ -1022,4 +1022,75 @@
   </div>
 </div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Navigation du menu principal
+    const navItems = document.querySelectorAll('.frame-6, .frame-7, .frame-8, .frame-9, .frame-10');
+    navItems.forEach((item, index) => {
+      item.addEventListener('click', function() {
+        switch(index) {
+          case 0: // Accueil
+            window.location.href = '../index.html';
+            break;
+          case 1: // À Propos
+            window.location.href = 'aboutus.html';
+            break;
+          case 2: // Solutions / Services
+            window.location.href = 'solution.html';
+            break;
+          case 3: // Nos réalisations
+            window.location.href = 'realisation.html';
+            break;
+          case 4: // Contact
+            window.location.href = 'contact.html';
+            break;
+        }
+      });
+    });
+
+    // Bouton de retour
+    const backButton = document.querySelector('.group .overlap-group');
+    if (backButton) {
+      backButton.addEventListener('click', function() {
+        window.history.back();
+      });
+    }
+
+    // Boutons de réservation
+    const reservationButtons = document.querySelectorAll('.frame-2, .frame-11');
+    reservationButtons.forEach(button => {
+      const buttonText = button.textContent.toLowerCase();
+      if (buttonText.includes('réserver')) {
+        button.addEventListener('click', function() {
+          window.location.href = 'reservation.html';
+        });
+      }
+    });
+
+    // Navigation "Consultez nos projets"
+    const projectLinks = document.querySelectorAll('.overlap-group-4');
+    projectLinks.forEach(link => {
+      const linkText = link.textContent.toLowerCase();
+      if (linkText.includes('consultez nos projets')) {
+        link.addEventListener('click', function() {
+          window.location.href = 'realisation.html';
+        });
+      }
+    });
+
+    // Boutons d'action (partager, accéder)
+    const actionButtons = document.querySelectorAll('.overlap-group-2');
+    actionButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const buttonText = button.textContent.toLowerCase();
+        if (buttonText.includes('partager')) {
+          alert('Lien partagé !');
+        } else if (buttonText.includes('accéder')) {
+          window.open('#', '_blank');
+        }
+      });
+    });
+  });
+</script>
 </html>

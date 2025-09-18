@@ -2512,13 +2512,27 @@
             position: absolute;
             top: 26px;
             left: 0;
-            width: 384px;
+            width: 500px;
             height: 38px;
             display: flex;
             gap: 12px;
             overflow: hidden;
             overflow-x: scroll;
             white-space: nowrap;
+        }
+
+        .mobile-reservation .frame-home {
+            display: inline-flex;
+            width: 54px;
+            height: 28px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            background-color: #191a23;
+            border-radius: 14px;
+            color: #ffffff;
+            cursor: pointer;
+            flex-shrink: 0;
         }
 
         .mobile-reservation .frame-14::-webkit-scrollbar {
@@ -3079,7 +3093,7 @@
     <div class="group-60">
         <div class="group-61"></div>
         <div class="frame-14">
-            <div class="frame-15"><div class="text-wrapper-80">Accueil</div></div>
+            <div class="frame-home"><div class="text-wrapper-80">Accueil</div></div>
             <div class="frame-16"><div class="text-wrapper-80">À Propos</div></div>
             <div class="frame-17"><div class="text-wrapper-81">Solutions / Services</div></div>
             <div class="frame-18"><div class="text-wrapper-82">Nos réalisations</div></div>
@@ -3090,5 +3104,62 @@
         <div class="frame-20"><div class="text-wrapper-84">Réserver</div></div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Home button
+    const homeButton = document.querySelector('.frame-home');
+    if (homeButton) {
+        homeButton.addEventListener('click', function() {
+            window.location.href = '../index.html';
+        });
+    }
+
+    // Navigation menu items
+    const navItems = document.querySelectorAll('.frame-16, .frame-17, .frame-18, .frame-19');
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            switch(index) {
+                case 0: // À Propos
+                    window.location.href = 'aboutus.html';
+                    break;
+                case 1: // Solutions / Services
+                    window.location.href = 'solution.html';
+                    break;
+                case 2: // Nos réalisations
+                    window.location.href = 'realisation.html';
+                    break;
+                case 3: // Contact
+                    window.location.href = 'contact.html';
+                    break;
+            }
+        });
+    });
+
+    // Reservation confirmation button
+    const confirmButton = document.querySelector('.frame-13');
+    if (confirmButton) {
+        confirmButton.addEventListener('click', function() {
+            alert('Votre réservation a été confirmée ! Vous recevrez un email de confirmation.');
+        });
+    }
+
+    // Bottom reservation button
+    const bottomReservButton = document.querySelector('.frame-20');
+    if (bottomReservButton) {
+        bottomReservButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Back button - return to previous page
+    const backButton = document.querySelector('.group');
+    if (backButton) {
+        backButton.addEventListener('click', function() {
+            window.history.back();
+        });
+    }
+});
+</script>
 </body>
 </html>
