@@ -1637,6 +1637,91 @@
         gap: 15px;
       }
 
+      /* === Animation de chargement === */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      }
+
+      .loading-overlay.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loading-logo-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+      }
+
+
+      .loading-vector {
+        width: 70px;
+        height: 70px;
+        animation: logoSpin 8s linear infinite;
+      }
+
+      .loading-animation {
+        position: relative;
+        width: 71px;
+        height: 70px;
+      }
+
+      .loading-rect {
+        position: absolute;
+        width: 36px;
+        height: 35px;
+        background-color: #ffffff;
+        border-radius: 50px;
+      }
+
+      .loading-rect:nth-child(1) {
+        top: 0;
+        left: 36px;
+        animation: morphToRect1 4s ease-in-out infinite;
+      }
+
+      .loading-rect:nth-child(2) {
+        top: 0;
+        left: 0;
+        animation: morphToRect2 4s ease-in-out infinite;
+      }
+
+      .loading-rect:nth-child(3) {
+        top: 35px;
+        left: 0;
+        animation: morphToRect3 4s ease-in-out infinite;
+      }
+
+      .loading-rect:nth-child(4) {
+        top: 35px;
+        left: 36px;
+        animation: morphToRect4 4s ease-in-out infinite;
+      }
+
+
+
+      @keyframes logoSpin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
       .about-us .group-25 {
         position: absolute;
         width: 100%;
@@ -2597,6 +2682,19 @@
     </script>
   </head>
   <body>
+    <!-- Overlay de chargement -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-logo-container">
+        <div class="loading-animation">
+          <div class="loading-rect"></div>
+          <div class="loading-rect"></div>
+          <div class="loading-rect"></div>
+          <div class="loading-rect"></div>
+        </div>
+        <img src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/vector-blanc.png" alt="Élément décoratif en rotation" class="loading-vector">
+      </div>
+    </div>
+
     <main class="about-us">
       <div class="div">
         <section class="overlap">
@@ -3135,6 +3233,31 @@
           console.log('Overlay styles:', overlay ? window.getComputedStyle(overlay) : 'not found');
           console.log('Content styles:', content ? window.getComputedStyle(content) : 'not found');
         }, 1000);
+      });
+
+      // === Animation de chargement ===
+      window.addEventListener('load', function() {
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        if (loadingOverlay) {
+          // Masquer l'overlay après 3 secondes avec un fade out
+          setTimeout(() => {
+            loadingOverlay.classList.add('hidden');
+
+            // Supprimer complètement l'élément après la transition
+            setTimeout(() => {
+              loadingOverlay.remove();
+            }, 500);
+          }, 3000);
+        }
+      });
+
+      // S'assurer que l'overlay est visible pendant le chargement
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        if (loadingOverlay) {
+          loadingOverlay.style.display = 'flex';
+        }
       });
     </script>
   </body>

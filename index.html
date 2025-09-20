@@ -7099,10 +7099,125 @@
         }
       }
 
+      /* Loading Animation Styles */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      }
+
+      .loading-overlay.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loading-logo-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .loading-animation {
+        position: relative;
+        width: 71px;
+        height: 70px;
+      }
+
+      .loading-rect {
+        position: absolute;
+        width: 36px;
+        height: 35px;
+        background-color: #ffffff;
+        border-radius: 50px;
+      }
+
+      .loading-rect:nth-child(1) {
+        top: 0;
+        left: 36px;
+        animation: morphToRect1 4s ease-in-out infinite;
+      }
+
+      .loading-rect:nth-child(2) {
+        top: 0;
+        left: 0;
+        animation: morphToRect2 4s ease-in-out infinite;
+      }
+
+      .loading-rect:nth-child(3) {
+        top: 35px;
+        left: 0;
+        animation: morphToRect3 4s ease-in-out infinite;
+      }
+
+      .loading-rect:nth-child(4) {
+        top: 35px;
+        left: 36px;
+        animation: morphToRect4 4s ease-in-out infinite;
+      }
+
+      @keyframes morphToRect1 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 0px 0px 0px 50px; }
+      }
+
+      @keyframes morphToRect2 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 0px 0px 50px 0px; }
+      }
+
+      @keyframes morphToRect3 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 0px 50px 0px 0px; }
+      }
+
+      @keyframes morphToRect4 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 50px 0px 0px 0px; }
+      }
+
+      .loading-vector {
+        width: 70px;
+        height: 70px;
+        animation: logoSpin 8s linear infinite;
+      }
+
+      @keyframes logoSpin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
     </style>
     <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
+    <!-- Loading Animation -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-logo-container">
+        <div class="loading-animation">
+          <div class="loading-rect"></div>
+          <div class="loading-rect"></div>
+          <div class="loading-rect"></div>
+          <div class="loading-rect"></div>
+        </div>
+        <img src="https://cnnlpbpwxknbiswakbmr.supabase.co/storage/v1/object/public/lantorian-images/vector-blanc.png" alt="Élément décoratif en rotation" class="loading-vector">
+      </div>
+    </div>
+
     <!-- Mobile Container (hidden on desktop) -->
     <div class="mobile-container">
       <!-- Mobile Home Start Screen -->
@@ -8015,11 +8130,51 @@
           element.style.opacity = '0';
           element.style.transition = 'all 0.3s ease';
         });
+
+        // Ajouter l'événement de clic sur la porte pour rediriger vers reservation.html
+        const doorElement = document.querySelector('.component .group-3');
+        if (doorElement) {
+          doorElement.style.cursor = 'pointer';
+          doorElement.addEventListener('click', function() {
+            window.location.href = 'reservation.html';
+          });
+        }
         } // Fin de la condition !isMobile()
 
         }); // Fin de DOMContentLoaded
 
       // Mobile: Allow natural scroll behavior (no JavaScript needed)
+    </script>
+
+    <!-- Loading Animation Script -->
+    <script>
+      // Check if page is already loaded
+      if (document.readyState === 'complete') {
+        // Page already loaded, don't show loading animation
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        if (loadingOverlay) {
+          loadingOverlay.style.display = 'none';
+        }
+      } else {
+        // Page not loaded yet, show animation
+        document.addEventListener('DOMContentLoaded', function() {
+          const loadingOverlay = document.getElementById('loadingOverlay');
+
+          if (loadingOverlay) {
+            loadingOverlay.style.display = 'flex';
+
+            const hideLoading = () => {
+              loadingOverlay.classList.add('hidden');
+              setTimeout(() => {
+                loadingOverlay.remove();
+              }, 500);
+            };
+
+            // Hide when page is fully loaded
+            window.addEventListener('load', hideLoading);
+          }
+        });
+      }
     </script>
   </body>
 </html>
