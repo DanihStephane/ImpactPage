@@ -402,6 +402,23 @@
             border-radius: 4px;
             font-size: 11px;
             display: inline-block;
+            min-width: 100px;
+        }
+
+        .month-nav-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .month-nav-btn:hover {
+            background-color: #333333;
+            transform: scale(1.1);
         }
 
         .calendar-grid {
@@ -730,7 +747,7 @@
         .google-btn .social-icon {
             width: 14px;
             height: 14px;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0ibTEwLjY4IDguMDkzLTkuNDkzLjY5NS0uMzY1IDMuNzk5IDMuNzk5LS4zNjUuOTEzLTMuNTQzIDUuMTQ2LS41ODZ6IiBmaWxsPSIjRUE0MzM1Ii8+CjxwYXRoIGQ9Ik0xNS45ODUgOC4xNTMgMTQuOTAzIDkuOTkzIDExLjUwNiA5LjAyNCA5Ljk5MyAxMS41MDYgMTAuOTQxIDcuOTY1IDMuNzQzIDQuOTk5IDMuODcxIDEuNTc4IDEwLjY4IDguMDkzeiIgZmlsbD0iIzQyODVGNCIvPgo8cGF0aCBkPSJNMTMuNjU3IDE0Ljk2NCA5Ljk5MyAxMS41MDYgMTAuOTQxIDcuOTY1IDEwLjY4IDguMDkzIDEwLjE1MiA4LjI0NCA2Ljg4IDguMDgzIDMuNzQzIDQuOTk5LjQ5MyA3Ljk2NSAxLjI3OSAxMS42OTYgNi44ODMgMTUuOTg1IDEzLjY1NyAxNC45NjR6IiBmaWxsPSIjMzRBODUzIi8+Cjwvc3ZnPgo=');
+            background-image: url('assets/images/google.svg');
             background-repeat: no-repeat;
             background-size: contain;
             display: block;
@@ -739,7 +756,7 @@
         .apple-btn .social-icon {
             width: 14px;
             height: 14px;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjA2IDEzLjEyOGMuMTMzLS4yODUuMTMzLS4yODUuMjM1LS41NjQuNjE4LTEuNDA0LS4zMDMtMi45MzMtLjMwMy0yLjkzMy0uNjUtMS40Mi0uNzMtMS42ODUtLjU0OS0yLjMxNyAwLS4wNzQuMjY5LS4yNjIuNDEyLS4yNjJzLjMwMy4xNDguNTI4LjQ1NmMuNzE4IDEuMDA4IDEuMjM0IDEuNDE3IDIuMDM2IDEuNDE3IDEuMDA4IDAgLjk3My0xLjQ4OS45NzMtMS40ODktLjAyMy0yLjg5OS0yLjE2My0yLjMzNS0zLjU2OS4yNzZsLS45ODEtMy4zOTZjLS4wNzUtLjI1NC0uNDA1LS40Ni0uNzMtLjQ2LS4zNzYgMC0uNzMuMjMyLS44MDUuNDg4TDYuNDcyIDYuODVjLS4wOTcuMzE2LS4wOTcuMzQ0LS4wOTcuMzc2IDAgMS40ODktLjgyNiAyLjE0MS0xLjM0IDIuMTQxLS41NiAwLTEuMTItLjU3LTEuMTItMy4zNzIgMC0yLjU0OC45LTQuMjcgMi43MjItNC4yNyAxLjA4IDAgMS43NzMuNDYgMi4zNDQuOTE0LjMwMy4yNDEuNTM0LjE0Mi41OTMtLjA4NS4wNzQtLjI4NS0uMTItLjYwMi0uNTE0LS44NjgtLjcwOC0uNDc5LTEuOTU3LTEuMDUyLTMuMDctMS4wNTJDMi4wNSAwIDAgMi42MTIgMCA1LjgyOGMwIDQuMzU3IDEuODk3IDUuNjUzIDIuODEgNS42NTMgMS4zNTIgMCAyLjUtLjkzIDIuODktMi4zNTYuMDc0LS4yNTEuMjU1LS4yNzYuMzc2LS4wNzUuMDguMTM5LjQzOSAxLjU0Ni40MzkgMS41NDYuMzM3LjgyNi43MzQgMS4zNC45NzMgMS42Mzl2MS4xOGwtMS4xOTYtLjAyM2MtLjEzMy0uMDAyLS4yNzUuMDk4LS4zMjkuMjU1cy4wMjMuMzMuMTc1LjQyOGwuNDQ0LjI4NGMuMjEuMTM0LjQyOC4yOTQuNTQ5LjUyOCAwIDAgMCAuNjg0IDEuMDQzLjY4NGMuODE4IDAgMS4yOTctLjY1NSAxLjI5Ny0uNjU1czAgMCAuNTI4LS44MThjLjA1My0uMDc0LjEwNi0uMTU2LjE3Ny0uMjU1LjAyMy0uMDM0LjA1LS4wNzUuMDc0LS4xMTF6IiBmaWxsPSIjMDAwIi8+Cjwvc3ZnPgo=');
+            background-image: url('assets/images/apple.svg');
             background-repeat: no-repeat;
             background-size: contain;
             display: block;
@@ -1249,7 +1266,9 @@
                 <div class="calendar-container">
                     <div class="calendar">
                         <div class="calendar-header">
-                            <div class="month-badge">August</div>
+                            <button class="month-nav-btn" id="prevMonth">‹</button>
+                            <div class="month-badge" id="currentMonth">August 2025</div>
+                            <button class="month-nav-btn" id="nextMonth">›</button>
                         </div>
 
                         <div class="calendar-grid">
@@ -1637,6 +1656,569 @@
                     alert('Réservation confirmée ! Vous recevrez un email de confirmation.');
                 }
             });
+        }
+
+        // Dynamisation du formulaire de réservation
+        initReservationForm();
+
+        function initReservationForm() {
+            // Animation des champs de saisie
+            const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+
+            formInputs.forEach(input => {
+                input.style.transition = 'all 0.3s ease';
+
+                input.addEventListener('focus', function() {
+                    this.style.backgroundColor = '#ffffff';
+                    this.style.borderLeft = '4px solid #8a38f5';
+                    this.style.transform = 'scale(1.02)';
+                });
+
+                input.addEventListener('blur', function() {
+                    this.style.backgroundColor = '#edebeb';
+                    this.style.borderLeft = 'none';
+                    this.style.transform = 'scale(1)';
+                });
+
+                // Validation en temps réel
+                input.addEventListener('input', function() {
+                    validateReservationField(this);
+                });
+            });
+
+            // Gestion dynamique du calendrier
+            initDynamicCalendar();
+
+            // Gestion des tags de projets
+            initProjectTags();
+
+            // Animation des boutons
+            initButtonAnimations();
+
+            // Gestion des sélecteurs spéciaux
+            initSpecialSelectors();
+        }
+
+        function validateReservationField(field) {
+            const value = field.value.trim();
+
+            if (field.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(value)) {
+                    field.style.borderLeft = '4px solid #28a745';
+                } else if (value.length > 0) {
+                    field.style.borderLeft = '4px solid #dc3545';
+                }
+            } else if (field.hasAttribute('required') || field.placeholder.includes('obligatoire')) {
+                if (value.length > 2) {
+                    field.style.borderLeft = '4px solid #28a745';
+                } else if (value.length > 0) {
+                    field.style.borderLeft = '4px solid #dc3545';
+                }
+            }
+        }
+
+        function initDynamicCalendar() {
+            let currentDate = new Date(2025, 7, 1); // August 2025
+            const timeSelect = document.querySelector('.time-select');
+            const timeDisplay = document.querySelector('.time-display');
+            const monthDisplay = document.getElementById('currentMonth');
+            const prevBtn = document.getElementById('prevMonth');
+            const nextBtn = document.getElementById('nextMonth');
+
+            // Navigation des mois
+            prevBtn.addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar();
+            });
+
+            nextBtn.addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar();
+            });
+
+            function updateCalendar() {
+                const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+
+                monthDisplay.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+
+                // Mettre à jour les cellules du calendrier
+                generateCalendarCells();
+            }
+
+            function generateCalendarCells() {
+                const calendarGrid = document.querySelector('.calendar-grid');
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+
+                // Vider le calendrier existant (garder seulement l'header)
+                const headerCells = calendarGrid.querySelectorAll('.calendar-cell');
+                for (let i = 8; i < headerCells.length; i++) {
+                    headerCells[i].remove();
+                }
+
+                // Calculer le premier jour du mois et le nombre de jours
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+                // Numéros de semaine
+                let weekNumber = getWeekNumber(new Date(year, month, 1));
+
+                // Ajouter les jours du mois précédent
+                for (let i = firstDay - 1; i >= 0; i--) {
+                    if (i === firstDay - 1) {
+                        const weekCell = document.createElement('div');
+                        weekCell.className = 'calendar-cell week-number';
+                        weekCell.textContent = weekNumber.toString().padStart(2, '0');
+                        calendarGrid.appendChild(weekCell);
+                    }
+
+                    const cell = document.createElement('div');
+                    cell.className = 'calendar-cell prev-month';
+                    cell.textContent = daysInPrevMonth - i;
+                    calendarGrid.appendChild(cell);
+                }
+
+                // Ajouter les jours du mois actuel
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayOfWeek = new Date(year, month, day).getDay();
+
+                    // Ajouter numéro de semaine au début de chaque semaine
+                    if (dayOfWeek === 1) {
+                        const weekCell = document.createElement('div');
+                        weekCell.className = 'calendar-cell week-number';
+                        weekCell.textContent = weekNumber.toString().padStart(2, '0');
+                        calendarGrid.appendChild(weekCell);
+                        weekNumber++;
+                    }
+
+                    const cell = document.createElement('div');
+                    cell.className = 'calendar-cell current-month';
+                    cell.textContent = day;
+
+                    // Marquer quelques dates comme indisponibles
+                    if ([3, 7, 14, 21].includes(day)) {
+                        cell.classList.add('unavailable');
+                        cell.style.cursor = 'not-allowed';
+                    } else {
+                        cell.style.cursor = 'pointer';
+                        cell.style.transition = 'all 0.3s ease';
+                        addCellEventListeners(cell);
+                    }
+
+                    // Weekend
+                    if (dayOfWeek === 0 || dayOfWeek === 6) {
+                        cell.classList.add('weekend');
+                    }
+
+                    calendarGrid.appendChild(cell);
+                }
+
+                // Compléter avec les jours du mois suivant
+                const totalCells = calendarGrid.children.length;
+                const remainingCells = 56 - totalCells; // 7 semaines * 8 colonnes
+
+                for (let day = 1; day <= remainingCells && remainingCells > 0; day++) {
+                    const dayOfWeek = new Date(year, month + 1, day).getDay();
+
+                    if (dayOfWeek === 1 && day <= remainingCells - 7) {
+                        const weekCell = document.createElement('div');
+                        weekCell.className = 'calendar-cell week-number';
+                        weekCell.textContent = weekNumber.toString().padStart(2, '0');
+                        calendarGrid.appendChild(weekCell);
+                        weekNumber++;
+                    }
+
+                    const cell = document.createElement('div');
+                    cell.className = 'calendar-cell next-month';
+                    cell.textContent = day;
+
+                    if (dayOfWeek === 0 || dayOfWeek === 6) {
+                        cell.classList.add('weekend');
+                    }
+
+                    calendarGrid.appendChild(cell);
+                }
+            }
+
+            function getWeekNumber(date) {
+                const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+                const dayNum = d.getUTCDay() || 7;
+                d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+                const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+                return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+            }
+
+            function addCellEventListeners(cell) {
+                cell.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('unavailable')) {
+                        this.style.backgroundColor = '#8a38f5';
+                        this.style.color = 'white';
+                        this.style.transform = 'scale(1.1)';
+                    }
+                });
+
+                cell.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected') && !this.classList.contains('unavailable')) {
+                        this.style.backgroundColor = 'transparent';
+                        this.style.color = '#b3b3b3';
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+
+                cell.addEventListener('click', function() {
+                    if (!this.classList.contains('unavailable')) {
+                        // Désélectionner les autres cellules
+                        document.querySelectorAll('.calendar-cell.selected').forEach(c => {
+                            c.classList.remove('selected');
+                            c.style.backgroundColor = 'transparent';
+                            c.style.color = '#b3b3b3';
+                        });
+
+                        // Sélectionner cette cellule
+                        this.classList.add('selected');
+                        this.style.backgroundColor = '#8a38f5';
+                        this.style.color = 'white';
+
+                        // Mettre à jour les créneaux disponibles
+                        updateTimeSlots(this.textContent, timeSlots);
+
+                        // Mettre à jour l'affichage de la date
+                        const dateDisplay = document.querySelector('.time-info-highlight');
+                        if (dateDisplay) {
+                            const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+                            const year = currentDate.getFullYear().toString().slice(-2);
+                            dateDisplay.textContent = `${this.textContent.padStart(2, '0')}/${month}/${year}`;
+                        }
+                    }
+                });
+            }
+
+            const calendarCells = document.querySelectorAll('.calendar-cell.current-month');
+
+            // Générer des créneaux horaires dynamiques
+            const timeSlots = [
+                '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM',
+                '11:00 AM', '11:30 AM', '14:00 PM', '14:30 PM',
+                '15:00 PM', '15:30 PM', '16:00 PM', '16:30 PM'
+            ];
+
+            calendarCells.forEach((cell, index) => {
+                cell.style.cursor = 'pointer';
+                cell.style.transition = 'all 0.3s ease';
+
+                // Marquer quelques dates comme indisponibles
+                if ([3, 7, 14, 21].includes(parseInt(cell.textContent))) {
+                    cell.classList.add('unavailable');
+                    cell.style.cursor = 'not-allowed';
+                }
+
+                cell.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('unavailable')) {
+                        this.style.backgroundColor = '#8a38f5';
+                        this.style.color = 'white';
+                        this.style.transform = 'scale(1.1)';
+                    }
+                });
+
+                cell.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected') && !this.classList.contains('unavailable')) {
+                        this.style.backgroundColor = 'transparent';
+                        this.style.color = '#b3b3b3';
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+
+                cell.addEventListener('click', function() {
+                    if (!this.classList.contains('unavailable')) {
+                        // Mettre à jour les créneaux disponibles
+                        updateTimeSlots(this.textContent, timeSlots);
+
+                        // Mettre à jour l'affichage de la date
+                        const dateDisplay = document.querySelector('.time-info-highlight');
+                        if (dateDisplay) {
+                            dateDisplay.textContent = `${this.textContent}/08/25`;
+                        }
+                    }
+                });
+            });
+
+            function updateTimeSlots(selectedDay, timeSlots) {
+                if (timeSelect) {
+                    timeSelect.innerHTML = '';
+
+                    // Simuler disponibilité selon le jour
+                    const availableSlots = timeSlots.filter((slot, index) => {
+                        // Moins de créneaux le vendredi et certains jours
+                        return !(parseInt(selectedDay) % 5 === 0 && index > 6);
+                    });
+
+                    availableSlots.forEach(slot => {
+                        const option = document.createElement('option');
+                        option.value = slot;
+                        option.textContent = slot;
+                        timeSelect.appendChild(option);
+                    });
+
+                    // Mettre à jour l'heure locale
+                    timeSelect.addEventListener('change', function() {
+                        if (timeDisplay) {
+                            const selectedTime = this.value;
+                            const [time, period] = selectedTime.split(' ');
+                            const [hour, minute] = time.split(':');
+                            let newHour = parseInt(hour) + 1; // Décalage horaire simulé
+
+                            if (newHour > 12 && period === 'AM') {
+                                newHour = newHour - 12;
+                                timeDisplay.textContent = `${newHour.toString().padStart(2, '0')}:${minute} PM`;
+                            } else {
+                                timeDisplay.textContent = `${newHour.toString().padStart(2, '0')}:${minute} ${period}`;
+                            }
+                        }
+                    });
+                }
+            }
+        }
+
+        function initProjectTags() {
+            const projectSelect = document.querySelector('.project-select');
+            const projectTags = document.querySelector('.project-type-tags');
+            const existingTags = new Set(['Site vitrine', 'Refonte']);
+
+            if (projectSelect) {
+                projectSelect.addEventListener('change', function() {
+                    const selectedValue = this.value;
+                    const selectedText = this.options[this.selectedIndex].text;
+
+                    if (selectedValue && !existingTags.has(selectedText)) {
+                        // Créer un nouveau tag
+                        const newTag = document.createElement('div');
+                        newTag.className = 'project-tag selected';
+                        newTag.innerHTML = `${selectedText} <span class="remove-tag">×</span>`;
+
+                        // Insérer avant le dropdown
+                        projectTags.insertBefore(newTag, projectSelect.parentElement);
+                        existingTags.add(selectedText);
+
+                        // Ajouter l'événement de suppression
+                        const removeBtn = newTag.querySelector('.remove-tag');
+                        removeBtn.addEventListener('click', function() {
+                            newTag.remove();
+                            existingTags.delete(selectedText);
+                        });
+
+                        // Reset le select
+                        this.value = '';
+                    }
+                });
+            }
+
+            // Gestion des tags existants
+            document.querySelectorAll('.remove-tag').forEach(removeBtn => {
+                removeBtn.addEventListener('click', function() {
+                    const tag = this.parentElement;
+                    const tagText = tag.textContent.replace('×', '').trim();
+                    existingTags.delete(tagText);
+                    tag.remove();
+                });
+            });
+        }
+
+        function initButtonAnimations() {
+            const confirmButton = document.querySelector('.confirm-button');
+            const addButton = document.querySelector('.add-button');
+            const socialButtons = document.querySelectorAll('.social-btn');
+
+            if (confirmButton) {
+                confirmButton.style.transition = 'all 0.3s ease';
+
+                confirmButton.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#8a38f5';
+                    this.style.color = 'white';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 10px 20px rgba(138, 56, 245, 0.3)';
+                });
+
+                confirmButton.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '#fffcfc';
+                    this.style.color = '#08070a';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            }
+
+            if (addButton) {
+                addButton.style.transition = 'all 0.3s ease';
+
+                addButton.addEventListener('click', function() {
+                    // Animation de rotation
+                    this.style.transform = 'rotate(45deg) scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'rotate(0deg) scale(1)';
+                    }, 300);
+
+                    // Ajouter un nouveau champ URL
+                    addUrlField();
+                });
+            }
+
+            socialButtons.forEach(btn => {
+                btn.style.transition = 'all 0.3s ease';
+
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+                });
+
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                        // Simuler le remplissage automatique
+                        if (this.classList.contains('google-btn')) {
+                            fillFormWithGoogleData();
+                        } else if (this.classList.contains('apple-btn')) {
+                            fillFormWithAppleData();
+                        }
+                    }, 150);
+                });
+            });
+        }
+
+        function initSpecialSelectors() {
+            // Gestion du sélecteur de pays avec animation
+            const countrySelect = document.querySelector('.country-flag-select');
+            if (countrySelect) {
+                countrySelect.addEventListener('change', function() {
+                    const phoneCode = document.querySelector('.country-code');
+                    const codes = { 'MU': '+230', 'FR': '+33', 'US': '+1' };
+                    if (phoneCode) {
+                        phoneCode.textContent = codes[this.value] || '+230';
+                        // Animation de changement
+                        phoneCode.style.transform = 'scale(1.2)';
+                        phoneCode.style.color = '#8a38f5';
+                        setTimeout(() => {
+                            phoneCode.style.transform = 'scale(1)';
+                            phoneCode.style.color = '#171b1c';
+                        }, 300);
+                    }
+                });
+            }
+
+            // Gestion du toggle switch avec animation fluide
+            const toggleSwitch = document.querySelector('.toggle-switch');
+            if (toggleSwitch) {
+                toggleSwitch.addEventListener('click', function() {
+                    const handle = this.querySelector('.toggle-handle');
+                    const countrySelect = document.querySelector('.country-select');
+
+                    if (handle.style.right === '2px' || !handle.style.right) {
+                        handle.style.right = '30px';
+                        handle.style.transition = 'right 0.3s ease';
+                        this.style.backgroundColor = '#d9d9d9';
+                        if (countrySelect) countrySelect.disabled = false;
+                    } else {
+                        handle.style.right = '2px';
+                        this.style.backgroundColor = '#8a38f5';
+                        if (countrySelect) countrySelect.disabled = true;
+                    }
+                });
+            }
+        }
+
+        function addUrlField() {
+            const urlContainer = document.querySelector('.form-row:has(.add-button)');
+            if (urlContainer) {
+                const newUrlField = document.createElement('div');
+                newUrlField.className = 'form-row';
+                newUrlField.innerHTML = `
+                    <div class="form-group" style="flex-grow: 1;">
+                        <label class="form-label">URL supplémentaire</label>
+                        <input type="url" class="form-input" placeholder="https://">
+                    </div>
+                    <div style="display: flex; align-items: end;">
+                        <button type="button" class="add-button remove-url" style="background-color: #dc3545;">−</button>
+                    </div>
+                `;
+
+                urlContainer.parentNode.insertBefore(newUrlField, urlContainer.nextSibling);
+
+                // Ajouter événement de suppression
+                const removeBtn = newUrlField.querySelector('.remove-url');
+                removeBtn.addEventListener('click', function() {
+                    newUrlField.remove();
+                });
+
+                // Ajouter les événements pour le nouveau champ
+                const newInput = newUrlField.querySelector('.form-input');
+                newInput.addEventListener('focus', function() {
+                    this.style.backgroundColor = '#ffffff';
+                    this.style.borderLeft = '4px solid #8a38f5';
+                    this.style.transform = 'scale(1.02)';
+                });
+
+                newInput.addEventListener('blur', function() {
+                    this.style.backgroundColor = '#edebeb';
+                    this.style.borderLeft = 'none';
+                    this.style.transform = 'scale(1)';
+                });
+            }
+        }
+
+        function fillFormWithGoogleData() {
+            // Simuler le remplissage automatique avec Google
+            const nameInput = document.querySelector('input[placeholder="Saisir votre nom"]');
+            const prenomInput = document.querySelector('input[placeholder="Saisir votre prénom"]');
+            const emailInput = document.querySelector('input[type="email"]');
+
+            if (nameInput) {
+                animateTyping(nameInput, 'Dupont');
+            }
+            if (prenomInput) {
+                setTimeout(() => animateTyping(prenomInput, 'Jean'), 500);
+            }
+            if (emailInput) {
+                setTimeout(() => animateTyping(emailInput, 'jean.dupont@gmail.com'), 1000);
+            }
+        }
+
+        function fillFormWithAppleData() {
+            // Simuler le remplissage automatique avec Apple
+            const nameInput = document.querySelector('input[placeholder="Saisir votre nom"]');
+            const prenomInput = document.querySelector('input[placeholder="Saisir votre prénom"]');
+            const emailInput = document.querySelector('input[type="email"]');
+
+            if (nameInput) {
+                animateTyping(nameInput, 'Martin');
+            }
+            if (prenomInput) {
+                setTimeout(() => animateTyping(prenomInput, 'Pierre'), 500);
+            }
+            if (emailInput) {
+                setTimeout(() => animateTyping(emailInput, 'pierre.martin@icloud.com'), 1000);
+            }
+        }
+
+        function animateTyping(input, text) {
+            input.value = '';
+            input.focus();
+            let i = 0;
+            const timer = setInterval(() => {
+                input.value += text[i];
+                validateReservationField(input);
+                i++;
+                if (i >= text.length) {
+                    clearInterval(timer);
+                    input.blur();
+                }
+            }, 50);
         }
 
         // Navigation scroll spy
