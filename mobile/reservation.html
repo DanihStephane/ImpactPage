@@ -2487,18 +2487,18 @@
         .mobile-reservation .group-60 {
             position: fixed;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 384px;
-            height: 105px;
+            left: 0;
+            width: 100%;
+            max-width: 100vw;
+            height: 80px;
         }
 
         .mobile-reservation .group-61 {
             position: absolute;
             top: 0;
             left: 0;
-            width: 375px;
-            height: 105px;
+            width: 100%;
+            height: 80px;
             backdrop-filter: blur(5px) brightness(100%);
             -webkit-backdrop-filter: blur(5px) brightness(100%);
             background: linear-gradient(
@@ -2510,29 +2510,43 @@
 
         .mobile-reservation .frame-14 {
             position: absolute;
-            top: 26px;
+            top: 21px;
             left: 0;
-            width: 500px;
+            width: 100%;
+            max-width: 100vw;
             height: 38px;
             display: flex;
-            gap: 12px;
-            overflow: hidden;
-            overflow-x: scroll;
-            white-space: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
         }
 
         .mobile-reservation .frame-home {
-            display: inline-flex;
-            width: 54px;
-            height: 28px;
-            position: relative;
+            display: flex;
+            width: 40px;
+            height: 40px;
             align-items: center;
             justify-content: center;
-            background-color: #191a23;
-            border-radius: 14px;
-            color: #ffffff;
+            background-color: #ffffff;
+            border-radius: 50%;
+            border: 1px solid #171b1c;
             cursor: pointer;
-            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-reservation .frame-home:hover {
+            background-color: #171b1c;
+        }
+
+        .mobile-reservation .frame-home:hover svg {
+            fill: #ffffff;
+        }
+
+        .mobile-reservation .nav-icon {
+            width: 20px;
+            height: 20px;
+            fill: #171b1c;
+            transition: fill 0.3s ease;
         }
 
         .mobile-reservation .frame-14::-webkit-scrollbar {
@@ -2568,32 +2582,48 @@
         }
 
         .mobile-reservation .frame-16 {
-            display: inline-flex;
-            width: 63px;
-            height: 28px;
-            position: relative;
+            display: flex;
+            width: 40px;
+            height: 40px;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 4px 7px;
             background-color: #ffffff;
-            border-radius: 50px;
+            border-radius: 50%;
+            border: 1px solid #171b1c;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-reservation .frame-16:hover {
+            background-color: #171b1c;
+        }
+
+        .mobile-reservation .frame-16:hover svg {
+            fill: #ffffff;
             border: 1px solid;
             border-color: #fffcfc;
             flex-shrink: 0;
         }
 
         .mobile-reservation .frame-17 {
-            display: inline-flex;
-            width: 121px;
-            height: 28px;
-            position: relative;
+            display: flex;
+            width: 40px;
+            height: 40px;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 4px 7px;
             background-color: #ffffff;
-            border-radius: 50px;
+            border-radius: 50%;
+            border: 1px solid #171b1c;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-reservation .frame-17:hover {
+            background-color: #171b1c;
+        }
+
+        .mobile-reservation .frame-17:hover svg {
+            fill: #ffffff;
             flex-shrink: 0;
         }
 
@@ -2610,16 +2640,24 @@
         }
 
         .mobile-reservation .frame-18 {
-            display: inline-flex;
-            width: 100px;
-            height: 28px;
-            position: relative;
+            display: flex;
+            width: 40px;
+            height: 40px;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 4px 7px;
             background-color: #ffffff;
-            border-radius: 50px;
+            border-radius: 50%;
+            border: 1px solid #171b1c;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-reservation .frame-18:hover {
+            background-color: #171b1c;
+        }
+
+        .mobile-reservation .frame-18:hover svg {
+            fill: #ffffff;
             border: 1px solid;
             border-color: #fffcfc;
             flex-shrink: 0;
@@ -2637,19 +2675,20 @@
         }
 
         .mobile-reservation .frame-19 {
-            display: inline-flex;
-            width: 56px;
-            height: 28px;
-            position: relative;
+            display: flex;
+            width: 40px;
+            height: 40px;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 4px 7px;
             background-color: #000000;
-            border-radius: 50px;
-            border: 1px solid;
-            border-color: #fffcfc;
-            flex-shrink: 0;
+            border-radius: 50%;
+            border: 1px solid #fffcfc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-reservation .frame-19 svg {
+            fill: #fffcfc;
         }
 
         .mobile-reservation .text-wrapper-83 {
@@ -3093,11 +3132,31 @@
     <div class="group-60">
         <div class="group-61"></div>
         <div class="frame-14">
-            <div class="frame-home"><div class="text-wrapper-80">Accueil</div></div>
-            <div class="frame-16"><div class="text-wrapper-80">À Propos</div></div>
-            <div class="frame-17"><div class="text-wrapper-81">Solutions / Services</div></div>
-            <div class="frame-18"><div class="text-wrapper-82">Nos réalisations</div></div>
-            <div class="frame-19"><div class="text-wrapper-83">Contact</div></div>
+            <div class="frame-home">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M12 3l8 7.5v11.5h-6v-7h-4v7h-6v-11.5l8-7.5z"/>
+                </svg>
+            </div>
+            <div class="frame-16">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+            <div class="frame-17">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/>
+                </svg>
+            </div>
+            <div class="frame-18">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/>
+                </svg>
+            </div>
+            <div class="frame-19">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+            </div>
         </div>
     </div>
     <div class="frame-wrapper">
