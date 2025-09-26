@@ -14,6 +14,8 @@
     body {
       margin: 0px;
       height: 100%;
+      overflow-x: hidden;
+      max-width: 100vw;
     }
     /* a blue color as a generic focus style */
     button:focus-visible {
@@ -24,7 +26,7 @@
       text-decoration: none;
     }
     .mobile-a-propos {
-      background-color: #ffffff;
+      background-color: #000000;
       display: grid;
       justify-items: center;
       align-items: start;
@@ -33,26 +35,28 @@
 
     .mobile-a-propos .div {
       background-color: #ffffff;
-      overflow: hidden;
-      width: 375px;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
       height: 5439px;
       position: relative;
     }
 
     .mobile-a-propos .overlap {
       position: absolute;
-      width: 396px;
+      width: 100%;
+      max-width: 100vw;
       height: 4072px;
       top: 0;
-      left: -5px;
+      left: 0;
     }
 
     .mobile-a-propos .rectangle {
       position: absolute;
-      width: 375px;
+      width: 100%;
       height: 736px;
       top: 0;
-      left: 5px;
+      left: 0;
       background: linear-gradient(
               20deg,
               rgba(23, 27, 28, 1) 0%,
@@ -62,19 +66,21 @@
 
     .mobile-a-propos .rectangle-2 {
       position: absolute;
-      width: 375px;
+      width: 100%;
       height: 3346px;
       top: 726px;
-      left: 5px;
+      left: 0;
       background-color: #171b1c;
     }
 
     .mobile-a-propos .group {
       position: absolute;
-      width: 337px;
+      width: 90%;
+      max-width: 337px;
       height: 444px;
       top: 146px;
-      left: 35px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .frame {
@@ -204,19 +210,23 @@
 
     .mobile-a-propos .img {
       position: absolute;
-      width: 374px;
+      width: 90%;
+      max-width: 374px;
       height: 270px;
       top: 631px;
-      left: 5px;
+      left: 50%;
+      transform: translateX(-50%);
       object-fit: cover;
     }
 
     .mobile-a-propos .group-4 {
       position: absolute;
-      width: 366px;
+      width: 90%;
+      max-width: 366px;
       height: 283px;
       top: 938px;
-      left: 25px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .group-5 {
@@ -327,15 +337,17 @@
 
     .mobile-a-propos .overlap-wrapper {
       position: absolute;
-      width: 379px;
+      width: 90%;
+      max-width: 375px;
       height: 425px;
       top: 1276px;
-      left: 5px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .overlap-2 {
       position: relative;
-      width: 375px;
+      width: 100%;
       height: 425px;
       background-color: #ffffff;
     }
@@ -583,10 +595,12 @@
 
     .mobile-a-propos .group-wrapper {
       position: absolute;
-      width: 374px;
+      width: 90%;
+      max-width: 374px;
       height: 342px;
       top: 1910px;
-      left: 5px;
+      left: 50%;
+      transform: translateX(-50%);
       overflow: hidden;
       overflow-x: scroll;
     }
@@ -884,10 +898,12 @@
 
     .mobile-a-propos .rectangle-22 {
       position: absolute;
-      width: 337px;
+      width: 90%;
+      max-width: 337px;
       height: 42px;
       top: 1738px;
-      left: 25px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #171b1c;
       border-radius: 50px;
       border: 2px solid;
@@ -896,10 +912,12 @@
 
     .mobile-a-propos .group-12 {
       position: absolute;
-      width: 343px;
+      width: 90%;
+      max-width: 343px;
       height: 152px;
       top: 1741px;
-      left: 21px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .text-wrapper-17 {
@@ -931,15 +949,17 @@
 
     .mobile-a-propos .group-13 {
       position: absolute;
-      width: 377px;
+      width: 90%;
+      max-width: 375px;
       height: 597px;
       top: 2307px;
-      left: 5px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .overlap-5 {
       position: relative;
-      width: 375px;
+      width: 100%;
       height: 597px;
       background-color: #ffffff;
     }
@@ -1072,15 +1092,17 @@
 
     .mobile-a-propos .group-17 {
       position: absolute;
-      width: 396px;
+      width: 90%;
+      max-width: 375px;
       height: 1077px;
       top: 2959px;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .group-18 {
       position: absolute;
-      width: 384px;
+      width: 100%;
       height: 72px;
       top: 0;
       left: 0;
@@ -1088,7 +1110,7 @@
 
     .mobile-a-propos .text-wrapper-23 {
       position: absolute;
-      width: 382px;
+      width: 100%;
       top: 0;
       left: 0;
       font-family: "Kanit", Helvetica;
@@ -1102,10 +1124,12 @@
 
     .mobile-a-propos .overlap-6 {
       position: absolute;
-      width: 324px;
+      width: 85%;
+      max-width: 324px;
       height: 1005px;
       top: 72px;
-      left: 29px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #ffffff;
       border-radius: 15px;
     }
@@ -1115,7 +1139,8 @@
       width: 73px;
       height: 73px;
       top: 10px;
-      left: 129px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .group-20 {
@@ -1123,14 +1148,17 @@
       width: 73px;
       height: 73px;
       top: 909px;
-      left: 129px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .claire-dupuis-g {
       position: absolute;
-      width: 288px;
+      width: 90%;
+      max-width: 288px;
       top: 219px;
-      left: 19px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       color: #0f0f0f;
@@ -1146,25 +1174,31 @@
 
     .mobile-a-propos .vector-8 {
       position: absolute;
-      width: 290px;
+      width: 90%;
+      max-width: 290px;
       height: 2px;
       top: 300px;
-      left: 17px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .vector-9 {
       position: absolute;
-      width: 290px;
+      width: 90%;
+      max-width: 290px;
       height: 2px;
       top: 533px;
-      left: 17px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .text-wrapper-25 {
       position: absolute;
-      width: 297px;
+      width: 90%;
+      max-width: 297px;
       top: 93px;
-      left: 17px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       font-style: italic;
@@ -1177,9 +1211,11 @@
 
     .mobile-a-propos .julien-morel {
       position: absolute;
-      width: 265px;
+      width: 90%;
+      max-width: 265px;
       top: 457px;
-      left: 32px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       color: #0f0f0f;
@@ -1191,9 +1227,11 @@
 
     .mobile-a-propos .text-wrapper-26 {
       position: absolute;
-      width: 312px;
+      width: 90%;
+      max-width: 312px;
       top: 331px;
-      left: 7px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       font-style: italic;
@@ -1206,9 +1244,11 @@
 
     .mobile-a-propos .a-cha-benali {
       position: absolute;
-      width: 226px;
+      width: 90%;
+      max-width: 226px;
       top: 690px;
-      left: 49px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       color: #0f0f0f;
@@ -1220,9 +1260,11 @@
 
     .mobile-a-propos .text-wrapper-27 {
       position: absolute;
-      width: 286px;
+      width: 90%;
+      max-width: 286px;
       top: 564px;
-      left: 21px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       font-style: italic;
@@ -1238,14 +1280,17 @@
       width: 76px;
       height: 22px;
       top: 870px;
-      left: 128px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .text-wrapper-28 {
       position: absolute;
-      width: 228px;
+      width: 90%;
+      max-width: 228px;
       top: 812px;
-      left: 44px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 400;
       color: #0f0f0f;
@@ -1253,6 +1298,7 @@
       letter-spacing: 0;
       line-height: normal;
       text-decoration: underline;
+      text-align: center;
     }
 
     .mobile-a-propos .group-22 {
@@ -1260,12 +1306,13 @@
       width: 87px;
       height: 31px;
       top: 776px;
-      left: 124px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .group-23 {
       position: absolute;
-      width: 381px;
+      width: 100%;
       height: 589px;
       top: 4850px;
       left: 0;
@@ -1273,7 +1320,7 @@
 
     .mobile-a-propos .overlap-7 {
       position: relative;
-      width: 375px;
+      width: 100%;
       height: 589px;
       background-color: #000000;
     }
@@ -1288,7 +1335,8 @@
       padding: 4px 13px;
       position: absolute;
       top: 430px;
-      left: 126px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #ffffff;
       border-radius: 50px;
       backdrop-filter: blur(3.5px) brightness(100%);
@@ -1297,9 +1345,11 @@
 
     .mobile-a-propos .text-wrapper-29 {
       position: absolute;
-      width: 295px;
+      width: 90%;
+      max-width: 295px;
       top: 19px;
-      left: 40px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 600;
       color: #ffffff;
@@ -1311,10 +1361,12 @@
 
     .mobile-a-propos .overlap-8 {
       position: absolute;
-      width: 336px;
+      width: 90%;
+      max-width: 336px;
       height: 45px;
       top: 195px;
-      left: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #262626;
       border-radius: 2px;
     }
@@ -1323,7 +1375,8 @@
       position: absolute;
       width: 146px;
       top: 12px;
-      left: 54px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 600;
       color: #ffffff99;
@@ -1337,7 +1390,7 @@
       width: 21px;
       height: 21px;
       top: 12px;
-      left: 299px;
+      right: 15px;
     }
 
     .mobile-a-propos .frame-11 {
@@ -1345,7 +1398,7 @@
       width: 20px;
       height: 26px;
       top: 9px;
-      left: 19px;
+      left: 15px;
       background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/email.png);
       background-size: 100% 100%;
     }
@@ -1355,7 +1408,8 @@
       width: 168px;
       height: 24px;
       top: 302px;
-      left: 109px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .overlap-group-10 {
@@ -1383,7 +1437,7 @@
       width: 12px;
       height: 12px;
       top: 6px;
-      left: 154px;
+      right: 5px;
     }
 
     .mobile-a-propos .group-26 {
@@ -1391,7 +1445,8 @@
       width: 125px;
       height: 24px;
       top: 346px;
-      left: 124px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .mobile-a-propos .frame-12 {
@@ -1444,15 +1499,18 @@
 
     .mobile-a-propos .privacy-policy-terms {
       position: absolute;
-      width: 236px;
+      width: 90%;
+      max-width: 236px;
       top: 388px;
-      left: 79px;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: "Kanit", Helvetica;
       font-weight: 500;
       color: #ffffff;
       font-size: 15px;
       letter-spacing: 0;
       line-height: normal;
+      text-align: center;
     }
 
     .mobile-a-propos .text-wrapper-34 {
@@ -1461,10 +1519,12 @@
 
     .mobile-a-propos .group-28 {
       position: absolute;
-      width: 360px;
+      width: 90%;
+      max-width: 360px;
       height: 702px;
       top: 4103px;
-      left: 7px;
+      left: 50%;
+      transform: translateX(-50%);
       background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/group-326.png);
       background-size: 100% 100%;
     }
@@ -1515,22 +1575,22 @@
 
     .mobile-a-propos .group-30 {
       position: fixed;
-      width: 384px;
-      height: 105px;
+      width: 100%;
+      max-width: 100vw;
+      height: 80px;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
     }
 
     .mobile-a-propos .overlap-10 {
       position: relative;
-      height: 105px;
+      height: 80px;
     }
 
     .mobile-a-propos .group-31 {
       position: absolute;
-      width: 375px;
-      height: 105px;
+      width: 100%;
+      height: 80px;
       top: 0;
       left: 0;
       backdrop-filter: blur(5px) brightness(100%);
@@ -1544,12 +1604,15 @@
 
     .mobile-a-propos .frame-14 {
       position: absolute;
-      width: 500px;
+      width: 100%;
+      max-width: 100vw;
       height: 38px;
-      top: 26px;
+      top: 21px;
       left: 0;
-      overflow: hidden;
-      overflow-x: scroll;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
     }
 
     .mobile-a-propos .frame-14::-webkit-scrollbar {
@@ -1558,136 +1621,162 @@
     }
 
     .mobile-a-propos .frame-home {
-      display: inline-flex;
-      height: 28px;
+      display: flex;
+      width: 40px;
+      height: 40px;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 4px 7px;
-      position: absolute;
-      top: 0;
-      left: 10px;
       background-color: #ffffff;
-      border-radius: 50px;
-      border: 1px solid;
+      border-radius: 50%;
+      border: 1px solid #171b1c;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-a-propos .frame-home:hover {
+      background-color: #171b1c;
+    }
+
+    .mobile-a-propos .frame-home:hover svg {
+      fill: #ffffff;
+    }
+
+
+    .mobile-a-propos .nav-icon {
+      width: 20px;
+      height: 20px;
+      fill: #171b1c;
+      transition: fill 0.3s ease;
     }
 
     .mobile-a-propos .frame-15 {
-      display: inline-flex;
-      height: 28px;
+      display: flex;
+      width: 40px;
+      height: 40px;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 4px 7px;
-      position: absolute;
-      top: 0;
-      left: 75px;
-      background-color: #ffffff;
-      border-radius: 50px;
-      border: 1px solid;
+      background-color: #000000;
+      border-radius: 50%;
+      border: 1px solid #fffcfc;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .mobile-a-propos .text-wrapper-36 {
-      position: relative;
-      width: fit-content;
-      font-family: "Kanit", Helvetica;
-      font-weight: 400;
-      color: #171b1c;
-      font-size: 12px;
-      letter-spacing: 0;
-      line-height: normal;
+    .mobile-a-propos .frame-15 svg {
+      fill: #fffcfc;
     }
 
     .mobile-a-propos .frame-16 {
-      display: inline-flex;
-      height: 28px;
+      display: flex;
+      width: 40px;
+      height: 40px;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 4px 7px;
-      position: absolute;
-      top: 0;
-      left: 140px;
-      background-color: #000000;
-      border-radius: 50px;
-      border: 1px solid;
-      border-color: #fffcfc;
+      background-color: #ffffff;
+      border-radius: 50%;
+      border: 1px solid #171b1c;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .mobile-a-propos .text-wrapper-37 {
-      position: relative;
-      width: fit-content;
-      font-family: "Kanit", Helvetica;
-      font-weight: 400;
-      color: #fffcfc;
-      font-size: 12px;
-      letter-spacing: 0;
-      line-height: normal;
+    .mobile-a-propos .frame-16:hover {
+      background-color: #171b1c;
+    }
+
+    .mobile-a-propos .frame-16:hover svg {
+      fill: #ffffff;
     }
 
     .mobile-a-propos .frame-17 {
-      display: inline-flex;
-      height: 28px;
+      display: flex;
+      width: 40px;
+      height: 40px;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 4px 7px;
-      position: absolute;
-      top: 0;
-      left: 205px;
       background-color: #ffffff;
-      border-radius: 50px;
+      border-radius: 50%;
+      border: 1px solid #171b1c;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .mobile-a-propos .text-wrapper-38 {
-      position: relative;
-      width: fit-content;
-      margin-top: -1.00px;
-      font-family: "Kanit", Helvetica;
-      font-weight: 400;
-      color: #171b1c;
-      font-size: 12px;
-      letter-spacing: 0;
-      line-height: normal;
+    .mobile-a-propos .frame-17:hover {
+      background-color: #171b1c;
+    }
+
+    .mobile-a-propos .frame-17:hover svg {
+      fill: #ffffff;
     }
 
     .mobile-a-propos .frame-18 {
-      display: inline-flex;
-      height: 28px;
+      display: flex;
+      width: 40px;
+      height: 40px;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 4px 7px;
-      position: absolute;
-      top: 0;
-      left: 340px;
       background-color: #ffffff;
-      border-radius: 50px;
+      border-radius: 50%;
+      border: 1px solid #171b1c;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .mobile-a-propos .frame-19 {
-      display: inline-flex;
-      height: 28px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 4px 7px;
-      position: absolute;
-      top: 0;
-      left: 450px;
-      background-color: #ffffff;
-      border-radius: 50px;
+    .mobile-a-propos .frame-18:hover {
+      background-color: #171b1c;
+    }
+
+    .mobile-a-propos .frame-18:hover svg {
+      fill: #ffffff;
     }
 
     .mobile-a-propos .frame-wrapper {
       position: fixed;
-      width: 375px;
+      width: 100%;
+      max-width: 100vw;
       height: 64px;
       top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      background-image: url(https://c.animaapp.com/mfn4ikmipcOOjk/img/group-234.png);
-      background-size: 100% 100%;
+      left: 0;
+      background: linear-gradient(
+        20deg,
+        rgba(23, 27, 28, 0.9) 0%,
+        rgba(28, 20, 38, 0.9) 100%
+      );
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .mobile-a-propos .social-icons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .mobile-a-propos .social-icon {
+      width: 28px;
+      height: 28px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .mobile-a-propos .social-icon:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .mobile-a-propos .social-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: #ffffff;
     }
 
     .mobile-a-propos .frame-20 {
@@ -1698,11 +1787,9 @@
       justify-content: center;
       gap: 10px;
       padding: 4px 13px;
-      position: relative;
-      top: 18px;
-      left: 270px;
       background-color: #ffffff;
       border-radius: 50px;
+      margin-left: auto;
     }
 
     .mobile-a-propos .text-wrapper-39 {
@@ -1740,7 +1827,7 @@
               <div class="rectangle-6"></div>
             </div>
           </div>
-          <img class="vector" src="https://c.animaapp.com/mfn4ikmipcOOjk/img/vector.svg" />
+          <img class="vector" src="https://c.animaapp.com/mf1ehbj2M1JPCP/img/vector.svg" />
         </div>
         <p class="text-wrapper-2">Prêt à donner une âme à votre site ?</p>
       </div>
@@ -2081,15 +2168,67 @@
       <div class="overlap-10">
         <div class="group-31"></div>
         <div class="frame-14">
-          <div class="frame-home"><div class="text-wrapper-36">Accueil</div></div>
-          <div class="frame-16"><div class="text-wrapper-37">À Propos</div></div>
-          <div class="frame-17"><div class="text-wrapper-38">Solutions / Services</div></div>
-          <div class="frame-18"><div class="text-wrapper-38">Nos réalisations</div></div>
-          <div class="frame-19"><div class="text-wrapper-38">Contact</div></div>
+          <div class="frame-home">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M12 3l8 7.5v11.5h-6v-7h-4v7h-6v-11.5l8-7.5z"/>
+            </svg>
+          </div>
+          <div class="frame-15">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <div class="frame-16">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/>
+            </svg>
+          </div>
+          <div class="frame-17">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/>
+            </svg>
+          </div>
+          <div class="frame-18">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
     <div class="frame-wrapper">
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/lantorian" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/lantorian" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/lantorian" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@lantorian" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@lantorian" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/lantorian" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+      </div>
       <div class="frame-20"><div class="text-wrapper-39">Réserver</div></div>
     </div>
   </div>
@@ -2106,20 +2245,20 @@
     }
 
     // Navigation du menu principal
-    const navItems = document.querySelectorAll('.frame-16, .frame-17, .frame-18, .frame-19');
+    const navItems = document.querySelectorAll('.frame-15, .frame-16, .frame-17, .frame-18');
     navItems.forEach((item, index) => {
       item.addEventListener('click', function() {
         switch(index) {
-          case 0: // À Propos
+          case 0: // À Propos (frame-15 - actuel, reste sur la même page)
             window.location.href = 'aboutus.html';
             break;
-          case 1: // Solutions / Services
+          case 1: // Solutions / Services (frame-16)
             window.location.href = 'solution.html';
             break;
-          case 2: // Nos réalisations
+          case 2: // Nos réalisations (frame-17)
             window.location.href = 'realisation.html';
             break;
-          case 3: // Contact
+          case 3: // Contact (frame-18)
             window.location.href = 'contact.html';
             break;
         }
