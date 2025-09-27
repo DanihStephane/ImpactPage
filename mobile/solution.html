@@ -586,7 +586,7 @@ a {
 }
 
 .mobile-solutions .vector-4 {
-  top: 574px;
+  top: 580px;
   position: absolute;
   width: 333px;
   height: 1px;
@@ -1491,6 +1491,96 @@ a {
   line-height: normal;
 }
 
+    /* Accordion Styles for Mobile */
+    .mobile-solutions .accordion-item {
+      position: relative;
+      width: 100%;
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-solutions .accordion-header {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 10px;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .mobile-solutions .accordion-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      right: -100vw;
+      bottom: 0;
+      background: transparent;
+      transition: background-color 0.3s ease;
+      z-index: -1;
+    }
+
+    .mobile-solutions .accordion-header:hover::before {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-solutions .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: #171b1c;
+    }
+
+    .mobile-solutions .accordion-content.active {
+      max-height: 120px;
+    }
+
+    .mobile-solutions .accordion-content .accordion-text {
+      padding: 15px 10px;
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: normal;
+      margin: 0;
+    }
+
+    .mobile-solutions .accordion-arrow {
+      transition: transform 0.3s ease;
+      transform: rotate(180deg);
+      width: 20px;
+      height: 20px;
+    }
+
+    .mobile-solutions .accordion-header.active .accordion-arrow {
+      transform: rotate(0deg);
+    }
+
+    .mobile-solutions .accordion-title {
+      font-family: "Kanit", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: normal;
+      flex: 1;
+    }
+
+    .mobile-solutions .overlap-6 {
+      position: absolute;
+      width: 338px;
+      height: auto;
+      min-height: 384px;
+      top: 179px;
+      left: 0;
+      background: #171b1c;
+      border-radius: 10px;
+      overflow: visible;
+    }
+
     </style>
   </head>
   <body>
@@ -1551,20 +1641,62 @@ a {
               <p class="text-wrapper-8">Rejoignez-nous dès maintenant et commencez vos projets</p>
             </div>
             <div class="overlap-6">
-              <p class="text-wrapper-9">
-                Nous transférons votre site WordPress vers une stack moderne en suivant des étapes clés, de
-                l’exportation des contenus à l’optimisation finale, pour garantir performance, sécurité et évolutivité.
-              </p>
-              <div class="text-wrapper-10">Refonte et modernisation</div>
-              <div class="overlap-7">
-                <img class="frame-2" src="https://c.animaapp.com/mfn4cdd0g8987X/img/frame-137.svg" />
-                <img class="vector" src="https://c.animaapp.com/mfn4cdd0g8987X/img/vector-8.svg" />
-                <img class="vector-2" src="https://c.animaapp.com/mfn4cdd0g8987X/img/vector-8.svg" />
-                <img class="vector-3" src="https://c.animaapp.com/mfn4cdd0g8987X/img/vector-8.svg" />
-                <div class="text-wrapper-11">Sécurité et maintenance simplifiée</div>
+              <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordionMobile(this)">
+                  <div class="accordion-title">Refonte et modernisation</div>
+                  <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 14L12 9L17 14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <p class="accordion-text">
+                    Nous transférons votre site WordPress vers une stack moderne en suivant des étapes clés, de
+                    l'exportation des contenus à l'optimisation finale, pour garantir performance, sécurité et évolutivité.
+                  </p>
+                </div>
               </div>
-              <div class="text-wrapper-12">Performance et rapidité</div>
-              <div class="design-sur-mesure-et-2">Design sur-mesure et &#34;émotionnel&#34;</div>
+
+              <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordionMobile(this)">
+                  <div class="accordion-title">Performance et rapidité</div>
+                  <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 14L12 9L17 14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <p class="accordion-text">
+                    Optimisation complète de la vitesse de chargement, amélioration des Core Web Vitals, mise en cache avancée et optimisation des images pour une expérience utilisateur exceptionnelle et un meilleur référencement.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordionMobile(this)">
+                  <div class="accordion-title">Design sur-mesure et "émotionnel"</div>
+                  <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 14L12 9L17 14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <p class="accordion-text">
+                    Création d'interfaces uniques qui racontent votre histoire avec des animations fluides, micro-interactions et éléments visuels captivants pour créer une connexion émotionnelle avec vos visiteurs.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordionMobile(this)">
+                  <div class="accordion-title">Sécurité et maintenance simplifiée</div>
+                  <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 14L12 9L17 14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <p class="accordion-text">
+                    Architecture sécurisée avec protection contre les attaques, sauvegardes automatiques, monitoring continu et maintenance préventive pour garantir la stabilité et la sécurité de votre site.
+                  </p>
+                </div>
+              </div>
             </div>
             <img class="vector-4" src="https://c.animaapp.com/mfn4cdd0g8987X/img/vector-8.svg" />
           </div>
@@ -1814,5 +1946,41 @@ a {
 
     // Vérifier lors du redimensionnement de la fenêtre
     window.addEventListener('resize', checkScreenSize);
+
+    // Fonction pour l'accordéon mobile
+    function toggleAccordionMobile(header) {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+
+      // Fermer tous les accordéons d'abord
+      const allContents = document.querySelectorAll('.mobile-solutions .accordion-content');
+      const allHeaders = document.querySelectorAll('.mobile-solutions .accordion-header');
+
+      allContents.forEach(item => {
+        item.classList.remove('active');
+      });
+      allHeaders.forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Si cet élément n'était pas actif, l'ouvrir
+      if (!isActive) {
+        content.classList.add('active');
+        header.classList.add('active');
+      }
+    }
+
+    // Ouvrir le premier accordéon par défaut quand la page se charge
+    document.addEventListener('DOMContentLoaded', function() {
+      // Attendre un peu pour que les styles se chargent
+      setTimeout(() => {
+        const firstHeader = document.querySelector('.mobile-solutions .accordion-header');
+        if (firstHeader) {
+          const firstContent = firstHeader.nextElementSibling;
+          firstContent.classList.add('active');
+          firstHeader.classList.add('active');
+        }
+      }, 100);
+    });
   </script>
 </html>
