@@ -1818,7 +1818,7 @@
     /* Animations pour les éléments Lantorian */
     @keyframes morphToRect1 {
       0%, 100% { border-radius: 50px; }
-      50% { border-radius: 0px 0px 0px 50px; }
+      50% { border-radius: 0px 0px 50px 0px; }
     }
 
     @keyframes morphToRect2 {
@@ -1833,7 +1833,7 @@
 
     @keyframes morphToRect4 {
       0%, 100% { border-radius: 50px; }
-      50% { border-radius: 50px 0px 0px 0px; }
+      50% { border-radius: 0px 0px 50px 0px; }
     }
 
     @keyframes spin {
@@ -1907,6 +1907,23 @@
       position: relative;
       width: 71px;
       height: 70px;
+    }
+
+    /* Animation pour les rectangles du group-6 */
+    .mobile-a-propos .group-6 .rectangle-7 {
+      animation: morphToRect1 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .group-6 .rectangle-8 {
+      animation: morphToRect2 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .group-6 .rectangle-9 {
+      animation: morphToRect3 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .group-6 .rectangle-10 {
+      animation: morphToRect4 4s ease-in-out infinite;
     }
 
 
