@@ -154,6 +154,7 @@
       border-radius: 50px;
       position: absolute;
       top: 0;
+      animation: morphToRect1 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .rectangle-4 {
@@ -164,6 +165,7 @@
       border-radius: 50px;
       position: absolute;
       top: 0;
+      animation: morphToRect2 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .rectangle-5 {
@@ -174,6 +176,7 @@
       left: 0;
       background-color: #ffffff;
       border-radius: 50px;
+      animation: morphToRect3 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .rectangle-6 {
@@ -184,6 +187,7 @@
       left: 36px;
       background-color: #ffffff;
       border-radius: 50px;
+      animation: morphToRect4 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .vector {
@@ -192,6 +196,7 @@
       height: 70px;
       top: 0;
       left: 92px;
+      animation: spin 8s linear infinite;
     }
 
     .mobile-a-propos .text-wrapper-2 {
@@ -681,6 +686,7 @@
       left: 36px;
       background-color: #171b1c;
       border-radius: 50px;
+      animation: morphToRect1 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .rectangle-19 {
@@ -691,6 +697,7 @@
       left: 0;
       background-color: #171b1c;
       border-radius: 50px;
+      animation: morphToRect2 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .rectangle-20 {
@@ -701,6 +708,7 @@
       left: 0;
       background-color: #171b1c;
       border-radius: 50px;
+      animation: morphToRect3 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .rectangle-21 {
@@ -711,6 +719,7 @@
       left: 36px;
       background-color: #171b1c;
       border-radius: 50px;
+      animation: morphToRect4 4s ease-in-out infinite;
     }
 
     .mobile-a-propos .vector-2 {
@@ -719,6 +728,7 @@
       height: 70px;
       top: 31px;
       left: 182px;
+      animation: spin 8s linear infinite;
     }
 
     .mobile-a-propos .frame-4 {
@@ -1803,6 +1813,100 @@
       font-size: 15px;
       letter-spacing: 0;
       line-height: normal;
+    }
+
+    /* Animations pour les éléments Lantorian */
+    @keyframes morphToRect1 {
+      0%, 100% { border-radius: 50px; }
+      50% { border-radius: 0px 0px 0px 50px; }
+    }
+
+    @keyframes morphToRect2 {
+      0%, 100% { border-radius: 50px; }
+      50% { border-radius: 0px 0px 50px 0px; }
+    }
+
+    @keyframes morphToRect3 {
+      0%, 100% { border-radius: 50px; }
+      50% { border-radius: 0px 50px 0px 0px; }
+    }
+
+    @keyframes morphToRect4 {
+      0%, 100% { border-radius: 50px; }
+      50% { border-radius: 50px 0px 0px 0px; }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Styles pour les rectangles animés */
+    .mobile-a-propos .animated-rect-1 {
+      width: 36px;
+      height: 35px;
+      left: 36px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      position: absolute;
+      top: 0;
+      animation: morphToRect1 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .animated-rect-2 {
+      width: 36px;
+      height: 35px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+      position: absolute;
+      top: 0;
+      animation: morphToRect2 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .animated-rect-3 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 35px;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 50px;
+      animation: morphToRect3 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .animated-rect-4 {
+      position: absolute;
+      width: 36px;
+      height: 35px;
+      top: 35px;
+      left: 36px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      animation: morphToRect4 4s ease-in-out infinite;
+    }
+
+    .mobile-a-propos .animated-vector {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      animation: spin 8s linear infinite;
+    }
+
+    /* Conteneur pour l'animation Lantorian */
+    .mobile-a-propos .lantorian-animation {
+      position: relative;
+      width: 162px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-a-propos .lantorian-squares {
+      position: relative;
+      width: 71px;
+      height: 70px;
     }
 
 
