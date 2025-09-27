@@ -5717,6 +5717,7 @@
         height: 35px;
         background-color: #fffcfc;
         border-radius: 50px;
+        animation: morphToRect1 4s ease-in-out infinite;
       }
 
       .mobile-home-start .rectangle-2 {
@@ -5727,6 +5728,7 @@
         height: 35px;
         background-color: #fffcfc;
         border-radius: 50px;
+        animation: morphToRect2 4s ease-in-out infinite;
       }
 
       .mobile-home-start .rectangle-3 {
@@ -5737,6 +5739,7 @@
         height: 35px;
         background-color: #fffcfc;
         border-radius: 50px;
+        animation: morphToRect3 4s ease-in-out infinite;
       }
 
       .mobile-home-start .rectangle-4 {
@@ -5747,6 +5750,7 @@
         height: 35px;
         background-color: #fffcfc;
         border-radius: 50px;
+        animation: morphToRect4 4s ease-in-out infinite;
       }
 
       .mobile-home-start .vector {
@@ -5755,6 +5759,37 @@
         height: 70px;
         top: 0;
         left: 92px;
+        animation: spin 8s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Animation des rectangles morphing pour mobile */
+      @keyframes morphToRect1 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 0px 0px 0px 50px; }
+      }
+
+      @keyframes morphToRect2 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 0px 0px 50px 0px; }
+      }
+
+      @keyframes morphToRect3 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 0px 50px 0px 0px; }
+      }
+
+      @keyframes morphToRect4 {
+        0%, 100% { border-radius: 50px; }
+        50% { border-radius: 50px 0px 0px 0px; }
       }
 
       .mobile-home-start .group-4 {
