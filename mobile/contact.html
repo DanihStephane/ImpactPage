@@ -1308,5 +1308,17 @@ a {
         });
       }
     });
+    // Script de redirection vers la version desktop
+    function checkScreenSize() {
+      if (window.innerWidth >= 1024) {
+        window.location.href = '../contact.html';
+      }
+    }
+
+    // Vérifier lors du chargement de la page
+    window.addEventListener('load', checkScreenSize);
+
+    // Vérifier lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', checkScreenSize);
   </script>
 </html>
