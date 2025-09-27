@@ -1261,12 +1261,25 @@
     }
 
     function detectMobile() {
-        return window.innerWidth <= 768 || screen.width <= 768;
+        return window.innerWidth < 1024;
+    }
+
+    function redirectToMobile() {
+        if (!window.location.pathname.includes('/mobile/')) {
+            window.location.href = 'mobile/reservation.html';
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        if ((isMobileDevice() || detectMobile()) && !window.location.pathname.includes('/mobile/')) {
-            window.location.href = 'mobile/reservation.html';
+        if (isMobileDevice() || detectMobile()) {
+            redirectToMobile();
+        }
+    });
+
+    // Écouter les changements de taille d'écran pour redirection dynamique
+    window.addEventListener('resize', function() {
+        if (detectMobile() && !window.location.pathname.includes('/mobile/')) {
+            redirectToMobile();
         }
     });
 </script>

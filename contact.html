@@ -1453,17 +1453,21 @@ a {
     }
 
     function detectMobile() {
-      return window.innerWidth <= 768 || screen.width <= 768;
+      return window.innerWidth < 1024;
+    }
+
+    function redirectToMobile() {
+      // Vérifier qu'on n'est pas déjà sur la version mobile
+      if (!window.location.pathname.includes('/mobile/')) {
+        window.location.href = 'mobile/contact.html';
+      }
     }
 
     // Vérification et redirection au chargement de la page
     document.addEventListener('DOMContentLoaded', function() {
       // Redirection vers la version mobile
       if (isMobileDevice() || detectMobile()) {
-        // Vérifier qu'on n'est pas déjà sur la version mobile
-        if (!window.location.pathname.includes('/mobile/')) {
-          window.location.href = 'mobile/contact.html';
-        }
+        redirectToMobile();
       }
 
       // Dynamisation du formulaire
@@ -1656,5 +1660,12 @@ a {
         field.style.borderLeft = '4px solid #dc3545';
       }
     }
+
+    // Écouter les changements de taille d'écran pour redirection dynamique
+    window.addEventListener('resize', function() {
+      if (detectMobile() && !window.location.pathname.includes('/mobile/')) {
+        redirectToMobile();
+      }
+    });
   </script>
 </html>
