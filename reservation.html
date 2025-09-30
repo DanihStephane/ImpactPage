@@ -5,6 +5,8 @@
     <title>LANTORIAN ENGINE - Réservation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.11/build/css/intlTelInput.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.11/build/js/intlTelInput.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -360,9 +362,10 @@
             font-weight: 400;
         }
 
-        /* Calendar Section */
+        /* Modern Date Picker - Style Calendly */
         .calendar-card {
-            height: 744px;
+            height: auto;
+            min-height: 500px;
         }
 
         .calendar-info {
@@ -370,19 +373,121 @@
             font-size: 15px;
             font-weight: 300;
             color: #171b1c;
+            text-align: center;
         }
 
         .calendar-info .red-text {
-            color: #ff0000;
+            color: #8a38f5;
+            font-weight: 600;
+        }
+
+        /* Date Suggestions Grid */
+        .date-suggestions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .date-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .date-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .date-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(138, 56, 245, 0.2);
+            border-color: #8a38f5;
+        }
+
+        .date-card.selected {
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            border-color: #8a38f5;
+            box-shadow: 0 8px 24px rgba(138, 56, 245, 0.4);
+            transform: scale(1.05);
+        }
+
+        .date-card.past {
+            background: #f1f3f5;
+            border-color: #dee2e6;
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .date-card.past .date-day,
+        .date-card.past .date-number,
+        .date-card.past .date-month {
+            color: #adb5bd;
+        }
+
+        .date-card.selected .date-day,
+        .date-card.selected .date-number,
+        .date-card.selected .date-month {
+            color: white;
+        }
+
+        .date-card.unavailable {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .date-day {
+            font-size: 11px;
+            font-weight: 600;
+            color: #8a38f5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #171b1c;
+            line-height: 1;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-month {
+            font-size: 13px;
+            font-weight: 500;
+            color: #6c757d;
+            position: relative;
+            z-index: 1;
         }
 
         .calendar-container {
-            margin: 47px 27px 0;
-            background-color: #1c1c1c;
-            border: 1px solid #2e2e2e;
-            border-radius: 10px;
-            padding: 33px;
-            height: 347px;
+            margin: 20px 27px 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            height: auto;
         }
 
         .calendar {
@@ -542,50 +647,203 @@
             color: rgba(23, 27, 28, 0.5);
         }
 
-        .time-slot-info {
-            margin: 54px 27px 0;
-            background-color: #fff9f9;
-            border: 1px solid #171b1c;
+        /* Time Slots - Modern Style */
+        .time-slots-container {
+            margin: 30px 20px;
+        }
+
+        .time-slots-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #171b1c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .time-period-section {
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .time-period-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, rgba(138, 56, 245, 0.06) 0%, rgba(196, 76, 240, 0.06) 100%);
+            border-radius: 12px;
+            border-left: 4px solid #8a38f5;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .time-period-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
             border-radius: 10px;
-            padding: 14px 19px;
-            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(138, 56, 245, 0.25);
+        }
+
+        .clock-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .clock-icon circle {
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .clock-icon line {
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .time-period-info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .time-period-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #171b1c;
+        }
+
+        .time-period-range {
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .time-period-count {
+            font-size: 12px;
+            font-weight: 600;
+            color: #8a38f5;
+            background: white;
+            padding: 4px 10px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        .time-slots-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .time-slot {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 15px;
+            font-weight: 600;
+            color: #495057;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .time-slot:hover {
+            border-color: #8a38f5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(138, 56, 245, 0.15);
+            background: linear-gradient(135deg, rgba(138, 56, 245, 0.03) 0%, rgba(196, 76, 240, 0.03) 100%);
+        }
+
+        .time-slot.selected {
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            border-color: #8a38f5;
+            color: white;
+            box-shadow: 0 6px 16px rgba(138, 56, 245, 0.35);
+        }
+
+        .time-slot.unavailable {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+            color: #adb5bd;
+            cursor: not-allowed;
+            opacity: 0.5;
+            pointer-events: none;
+            text-decoration: line-through;
+        }
+
+        .time-slot.unavailable:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .time-slot-info {
+            margin: 30px 27px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            min-height: auto;
         }
 
         .time-info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 36px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .time-info-label {
-            font-size: 12px;
-            color: #171b1c;
-            font-weight: 300;
-            margin-bottom: 14px;
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 500;
+            margin-bottom: 10px;
         }
 
         .time-info-highlight {
             color: #8a38f5;
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .time-select {
-            width: 189px;
-            height: 29px;
-            background-color: #edebeb;
-            border-radius: 3px;
-            border: none;
-            padding: 5px 17px;
-            font-size: 12px;
+            width: 100%;
+            height: 48px;
+            background-color: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0 16px;
+            font-size: 15px;
             color: #171b1c;
-            font-weight: 500;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .time-select:hover {
+            border-color: #8a38f5;
+        }
+
+        .time-select:focus {
+            outline: none;
+            border-color: #8a38f5;
+            box-shadow: 0 0 0 3px rgba(138, 56, 245, 0.1);
         }
 
         .time-display {
-            font-size: 12px;
+            font-size: 20px;
             color: #8a38f5;
-            font-weight: 500;
-            margin-top: 4px;
+            font-weight: 700;
+            margin-top: 10px;
         }
 
         .clock-info {
@@ -612,7 +870,7 @@
         }
 
         .form-info {
-            padding: 11px 30px 0;
+            padding: 21px 30px 15px;
             font-size: 15px;
             color: #171b1c;
             font-weight: 300;
@@ -624,6 +882,741 @@
 
         .form-content {
             padding: 20px 30px;
+        }
+
+        /* Stepper Styles - Ultra Moderne (Outside Card) */
+        .stepper-container {
+            padding: 30px;
+        }
+
+        .stepper-progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 20px;
+            position: relative;
+        }
+
+        .stepper-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .stepper-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 64px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+            position: relative;
+            color: #e9ecef;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .stepper-step.active .stepper-circle {
+            color: #8a38f5;
+            transform: scale(1.2);
+            animation: smokeEffect 3s ease-in-out infinite;
+        }
+
+        .stepper-step.active .stepper-circle::before {
+            content: attr(data-step);
+            position: absolute;
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%, #8a38f5 200%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: smokeGradient 4s ease infinite;
+            filter: blur(8px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes smokeEffect {
+            0%, 100% {
+                text-shadow:
+                    0 0 20px rgba(138, 56, 245, 0.4),
+                    0 0 40px rgba(138, 56, 245, 0.2),
+                    0 0 60px rgba(196, 76, 240, 0.1);
+            }
+            50% {
+                text-shadow:
+                    0 0 30px rgba(138, 56, 245, 0.6),
+                    0 0 60px rgba(138, 56, 245, 0.3),
+                    0 0 90px rgba(196, 76, 240, 0.2);
+            }
+        }
+
+        @keyframes smokeGradient {
+            0% {
+                background-position: 0% 50%;
+                opacity: 0.6;
+            }
+            50% {
+                background-position: 100% 50%;
+                opacity: 0.8;
+            }
+            100% {
+                background-position: 0% 50%;
+                opacity: 0.6;
+            }
+        }
+
+        .stepper-step.completed .stepper-circle {
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 2px 8px rgba(138, 56, 245, 0.3));
+        }
+
+        .stepper-line {
+            width: 120px;
+            height: 4px;
+            background-color: #e9ecef;
+            margin: 0 20px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .stepper-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(138, 56, 245, 0.5);
+        }
+
+        .stepper-step.completed + .stepper-line::before {
+            width: 100%;
+        }
+
+        .stepper-label {
+            position: absolute;
+            top: 80px;
+            font-size: 12px;
+            color: #6c757d;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .stepper-step.active .stepper-label {
+            font-weight: 700;
+            color: #8a38f5;
+            font-size: 13px;
+        }
+
+        .stepper-step.completed .stepper-label {
+            color: #8a38f5;
+            font-weight: 600;
+        }
+
+        /* Question Container */
+        .question-container {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .question-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #171b1c;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-subtitle {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(23, 27, 28, 0.7);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Selection Grid */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .selection-option {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 15px;
+            color: #171b1c;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .selection-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .selection-option > * {
+            position: relative;
+        }
+
+        .selection-option:hover {
+            border-color: #8a38f5;
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(138, 56, 245, 0.25);
+        }
+
+        .selection-option.selected {
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            color: white;
+            border-color: #8a38f5;
+            box-shadow: 0 12px 32px rgba(138, 56, 245, 0.4);
+            transform: scale(1.05);
+        }
+
+        .selection-option.selected::before {
+            opacity: 1;
+        }
+
+        .selection-option .option-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .selection-option .option-icon svg {
+            width: 48px;
+            height: 48px;
+            color: #8a38f5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 2px 8px rgba(138, 56, 245, 0.2));
+        }
+
+        .selection-option:hover .option-icon {
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        .selection-option:hover .option-icon svg {
+            transform: scale(1.15);
+            filter: drop-shadow(0 4px 12px rgba(138, 56, 245, 0.4));
+        }
+
+        .selection-option.selected .option-icon svg {
+            color: white;
+            filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.3));
+        }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                box-shadow: 0 12px 32px rgba(138, 56, 245, 0.4);
+            }
+            50% {
+                box-shadow: 0 12px 40px rgba(196, 76, 240, 0.6);
+            }
+        }
+
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: scale(1.15) translateY(0);
+            }
+            50% {
+                transform: scale(1.15) translateY(-4px);
+            }
+        }
+
+        @keyframes iconBounce {
+            0%, 100% {
+                transform: scale(1) translateY(0);
+            }
+            50% {
+                transform: scale(1.1) translateY(-3px);
+            }
+        }
+
+        @keyframes selectedPulse {
+            0%, 100% {
+                box-shadow: 0 8px 28px rgba(138, 56, 245, 0.5);
+            }
+            50% {
+                box-shadow: 0 8px 36px rgba(196, 76, 240, 0.7);
+            }
+        }
+
+        @keyframes borderRotate {
+            0% {
+                background: linear-gradient(0deg, #8a38f5, #c44cf0, #8a38f5);
+            }
+            50% {
+                background: linear-gradient(180deg, #c44cf0, #8a38f5, #c44cf0);
+            }
+            100% {
+                background: linear-gradient(360deg, #8a38f5, #c44cf0, #8a38f5);
+            }
+        }
+
+        .option-duration {
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .selection-option:hover .option-duration {
+            color: #8a38f5;
+            font-weight: 600;
+        }
+
+        .selection-option.selected .option-duration {
+            color: #8a38f5;
+            font-weight: 700;
+        }
+
+        /* Budget Range Slider */
+        .budget-range {
+            margin: 30px 0;
+        }
+
+        .budget-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(to right, #edebeb 0%, #8a38f5 50%, #edebeb 100%);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .budget-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #8a38f5;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(138, 56, 245, 0.4);
+        }
+
+        .budget-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #8a38f5;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(138, 56, 245, 0.4);
+        }
+
+        .budget-value {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: #8a38f5;
+            margin-top: 15px;
+        }
+
+        .budget-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: rgba(23, 27, 28, 0.5);
+            margin-top: 5px;
+        }
+
+        /* Timeline Selection */
+        .timeline-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-option {
+            background-color: #edebeb;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-option:hover {
+            border-color: #8a38f5;
+            transform: scale(1.05);
+        }
+
+        .timeline-option.selected {
+            background-color: #8a38f5;
+            color: white;
+            border-color: #8a38f5;
+        }
+
+        .timeline-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        /* Navigation Buttons */
+        .stepper-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        .stepper-btn {
+            padding: 16px 40px;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Kanit', sans-serif;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .stepper-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .stepper-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .stepper-btn-prev {
+            background: white;
+            color: #171b1c;
+            border: 2px solid #e9ecef;
+        }
+
+        .stepper-btn-prev:hover {
+            border-color: #8a38f5;
+            color: #8a38f5;
+            transform: translateX(-5px);
+            box-shadow: 0 6px 20px rgba(138, 56, 245, 0.2);
+        }
+
+        .stepper-btn-next {
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            color: white;
+            flex: 1;
+            box-shadow: 0 8px 24px rgba(138, 56, 245, 0.3);
+        }
+
+        .stepper-btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(138, 56, 245, 0.4);
+        }
+
+        .stepper-btn-next:active {
+            transform: translateY(-1px);
+        }
+
+        .stepper-btn-next:disabled {
+            background: linear-gradient(135deg, #d9d9d9 0%, #c0c0c0 100%);
+            color: rgba(23, 27, 28, 0.5);
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .stepper-btn-next:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Input with suggestions */
+        .input-with-custom {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 16px 20px;
+            background-color: white;
+            border: 2px solid #e9ecef;
+            border-radius: 14px;
+            font-size: 15px;
+            color: #171b1c;
+            font-family: 'Kanit', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+        }
+
+        .custom-input:hover {
+            border-color: #d3d3d3;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .custom-input:focus {
+            outline: none;
+            border-color: #8a38f5;
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(138, 56, 245, 0.1), 0 4px 16px rgba(138, 56, 245, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* IntlTelInput Custom Styles */
+        .iti {
+            width: 100% !important;
+            display: block !important;
+            position: relative !important;
+            height: auto !important;
+        }
+
+        .iti * {
+            box-sizing: border-box !important;
+        }
+
+        .iti__input {
+            width: 100% !important;
+            padding: 15px 20px 15px 105px !important;
+            background-color: white !important;
+            border: 2px solid #e9ecef !important;
+            border-radius: 14px !important;
+            font-size: 15px !important;
+            color: #171b1c !important;
+            font-family: 'Kanit', sans-serif !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            font-weight: 500 !important;
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            box-sizing: border-box !important;
+            line-height: 1.5 !important;
+            vertical-align: middle !important;
+        }
+
+        .iti__input:hover {
+            border-color: #d3d3d3 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        .iti__input:focus {
+            outline: none !important;
+            border-color: #8a38f5 !important;
+            background-color: white !important;
+            box-shadow: 0 0 0 4px rgba(138, 56, 245, 0.1), 0 4px 16px rgba(138, 56, 245, 0.15) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .iti__input::placeholder {
+            color: rgba(23, 27, 28, 0.4) !important;
+            font-weight: 400 !important;
+        }
+
+        .iti__selected-flag {
+            padding: 0 12px 0 20px !important;
+            border-radius: 14px 0 0 14px !important;
+            background-color: transparent !important;
+            width: auto !important;
+            min-width: 95px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            height: 100% !important;
+            border: none !important;
+        }
+
+        .iti__flag-container {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            height: 100% !important;
+        }
+
+        .iti__selected-dial-code {
+            font-family: 'Kanit', sans-serif !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: #171b1c !important;
+            margin-left: 8px !important;
+        }
+
+        .iti__country-list {
+            border-radius: 14px !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+            border: 2px solid #e9ecef !important;
+            margin-top: 8px !important;
+            max-height: 250px !important;
+            font-family: 'Kanit', sans-serif !important;
+            background: white !important;
+            z-index: 1000 !important;
+        }
+
+        .iti__country {
+            padding: 12px 16px !important;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .iti__country:hover {
+            background-color: rgba(138, 56, 245, 0.08) !important;
+        }
+
+        .iti__country.iti__highlight {
+            background-color: rgba(138, 56, 245, 0.12) !important;
+        }
+
+        .iti__country-name {
+            font-family: 'Kanit', sans-serif !important;
+            font-size: 14px !important;
+            color: #171b1c !important;
+            font-weight: 500 !important;
+        }
+
+        .iti__dial-code {
+            font-family: 'Kanit', sans-serif !important;
+            font-size: 14px !important;
+            color: #171b1c !important;
+            font-weight: 500 !important;
+        }
+
+        .iti__selected-flag:hover,
+        .iti__selected-flag:focus {
+            background-color: transparent !important;
+            outline: none !important;
+        }
+
+        .iti__arrow {
+            border-top-color: #171b1c !important;
+            margin-left: 6px !important;
+        }
+
+        /* Fix the flag position */
+        .iti__flag {
+            margin-right: 8px !important;
+        }
+
+        .iti--separate-dial-code .iti__selected-flag {
+            background-color: transparent !important;
+        }
+
+        .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
+            margin-left: 8px !important;
+        }
+
+        .iti__divider {
+            border-bottom: 1px solid #e9ecef !important;
+        }
+
+        /* Force override intl-tel-input inline styles */
+        #phone {
+            width: 100% !important;
+            padding: 15px 20px 15px 105px !important;
+            background-color: white !important;
+            border: 2px solid #e9ecef !important;
+            border-radius: 14px !important;
+            font-size: 15px !important;
+            color: #171b1c !important;
+            font-family: 'Kanit', sans-serif !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            font-weight: 500 !important;
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            box-sizing: border-box !important;
+            line-height: 1.5 !important;
+            vertical-align: middle !important;
+        }
+
+        #phone:hover {
+            border-color: #d3d3d3 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        #phone:focus {
+            outline: none !important;
+            border-color: #8a38f5 !important;
+            background-color: white !important;
+            box-shadow: 0 0 0 4px rgba(138, 56, 245, 0.1), 0 4px 16px rgba(138, 56, 245, 0.15) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        #phone::placeholder {
+            color: rgba(23, 27, 28, 0.4) !important;
+            font-weight: 400 !important;
+        }
+
+        .custom-input::placeholder {
+            color: rgba(23, 27, 28, 0.4);
+            font-weight: 400;
         }
 
         .form-row {
@@ -649,6 +1642,157 @@
             display: block;
             min-height: 40px;
             line-height: 20px;
+        }
+
+        /* Popup festif */
+        .success-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+
+        .success-popup {
+            background: white;
+            border-radius: 24px;
+            padding: 48px 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(138, 56, 245, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.8);
+            animation: popupBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        @keyframes popupBounce {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-popup::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 50%, #8a38f5 100%);
+            opacity: 0.05;
+            animation: rotateGradient 8s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            to { transform: rotate(360deg); }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes successPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(138, 56, 245, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 30px rgba(138, 56, 245, 0);
+            }
+        }
+
+        .success-icon svg {
+            width: 50px;
+            height: 50px;
+            color: white;
+            animation: checkmarkDraw 0.8s ease 0.3s both;
+        }
+
+        @keyframes checkmarkDraw {
+            from {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 100;
+            }
+            to {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .success-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #171b1c;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .success-message {
+            font-size: 16px;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .success-close-btn {
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(138, 56, 245, 0.3);
+            position: relative;
+        }
+
+        .success-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(138, 56, 245, 0.4);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #8a38f5;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(600px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .form-input {
@@ -681,6 +1825,93 @@
 
         .form-textarea::placeholder {
             color: rgba(23, 27, 28, 0.5);
+        }
+
+        /* Website Links Styles */
+        #websiteLinksContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .website-link-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .website-link-item input {
+            flex: 1;
+        }
+
+        .remove-link-btn {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #dc3545;
+            padding: 0;
+        }
+
+        .remove-link-btn:hover {
+            background: #dc3545;
+            border-color: #dc3545;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .add-link-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, rgba(138, 56, 245, 0.08) 0%, rgba(196, 76, 240, 0.08) 100%);
+            border: 2px dashed #8a38f5;
+            border-radius: 12px;
+            color: #8a38f5;
+            font-family: 'Kanit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .add-link-btn:hover {
+            background: linear-gradient(135deg, rgba(138, 56, 245, 0.15) 0%, rgba(196, 76, 240, 0.15) 100%);
+            border-color: #8a38f5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(138, 56, 245, 0.2);
+        }
+
+        .add-link-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .add-link-btn:hover svg {
+            transform: rotate(90deg);
         }
 
         .form-divider {
@@ -913,11 +2144,223 @@
             cursor: pointer;
         }
 
-        /* Confirmation Section */
-        .confirmation-card {
-            height: 405px;
+        /* Confirmation Section - Modern */
+        .summary-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 30px;
         }
 
+        .summary-icon {
+            width: 64px;
+            height: 64px;
+            min-width: 64px;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 24px rgba(138, 56, 245, 0.3);
+        }
+
+        .summary-content-modern {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .summary-card:hover {
+            border-color: #8a38f5;
+            box-shadow: 0 8px 24px rgba(138, 56, 245, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .summary-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: linear-gradient(135deg, rgba(138, 56, 245, 0.1) 0%, rgba(196, 76, 240, 0.1) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8a38f5;
+        }
+
+        .summary-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #171b1c;
+        }
+
+        .summary-tags-modern {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .summary-tag-modern {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(138, 56, 245, 0.25);
+        }
+
+        .summary-info-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .summary-info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .summary-info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .summary-info-label {
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-info-value {
+            font-size: 15px;
+            color: #171b1c;
+            font-weight: 600;
+        }
+
+        .summary-actions {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .checkbox-agreement-modern {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+        }
+
+        .modern-checkbox {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            accent-color: #8a38f5;
+            cursor: pointer;
+        }
+
+        .agreement-label-modern {
+            font-size: 14px;
+            color: #495057;
+            font-weight: 500;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .agreement-link {
+            color: #8a38f5;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .agreement-link:hover {
+            color: #c44cf0;
+            text-decoration: underline;
+        }
+
+        .confirm-button-modern {
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(138, 56, 245, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confirm-button-modern::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .confirm-button-modern:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .confirm-button-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(138, 56, 245, 0.4);
+        }
+
+        .confirm-button-modern svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        .confirm-button-modern span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Old styles (keep for compatibility) */
         .summary-content {
             padding: 18px 26px;
         }
@@ -1005,22 +2448,51 @@
             font-weight: 300;
         }
 
-        /* Confirmation Button */
+        /* Confirmation Button - Ultra Moderne */
         .confirm-button {
-            background-color: #fffcfc;
-            color: #08070a;
+            background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%);
+            color: white;
             border: none;
-            border-radius: 50px;
-            padding: 8px 32px;
-            font-size: 16px;
-            font-weight: 500;
+            border-radius: 30px;
+            padding: 18px 48px;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
             margin-top: 32px;
             font-family: 'Kanit', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 32px rgba(138, 56, 245, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .confirm-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .confirm-button:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .confirm-button:hover {
-            background-color: #f0f0f0;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px rgba(138, 56, 245, 0.5);
+        }
+
+        .confirm-button:active {
+            transform: translateY(-2px);
         }
 
         /* Responsive Design */
@@ -1134,6 +2606,63 @@
 
             .summary-tags {
                 flex-direction: column;
+            }
+
+            /* Stepper Mobile Responsive */
+            .stepper-progress {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+            }
+
+            .stepper-line {
+                width: 40px;
+            }
+
+            .stepper-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+
+            .stepper-label {
+                font-size: 9px;
+                top: 45px;
+            }
+
+            .stepper-container {
+                padding: 20px 15px;
+            }
+
+            .question-title {
+                font-size: 18px;
+            }
+
+            .question-subtitle {
+                font-size: 12px;
+            }
+
+            .selection-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .timeline-options {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .stepper-navigation {
+                flex-direction: column-reverse;
+            }
+
+            .stepper-btn {
+                width: 100%;
+            }
+
+            .stepper-btn-prev {
+                margin-top: 10px;
             }
         }
 
@@ -1311,10 +2840,10 @@
 
     <!-- Fixed Navigation -->
     <nav class="navigation" id="navigation">
-        <a href="#service-section" class="nav-step active">Choisir le service</a>
-        <a href="#calendar-section" class="nav-step">Choisir un créneau</a>
-        <a href="#form-section" class="nav-step">Contacts rapides</a>
-        <a href="#confirmation-section" class="nav-step">Confirmation</a>
+        <a href="#reservation-stepper" class="nav-step active">1. Service</a>
+        <a href="#reservation-stepper" class="nav-step">2. Créneau</a>
+        <a href="#reservation-stepper" class="nav-step">3. Informations</a>
+        <a href="#reservation-stepper" class="nav-step">4. Confirmation</a>
     </nav>
 
     <div class="faq-link" id="faqLink">FAQ</div>
@@ -1343,1066 +2872,1013 @@
             </h1>
         </section>
 
-        <!-- Step 1: Service Selection -->
-        <section id="service-section" class="section">
-            <h2 class="section-title">Choisir le service - étape 1</h2>
-            <p class="section-description">
-                Sélectionnez le type de service qui correspond à vos besoins,
-                afin que nous préparions au mieux votre rendez-vous
-            </p>
-
-            <div class="card service-card">
-                <h3 class="card-title">Service souhaité</h3>
-
-                <div class="service-options">
-                    <div class="service-grid">
-                        <div class="service-option">
-                            <div class="checkbox checked"></div>
-                            <span class="service-label">Audit gratuit (15 min)</span>
-                        </div>
-                        <div class="service-option">
-                            <div class="checkbox"></div>
-                            <span class="service-label">Conseil stratégique (1h)</span>
-                        </div>
-                        <div class="service-option">
-                            <div class="checkbox"></div>
-                            <span class="service-label">Consultation (30 min)</span>
-                        </div>
-                        <div class="service-option">
-                            <div class="checkbox"></div>
-                            <span class="service-label">Autre</span>
-                        </div>
-                        <div class="service-option">
-                            <div class="checkbox"></div>
-                            <span class="service-label">Accompagnement complet / Devis projet</span>
-                        </div>
-                        <div class="service-option">
-                            <div class="checkbox"></div>
-                            <span class="service-label">Atelier UX</span>
-                        </div>
-                    </div>
+        <!-- GRAND STEPPER GLOBAL -->
+        <section id="reservation-stepper" class="section">
+            <!-- Stepper Progress Bar (Outside Card) -->
+            <div class="stepper-progress">
+                <div class="stepper-step active" data-step="1">
+                    <div class="stepper-circle">1</div>
+                    <span class="stepper-label">Service</span>
+                </div>
+                <div class="stepper-line"></div>
+                <div class="stepper-step" data-step="2">
+                    <div class="stepper-circle">2</div>
+                    <span class="stepper-label">Créneau</span>
+                </div>
+                <div class="stepper-line"></div>
+                <div class="stepper-step" data-step="3">
+                    <div class="stepper-circle">3</div>
+                    <span class="stepper-label">Informations</span>
+                </div>
+                <div class="stepper-line"></div>
+                <div class="stepper-step" data-step="4">
+                    <div class="stepper-circle">4</div>
+                    <span class="stepper-label">Confirmation</span>
                 </div>
             </div>
-        </section>
 
-        <!-- Step 2: Time Slot Selection -->
-        <section id="calendar-section" class="section">
-            <h2 class="section-title">Choisir le créneau - étape 2</h2>
-            <p class="section-description">
-                Sélectionnez la date et l'heure qui vous conviennent le mieux pour votre rendez-vous
-            </p>
+            <!-- Card Container -->
+            <div class="card" style="min-height: 600px; padding: 0; margin-top: 40px;">
 
-            <div class="card calendar-card">
-                <div class="calendar-info">
-                    Les dates en <span class="red-text">rouge</span> ne sont pas disponibles
-                </div>
+                <!-- ÉTAPE 1: Service Selection -->
+                <div class="question-container active" data-question="1">
+                    <div style="padding: 30px 30px 30px;">
+                        <h2 class="question-title">Choisir le service</h2>
+                        <p class="question-subtitle">Sélectionnez le type de service qui correspond à vos besoins</p>
 
-                <div class="calendar-container">
-                    <div class="calendar">
-                        <div class="calendar-header">
-                            <button class="month-nav-btn" id="prevMonth">‹</button>
-                            <div class="month-badge" id="currentMonth">August 2025</div>
-                            <button class="month-nav-btn" id="nextMonth">›</button>
-                        </div>
-
-                        <div class="calendar-grid">
-                            <!-- Week days header -->
-                            <div class="calendar-cell week-number">08</div>
-                            <div class="calendar-cell">Mo</div>
-                            <div class="calendar-cell">Tu</div>
-                            <div class="calendar-cell">We</div>
-                            <div class="calendar-cell">Th</div>
-                            <div class="calendar-cell">Fr</div>
-                            <div class="calendar-cell weekend">Sa</div>
-                            <div class="calendar-cell weekend">Su</div>
-
-                            <!-- Week 1 -->
-                            <div class="calendar-cell week-number">31</div>
-                            <div class="calendar-cell prev-month">28</div>
-                            <div class="calendar-cell prev-month">29</div>
-                            <div class="calendar-cell prev-month">30</div>
-                            <div class="calendar-cell prev-month">31</div>
-                            <div class="calendar-cell current-month">1</div>
-                            <div class="calendar-cell weekend">2</div>
-                            <div class="calendar-cell weekend">3</div>
-
-                            <!-- Week 2 -->
-                            <div class="calendar-cell week-number">32</div>
-                            <div class="calendar-cell current-month">4</div>
-                            <div class="calendar-cell current-month">5</div>
-                            <div class="calendar-cell current-month">6</div>
-                            <div class="calendar-cell current-month">7</div>
-                            <div class="calendar-cell current-month">8</div>
-                            <div class="calendar-cell weekend">9</div>
-                            <div class="calendar-cell weekend">10</div>
-
-                            <!-- Week 3 -->
-                            <div class="calendar-cell week-number">33</div>
-                            <div class="calendar-cell current-month">11</div>
-                            <div class="calendar-cell current-month">12</div>
-                            <div class="calendar-cell current-month">13</div>
-                            <div class="calendar-cell current-month">14</div>
-                            <div class="calendar-cell current-month">15</div>
-                            <div class="calendar-cell weekend">16</div>
-                            <div class="calendar-cell weekend">17</div>
-
-                            <!-- Week 4 -->
-                            <div class="calendar-cell week-number">34</div>
-                            <div class="calendar-cell current-month">18</div>
-                            <div class="calendar-cell current-month">19</div>
-                            <div class="calendar-cell current-month">20</div>
-                            <div class="calendar-cell current-month">21</div>
-                            <div class="calendar-cell current-month">22</div>
-                            <div class="calendar-cell weekend">23</div>
-                            <div class="calendar-cell weekend">24</div>
-
-                            <!-- Week 5 -->
-                            <div class="calendar-cell week-number">35</div>
-                            <div class="calendar-cell current-month">25</div>
-                            <div class="calendar-cell selected">26</div>
-                            <div class="calendar-cell current-month">27</div>
-                            <div class="calendar-cell unavailable">28</div>
-                            <div class="calendar-cell unavailable">29</div>
-                            <div class="calendar-cell weekend">30</div>
-                            <div class="calendar-cell weekend">31</div>
-
-                            <!-- Week 6 -->
-                            <div class="calendar-cell week-number">36</div>
-                            <div class="calendar-cell next-month">1</div>
-                            <div class="calendar-cell next-month">2</div>
-                            <div class="calendar-cell next-month">3</div>
-                            <div class="calendar-cell next-month">4</div>
-                            <div class="calendar-cell next-month">5</div>
-                            <div class="calendar-cell weekend">6</div>
-                            <div class="calendar-cell weekend">7</div>
+                        <div class="selection-grid">
+                            <div class="selection-option" data-value="audit-gratuit" data-multiple="true">
+                                <div class="option-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <circle cx="12" cy="12" r="6"></circle>
+                                        <circle cx="12" cy="12" r="2"></circle>
+                                    </svg>
+                                </div>
+                                <div><strong>Audit gratuit</strong></div>
+                                <div class="option-duration">15 minutes</div>
+                            </div>
+                            <div class="selection-option" data-value="consultation" data-multiple="true">
+                                <div class="option-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <div><strong>Consultation</strong></div>
+                                <div class="option-duration">30 minutes</div>
+                            </div>
+                            <div class="selection-option" data-value="conseil-strategique" data-multiple="true">
+                                <div class="option-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="20" x2="12" y2="10"></line>
+                                        <line x1="18" y1="20" x2="18" y2="4"></line>
+                                        <line x1="6" y1="20" x2="6" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <div><strong>Conseil stratégique</strong></div>
+                                <div class="option-duration">1 heure</div>
+                            </div>
+                            <div class="selection-option" data-value="accompagnement-complet" data-multiple="true">
+                                <div class="option-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                </div>
+                                <div><strong>Accompagnement complet</strong></div>
+                                <div class="option-duration">Devis projet</div>
+                            </div>
+                            <div class="selection-option" data-value="atelier-ux" data-multiple="true">
+                                <div class="option-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M12 1v6m0 6v6m6.36-15.36l-4.24 4.24m0 6l-4.24 4.24m15.36-6.36l-6-6m-6 6l-6 6m15.36 6.36l-6-6m-6 6l-6-6"></path>
+                                    </svg>
+                                </div>
+                                <div><strong>Atelier UX</strong></div>
+                                <div class="option-duration">Sur mesure</div>
+                            </div>
+                            <div class="selection-option" data-value="autre" data-multiple="true">
+                                <div class="option-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                    </svg>
+                                </div>
+                                <div><strong>Autre service</strong></div>
+                                <div class="option-duration">À définir</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="timezone-controls">
-                    <div class="timezone-info">
-                        <div class="timezone-left">Détection automatique du fuseau horaire</div>
-                        <div class="timezone-center">ou</div>
-                        <div class="timezone-right">
-                            <span>définir en sélectionnant votre pays</span>
-                        </div>
-                    </div>
+                <!-- ÉTAPE 2: Modern Date & Time Selection (Style Calendly) -->
+                <div class="question-container" data-question="2">
+                    <div style="padding: 30px 30px 30px;">
+                        <h2 class="question-title">Choisir un créneau</h2>
+                        <p class="question-subtitle">Sélectionnez une date parmi les créneaux disponibles</p>
 
-                    <div class="timezone-toggle">
-                        <div class="toggle-left">
-                            <div class="toggle-switch">
-                                <div class="toggle-handle"></div>
+                        <!-- Date Suggestions -->
+                        <div class="date-suggestions" id="dateSuggestions">
+                            <!-- Generated by JavaScript -->
+                        </div>
+
+                        <!-- Time Slots (shown after date selection) -->
+                        <div class="time-slots-container" id="timeSlotsContainer" style="display: none;">
+                            <h3 class="time-slots-title">Créneaux horaires disponibles</h3>
+                            <div class="time-slots-grid" id="timeSlotsGrid">
+                                <!-- Generated by JavaScript -->
                             </div>
                         </div>
-                        <div class="toggle-right">
-                            <select class="country-select">
-                                <option>Maurice</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="clock-info">
-                        <div class="clock-icon"></div>
-                        <span>L'heure sera automatiquement adaptée à votre fuseau horaire</span>
-                    </div>
-                </div>
 
-                <div class="time-slot-info">
-                    <div class="time-info-grid">
-                        <div>
-                            <div class="time-info-label">
-                                Heure disponible pour un rendez-vous pour <span class="time-info-highlight">26/08/25</span>
-                            </div>
-                            <select class="time-select">
-                                <option>10 : 00 AM</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div class="time-info-label">
-                                Votre heure à <span class="time-info-highlight">Maurice</span>
-                            </div>
-                            <div class="time-display">11 : 00 AM</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Step 3: Information Form -->
-        <section id="form-section" class="section">
-            <h2 class="section-title">Remplir vos informations - étape 3</h2>
-            <p class="section-description">
-                Indiquez vos coordonnées et quelques détails afin que nous préparions au mieux votre réservation
-            </p>
-
-            <div class="card form-card">
-                <div class="form-info">
-                    Les champs indiqués <span class="required-text">*</span> sont obligatoires
-                </div>
-
-                <div class="form-content">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Nom <span class="required-text">*</span></label>
-                            <input type="text" class="form-input" placeholder="Saisir votre nom">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Prénom <span class="required-text">*</span></label>
-                            <input type="text" class="form-input" placeholder="Saisir votre prénom">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Email <span class="required-text">*</span></label>
-                            <input type="email" class="form-input" placeholder="obligatoire, pour confirmation et rappel">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Téléphone / WhatsApp</label>
-                            <div class="phone-input-group">
-                                <span class="country-code">+230</span>
-                                <input type="tel" class="phone-number-input" placeholder="Saisir votre numéro">
-                                <span class="country-divider">|</span>
-                                <select class="country-flag-select">
-                                    <option value="MU">🇲🇺 MU</option>
-                                    <option value="FR">🇫🇷 FR</option>
-                                    <option value="US">🇺🇸 US</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="social-signin">
-                        <div class="social-buttons">
-                            <span class="social-text">Remplir automatiquement avec</span>
-                            <button class="social-btn google-btn">
-                                <span class="social-icon"></span>
-                                Google
-                            </button>
-                            <span class="social-divider">Ou</span>
-                            <button class="social-btn apple-btn">
-                                <span class="social-icon"></span>
-                                Apple
-                            </button>
-                        </div>
-                    </div>
-
-                    <hr class="form-divider">
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Nom de l'entreprise / organisation</label>
-                            <input type="text" class="form-input" placeholder="Saisir le nom de votre société">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Votre budget pour le projet</label>
-                            <div class="budget-input-group">
-                                <input type="number" class="budget-input" placeholder="0" min="0">
-                                <span class="budget-divider">|</span>
-                                <select class="currency-select">
-                                    <option value="EUR">EUR</option>
-                                    <option value="USD">USD</option>
-                                    <option value="MUR">MUR</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="form-divider">
-
-                    <div class="form-section-title">Délai souhaité pour la durée le projet</div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Date début du projet</label>
-                            <input type="text" class="form-input date-input" placeholder="JJ/MM/DD">
-                        </div>
-                        <span class="date-separator">Au</span>
-                        <div class="form-group">
-                            <label class="form-label">Date fin du projet</label>
-                            <input type="text" class="form-input date-input" placeholder="JJ/MM/DD">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label class="form-label">Choisir le type de votre projet</label>
-                            <div class="project-type-tags">
-                                <div class="project-tag selected">Site vitrine <span class="remove-tag">×</span></div>
-                                <div class="project-tag selected">Refonte <span class="remove-tag">×</span></div>
-                                <div class="project-type-dropdown">
-                                    <select class="project-select">
-                                        <option value="">Sélectionner un type</option>
-                                        <option value="ecommerce">E-commerce</option>
-                                        <option value="blog">Blog</option>
-                                        <option value="portfolio">Portfolio</option>
-                                        <option value="application">Application web</option>
-                                    </select>
+                        <!-- Timezone Info -->
+                        <div class="time-slot-info" id="selectedSlotInfo" style="display: none; margin-top: 30px;">
+                            <div style="text-align: center;">
+                                <div class="time-info-label">
+                                    Créneau sélectionné
+                                </div>
+                                <div class="time-display" id="selectedDateTime">
+                                    Aucun créneau sélectionné
+                                </div>
+                                <div style="margin-top: 12px; font-size: 13px; color: #6c757d;">
+                                    <span class="time-info-highlight">Fuseau horaire :</span> Maurice (GMT+4)
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-row">
-                        <div class="form-group" style="flex-grow: 1;">
-                            <label class="form-label">URL de votre site</label>
-                            <input type="url" class="form-input" placeholder="https://">
-                        </div>
-                        <div style="display: flex; align-items: end;">
-                            <button class="add-button">+</button>
-                        </div>
-                    </div>
+                <!-- ÉTAPE 3: Information Form -->
+                <div class="question-container" data-question="3">
+                    <div style="padding: 30px 30px 30px;">
+                        <h2 class="question-title">Vos informations</h2>
+                        <p class="question-subtitle">Remplissez vos coordonnées pour finaliser la réservation</p>
 
-                    <div class="form-row">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nom <span class="required-text">*</span></label>
+                                <input type="text" class="custom-input" id="lastName" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Prénom <span class="required-text">*</span></label>
+                                <input type="text" class="custom-input" id="firstName" placeholder="Votre prénom" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Email <span class="required-text">*</span></label>
+                                <input type="email" class="custom-input" id="email" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Téléphone / WhatsApp</label>
+                                <input type="tel" id="phone" placeholder="5123 4567">
+                            </div>
+                        </div>
+
+                        <hr class="form-divider">
+
+                        <h3 class="question-subtitle" style="margin-top: 30px;">Informations sur votre projet (optionnel)</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nom de l'entreprise / organisation</label>
+                                <input type="text" class="custom-input" id="companyName" placeholder="Nom de votre entreprise">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Type d'organisation</label>
+                                <select class="custom-input" id="companyType">
+                                    <option value="">Sélectionnez</option>
+                                    <option value="startup">Startup</option>
+                                    <option value="pme">PME</option>
+                                    <option value="grande-entreprise">Grande entreprise</option>
+                                    <option value="association">Association</option>
+                                    <option value="freelance">Freelance / Indépendant</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group full-width">
-                            <label class="form-label">Objectif du projet <span class="required-text">*</span></label>
-                            <textarea class="form-textarea" placeholder="Décrire tous vos idées les plus détaillés possibles"></textarea>
+                            <label class="form-label">Décrivez brièvement votre projet</label>
+                            <textarea class="form-textarea" id="projectDescription" placeholder="Objectifs, besoins, attentes..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">Site web / Réseaux sociaux</label>
+                            <div id="websiteLinksContainer">
+                                <div class="website-link-item">
+                                    <input type="url" class="custom-input" placeholder="https://votresite.com" data-website-input>
+                                    <button type="button" class="remove-link-btn" style="display: none;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="add-link-btn" id="addWebsiteLink">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Ajouter un lien
+                            </button>
                         </div>
                     </div>
+                </div>
+
+                <!-- ÉTAPE 4: Confirmation -->
+                <div class="question-container" data-question="4">
+                    <div style="padding: 30px 30px 30px;">
+                        <div class="summary-header">
+                            <div class="summary-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="question-title" style="margin-bottom: 8px;">Récapitulatif de votre réservation</h2>
+                                <p class="question-subtitle">Vérifiez vos informations avant de confirmer</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-content-modern">
+                            <!-- Services Card -->
+                            <div class="summary-card">
+                                <div class="summary-card-header">
+                                    <div class="summary-card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="14" width="7" height="7"></rect>
+                                            <rect x="3" y="14" width="7" height="7"></rect>
+                                        </svg>
+                                    </div>
+                                    <span class="summary-card-title">Services sélectionnés</span>
+                                </div>
+                                <div class="summary-tags-modern" id="summaryServices">
+                                    <div class="summary-tag-modern">Aucun service sélectionné</div>
+                                </div>
+                            </div>
+
+                            <!-- Date & Time Card -->
+                            <div class="summary-card">
+                                <div class="summary-card-header">
+                                    <div class="summary-card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                    </div>
+                                    <span class="summary-card-title">Créneau réservé</span>
+                                </div>
+                                <div class="summary-info-row">
+                                    <div class="summary-info-item">
+                                        <span class="summary-info-label">Date</span>
+                                        <span class="summary-info-value" id="summaryDate">Non sélectionnée</span>
+                                    </div>
+                                    <div class="summary-info-item">
+                                        <span class="summary-info-label">Heure</span>
+                                        <span class="summary-info-value" id="summaryTime">Non sélectionnée</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Card -->
+                            <div class="summary-card">
+                                <div class="summary-card-header">
+                                    <div class="summary-card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    <span class="summary-card-title">Vos coordonnées</span>
+                                </div>
+                                <div class="summary-info-grid">
+                                    <div class="summary-info-item">
+                                        <span class="summary-info-label">Nom complet</span>
+                                        <span class="summary-info-value"><span id="summaryFirstName">-</span> <span id="summaryLastName">-</span></span>
+                                    </div>
+                                    <div class="summary-info-item">
+                                        <span class="summary-info-label">Email</span>
+                                        <span class="summary-info-value" id="summaryEmail">-</span>
+                                    </div>
+                                    <div class="summary-info-item" id="summaryPhoneRow" style="display: none;">
+                                        <span class="summary-info-label">Téléphone</span>
+                                        <span class="summary-info-value" id="summaryPhone">-</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Card -->
+                            <div class="summary-card" id="summaryProjectSection" style="display: none;">
+                                <div class="summary-card-header">
+                                    <div class="summary-card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="summary-card-title">Informations projet</span>
+                                </div>
+                                <div class="summary-info-grid">
+                                    <div class="summary-info-item" id="summaryCompanyRow">
+                                        <span class="summary-info-label">Entreprise</span>
+                                        <span class="summary-info-value" id="summaryCompany">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-actions">
+                            <div class="checkbox-agreement-modern">
+                                <input type="checkbox" id="agreementCheckbox" class="modern-checkbox" checked>
+                                <label for="agreementCheckbox" class="agreement-label-modern">
+                                    J'accepte les <a href="#" class="agreement-link">conditions d'utilisation</a> et la <a href="#" class="agreement-link">politique de confidentialité</a>
+                                </label>
+                            </div>
+
+                            <button class="confirm-button-modern" id="finalConfirmBtn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Confirmer ma réservation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="stepper-navigation" style="padding: 0 30px 30px;">
+                    <button class="stepper-btn stepper-btn-prev" id="globalPrevBtn" style="display: none;">← Précédent</button>
+                    <button class="stepper-btn stepper-btn-next" id="globalNextBtn">Suivant →</button>
                 </div>
             </div>
         </section>
 
-        <!-- Step 4: Confirmation -->
-        <section id="confirmation-section" class="section">
-            <h2 class="section-title">Confirmer la réservation - étape 4</h2>
-            <p class="section-description">
-                Vérifiez vos choix, validez votre réservation et recevez instantanément votre confirmation
-            </p>
-
-            <div class="card confirmation-card">
-                <h3 class="card-title">Récapitulatif de votre rendez-vous</h3>
-
-                <div class="summary-content">
-                    <div class="summary-section">
-                        <div class="summary-label">Choix de votre service</div>
-                        <div class="summary-tags">
-                            <div class="summary-tag">Audit gratuit (15 min)</div>
-                            <div class="summary-tag">Consultation (30 min)</div>
-                        </div>
-                    </div>
-
-                    <div class="summary-section">
-                        <div class="summary-label">Choix de votre créneau</div>
-                        <div class="summary-row">
-                            <span class="summary-field-label">Date :</span>
-                            <div class="summary-value">26/08/25</div>
-                            <span class="summary-field-label">Heure Maurice :</span>
-                            <div class="summary-value">11 : 00 AM</div>
-                        </div>
-                    </div>
-
-                    <div class="summary-section">
-                        <div class="summary-label">Vos informations</div>
-                        <div class="summary-row">
-                            <span class="summary-field-label">Nom :</span>
-                            <div class="summary-value">John</div>
-                            <span class="summary-field-label">Prénom :</span>
-                            <div class="summary-value">Doe</div>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-field-label">Mail :</span>
-                            <div class="summary-value">john@gmail.com</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="final-section">
-                <h3 class="final-title">
-                    Vous recevrez la confirmation de votre rendez-vous par email
-                </h3>
-
-                <div class="checkbox-agreement">
-                    <div class="checkbox checked"></div>
-                    <span class="agreement-text">
-                            J'accepte les conditions et la politique de confidentialité
-                        </span>
-                </div>
-
-                <button class="confirm-button">
-                    Confirmer ma réservation
-                </button>
-            </div>
-        </section>
     </main>
 </div>
 
 <script>
     // Simple interactivity for checkboxes
     document.addEventListener('DOMContentLoaded', function() {
-        const checkboxes = document.querySelectorAll('.checkbox');
-
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('click', function() {
-                this.classList.toggle('checked');
-            });
+        // Initialize International Phone Input
+        const phoneInput = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "mu",
+            preferredCountries: ["mu", "fr", "us", "gb", "ca"],
+            separateDialCode: true,
+            autoPlaceholder: "polite",
+            formatOnDisplay: true,
+            nationalMode: true,
+            customContainer: "",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.11/build/js/utils.js"
         });
 
-        // Toggle switch functionality
-        const toggleSwitch = document.querySelector('.toggle-switch');
-        if (toggleSwitch) {
-            toggleSwitch.addEventListener('click', function() {
-                const handle = this.querySelector('.toggle-handle');
-                if (handle.style.right === '2px' || !handle.style.right) {
-                    handle.style.right = '30px';
-                    handle.style.left = 'auto';
+        // Force remove any inline styles added by the library
+        phoneInput.removeAttribute('style');
+
+        // Website Links Management
+        const addWebsiteLinkBtn = document.getElementById('addWebsiteLink');
+        const websiteLinksContainer = document.getElementById('websiteLinksContainer');
+        let websiteLinkCount = 1;
+
+        addWebsiteLinkBtn.addEventListener('click', function() {
+            websiteLinkCount++;
+            const newLinkItem = document.createElement('div');
+            newLinkItem.className = 'website-link-item';
+            newLinkItem.innerHTML = `
+                <input type="url" class="custom-input" placeholder="https://votresite.com" data-website-input>
+                <button type="button" class="remove-link-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            `;
+
+            websiteLinksContainer.appendChild(newLinkItem);
+
+            // Add event listener to remove button
+            const removeBtn = newLinkItem.querySelector('.remove-link-btn');
+            removeBtn.addEventListener('click', function() {
+                newLinkItem.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    newLinkItem.remove();
+                    websiteLinkCount--;
+                    updateRemoveButtons();
+                }, 300);
+            });
+
+            updateRemoveButtons();
+        });
+
+        // Add animation for slide out
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                from {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        function updateRemoveButtons() {
+            const allItems = websiteLinksContainer.querySelectorAll('.website-link-item');
+            allItems.forEach((item, index) => {
+                const removeBtn = item.querySelector('.remove-link-btn');
+                if (allItems.length === 1) {
+                    removeBtn.style.display = 'none';
                 } else {
-                    handle.style.right = '2px';
-                    handle.style.left = 'auto';
+                    removeBtn.style.display = 'flex';
                 }
             });
         }
 
-        // Calendar cell selection
-        const calendarCells = document.querySelectorAll('.calendar-cell:not(.week-number):not(.prev-month):not(.next-month):not(.unavailable)');
-        calendarCells.forEach(cell => {
-            cell.addEventListener('click', function() {
-                // Remove selected class from all cells
-                calendarCells.forEach(c => c.classList.remove('selected'));
-                // Add selected class to clicked cell
-                this.classList.add('selected');
+        // Initialize remove button listeners for existing items
+        document.querySelectorAll('.remove-link-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.website-link-item');
+                item.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    item.remove();
+                    websiteLinkCount--;
+                    updateRemoveButtons();
+                }, 300);
             });
         });
 
-        // Form validation
-        const confirmButton = document.querySelector('.confirm-button');
-        if (confirmButton) {
-            confirmButton.addEventListener('click', function(e) {
-                e.preventDefault();
+        // Global Stepper Management
+        initGlobalStepper();
 
-                const requiredFields = document.querySelectorAll('input[required], .form-input');
-                let isValid = true;
+        function initGlobalStepper() {
+            let currentStep = 1;
+            const totalSteps = 4;
+            const reservationData = {
+                services: [],
+                date: '',
+                time: '',
+                contact: {},
+                project: {}
+            };
 
-                // Simple validation check
-                const nameInput = document.querySelector('input[placeholder="Saisir votre nom"]');
-                const emailInput = document.querySelector('input[type="email"]');
+            const prevBtn = document.getElementById('globalPrevBtn');
+            const nextBtn = document.getElementById('globalNextBtn');
+            const finalConfirmBtn = document.getElementById('finalConfirmBtn');
 
-                if (!nameInput.value.trim()) {
-                    alert('Veuillez saisir votre nom');
-                    isValid = false;
-                } else if (!emailInput.value.trim()) {
-                    alert('Veuillez saisir votre email');
-                    isValid = false;
-                }
+            // ÉTAPE 1: Service Selection
+            const serviceOptions = document.querySelectorAll('.selection-option[data-multiple="true"]');
+            serviceOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const value = this.getAttribute('data-value');
+                    const text = this.querySelector('strong').textContent;
 
-                if (isValid) {
-                    alert('Réservation confirmée ! Vous recevrez un email de confirmation.');
-                }
-            });
-        }
+                    if (this.classList.contains('selected')) {
+                        if (!reservationData.services.find(s => s.value === value)) {
+                            reservationData.services.push({ value, text });
+                        }
+                    } else {
+                        reservationData.services = reservationData.services.filter(s => s.value !== value);
+                    }
 
-        // Dynamisation du formulaire de réservation
-        initReservationForm();
-
-        function initReservationForm() {
-            // Animation des champs de saisie
-            const formInputs = document.querySelectorAll('.form-input, .form-textarea');
-
-            formInputs.forEach(input => {
-                input.style.transition = 'all 0.3s ease';
-
-                input.addEventListener('focus', function() {
-                    this.style.backgroundColor = '#ffffff';
-                    this.style.borderLeft = '4px solid #8a38f5';
-                    this.style.transform = 'scale(1.02)';
-                });
-
-                input.addEventListener('blur', function() {
-                    this.style.backgroundColor = '#edebeb';
-                    this.style.borderLeft = 'none';
-                    this.style.transform = 'scale(1)';
-                });
-
-                // Validation en temps réel
-                input.addEventListener('input', function() {
-                    validateReservationField(this);
+                    updateNextButton();
                 });
             });
 
-            // Gestion dynamique du calendrier
-            initDynamicCalendar();
+            // ÉTAPE 2: Modern Calendar & Time Slots
+            function initModernCalendar() {
+                const dateSuggestionsContainer = document.getElementById('dateSuggestions');
+                const timeSlotsContainer = document.getElementById('timeSlotsContainer');
+                const timeSlotsGrid = document.getElementById('timeSlotsGrid');
+                const selectedSlotInfo = document.getElementById('selectedSlotInfo');
+                const selectedDateTimeDisplay = document.getElementById('selectedDateTime');
 
-            // Gestion des tags de projets
-            initProjectTags();
+                const daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+                const daysOfWeekShort = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+                const months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
 
-            // Animation des boutons
-            initButtonAnimations();
+                let currentWeekOffset = 0;
 
-            // Gestion des sélecteurs spéciaux
-            initSpecialSelectors();
-        }
+                function generateWeekDays() {
+                    dateSuggestionsContainer.innerHTML = '';
 
-        function validateReservationField(field) {
-            const value = field.value.trim();
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
 
-            if (field.type === 'email') {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (emailRegex.test(value)) {
-                    field.style.borderLeft = '4px solid #28a745';
-                } else if (value.length > 0) {
-                    field.style.borderLeft = '4px solid #dc3545';
+                    // Calculer le début de la semaine courante (Lundi)
+                    const currentDayOfWeek = today.getDay();
+                    const daysUntilMonday = currentDayOfWeek === 0 ? -6 : 1 - currentDayOfWeek;
+                    const startOfWeek = new Date(today);
+                    startOfWeek.setDate(today.getDate() + daysUntilMonday + (currentWeekOffset * 7));
+
+                    // Générer les 7 jours de la semaine
+                    for (let i = 0; i < 7; i++) {
+                        const date = new Date(startOfWeek);
+                        date.setDate(startOfWeek.getDate() + i);
+
+                        const isPast = date < today;
+                        const dateCard = createDateCard(date, isPast);
+                        dateSuggestionsContainer.appendChild(dateCard);
+                    }
+
+                    // Ajouter les boutons de navigation
+                    addWeekNavigation();
                 }
-            } else if (field.hasAttribute('required') || field.placeholder.includes('obligatoire')) {
-                if (value.length > 2) {
-                    field.style.borderLeft = '4px solid #28a745';
-                } else if (value.length > 0) {
-                    field.style.borderLeft = '4px solid #dc3545';
+
+                function addWeekNavigation() {
+                    const navContainer = document.createElement('div');
+                    navContainer.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-top: 20px; gap: 12px;';
+
+                    const prevWeekBtn = document.createElement('button');
+                    prevWeekBtn.innerHTML = '← Semaine précédente';
+                    prevWeekBtn.className = 'week-nav-btn';
+                    prevWeekBtn.style.cssText = 'flex: 1; padding: 12px 20px; background: white; border: 2px solid #e9ecef; border-radius: 12px; font-family: Kanit, sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease; color: #495057;';
+                    prevWeekBtn.disabled = currentWeekOffset === 0;
+                    if (currentWeekOffset === 0) {
+                        prevWeekBtn.style.opacity = '0.5';
+                        prevWeekBtn.style.cursor = 'not-allowed';
+                    }
+
+                    const nextWeekBtn = document.createElement('button');
+                    nextWeekBtn.innerHTML = 'Semaine suivante →';
+                    nextWeekBtn.className = 'week-nav-btn';
+                    nextWeekBtn.style.cssText = 'flex: 1; padding: 12px 20px; background: linear-gradient(135deg, #8a38f5 0%, #c44cf0 100%); border: none; border-radius: 12px; font-family: Kanit, sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease; color: white; box-shadow: 0 4px 12px rgba(138, 56, 245, 0.3);';
+
+                    prevWeekBtn.addEventListener('click', () => {
+                        if (currentWeekOffset > 0) {
+                            currentWeekOffset--;
+                            generateWeekDays();
+                        }
+                    });
+
+                    nextWeekBtn.addEventListener('click', () => {
+                        currentWeekOffset++;
+                        generateWeekDays();
+                    });
+
+                    navContainer.appendChild(prevWeekBtn);
+                    navContainer.appendChild(nextWeekBtn);
+
+                    const existingNav = dateSuggestionsContainer.parentElement.querySelector('.week-navigation');
+                    if (existingNav) existingNav.remove();
+                    navContainer.className = 'week-navigation';
+                    dateSuggestionsContainer.parentElement.appendChild(navContainer);
+                }
+
+                generateWeekDays();
+
+                function createDateCard(date, isPast) {
+                    const card = document.createElement('div');
+                    card.className = 'date-card';
+
+                    if (isPast) {
+                        card.classList.add('past');
+                        card.style.opacity = '0.4';
+                        card.style.cursor = 'not-allowed';
+                        card.style.pointerEvents = 'none';
+                    }
+
+                    const dayOfWeek = daysOfWeekShort[date.getDay()];
+                    const dayNum = date.getDate();
+                    const month = months[date.getMonth()];
+                    const year = date.getFullYear();
+                    const fullDate = `${year}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(dayNum).padStart(2, '0')}`;
+
+                    card.setAttribute('data-date', fullDate);
+
+                    card.innerHTML = `
+                        <div class="date-day">${dayOfWeek}</div>
+                        <div class="date-number">${dayNum}</div>
+                        <div class="date-month">${month}</div>
+                    `;
+
+                    if (!isPast) {
+                        card.addEventListener('click', function() {
+                            // Désélectionner toutes les autres dates
+                            document.querySelectorAll('.date-card').forEach(c => c.classList.remove('selected'));
+                            this.classList.add('selected');
+
+                            reservationData.date = fullDate;
+                            reservationData.time = ''; // Reset time selection
+
+                            // Afficher les créneaux horaires
+                            generateTimeSlots(date);
+                            timeSlotsContainer.style.display = 'block';
+                            selectedSlotInfo.style.display = 'none';
+
+                            // Smooth scroll vers les créneaux
+                            timeSlotsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                            updateNextButton();
+                        });
+                    }
+
+                    return card;
+                }
+
+                function generateTimeSlots(selectedDate) {
+                    timeSlotsContainer.querySelector('.time-slots-title').style.display = 'none';
+                    timeSlotsGrid.innerHTML = '';
+
+                    // Définir les périodes avec leurs créneaux
+                    const timePeriods = [
+                        {
+                            name: 'Matin',
+                            range: '6h - 9h',
+                            icon: '<svg class="clock-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="6" x2="12" y2="12"></line><line x1="12" y1="12" x2="15" y2="15"></line></svg>',
+                            slots: ['06:00', '06:30', '07:00', '07:30', '08:00', '08:30', '09:00']
+                        },
+                        {
+                            name: 'Midi',
+                            range: '12h - 14h',
+                            icon: '<svg class="clock-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="6" x2="12" y2="12"></line><line x1="12" y1="12" x2="16" y2="12"></line></svg>',
+                            slots: ['12:00', '12:30', '13:00', '13:30', '14:00']
+                        },
+                        {
+                            name: 'Après-midi',
+                            range: '17h - 18h',
+                            icon: '<svg class="clock-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="6" x2="12" y2="12"></line><line x1="12" y1="12" x2="16" y2="16"></line></svg>',
+                            slots: ['17:00', '17:30', '18:00']
+                        },
+                        {
+                            name: 'Soirée / Nuit',
+                            range: '20h - 2h',
+                            icon: '<svg class="clock-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="6" x2="12" y2="12"></line><line x1="12" y1="12" x2="9" y2="15"></line></svg>',
+                            slots: ['20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00', '00:30', '01:00', '01:30', '02:00']
+                        }
+                    ];
+
+                    // Simuler quelques créneaux indisponibles (aléatoires)
+                    const unavailableSlots = ['07:30', '13:00', '21:30', '00:30'];
+
+                    timePeriods.forEach(period => {
+                        // Calculer le nombre de créneaux disponibles
+                        const availableCount = period.slots.filter(time => !unavailableSlots.includes(time)).length;
+
+                        // Créer la section de période
+                        const periodSection = document.createElement('div');
+                        periodSection.className = 'time-period-section';
+
+                        // Header de la période
+                        const periodHeader = document.createElement('div');
+                        periodHeader.className = 'time-period-header';
+                        periodHeader.innerHTML = `
+                            <div class="time-period-icon">
+                                ${period.icon}
+                            </div>
+                            <div class="time-period-info">
+                                <span class="time-period-name">${period.name}</span>
+                                <span class="time-period-range">${period.range}</span>
+                            </div>
+                            <div class="time-period-count">${availableCount} dispo</div>
+                        `;
+
+                        // Grid de créneaux pour cette période
+                        const periodGrid = document.createElement('div');
+                        periodGrid.className = 'time-slots-grid';
+
+                        period.slots.forEach(time => {
+                            const isAvailable = !unavailableSlots.includes(time);
+                            const slot = createTimeSlot(time, isAvailable);
+                            periodGrid.appendChild(slot);
+                        });
+
+                        periodSection.appendChild(periodHeader);
+                        periodSection.appendChild(periodGrid);
+                        timeSlotsGrid.appendChild(periodSection);
+                    });
+                }
+
+                function createTimeSlot(time, isAvailable) {
+                    const slot = document.createElement('div');
+                    slot.className = 'time-slot' + (isAvailable ? '' : ' unavailable');
+                    slot.textContent = time;
+                    slot.setAttribute('data-time', time);
+
+                    if (isAvailable) {
+                        slot.addEventListener('click', function() {
+                            // Désélectionner tous les autres créneaux
+                            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                            this.classList.add('selected');
+
+                            reservationData.time = time;
+
+                            // Afficher le créneau sélectionné
+                            const dateObj = new Date(reservationData.date);
+                            const formattedDate = `${daysOfWeek[dateObj.getDay()]} ${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
+                            selectedDateTimeDisplay.textContent = `${formattedDate} à ${time}`;
+                            selectedSlotInfo.style.display = 'block';
+
+                            updateNextButton();
+                        });
+                    }
+
+                    return slot;
                 }
             }
-        }
 
-        function initDynamicCalendar() {
-            let currentDate = new Date(2025, 7, 1); // August 2025
-            const timeSelect = document.querySelector('.time-select');
-            const timeDisplay = document.querySelector('.time-display');
-            const monthDisplay = document.getElementById('currentMonth');
-            const prevBtn = document.getElementById('prevMonth');
-            const nextBtn = document.getElementById('nextMonth');
+            initModernCalendar();
 
-            // Navigation des mois
-            prevBtn.addEventListener('click', function() {
-                currentDate.setMonth(currentDate.getMonth() - 1);
-                updateCalendar();
+            // ÉTAPE 3: Contact Form
+            const contactInputs = ['lastName', 'firstName', 'email'];
+            contactInputs.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', updateNextButton);
+                }
             });
 
+            // Navigation Buttons
             nextBtn.addEventListener('click', function() {
-                currentDate.setMonth(currentDate.getMonth() + 1);
-                updateCalendar();
+                if (currentStep < totalSteps) {
+                    saveCurrentStep();
+                    currentStep++;
+                    updateStepper();
+                } else {
+                    // Last step handled by final confirm button
+                }
             });
 
-            function updateCalendar() {
-                const months = ['January', 'February', 'March', 'April', 'May', 'June',
-                              'July', 'August', 'September', 'October', 'November', 'December'];
-
-                monthDisplay.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-
-                // Mettre à jour les cellules du calendrier
-                generateCalendarCells();
-            }
-
-            function generateCalendarCells() {
-                const calendarGrid = document.querySelector('.calendar-grid');
-                const year = currentDate.getFullYear();
-                const month = currentDate.getMonth();
-
-                // Vider le calendrier existant (garder seulement l'header)
-                const headerCells = calendarGrid.querySelectorAll('.calendar-cell');
-                for (let i = 8; i < headerCells.length; i++) {
-                    headerCells[i].remove();
+            prevBtn.addEventListener('click', function() {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStepper();
                 }
-
-                // Calculer le premier jour du mois et le nombre de jours
-                const firstDay = new Date(year, month, 1).getDay();
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-                const daysInPrevMonth = new Date(year, month, 0).getDate();
-
-                // Numéros de semaine
-                let weekNumber = getWeekNumber(new Date(year, month, 1));
-
-                // Ajouter les jours du mois précédent
-                for (let i = firstDay - 1; i >= 0; i--) {
-                    if (i === firstDay - 1) {
-                        const weekCell = document.createElement('div');
-                        weekCell.className = 'calendar-cell week-number';
-                        weekCell.textContent = weekNumber.toString().padStart(2, '0');
-                        calendarGrid.appendChild(weekCell);
-                    }
-
-                    const cell = document.createElement('div');
-                    cell.className = 'calendar-cell prev-month';
-                    cell.textContent = daysInPrevMonth - i;
-                    calendarGrid.appendChild(cell);
-                }
-
-                // Ajouter les jours du mois actuel
-                for (let day = 1; day <= daysInMonth; day++) {
-                    const dayOfWeek = new Date(year, month, day).getDay();
-
-                    // Ajouter numéro de semaine au début de chaque semaine
-                    if (dayOfWeek === 1) {
-                        const weekCell = document.createElement('div');
-                        weekCell.className = 'calendar-cell week-number';
-                        weekCell.textContent = weekNumber.toString().padStart(2, '0');
-                        calendarGrid.appendChild(weekCell);
-                        weekNumber++;
-                    }
-
-                    const cell = document.createElement('div');
-                    cell.className = 'calendar-cell current-month';
-                    cell.textContent = day;
-
-                    // Marquer quelques dates comme indisponibles
-                    if ([3, 7, 14, 21].includes(day)) {
-                        cell.classList.add('unavailable');
-                        cell.style.cursor = 'not-allowed';
-                    } else {
-                        cell.style.cursor = 'pointer';
-                        cell.style.transition = 'all 0.3s ease';
-                        addCellEventListeners(cell);
-                    }
-
-                    // Weekend
-                    if (dayOfWeek === 0 || dayOfWeek === 6) {
-                        cell.classList.add('weekend');
-                    }
-
-                    calendarGrid.appendChild(cell);
-                }
-
-                // Compléter avec les jours du mois suivant
-                const totalCells = calendarGrid.children.length;
-                const remainingCells = 56 - totalCells; // 7 semaines * 8 colonnes
-
-                for (let day = 1; day <= remainingCells && remainingCells > 0; day++) {
-                    const dayOfWeek = new Date(year, month + 1, day).getDay();
-
-                    if (dayOfWeek === 1 && day <= remainingCells - 7) {
-                        const weekCell = document.createElement('div');
-                        weekCell.className = 'calendar-cell week-number';
-                        weekCell.textContent = weekNumber.toString().padStart(2, '0');
-                        calendarGrid.appendChild(weekCell);
-                        weekNumber++;
-                    }
-
-                    const cell = document.createElement('div');
-                    cell.className = 'calendar-cell next-month';
-                    cell.textContent = day;
-
-                    if (dayOfWeek === 0 || dayOfWeek === 6) {
-                        cell.classList.add('weekend');
-                    }
-
-                    calendarGrid.appendChild(cell);
-                }
-            }
-
-            function getWeekNumber(date) {
-                const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-                const dayNum = d.getUTCDay() || 7;
-                d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-                const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-                return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-            }
-
-            function addCellEventListeners(cell) {
-                cell.addEventListener('mouseenter', function() {
-                    if (!this.classList.contains('unavailable')) {
-                        this.style.backgroundColor = '#8a38f5';
-                        this.style.color = 'white';
-                        this.style.transform = 'scale(1.1)';
-                    }
-                });
-
-                cell.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('selected') && !this.classList.contains('unavailable')) {
-                        this.style.backgroundColor = 'transparent';
-                        this.style.color = '#b3b3b3';
-                        this.style.transform = 'scale(1)';
-                    }
-                });
-
-                cell.addEventListener('click', function() {
-                    if (!this.classList.contains('unavailable')) {
-                        // Désélectionner les autres cellules
-                        document.querySelectorAll('.calendar-cell.selected').forEach(c => {
-                            c.classList.remove('selected');
-                            c.style.backgroundColor = 'transparent';
-                            c.style.color = '#b3b3b3';
-                        });
-
-                        // Sélectionner cette cellule
-                        this.classList.add('selected');
-                        this.style.backgroundColor = '#8a38f5';
-                        this.style.color = 'white';
-
-                        // Mettre à jour les créneaux disponibles
-                        updateTimeSlots(this.textContent, timeSlots);
-
-                        // Mettre à jour l'affichage de la date
-                        const dateDisplay = document.querySelector('.time-info-highlight');
-                        if (dateDisplay) {
-                            const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-                            const year = currentDate.getFullYear().toString().slice(-2);
-                            dateDisplay.textContent = `${this.textContent.padStart(2, '0')}/${month}/${year}`;
-                        }
-                    }
-                });
-            }
-
-            const calendarCells = document.querySelectorAll('.calendar-cell.current-month');
-
-            // Générer des créneaux horaires dynamiques
-            const timeSlots = [
-                '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM',
-                '11:00 AM', '11:30 AM', '14:00 PM', '14:30 PM',
-                '15:00 PM', '15:30 PM', '16:00 PM', '16:30 PM'
-            ];
-
-            calendarCells.forEach((cell, index) => {
-                cell.style.cursor = 'pointer';
-                cell.style.transition = 'all 0.3s ease';
-
-                // Marquer quelques dates comme indisponibles
-                if ([3, 7, 14, 21].includes(parseInt(cell.textContent))) {
-                    cell.classList.add('unavailable');
-                    cell.style.cursor = 'not-allowed';
-                }
-
-                cell.addEventListener('mouseenter', function() {
-                    if (!this.classList.contains('unavailable')) {
-                        this.style.backgroundColor = '#8a38f5';
-                        this.style.color = 'white';
-                        this.style.transform = 'scale(1.1)';
-                    }
-                });
-
-                cell.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('selected') && !this.classList.contains('unavailable')) {
-                        this.style.backgroundColor = 'transparent';
-                        this.style.color = '#b3b3b3';
-                        this.style.transform = 'scale(1)';
-                    }
-                });
-
-                cell.addEventListener('click', function() {
-                    if (!this.classList.contains('unavailable')) {
-                        // Mettre à jour les créneaux disponibles
-                        updateTimeSlots(this.textContent, timeSlots);
-
-                        // Mettre à jour l'affichage de la date
-                        const dateDisplay = document.querySelector('.time-info-highlight');
-                        if (dateDisplay) {
-                            dateDisplay.textContent = `${this.textContent}/08/25`;
-                        }
-                    }
-                });
             });
 
-            function updateTimeSlots(selectedDay, timeSlots) {
-                if (timeSelect) {
-                    timeSelect.innerHTML = '';
-
-                    // Simuler disponibilité selon le jour
-                    const availableSlots = timeSlots.filter((slot, index) => {
-                        // Moins de créneaux le vendredi et certains jours
-                        return !(parseInt(selectedDay) % 5 === 0 && index > 6);
-                    });
-
-                    availableSlots.forEach(slot => {
-                        const option = document.createElement('option');
-                        option.value = slot;
-                        option.textContent = slot;
-                        timeSelect.appendChild(option);
-                    });
-
-                    // Mettre à jour l'heure locale
-                    timeSelect.addEventListener('change', function() {
-                        if (timeDisplay) {
-                            const selectedTime = this.value;
-                            const [time, period] = selectedTime.split(' ');
-                            const [hour, minute] = time.split(':');
-                            let newHour = parseInt(hour) + 1; // Décalage horaire simulé
-
-                            if (newHour > 12 && period === 'AM') {
-                                newHour = newHour - 12;
-                                timeDisplay.textContent = `${newHour.toString().padStart(2, '0')}:${minute} PM`;
-                            } else {
-                                timeDisplay.textContent = `${newHour.toString().padStart(2, '0')}:${minute} ${period}`;
-                            }
-                        }
-                    });
-                }
-            }
-        }
-
-        function initProjectTags() {
-            const projectSelect = document.querySelector('.project-select');
-            const projectTags = document.querySelector('.project-type-tags');
-            const existingTags = new Set(['Site vitrine', 'Refonte']);
-
-            if (projectSelect) {
-                projectSelect.addEventListener('change', function() {
-                    const selectedValue = this.value;
-                    const selectedText = this.options[this.selectedIndex].text;
-
-                    if (selectedValue && !existingTags.has(selectedText)) {
-                        // Créer un nouveau tag
-                        const newTag = document.createElement('div');
-                        newTag.className = 'project-tag selected';
-                        newTag.innerHTML = `${selectedText} <span class="remove-tag">×</span>`;
-
-                        // Insérer avant le dropdown
-                        projectTags.insertBefore(newTag, projectSelect.parentElement);
-                        existingTags.add(selectedText);
-
-                        // Ajouter l'événement de suppression
-                        const removeBtn = newTag.querySelector('.remove-tag');
-                        removeBtn.addEventListener('click', function() {
-                            newTag.remove();
-                            existingTags.delete(selectedText);
-                        });
-
-                        // Reset le select
-                        this.value = '';
-                    }
-                });
-            }
-
-            // Gestion des tags existants
-            document.querySelectorAll('.remove-tag').forEach(removeBtn => {
-                removeBtn.addEventListener('click', function() {
-                    const tag = this.parentElement;
-                    const tagText = tag.textContent.replace('×', '').trim();
-                    existingTags.delete(tagText);
-                    tag.remove();
-                });
+            finalConfirmBtn.addEventListener('click', function() {
+                saveCurrentStep();
+                showSuccessPopup();
+                console.log('Reservation Data:', reservationData);
             });
-        }
 
-        function initButtonAnimations() {
-            const confirmButton = document.querySelector('.confirm-button');
-            const addButton = document.querySelector('.add-button');
-            const socialButtons = document.querySelectorAll('.social-btn');
+            function showSuccessPopup() {
+                const overlay = document.createElement('div');
+                overlay.className = 'success-popup-overlay';
 
-            if (confirmButton) {
-                confirmButton.style.transition = 'all 0.3s ease';
-
-                confirmButton.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = '#8a38f5';
-                    this.style.color = 'white';
-                    this.style.transform = 'translateY(-2px)';
-                    this.style.boxShadow = '0 10px 20px rgba(138, 56, 245, 0.3)';
-                });
-
-                confirmButton.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = '#fffcfc';
-                    this.style.color = '#08070a';
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                });
-            }
-
-            if (addButton) {
-                addButton.style.transition = 'all 0.3s ease';
-
-                addButton.addEventListener('click', function() {
-                    // Animation de rotation
-                    this.style.transform = 'rotate(45deg) scale(1.1)';
-                    setTimeout(() => {
-                        this.style.transform = 'rotate(0deg) scale(1)';
-                    }, 300);
-
-                    // Ajouter un nouveau champ URL
-                    addUrlField();
-                });
-            }
-
-            socialButtons.forEach(btn => {
-                btn.style.transition = 'all 0.3s ease';
-
-                btn.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
-                });
-
-                btn.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                    this.style.boxShadow = 'none';
-                });
-
-                btn.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1.05)';
-                        // Simuler le remplissage automatique
-                        if (this.classList.contains('google-btn')) {
-                            fillFormWithGoogleData();
-                        } else if (this.classList.contains('apple-btn')) {
-                            fillFormWithAppleData();
-                        }
-                    }, 150);
-                });
-            });
-        }
-
-        function initSpecialSelectors() {
-            // Gestion du sélecteur de pays avec animation
-            const countrySelect = document.querySelector('.country-flag-select');
-            if (countrySelect) {
-                countrySelect.addEventListener('change', function() {
-                    const phoneCode = document.querySelector('.country-code');
-                    const codes = { 'MU': '+230', 'FR': '+33', 'US': '+1' };
-                    if (phoneCode) {
-                        phoneCode.textContent = codes[this.value] || '+230';
-                        // Animation de changement
-                        phoneCode.style.transform = 'scale(1.2)';
-                        phoneCode.style.color = '#8a38f5';
-                        setTimeout(() => {
-                            phoneCode.style.transform = 'scale(1)';
-                            phoneCode.style.color = '#171b1c';
-                        }, 300);
-                    }
-                });
-            }
-
-            // Gestion du toggle switch avec animation fluide
-            const toggleSwitch = document.querySelector('.toggle-switch');
-            if (toggleSwitch) {
-                toggleSwitch.addEventListener('click', function() {
-                    const handle = this.querySelector('.toggle-handle');
-                    const countrySelect = document.querySelector('.country-select');
-
-                    if (handle.style.right === '2px' || !handle.style.right) {
-                        handle.style.right = '30px';
-                        handle.style.transition = 'right 0.3s ease';
-                        this.style.backgroundColor = '#d9d9d9';
-                        if (countrySelect) countrySelect.disabled = false;
-                    } else {
-                        handle.style.right = '2px';
-                        this.style.backgroundColor = '#8a38f5';
-                        if (countrySelect) countrySelect.disabled = true;
-                    }
-                });
-            }
-        }
-
-        function addUrlField() {
-            const urlContainer = document.querySelector('.form-row:has(.add-button)');
-            if (urlContainer) {
-                const newUrlField = document.createElement('div');
-                newUrlField.className = 'form-row';
-                newUrlField.innerHTML = `
-                    <div class="form-group" style="flex-grow: 1;">
-                        <label class="form-label">URL supplémentaire</label>
-                        <input type="url" class="form-input" placeholder="https://">
-                    </div>
-                    <div style="display: flex; align-items: end;">
-                        <button type="button" class="add-button remove-url" style="background-color: #dc3545;">−</button>
+                overlay.innerHTML = `
+                    <div class="success-popup">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h2 class="success-title">🎉 Réservation confirmée !</h2>
+                        <p class="success-message">
+                            Merci pour votre réservation !<br>
+                            Vous recevrez un <strong>email de confirmation</strong> dans quelques instants.
+                        </p>
+                        <button class="success-close-btn">Parfait !</button>
                     </div>
                 `;
 
-                urlContainer.parentNode.insertBefore(newUrlField, urlContainer.nextSibling);
+                // Ajouter des confettis
+                const popup = overlay.querySelector('.success-popup');
+                const colors = ['#8a38f5', '#c44cf0', '#6a1b9a', '#9c27b0', '#ba68c8'];
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    popup.appendChild(confetti);
+                }
 
-                // Ajouter événement de suppression
-                const removeBtn = newUrlField.querySelector('.remove-url');
-                removeBtn.addEventListener('click', function() {
-                    newUrlField.remove();
-                });
+                document.body.appendChild(overlay);
 
-                // Ajouter les événements pour le nouveau champ
-                const newInput = newUrlField.querySelector('.form-input');
-                newInput.addEventListener('focus', function() {
-                    this.style.backgroundColor = '#ffffff';
-                    this.style.borderLeft = '4px solid #8a38f5';
-                    this.style.transform = 'scale(1.02)';
-                });
-
-                newInput.addEventListener('blur', function() {
-                    this.style.backgroundColor = '#edebeb';
-                    this.style.borderLeft = 'none';
-                    this.style.transform = 'scale(1)';
+                overlay.querySelector('.success-close-btn').addEventListener('click', function() {
+                    overlay.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => overlay.remove(), 300);
                 });
             }
-        }
 
-        function fillFormWithGoogleData() {
-            // Simuler le remplissage automatique avec Google
-            const nameInput = document.querySelector('input[placeholder="Saisir votre nom"]');
-            const prenomInput = document.querySelector('input[placeholder="Saisir votre prénom"]');
-            const emailInput = document.querySelector('input[type="email"]');
+            function updateStepper() {
+                // Update step circles
+                document.querySelectorAll('.stepper-step').forEach((step, index) => {
+                    const stepNum = index + 1;
+                    if (stepNum < currentStep) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (stepNum === currentStep) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active', 'completed');
+                    }
+                });
 
-            if (nameInput) {
-                animateTyping(nameInput, 'Dupont');
-            }
-            if (prenomInput) {
-                setTimeout(() => animateTyping(prenomInput, 'Jean'), 500);
-            }
-            if (emailInput) {
-                setTimeout(() => animateTyping(emailInput, 'jean.dupont@gmail.com'), 1000);
-            }
-        }
+                // Update question containers
+                document.querySelectorAll('.question-container').forEach(container => {
+                    const questionNum = parseInt(container.getAttribute('data-question'));
+                    container.classList.toggle('active', questionNum === currentStep);
+                });
 
-        function fillFormWithAppleData() {
-            // Simuler le remplissage automatique avec Apple
-            const nameInput = document.querySelector('input[placeholder="Saisir votre nom"]');
-            const prenomInput = document.querySelector('input[placeholder="Saisir votre prénom"]');
-            const emailInput = document.querySelector('input[type="email"]');
+                // Update buttons
+                prevBtn.style.display = currentStep === 1 ? 'none' : 'block';
+                nextBtn.style.display = currentStep === totalSteps ? 'none' : 'block';
 
-            if (nameInput) {
-                animateTyping(nameInput, 'Martin');
-            }
-            if (prenomInput) {
-                setTimeout(() => animateTyping(prenomInput, 'Pierre'), 500);
-            }
-            if (emailInput) {
-                setTimeout(() => animateTyping(emailInput, 'pierre.martin@icloud.com'), 1000);
-            }
-        }
-
-        function animateTyping(input, text) {
-            input.value = '';
-            input.focus();
-            let i = 0;
-            const timer = setInterval(() => {
-                input.value += text[i];
-                validateReservationField(input);
-                i++;
-                if (i >= text.length) {
-                    clearInterval(timer);
-                    input.blur();
+                // Update summary on step 4
+                if (currentStep === 4) {
+                    updateSummary();
                 }
-            }, 50);
-        }
 
-        // Navigation scroll spy
-        const sections = document.querySelectorAll('section[id]');
-        const navSteps = document.querySelectorAll('.nav-step');
+                updateNextButton();
+            }
 
-        function updateActiveNav() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
+            function updateNextButton() {
+                let canProceed = false;
+
+                switch(currentStep) {
+                    case 1:
+                        canProceed = reservationData.services.length > 0;
+                        break;
+                    case 2:
+                        canProceed = reservationData.date && reservationData.time;
+                        break;
+                    case 3:
+                        const lastName = document.getElementById('lastName').value;
+                        const firstName = document.getElementById('firstName').value;
+                        const email = document.getElementById('email').value;
+                        canProceed = lastName && firstName && email;
+                        break;
+                    case 4:
+                        canProceed = true;
+                        break;
                 }
-            });
 
-            navSteps.forEach(nav => {
-                nav.classList.remove('active');
-                if (nav.getAttribute('href') === '#' + current) {
-                    nav.classList.add('active');
+                nextBtn.disabled = !canProceed;
+            }
+
+            function saveCurrentStep() {
+                switch(currentStep) {
+                    case 3:
+                        reservationData.contact = {
+                            lastName: document.getElementById('lastName').value,
+                            firstName: document.getElementById('firstName').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value
+                        };
+                        reservationData.project = {
+                            companyName: document.getElementById('companyName').value,
+                            companyType: document.getElementById('companyType').value,
+                            description: document.getElementById('projectDescription').value
+                        };
+                        break;
                 }
-            });
-        }
+            }
 
-        window.addEventListener('scroll', updateActiveNav);
-
-        // Smooth scroll for navigation links
-        navSteps.forEach(nav => {
-            nav.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+            function updateSummary() {
+                // Services
+                const servicesContainer = document.getElementById('summaryServices');
+                if (reservationData.services.length > 0) {
+                    servicesContainer.innerHTML = '';
+                    reservationData.services.forEach(service => {
+                        const tag = document.createElement('div');
+                        tag.className = 'summary-tag';
+                        tag.textContent = service.text;
+                        servicesContainer.appendChild(tag);
                     });
-                    // Close mobile menu after clicking
-                    if (window.innerWidth <= 768) {
-                        const navigation = document.getElementById('navigation');
-                        const faqLink = document.getElementById('faqLink');
-                        const menuToggle = document.getElementById('menuToggle');
-                        
-                        navigation.classList.remove('open');
-                        faqLink.classList.remove('open');
-                        menuToggle.classList.remove('active');
+                }
+
+                // Date & Time
+                document.getElementById('summaryDate').textContent = reservationData.date || 'Non sélectionnée';
+                document.getElementById('summaryTime').textContent = reservationData.time || 'Non sélectionnée';
+
+                // Contact
+                document.getElementById('summaryLastName').textContent = reservationData.contact.lastName || '-';
+                document.getElementById('summaryFirstName').textContent = reservationData.contact.firstName || '-';
+                document.getElementById('summaryEmail').textContent = reservationData.contact.email || '-';
+
+                if (reservationData.contact.phone) {
+                    document.getElementById('summaryPhoneRow').style.display = 'flex';
+                    document.getElementById('summaryPhone').textContent = reservationData.contact.phone;
+                }
+
+                // Project
+                if (reservationData.project.companyName) {
+                    document.getElementById('summaryProjectSection').style.display = 'block';
+                    document.getElementById('summaryCompany').textContent = reservationData.project.companyName;
+                }
+            }
+
+            function initCalendar() {
+                let currentDate = new Date(2025, 7, 1); // August 2025
+                renderCalendar();
+
+                document.getElementById('prevMonth').addEventListener('click', function() {
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    renderCalendar();
+                });
+
+                document.getElementById('nextMonth').addEventListener('click', function() {
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    renderCalendar();
+                });
+
+                function renderCalendar() {
+                    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                                  'July', 'August', 'September', 'October', 'November', 'December'];
+                    document.getElementById('currentMonth').textContent =
+                        `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+
+                    const calendarGrid = document.getElementById('calendarGrid');
+                    const year = currentDate.getFullYear();
+                    const month = currentDate.getMonth();
+
+                    // Clear existing days (keep header)
+                    while (calendarGrid.children.length > 8) {
+                        calendarGrid.removeChild(calendarGrid.lastChild);
+                    }
+
+                    const firstDay = new Date(year, month, 1).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+                    const startDay = firstDay === 0 ? 6 : firstDay - 1;
+
+                    let weekNumber = getWeekNumber(new Date(year, month, 1));
+
+                    // Add previous month days
+                    const daysInPrevMonth = new Date(year, month, 0).getDate();
+                    for (let i = startDay - 1; i >= 0; i--) {
+                        if (i === startDay - 1) {
+                            addWeekNumber(calendarGrid, weekNumber);
+                        }
+                        addCell(calendarGrid, daysInPrevMonth - i, 'prev-month');
+                    }
+
+                    // Add current month days
+                    for (let day = 1; day <= daysInMonth; day++) {
+                        const dayOfWeek = new Date(year, month, day).getDay();
+                        if (dayOfWeek === 1) {
+                            weekNumber++;
+                            addWeekNumber(calendarGrid, weekNumber);
+                        }
+
+                        const cell = addCell(calendarGrid, day, 'current-month');
+
+                        // Mark unavailable days
+                        if ([3, 7, 14, 21].includes(day)) {
+                            cell.classList.add('unavailable');
+                        } else {
+                            cell.style.cursor = 'pointer';
+                            cell.addEventListener('click', function() {
+                                document.querySelectorAll('.calendar-cell.selected').forEach(c => {
+                                    c.classList.remove('selected');
+                                });
+                                this.classList.add('selected');
+
+                                const selectedDay = this.textContent.padStart(2, '0');
+                                const selectedMonth = (month + 1).toString().padStart(2, '0');
+                                const selectedYear = year.toString().slice(-2);
+                                reservationData.date = `${selectedDay}/${selectedMonth}/${selectedYear}`;
+                                document.getElementById('selectedDate').textContent = reservationData.date;
+                                updateNextButton();
+                            });
+                        }
+
+                        if (dayOfWeek === 0 || dayOfWeek === 6) {
+                            cell.classList.add('weekend');
+                        }
                     }
                 }
-            });
-        });
+
+                function addWeekNumber(grid, week) {
+                    const cell = document.createElement('div');
+                    cell.className = 'calendar-cell week-number';
+                    cell.textContent = week.toString().padStart(2, '0');
+                    grid.appendChild(cell);
+                }
+
+                function addCell(grid, day, className) {
+                    const cell = document.createElement('div');
+                    cell.className = `calendar-cell ${className}`;
+                    cell.textContent = day;
+                    grid.appendChild(cell);
+                    return cell;
+                }
+
+                function getWeekNumber(date) {
+                    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+                    const dayNum = d.getUTCDay() || 7;
+                    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+                    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+                    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+                }
+            }
+
+            // Initialize
+            updateStepper();
+        }
 
         // Mobile menu toggle functionality
         const menuToggle = document.getElementById('menuToggle');
