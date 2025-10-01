@@ -661,9 +661,11 @@ a {
   top: 21px;
   left: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 35px;
+  gap: clamp(8px, 3vw, 35px);
+  padding: 0 clamp(10px, 3vw, 20px);
+  box-sizing: border-box;
 }
 
 .mobile-contact .frame-5::-webkit-scrollbar {
@@ -679,11 +681,13 @@ a {
   gap: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  flex: 0 1 auto;
+  min-width: 50px;
 }
 
 .mobile-contact .nav-label {
   font-family: 'Kanit', sans-serif;
-  font-size: 9px;
+  font-size: clamp(7px, 2.5vw, 9px);
   color: #171b1c;
   font-weight: 500;
   text-align: center;
@@ -697,8 +701,8 @@ a {
 
 .mobile-contact .frame-home {
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: clamp(35px, 10vw, 40px);
+  height: clamp(35px, 10vw, 40px);
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
@@ -717,16 +721,16 @@ a {
 }
 
 .mobile-contact .nav-icon {
-  width: 20px;
-  height: 20px;
+  width: clamp(16px, 5vw, 20px);
+  height: clamp(16px, 5vw, 20px);
   fill: #171b1c;
   transition: fill 0.3s ease;
 }
 
 .mobile-contact .nav-btn-circle {
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: clamp(35px, 10vw, 40px);
+  height: clamp(35px, 10vw, 40px);
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
@@ -734,6 +738,77 @@ a {
   border: 1px solid #171b1c;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 380px) {
+  .mobile-contact .frame-5 {
+    gap: clamp(5px, 2vw, 15px);
+    padding: 0 5px;
+  }
+
+  .mobile-contact .nav-btn {
+    min-width: 45px;
+  }
+
+  .mobile-contact .nav-btn-circle,
+  .mobile-contact .frame-home {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobile-contact .nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mobile-contact .nav-label {
+    font-size: 7px;
+  }
+}
+
+/* Responsive adjustments for medium mobile screens */
+@media (min-width: 381px) and (max-width: 480px) {
+  .mobile-contact .frame-5 {
+    gap: clamp(10px, 3vw, 20px);
+  }
+
+  .mobile-contact .nav-btn-circle,
+  .mobile-contact .frame-home {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-contact .nav-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mobile-contact .nav-label {
+    font-size: 8px;
+  }
+}
+
+/* Responsive adjustments for larger mobile screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-contact .frame-5 {
+    gap: 25px;
+  }
+
+  .mobile-contact .nav-btn-circle,
+  .mobile-contact .frame-home {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-contact .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .mobile-contact .nav-label {
+    font-size: 9px;
+  }
 }
 
 .mobile-contact .nav-btn-circle:hover {

@@ -125,9 +125,11 @@
             max-width: 100vw;
             height: 38px;
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
             align-items: center;
-            gap: 35px;
+            gap: clamp(8px, 3vw, 35px);
+            padding: 0 clamp(10px, 3vw, 20px);
+            box-sizing: border-box;
         }
 
         .nav-btn {
@@ -138,12 +140,14 @@
             gap: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
+            flex: 0 1 auto;
+            min-width: 50px;
         }
 
         .nav-btn-circle {
             display: flex;
-            width: 40px;
-            height: 40px;
+            width: clamp(35px, 10vw, 40px);
+            height: clamp(35px, 10vw, 40px);
             align-items: center;
             justify-content: center;
             background-color: #ffffff;
@@ -161,15 +165,15 @@
         }
 
         .nav-icon {
-            width: 20px;
-            height: 20px;
+            width: clamp(16px, 5vw, 20px);
+            height: clamp(16px, 5vw, 20px);
             fill: #171b1c;
             transition: fill 0.3s ease;
         }
 
         .nav-label {
             font-family: 'Kanit', sans-serif;
-            font-size: 9px;
+            font-size: clamp(7px, 2.5vw, 9px);
             color: #171b1c;
             font-weight: 500;
             text-align: center;
@@ -179,6 +183,74 @@
                 1px -1px 0 #fff,
                 -1px 1px 0 #fff,
                 1px 1px 0 #fff;
+        }
+
+        /* Responsive adjustments for very small screens */
+        @media (max-width: 380px) {
+            .bottom-nav-icons {
+                gap: clamp(5px, 2vw, 15px);
+                padding: 0 5px;
+            }
+
+            .nav-btn {
+                min-width: 45px;
+            }
+
+            .nav-btn-circle {
+                width: 32px;
+                height: 32px;
+            }
+
+            .nav-icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .nav-label {
+                font-size: 7px;
+            }
+        }
+
+        /* Responsive adjustments for medium mobile screens */
+        @media (min-width: 381px) and (max-width: 480px) {
+            .bottom-nav-icons {
+                gap: clamp(10px, 3vw, 20px);
+            }
+
+            .nav-btn-circle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nav-icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            .nav-label {
+                font-size: 8px;
+            }
+        }
+
+        /* Responsive adjustments for larger mobile screens */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .bottom-nav-icons {
+                gap: 25px;
+            }
+
+            .nav-btn-circle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .nav-label {
+                font-size: 9px;
+            }
         }
 
         /* Hero Section Mobile */
