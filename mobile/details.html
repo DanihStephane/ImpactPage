@@ -571,6 +571,26 @@
       line-height: normal;
     }
 
+    .mobile .footer-contact-email {
+      position: absolute;
+      top: 250px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      font-family: "Kanit", Helvetica;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+      width: fit-content;
+    }
+
+    .mobile .footer-contact-email:hover {
+      opacity: 0.8;
+    }
+
     .mobile .img {
       position: absolute;
       width: 21px;
@@ -736,9 +756,11 @@
       top: 21px;
       left: 0;
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
-      gap: 35px;
+      gap: clamp(8px, 3vw, 35px);
+      padding: 0 clamp(10px, 3vw, 20px);
+      box-sizing: border-box;
     }
 
     .mobile .frame-5::-webkit-scrollbar {
@@ -748,8 +770,8 @@
 
     .mobile .frame-6 {
       display: flex;
-      width: 40px;
-      height: 40px;
+      width: clamp(35px, 10vw, 40px);
+      height: clamp(35px, 10vw, 40px);
       align-items: center;
       justify-content: center;
       background-color: #ffffff;
@@ -768,8 +790,8 @@
     }
 
     .mobile .nav-icon {
-      width: 20px;
-      height: 20px;
+      width: clamp(16px, 5vw, 20px);
+      height: clamp(16px, 5vw, 20px);
       fill: #171b1c;
       transition: fill 0.3s ease;
     }
@@ -782,11 +804,13 @@
       gap: 6px;
       cursor: pointer;
       transition: all 0.3s ease;
+      flex: 0 1 auto;
+      min-width: 50px;
     }
 
     .mobile .nav-label {
       font-family: 'Kanit', sans-serif;
-      font-size: 9px;
+      font-size: clamp(7px, 2.5vw, 9px);
       color: #171b1c;
       font-weight: 500;
       text-align: center;
@@ -800,8 +824,8 @@
 
     .mobile .nav-btn-circle {
       display: flex;
-      width: 40px;
-      height: 40px;
+      width: clamp(35px, 10vw, 40px);
+      height: clamp(35px, 10vw, 40px);
       align-items: center;
       justify-content: center;
       background-color: #ffffff;
@@ -817,6 +841,77 @@
 
     .mobile .nav-btn-circle:hover svg {
       fill: #ffffff;
+    }
+
+    /* Responsive adjustments for very small screens */
+    @media (max-width: 380px) {
+      .mobile .frame-5 {
+        gap: clamp(5px, 2vw, 15px);
+        padding: 0 5px;
+      }
+
+      .mobile .nav-btn {
+        min-width: 45px;
+      }
+
+      .mobile .nav-btn-circle,
+      .mobile .frame-6 {
+        width: 32px;
+        height: 32px;
+      }
+
+      .mobile .nav-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .mobile .nav-label {
+        font-size: 7px;
+      }
+    }
+
+    /* Responsive adjustments for medium mobile screens */
+    @media (min-width: 381px) and (max-width: 480px) {
+      .mobile .frame-5 {
+        gap: clamp(10px, 3vw, 20px);
+      }
+
+      .mobile .nav-btn-circle,
+      .mobile .frame-6 {
+        width: 36px;
+        height: 36px;
+      }
+
+      .mobile .nav-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .mobile .nav-label {
+        font-size: 8px;
+      }
+    }
+
+    /* Responsive adjustments for larger mobile screens */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .mobile .frame-5 {
+        gap: 25px;
+      }
+
+      .mobile .nav-btn-circle,
+      .mobile .frame-6 {
+        width: 40px;
+        height: 40px;
+      }
+
+      .mobile .nav-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .mobile .nav-label {
+        font-size: 9px;
+      }
     }
 
     .mobile .nav-btn-circle.active {
@@ -1003,6 +1098,7 @@
           <img class="img" src="https://c.animaapp.com/mfn4sxxypdcgpX/img/group-25.png" />
           <div class="frame-3"></div>
         </div>
+        <a href="mailto:contact@lantorian.com" class="footer-contact-email">contact@lantorian.com</a>
         <div class="group-12">
           <div class="overlap-group-4">
             <a href="mobile/realisation.html" style="text-decoration:none;"><div class="text-wrapper-13">Consultez nos projets</div></a>
