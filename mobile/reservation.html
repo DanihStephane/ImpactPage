@@ -10,8 +10,8 @@
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-        const supabaseUrl = 'https://your-project-url.supabase.co';
-        const supabaseKey = 'your-anon-key';
+        const supabaseUrl = 'https://cnnlpbpwxknbiswakbmr.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNubmxwYnB3eGtuYmlzd2FrYm1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwMDU5NjYsImV4cCI6MjA2NzU4MTk2Nn0.MDd8JLwlR1ukXg5VogXZK5VhVA564JItyudOnYUoAQA';
         const supabase = createClient(supabaseUrl, supabaseKey);
 
         window.supabase = supabase;
@@ -1291,42 +1291,54 @@
             <!-- Question 3: Information Form -->
             <div class="question-container" data-question="3">
                 <h2 class="question-title">Vos informations</h2>
-                <p class="question-subtitle">Les champs marqués d'un <span style="color: #ff0000;">*</span> sont obligatoires</p>
+                <p class="question-subtitle">Remplissez vos coordonnées pour finaliser la réservation</p>
 
                 <div class="form-content">
                     <div class="form-group">
                         <label class="form-label">Nom <span style="color: #ff0000;">*</span></label>
-                        <input type="text" class="custom-input" id="nom" placeholder="Votre nom" required>
+                        <input type="text" class="custom-input" id="lastName" placeholder="Votre nom" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Prénom <span style="color: #ff0000;">*</span></label>
-                        <input type="text" class="custom-input" id="prenom" placeholder="Votre prénom" required>
+                        <input type="text" class="custom-input" id="firstName" placeholder="Votre prénom" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Email <span style="color: #ff0000;">*</span></label>
-                        <input type="email" class="custom-input" id="email" placeholder="exemple@email.com" required>
+                        <input type="email" class="custom-input" id="email" placeholder="votre@email.com" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Téléphone / WhatsApp <span style="color: #ff0000;">*</span></label>
-                        <input type="tel" class="custom-input" id="phone" placeholder="+230 5XXX XXXX" required>
+                        <label class="form-label">Téléphone / WhatsApp</label>
+                        <input type="tel" class="custom-input" id="phone" placeholder="5123 4567">
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid #e9ecef; margin: 32px 0;">
+
+                    <h3 style="font-size: 16px; font-weight: 600; color: #171b1c; margin: 30px 0 20px 0; text-align: center;">Informations sur votre projet (optionnel)</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Nom de l'entreprise / organisation</label>
+                        <input type="text" class="custom-input" id="companyName" placeholder="Nom de votre entreprise">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Pays</label>
-                        <input type="text" class="custom-input" id="pays" placeholder="Votre pays">
+                        <label class="form-label">Type d'organisation</label>
+                        <select class="custom-input" id="companyType">
+                            <option value="">Sélectionnez</option>
+                            <option value="startup">Startup</option>
+                            <option value="pme">PME</option>
+                            <option value="grande-entreprise">Grande entreprise</option>
+                            <option value="association">Association</option>
+                            <option value="freelance">Freelance / Indépendant</option>
+                            <option value="autre">Autre</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Nom de l'entreprise / Projet</label>
-                        <input type="text" class="custom-input" id="entreprise" placeholder="Nom de votre entreprise">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Secteur d'activité</label>
-                        <input type="text" class="custom-input" id="secteur" placeholder="Votre secteur">
+                        <label class="form-label">Décrivez brièvement votre projet</label>
+                        <textarea class="custom-input" id="projectDescription" rows="4" placeholder="Objectifs, besoins, attentes..." style="resize: vertical;"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -1349,16 +1361,6 @@
                             </svg>
                             Ajouter un lien
                         </button>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Budget estimé</label>
-                        <input type="text" class="custom-input" id="budget" placeholder="Votre budget">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Objectif du projet</label>
-                        <textarea class="custom-input" id="objectif" rows="4" placeholder="Décrivez brièvement votre projet..." style="resize: vertical;"></textarea>
                     </div>
                 </div>
             </div>
@@ -1514,16 +1516,14 @@
             services: [],
             date: null,
             timeSlot: null,
-            nom: '',
-            prenom: '',
+            lastName: '',
+            firstName: '',
             email: '',
             phone: '',
-            pays: '',
-            entreprise: '',
-            secteur: '',
+            companyName: '',
+            companyType: '',
             websites: [],
-            budget: '',
-            objectif: ''
+            projectDescription: ''
         };
 
         // Stepper Logic
@@ -1739,7 +1739,7 @@
             saveCurrentStep();
 
             // Validation complète
-            if (!reservationData.nom.trim() || !reservationData.prenom.trim() || !reservationData.email.trim() || !reservationData.phone.trim()) {
+            if (!reservationData.lastName.trim() || !reservationData.firstName.trim() || !reservationData.email.trim() || !reservationData.phone.trim()) {
                 alert('Veuillez remplir les champs obligatoires (nom, prénom, email, téléphone).');
                 return;
             }
@@ -1760,16 +1760,14 @@
                     services: JSON.stringify(reservationData.services),
                     date: reservationData.date,
                     time: reservationData.timeSlot,
-                    nom: reservationData.nom,
-                    prenom: reservationData.prenom,
+                    nom: reservationData.lastName,
+                    prenom: reservationData.firstName,
                     email: reservationData.email,
                     telephone: reservationData.phone,
-                    entreprise: reservationData.entreprise || '',
-                    type_organisation: reservationData.secteur || '',
-                    description_projet: reservationData.objectif || '',
-                    liens_web: JSON.stringify(reservationData.websites || []),
-                    budget: reservationData.budget || '',
-                    pays: reservationData.pays || ''
+                    entreprise: reservationData.companyName || '',
+                    type_organisation: reservationData.companyType || '',
+                    description_projet: reservationData.projectDescription || '',
+                    liens_web: JSON.stringify(reservationData.websites || [])
                 };
 
                 console.log('Données à envoyer:', reservationDataForDb);
@@ -1806,12 +1804,12 @@
                     return false;
                 }
             } else if (currentStep === 3) {
-                const nom = document.getElementById('nom').value.trim();
-                const prenom = document.getElementById('prenom').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const firstName = document.getElementById('firstName').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const phone = document.getElementById('phone').value.trim();
 
-                if (!nom || !prenom || !email || !phone) {
+                if (!lastName || !firstName || !email || !phone) {
                     alert('Veuillez remplir tous les champs obligatoires');
                     return false;
                 }
@@ -1821,15 +1819,13 @@
 
         function saveCurrentStep() {
             if (currentStep === 3) {
-                reservationData.nom = document.getElementById('nom').value;
-                reservationData.prenom = document.getElementById('prenom').value;
+                reservationData.lastName = document.getElementById('lastName').value;
+                reservationData.firstName = document.getElementById('firstName').value;
                 reservationData.email = document.getElementById('email').value;
                 reservationData.phone = iti.getNumber();
-                reservationData.pays = document.getElementById('pays').value;
-                reservationData.entreprise = document.getElementById('entreprise').value;
-                reservationData.secteur = document.getElementById('secteur').value;
-                reservationData.budget = document.getElementById('budget').value;
-                reservationData.objectif = document.getElementById('objectif').value;
+                reservationData.companyName = document.getElementById('companyName').value;
+                reservationData.companyType = document.getElementById('companyType').value;
+                reservationData.projectDescription = document.getElementById('projectDescription').value;
 
                 reservationData.websites = [];
                 document.querySelectorAll('[data-website-input]').forEach(input => {
@@ -1850,13 +1846,13 @@
                 ? `${reservationData.date} à ${reservationData.timeSlot}`
                 : 'Non défini';
             document.getElementById('summaryContact').innerHTML = `
-                ${reservationData.nom} ${reservationData.prenom}<br>
+                ${reservationData.lastName} ${reservationData.firstName}<br>
                 ${reservationData.email}<br>
                 ${reservationData.phone}
             `;
             document.getElementById('summaryProject').innerHTML = `
-                ${reservationData.entreprise || 'Non renseigné'}<br>
-                ${reservationData.secteur || 'Non renseigné'}
+                ${reservationData.companyName || 'Non renseigné'}<br>
+                ${reservationData.companyType || 'Non renseigné'}
             `;
         }
 

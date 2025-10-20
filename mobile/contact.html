@@ -1202,6 +1202,25 @@ a {
       initMobileContactForm();
 
       function initMobileContactForm() {
+        // Variables globales pour le formulaire mobile
+        const selectedServices = new Set();
+        const dropdownContainer = document.querySelector('.mobile-services-container');
+        const dropdown = document.querySelector('.mobile-services-dropdown');
+        const displayArea = document.querySelector('.mobile-services-display');
+        const serviceOptions = document.querySelectorAll('.mobile-service-option');
+        const dropdownArrow = document.querySelector('.mobile-dropdown-arrow');
+
+        // Fonction pour mettre à jour l'affichage des services sélectionnés
+        function updateMobileSelectedServicesDisplay() {
+          if (selectedServices.size === 0) {
+            displayArea.textContent = 'Sélectionner des services...';
+            displayArea.style.color = '#171b1cb2';
+          } else {
+            displayArea.textContent = Array.from(selectedServices).join(', ');
+            displayArea.style.color = '#171b1c';
+          }
+        }
+
         // Animation des champs de saisie
         const inputFields = document.querySelectorAll('.overlap-group-4, .overlap-group-5, .overlap-5');
 
@@ -1240,13 +1259,6 @@ a {
         });
 
         // Dropdown pour sélection des services mobile
-        const selectedServices = new Set();
-        const dropdownContainer = document.querySelector('.mobile-services-container');
-        const dropdown = document.querySelector('.mobile-services-dropdown');
-        const displayArea = document.querySelector('.mobile-services-display');
-        const serviceOptions = document.querySelectorAll('.mobile-service-option');
-        const dropdownArrow = document.querySelector('.mobile-dropdown-arrow');
-
         if (dropdownContainer && dropdown && displayArea && serviceOptions.length > 0) {
           // Toggle dropdown au clic sur la zone
           dropdownContainer.addEventListener('click', function(e) {
@@ -1297,16 +1309,6 @@ a {
             });
           });
 
-          // Fonction pour mettre à jour l'affichage
-          function updateMobileSelectedServicesDisplay() {
-            if (selectedServices.size === 0) {
-              displayArea.textContent = 'Sélectionner des services...';
-              displayArea.style.color = '#171b1cb2';
-            } else {
-              displayArea.textContent = Array.from(selectedServices).join(', ');
-              displayArea.style.color = '#171b1c';
-            }
-          }
         }
 
         // Animation du bouton d'envoi
@@ -1327,9 +1329,7 @@ a {
             this.style.boxShadow = 'none';
           });
 
-          submitButton.addEventListener('click', async function(e) {
-            e.preventDefault();
-
+          submitButton.addEventListener('click', async function() {
             // Animation de clic
             this.style.transform = 'scale(0.95)';
 
