@@ -981,14 +981,14 @@ a {
                 <div class="text-wrapper-9">Nom*</div>
                 <div class="group-7">
                   <div class="overlap-group-4">
-                    <input type="text" placeholder="Saisir votre nom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 19px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
+                    <input type="text" id="mobileNomInput" placeholder="Saisir votre nom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 19px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
                   </div>
                 </div>
               </div>
               <div class="group-8">
                 <div class="group-9">
                   <div class="overlap-group-5">
-                    <input type="text" placeholder="Saisir votre prénom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 18px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
+                    <input type="text" id="mobilePrenomInput" placeholder="Saisir votre prénom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 18px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
                   </div>
                 </div>
                 <div class="text-wrapper-12">Prénom*</div>
@@ -1033,7 +1033,7 @@ a {
               <div class="group-11">
                 <div class="group-12">
                   <div class="overlap-group-4">
-                    <input type="email" placeholder="exemple@gmail.com" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 12px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
+                    <input type="email" id="mobileEmailInput" placeholder="exemple@gmail.com" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 12px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
                   </div>
                 </div>
                 <div class="text-wrapper-14">Email*</div>
@@ -1041,11 +1041,11 @@ a {
               <div class="group-13">
                 <div class="text-wrapper-15">Description de votre projet*</div>
                 <div class="overlap-5">
-                  <textarea placeholder="Détaillez votre projet" style="background: transparent; border: none; outline: none; width: calc(100% - 26px); height: calc(100% - 34px); padding: 17px 13px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px; resize: none;"></textarea>
+                  <textarea id="mobileDescriptionInput" placeholder="Détaillez votre projet" style="background: transparent; border: none; outline: none; width: calc(100% - 26px); height: calc(100% - 34px); padding: 17px 13px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px; resize: none;"></textarea>
                   <div class="rectangle-3"></div>
                 </div>
               </div>
-              <div class="frame-4"><div class="text-wrapper-17">Envoyer le message</div></div>
+              <div class="frame-4" id="mobileSubmitButton"><div class="text-wrapper-17">Envoyer le message</div></div>
               <div class="text-wrapper-18">Service*</div>
             </div>
           </div>
@@ -1135,7 +1135,14 @@ a {
       </div>
     </div>
   </body>
-  <script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    const SUPABASE_URL = 'https://cnnlpbpwxknbiswakbmr.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNubmxwYnB3eGtuYmlzd2FrYm1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwMDU5NjYsImV4cCI6MjA2NzU4MTk2Nn0.MDd8JLwlR1ukXg5VogXZK5VhVA564JItyudOnYUoAQA'
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
     document.addEventListener('DOMContentLoaded', function() {
       // Bouton accueil spécial
       const homeButton = document.querySelector('.frame-home');
@@ -1320,23 +1327,88 @@ a {
             this.style.boxShadow = 'none';
           });
 
-          submitButton.addEventListener('click', function(e) {
+          submitButton.addEventListener('click', async function(e) {
             e.preventDefault();
 
             // Animation de clic
             this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
+
+            // Récupération des données du formulaire
+            const nom = document.getElementById('mobileNomInput').value.trim();
+            const prenom = document.getElementById('mobilePrenomInput').value.trim();
+            const email = document.getElementById('mobileEmailInput').value.trim();
+            const description = document.getElementById('mobileDescriptionInput').value.trim();
+
+            // Récupération des services sélectionnés
+            const services = Array.from(selectedServices).join(', ');
+
+            // Validation simple
+            if (!nom || !prenom) {
+              alert('Merci de remplir votre nom et prénom.');
+              this.style.transform = 'translateY(-2px)';
+              return;
+            }
+            if (email && !/^\S+@\S+\.\S+$/.test(email)) {
+              alert('Adresse e-mail invalide.');
+              this.style.transform = 'translateY(-2px)';
+              return;
+            }
+
+
+            setTimeout(async () => {
               this.style.transform = 'translateY(-2px)';
 
               // Message de confirmation temporaire
               const originalText = this.querySelector('.text-wrapper-17').textContent;
-              this.querySelector('.text-wrapper-17').textContent = 'Message envoyé !';
-              this.style.backgroundColor = '#28a745';
+              this.querySelector('.text-wrapper-17').textContent = 'Envoi en cours...';
+              this.style.backgroundColor = '#ffc107';
 
-              setTimeout(() => {
-                this.querySelector('.text-wrapper-17').textContent = originalText;
-                this.style.backgroundColor = '#7b2cbf';
-              }, 2000);
+              try {
+                // Insertion dans Supabase
+                const { error } = await supabase.from('informations').insert([
+                  {
+                    nom: nom,
+                    prenom: prenom,
+                    service: services || null,
+                    email: email || null,
+                    description: description || null
+                  }
+                ]);
+
+                if (error) {
+                  console.error(error);
+                  this.querySelector('.text-wrapper-17').textContent = 'Erreur d\'envoi';
+                  this.style.backgroundColor = '#dc3545';
+                  setTimeout(() => {
+                    this.querySelector('.text-wrapper-17').textContent = originalText;
+                    this.style.backgroundColor = '#7b2cbf';
+                  }, 3000);
+                } else {
+                  this.querySelector('.text-wrapper-17').textContent = 'Message envoyé !';
+                  this.style.backgroundColor = '#28a745';
+
+                  // Réinitialiser le formulaire
+                  document.getElementById('mobileNomInput').value = '';
+                  document.getElementById('mobilePrenomInput').value = '';
+                  document.getElementById('mobileEmailInput').value = '';
+                  document.getElementById('mobileDescriptionInput').value = '';
+                  selectedServices.clear();
+                  updateMobileSelectedServicesDisplay();
+
+                  setTimeout(() => {
+                    this.querySelector('.text-wrapper-17').textContent = originalText;
+                    this.style.backgroundColor = '#7b2cbf';
+                  }, 3000);
+                }
+              } catch (err) {
+                console.error('Erreur lors de l\'envoi:', err);
+                this.querySelector('.text-wrapper-17').textContent = 'Erreur d\'envoi';
+                this.style.backgroundColor = '#dc3545';
+                setTimeout(() => {
+                  this.querySelector('.text-wrapper-17').textContent = originalText;
+                  this.style.backgroundColor = '#7b2cbf';
+                }, 3000);
+              }
             }, 150);
           });
         }

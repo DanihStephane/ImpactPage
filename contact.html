@@ -1264,17 +1264,17 @@ a {
                   <div class="text-wrapper-15">Nom*</div>
                   <div class="group-8">
                     <div class="overlap-group-4">
-                      <input type="text" placeholder="Saisir votre nom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
+                      <input type="text" id="nomInput" placeholder="Saisir votre nom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
                     </div>
                   </div>
                   <div class="group-9">
                     <div class="overlap-8">
-                      <input type="text" placeholder="Saisir votre prénom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
+                      <input type="text" id="prenomInput" placeholder="Saisir votre prénom" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 11px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
                     </div>
                   </div>
                   <div class="group-10">
                     <div class="overlap-9">
-                      <input type="email" placeholder="exemple@gmail.com" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 12px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
+                      <input type="email" id="emailInput" placeholder="exemple@gmail.com" style="background: transparent; border: none; outline: none; width: 100%; height: 100%; padding: 12px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px;" />
                     </div>
                   </div>
                   <div class="text-wrapper-19">Service*</div>
@@ -1283,11 +1283,11 @@ a {
                   <div class="text-wrapper-22">Prénom*</div>
                   <div class="group-11">
                     <div class="overlap-10">
-                      <textarea placeholder="Détaillez votre projet" style="background: transparent; border: none; outline: none; width: calc(100% - 28px); height: calc(100% - 34px); padding: 17px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px; resize: none;"></textarea>
+                      <textarea id="descriptionInput" placeholder="Détaillez votre projet" style="background: transparent; border: none; outline: none; width: calc(100% - 28px); height: calc(100% - 34px); padding: 17px 14px; font-family: 'Kanit', Helvetica; font-weight: 300; color: #171b1cb2; font-size: 12px; resize: none;"></textarea>
                       <div class="rectangle"></div>
                     </div>
                   </div>
-                  <div class="planifier-une-wrapper"><div class="planifier-une-2">Envoyer le message</div></div>
+                  <div class="planifier-une-wrapper" id="submitButton"><div class="planifier-une-2">Envoyer le message</div></div>
                 </div>
                 <p class="text-wrapper-24">Les champs marqués d'un (*) sont obligatoires.</p>
               </div>
@@ -1446,7 +1446,14 @@ a {
     </script>
   </body>
 
-  <script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    const SUPABASE_URL = 'https://cnnlpbpwxknbiswakbmr.supabase.co'   // ← remplace ici
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNubmxwYnB3eGtuYmlzd2FrYm1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwMDU5NjYsImV4cCI6MjA2NzU4MTk2Nn0.MDd8JLwlR1ukXg5VogXZK5VhVA564JItyudOnYUoAQA'                 // ← et ici
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
     // Détection mobile et redirection
     function isMobileDevice() {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -1596,21 +1603,86 @@ a {
           this.style.boxShadow = 'none';
         });
 
-        submitButton.addEventListener('click', function() {
+        submitButton.addEventListener('click', async function() {
           // Animation de clic
           this.style.transform = 'scale(0.95)';
-          setTimeout(() => {
+
+          // Récupération des données du formulaire
+          const nom = document.getElementById('nomInput').value.trim();
+          const prenom = document.getElementById('prenomInput').value.trim();
+          const email = document.getElementById('emailInput').value.trim();
+          const description = document.getElementById('descriptionInput').value.trim();
+
+          // Récupération des services sélectionnés
+          const services = Array.from(selectedServices).join(', ');
+
+          // Validation simple
+          if (!nom || !prenom) {
+            alert('Merci de remplir votre nom et prénom.');
+            this.style.transform = 'translateY(-2px)';
+            return;
+          }
+          if (email && !/^\S+@\S+\.\S+$/.test(email)) {
+            alert('Adresse e-mail invalide.');
+            this.style.transform = 'translateY(-2px)';
+            return;
+          }
+
+
+          setTimeout(async () => {
             this.style.transform = 'translateY(-2px)';
 
             // Message de confirmation temporaire
             const originalText = this.querySelector('.planifier-une-2').textContent;
-            this.querySelector('.planifier-une-2').textContent = 'Message envoyé !';
-            this.style.backgroundColor = '#28a745';
+            this.querySelector('.planifier-une-2').textContent = 'Envoi en cours...';
+            this.style.backgroundColor = '#ffc107';
 
-            setTimeout(() => {
-              this.querySelector('.planifier-une-2').textContent = originalText;
-              this.style.backgroundColor = '#7b2cbf';
-            }, 2000);
+            try {
+              // Insertion dans Supabase
+              const { error } = await supabase.from('informations').insert([
+                {
+                  nom: nom,
+                  prenom: prenom,
+                  service: services || null,
+                  email: email || null,
+                  description: description || null
+                }
+              ]);
+
+              if (error) {
+                console.error(error);
+                this.querySelector('.planifier-une-2').textContent = 'Erreur d\'envoi';
+                this.style.backgroundColor = '#dc3545';
+                setTimeout(() => {
+                  this.querySelector('.planifier-une-2').textContent = originalText;
+                  this.style.backgroundColor = '#7b2cbf';
+                }, 3000);
+              } else {
+                this.querySelector('.planifier-une-2').textContent = 'Message envoyé !';
+                this.style.backgroundColor = '#28a745';
+
+                // Réinitialiser le formulaire
+                document.getElementById('nomInput').value = '';
+                document.getElementById('prenomInput').value = '';
+                document.getElementById('emailInput').value = '';
+                document.getElementById('descriptionInput').value = '';
+                selectedServices.clear();
+                updateSelectedServicesDisplay();
+
+                setTimeout(() => {
+                  this.querySelector('.planifier-une-2').textContent = originalText;
+                  this.style.backgroundColor = '#7b2cbf';
+                }, 3000);
+              }
+            } catch (err) {
+              console.error('Erreur lors de l\'envoi:', err);
+              this.querySelector('.planifier-une-2').textContent = 'Erreur d\'envoi';
+              this.style.backgroundColor = '#dc3545';
+              setTimeout(() => {
+                this.querySelector('.planifier-une-2').textContent = originalText;
+                this.style.backgroundColor = '#7b2cbf';
+              }, 3000);
+            }
           }, 150);
         });
       }
