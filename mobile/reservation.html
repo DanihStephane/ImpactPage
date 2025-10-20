@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.11/build/css/intlTelInput.css">
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.11/build/js/intlTelInput.min.js"></script>
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        const supabaseUrl = 'https://your-project-url.supabase.co';
+        const supabaseKey = 'your-anon-key';
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        window.supabase = supabase;
+    </script>
     <style>
         * {
             margin: 0;
@@ -1725,10 +1734,64 @@
             }
         });
 
-        finalConfirmBtn.addEventListener('click', function() {
+        finalConfirmBtn.addEventListener('click', async function() {
+            // S'assurer que les données sont sauvegardées
             saveCurrentStep();
-            showSuccessPopup();
-            console.log('Reservation Data:', reservationData);
+
+            // Validation complète
+            if (!reservationData.nom.trim() || !reservationData.prenom.trim() || !reservationData.email.trim() || !reservationData.phone.trim()) {
+                alert('Veuillez remplir les champs obligatoires (nom, prénom, email, téléphone).');
+                return;
+            }
+
+            if (reservationData.services.length === 0) {
+                alert('Veuillez sélectionner au moins un service.');
+                return;
+            }
+
+            if (!reservationData.date || !reservationData.timeSlot) {
+                alert('Veuillez sélectionner une date et un créneau horaire.');
+                return;
+            }
+
+            try {
+                // Préparer les données pour Supabase
+                const reservationDataForDb = {
+                    services: JSON.stringify(reservationData.services),
+                    date: reservationData.date,
+                    time: reservationData.timeSlot,
+                    nom: reservationData.nom,
+                    prenom: reservationData.prenom,
+                    email: reservationData.email,
+                    telephone: reservationData.phone,
+                    entreprise: reservationData.entreprise || '',
+                    type_organisation: reservationData.secteur || '',
+                    description_projet: reservationData.objectif || '',
+                    liens_web: JSON.stringify(reservationData.websites || []),
+                    budget: reservationData.budget || '',
+                    pays: reservationData.pays || ''
+                };
+
+                console.log('Données à envoyer:', reservationDataForDb);
+
+                // Envoyer à Supabase
+                const { data, error } = await window.supabase
+                    .from('reservations')
+                    .insert([reservationDataForDb]);
+
+                if (error) {
+                    console.error('Erreur Supabase:', error);
+                    alert('Une erreur est survenue lors de l\'envoi de votre réservation. Veuillez réessayer.');
+                    return;
+                }
+
+                console.log('Réservation envoyée avec succès:', data);
+                showSuccessPopup();
+
+            } catch (error) {
+                console.error('Erreur lors de l\'envoi:', error);
+                alert('Une erreur est survenue lors de l\'envoi de votre réservation. Veuillez réessayer.');
+            }
         });
 
         function validateCurrentStep() {
@@ -1865,7 +1928,10 @@
 
             overlay.querySelector('.success-close-btn').addEventListener('click', function() {
                 overlay.style.animation = 'fadeOut 0.3s ease forwards';
-                setTimeout(() => overlay.remove(), 300);
+                setTimeout(() => {
+                    overlay.remove();
+                    window.location.href = '../index.html';
+                }, 300);
             });
         }
 

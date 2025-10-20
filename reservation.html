@@ -3222,6 +3222,15 @@
     </main>
 </div>
 
+<script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    const SUPABASE_URL = 'https://cnnlpbpwxknbiswakbmr.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNubmxwYnB3eGtuYmlzd2FrYm1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIwMDU5NjYsImV4cCI6MjA2NzU4MTk2Nn0.MDd8JLwlR1ukXg5VogXZK5VhVA564JItyudOnYUoAQA'
+
+    window.supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+</script>
+
 <script>
     // Simple interactivity for checkboxes
     document.addEventListener('DOMContentLoaded', function() {
@@ -3240,6 +3249,34 @@
 
         // Force remove any inline styles added by the library
         phoneInput.removeAttribute('style');
+
+        // Ensure all inputs are enabled and interactive
+        setTimeout(() => {
+            const allInputs = document.querySelectorAll('input, textarea, select');
+            allInputs.forEach(input => {
+                input.removeAttribute('disabled');
+                input.removeAttribute('readonly');
+                input.style.pointerEvents = '';
+                input.style.userSelect = '';
+
+                // Force focus capability
+                if (input.type !== 'hidden') {
+                    input.tabIndex = input.tabIndex || 0;
+                }
+            });
+
+            // Debug: add event listeners to check if inputs are working
+            allInputs.forEach(input => {
+                if (input.type !== 'hidden' && input.tagName !== 'BUTTON') {
+                    input.addEventListener('focus', function() {
+                        console.log('Input focused:', this.id || this.className);
+                    });
+                    input.addEventListener('click', function() {
+                        console.log('Input clicked:', this.id || this.className);
+                    });
+                }
+            });
+        }, 100);
 
         // Website Links Management
         const addWebsiteLinkBtn = document.getElementById('addWebsiteLink');
@@ -3616,10 +3653,83 @@
                 }
             });
 
-            finalConfirmBtn.addEventListener('click', function() {
+            finalConfirmBtn.addEventListener('click', async function() {
+                // S'assurer que les données sont sauvegardées
                 saveCurrentStep();
-                showSuccessPopup();
-                console.log('Reservation Data:', reservationData);
+
+                // Validation des champs obligatoires
+                if (!reservationData.services || reservationData.services.length === 0) {
+                    alert('Veuillez sélectionner au moins un service.');
+                    return;
+                }
+
+                if (!reservationData.date || !reservationData.time) {
+                    alert('Veuillez sélectionner une date et un créneau.');
+                    return;
+                }
+
+                if (!reservationData.contact || !reservationData.contact.lastName || !reservationData.contact.firstName || !reservationData.contact.email) {
+                    alert('Veuillez remplir les champs obligatoires (nom, prénom, email).');
+                    return;
+                }
+
+                // Validation email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(reservationData.contact.email)) {
+                    alert('Veuillez saisir une adresse email valide.');
+                    return;
+                }
+
+                // Animation du bouton pendant l'envoi
+                const originalText = this.innerHTML;
+                this.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                    Envoi en cours...
+                `;
+                this.disabled = true;
+
+                try {
+                    // Préparation des données pour Supabase
+                    const reservationDataForDb = {
+                        services: JSON.stringify(reservationData.services),
+                        date: reservationData.date,
+                        time: reservationData.time,
+                        nom: reservationData.contact.lastName,
+                        prenom: reservationData.contact.firstName,
+                        email: reservationData.contact.email,
+                        telephone: reservationData.contact.phone || null,
+                        entreprise: reservationData.project?.companyName || null,
+                        type_organisation: reservationData.project?.companyType || null,
+                        description_projet: reservationData.project?.description || null,
+                        liens_web: JSON.stringify(reservationData.websiteLinks || []),
+                        status: 'confirmee',
+                        created_at: new Date().toISOString()
+                    };
+
+                    // Envoi vers Supabase
+                    const { data, error } = await window.supabase
+                        .from('reservations')
+                        .insert([reservationDataForDb]);
+
+                    if (error) {
+                        console.error('Erreur Supabase:', error);
+                        throw new Error(error.message);
+                    }
+
+                    console.log('Reservation Data saved:', reservationDataForDb);
+                    showSuccessPopup();
+
+                } catch (error) {
+                    console.error('Erreur lors de l\'envoi de la réservation:', error);
+                    alert('❌ Erreur lors de l\'envoi de la réservation. Veuillez réessayer.');
+
+                    // Restaurer le bouton
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }
             });
 
             function showSuccessPopup() {
@@ -3659,7 +3769,10 @@
 
                 overlay.querySelector('.success-close-btn').addEventListener('click', function() {
                     overlay.style.animation = 'fadeOut 0.3s ease forwards';
-                    setTimeout(() => overlay.remove(), 300);
+                    setTimeout(() => {
+                        overlay.remove();
+                        window.location.href = 'index.html';
+                    }, 300);
                 });
             }
 
@@ -3734,6 +3847,15 @@
                             companyType: document.getElementById('companyType').value,
                             description: document.getElementById('projectDescription').value
                         };
+
+                        // Collecter les liens de site web
+                        const websiteInputs = document.querySelectorAll('[data-website-input]');
+                        reservationData.websiteLinks = [];
+                        websiteInputs.forEach(input => {
+                            if (input.value.trim()) {
+                                reservationData.websiteLinks.push(input.value.trim());
+                            }
+                        });
                         break;
                 }
             }
